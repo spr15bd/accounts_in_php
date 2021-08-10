@@ -15,6 +15,14 @@
 			$invoice_date = $_POST['inv_date'];
 			
 		}
+		if (empty($_POST['inv_net'])) {
+			echo "An invoice amount is required<br/>";
+		} else {
+			$invoice_net_amount = $_POST['inv_net'];
+			if (!preg_match('/^[1-9\s]+$/', $invoice_net_amount)) {
+				echo "invoice number must be numbers only";
+			}
+		}
 	}
 
 ?>
@@ -31,7 +39,7 @@
 				<input type="text" name="inv_no">
 				<label>Invoice Date:</label>
 				<input type="text" name="inv_date">
-				<label>Invoice Net amount:</label>
+				<label>Invoice Net Amount:</label>
 				<input type="text" name="inv_net">
 				<div class="center">
 					<input type="submit" name="submit" value="submit" class="btn brand z-depth-0">
