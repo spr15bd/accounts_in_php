@@ -39,6 +39,8 @@
 				<input type="text" name="inv_no">
 				<label>Invoice Date:</label>
 				<input type="text" name="inv_date">
+				<label>Overhead:</label>
+				<input type="text" name="overhead">
 				<label>Invoice Net Amount:</label>
 				<input type="text" name="inv_net">
 				<div class="center">
