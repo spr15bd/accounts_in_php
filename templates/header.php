@@ -20,6 +20,7 @@
 			<div class="container">
 				<a href="#" class="brand-logo brand-text">An accounting system</a>
 				<ul id="nav-mobile" class="right hide-on-small-and-down">
+					<li><a href="index.php?view=supplier_review" class="btn brand z-depth-0">Supplier Review</a></li>
 					<li><a href="add_invoices.php" class="btn brand z-depth-0">Add invoice</a></li>
 				</ul>
 			</div>

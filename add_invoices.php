@@ -34,6 +34,7 @@
 			//echo('errors in the form');			
 		} else {
 			//echo('there are no errors in the form');
+			
 			header('Location: index.php');
 		}
 	}
