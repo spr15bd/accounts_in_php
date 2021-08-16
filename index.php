@@ -1,4 +1,5 @@
 <?php
+	$content = "";
 	// connect to database
 	$conn = mysqli_connect('localhost', 'root', '', 'accounts');
 	
@@ -7,6 +8,16 @@
 		echo "Conection error: " . mysqli_connect_error();
 	} else {
 		if (isset($_GET["view"])&&htmlspecialchars($_GET["view"])=="supplier_review") {
+			// display a textbox enabling user to select a supplier
+			
+			$content.=("
+				<form class='white' action='index.php?view=supplier_review' method='POST'>
+					<label>Supplier name:</label>
+					<input type='text' name='supplier'>
+				</form>
+			");
+				
+			
 			// write query for all invoices
 			$sql_query = "SELECT * FROM invoices";
 
@@ -34,6 +45,9 @@
 include('templates/header.php');
 include('templates/footer.php');
 
+echo $content; 
+
 ?>
+
 
 </html>
