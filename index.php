@@ -18,21 +18,7 @@
 			");
 				
 			
-			// write query for all invoices
-			$sql_query = "SELECT * FROM invoices";
-
-			// make the query and get result
-			$result = mysqli_query($conn, $sql_query);
-
-			// fetch the resulting query as an associative array
-			$invoices = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-			// free result from memory
-			mysqli_free_result($result);
-
-			// close connection
-			mysqli_close($conn);
-			print_r($invoices);
+			
 		}
 	}
 ?>
@@ -46,7 +32,32 @@ include('templates/header.php');
 include('templates/footer.php');
 
 echo $content; 
+if (isset($_POST["supplier"])) {
+	echo htmlspecialchars($_POST["supplier"]);
 
+	// write query for all invoices
+	$sql_query = "SELECT * FROM invoices WHERE supplier='".htmlspecialchars($_POST["supplier"])."'";
+
+	// make the query and get result
+	$result = mysqli_query($conn, $sql_query);
+
+	// fetch the resulting query as an associative array
+	if ($result) {
+		$invoices = mysqli_fetch_all($result, MYSQLI_ASSOC);
+		// free result from memory
+		mysqli_free_result($result);
+		if (count($invoices) > 0) {
+			print_r($invoices);
+		}
+	}
+	
+
+	
+
+	// close connection
+	mysqli_close($conn);
+	
+}
 ?>
 
 
