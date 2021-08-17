@@ -47,7 +47,21 @@ if (isset($_POST["supplier"])) {
 		// free result from memory
 		mysqli_free_result($result);
 		if (count($invoices) > 0) {
-			print_r($invoices);
+?>
+			<table>
+<?php
+			foreach ($invoices as $invoice) {
+?>
+				<tr>
+					<td><?php echo $invoice["number"]?></td>
+					<td><?php echo $invoice["date"]?></td>
+					<td><?php echo $invoice["amount"]?></td>
+				</tr>
+<?php		
+			}
+?>
+			</table>
+<?php
 		}
 	}
 	
