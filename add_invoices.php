@@ -1,7 +1,15 @@
 <?php
-	$errors = ['inv_no'=>'', 'inv_date'=>'', 'overhead'=>'', 'inv_net'=>''];
-	$invoice_number=$invoice_date=$overhead=$invoice_net_amount="";
+	$errors = ['inv_no'=>'', 'inv_date'=>'', 'office'=>'', 'overhead'=>'', 'inv_amt'=>'', 'inv_supplier'=>''];
+	$invoice_number=$invoice_date=$office=$overhead=$invoice_amount=$invoice_supplier="";
 	if (isset($_POST['submit'])) {
+		if (empty($_POST['inv_supplier'])) {
+			$errors['inv_supplier'] = "Please enter a supplier name<br/>";
+		} else {
+			$invoice_supplier = $_POST['inv_supplier'];
+			if (!preg_match('/^[a-zA-Z1-9\s]+$/', $invoice_supplier)) {
+				$errors['inv_supplier'] = "Supplier name must be letters, numbers and spaces only";
+			}
+		}
 		if (empty($_POST['inv_no'])) {
 			$errors['inv_no'] = "An invoice number is required<br/>";
 		} else {
@@ -16,18 +24,24 @@
 			$invoice_date = $_POST['inv_date'];
 			
 		}
+		if (empty($_POST['office'])) {
+			$errors['office'] =  "An office is required<br/>";
+		} else {
+			$office = $_POST['office'];
+			
+		}
 		if (empty($_POST['overhead'])) {
 			$errors['overhead'] =  "An overhead code is required<br/>";
 		} else {
 			$overhead = $_POST['overhead'];
 			
 		}
-		if (empty($_POST['inv_net'])) {
-			$errors['inv_net'] = "An invoice amount is required<br/>";
+		if (empty($_POST['inv_amt'])) {
+			$errors['inv_amt'] = "An invoice amount is required<br/>";
 		} else {
-			$invoice_net_amount = $_POST['inv_net'];
-			if (!preg_match('/[0-9\s]+$/', $invoice_net_amount)) {
-				$errors['inv_net'] = "invoice amount must be numbers only";
+			$invoice_amount = $_POST['inv_amt'];
+			if (!preg_match('/[0-9\s]+$/', $invoice_amount)) {
+				$errors['inv_amt'] = "Invoice amount must be numbers only";
 			}
 		}
 		if (array_filter($errors)) {
@@ -49,18 +63,24 @@
 		<section class="container grey-text">
 			<h4 class="center">Add Invoice</h4>
 			<form class="white" action="add_invoices.php" method="POST">
+				<label>Supplier Name:</label>
+				<input type="text" name="supplier" value=<?php echo $invoice_supplier?>>
+				<div class="red-text"><?php echo $errors['inv_supplier']; ?></div>
 				<label>Invoice Number:</label>
 				<input type="text" name="inv_no" value=<?php echo $invoice_number?>>
 				<div class="red-text"><?php echo $errors['inv_no']; ?></div>
 				<label>Invoice Date:</label>
 				<input type="text" name="inv_date" value=<?php echo $invoice_date?>>
 				<div class="red-text"><?php echo $errors['inv_date']; ?></div>
+				<label>Office:</label>
+				<input type="text" name="office" value=<?php echo $office?>>
+				<div class="red-text"><?php echo $errors['office']; ?></div>
 				<label>Overhead:</label>
 				<input type="text" name="overhead" value=<?php echo $overhead?>>
 				<div class="red-text"><?php echo $errors['overhead']; ?></div>
-				<label>Invoice Net Amount:</label>
-				<input type="text" name="inv_net" value=<?php echo $invoice_net_amount?>>
-				<div class="red-text"><?php echo $errors['inv_net']; ?></div>
+				<label>Invoice Amount:</label>
+				<input type="text" name="inv_amt" value=<?php echo $invoice_amount?>>
+				<div class="red-text"><?php echo $errors['inv_amt']; ?></div>
 				<div class="center">
 					<input type="submit" name="submit" value="submit" class="btn brand z-depth-0">
 				</div>

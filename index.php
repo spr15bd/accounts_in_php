@@ -33,7 +33,7 @@ include('templates/footer.php');
 
 echo $content; 
 if (isset($_POST["supplier"])) {
-	echo htmlspecialchars($_POST["supplier"]);
+	
 
 	// write query for all invoices
 	$sql_query = "SELECT * FROM invoices WHERE supplier='".htmlspecialchars($_POST["supplier"])."'";
@@ -48,14 +48,17 @@ if (isset($_POST["supplier"])) {
 		mysqli_free_result($result);
 		if (count($invoices) > 0) {
 ?>
-			<table>
+			<table><th><?php echo htmlspecialchars($_POST["supplier"])?></th>
 <?php
 			foreach ($invoices as $invoice) {
 ?>
+				
 				<tr>
+					
 					<td><?php echo $invoice["number"]?></td>
 					<td><?php echo $invoice["date"]?></td>
-					<td><?php echo $invoice["amount"]?></td>
+					<td><?php echo $invoice["description"]?></td>
+					<td><?php echo "£".$invoice["amount"]?></td>
 				</tr>
 <?php		
 			}
