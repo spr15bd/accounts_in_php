@@ -1,6 +1,13 @@
 <?php
-	$errors = ['inv_no'=>'', 'inv_date'=>'', 'office'=>'', 'overhead'=>'', 'inv_amt'=>'', 'inv_supplier'=>''];
-	$invoice_number=$invoice_date=$office=$overhead=$invoice_amount=$invoice_supplier="";
+	$errors = ['inv_no'=>'', 'inv_date'=>'', 'inv_desc'=>'', 'office'=>'', 'overhead'=>'', 'inv_amt'=>'', 'inv_supplier'=>''];
+	$invoice_number=$invoice_date=$invoice_description=$office=$overhead=$invoice_amount=$invoice_supplier="";
+	// connect to database
+	$conn = mysqli_connect('localhost', 'root', '', 'accounts');
+	
+	// check connection
+	if (!$conn) {
+		echo "Conection error: " . mysqli_connect_error();
+	}
 	if (isset($_POST['submit'])) {
 		if (empty($_POST['inv_supplier'])) {
 			$errors['inv_supplier'] = "Please enter a supplier name<br/>";
@@ -22,6 +29,12 @@
 			$errors['inv_date'] = "An invoice date is required<br/>";
 		} else {
 			$invoice_date = $_POST['inv_date'];
+			
+		}
+		if (empty($_POST['inv_desc'])) {
+			$errors['inv_desc'] =  "A description is required<br/>";
+		} else {
+			$invoice_description = $_POST['inv_desc'];
 			
 		}
 		if (empty($_POST['office'])) {
@@ -48,8 +61,8 @@
 			//echo('errors in the form');			
 		} else {
 			//echo('there are no errors in the form');
-			
-			header('Location: index.php');
+			$sql = "INSERT INTO invoices () VALUES ($invoice_supplier, $invoice_number, $invoice_description, $office, $overhead, $invoice_amount)";
+			header('Location: add_invoices.php');
 		}
 	}
 
@@ -72,6 +85,9 @@
 				<label>Invoice Date:</label>
 				<input type="text" name="inv_date" value=<?php echo $invoice_date?>>
 				<div class="red-text"><?php echo $errors['inv_date']; ?></div>
+				<label>Invoice Description:</label>
+				<input type="text" name="inv_desc" value=<?php echo $invoice_description?>>
+				<div class="red-text"><?php echo $errors['inv_desc']; ?></div>
 				<label>Office:</label>
 				<input type="text" name="office" value=<?php echo $office?>>
 				<div class="red-text"><?php echo $errors['office']; ?></div>
