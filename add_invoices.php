@@ -61,7 +61,7 @@
 			//echo('errors in the form');			
 		} else {
 			//echo('there are no errors in the form');
-			$sql = "INSERT INTO invoices () VALUES ($invoice_supplier, $invoice_number, $invoice_description, $office, $overhead, $invoice_amount)";
+			$sql = "INSERT INTO invoices (supplier, number, date, description, office, overhead, amount ) VALUES ($invoice_supplier, $invoice_number, $invoice_date, $invoice_description, $office, $overhead, $invoice_amount)";
 			header('Location: add_invoices.php');
 		}
 	}
