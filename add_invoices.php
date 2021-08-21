@@ -58,11 +58,18 @@
 			}
 		}
 		if (array_filter($errors)) {
-			//echo('errors in the form');			
+			echo('errors in the form');			
 		} else {
-			//echo('there are no errors in the form');
+			echo('there are no errors in the form');
 			$sql = "INSERT INTO invoices (supplier, number, date, description, office, overhead, amount ) VALUES ($invoice_supplier, $invoice_number, $invoice_date, $invoice_description, $office, $overhead, $invoice_amount)";
-			header('Location: add_invoices.php');
+			if ($conn->query($sql) === TRUE) {
+  				echo "New record created successfully";
+			} else {
+  				echo "Error: " . $sql . "<br>" . $conn->error;
+			}
+
+			$conn->close();
+			//header('Location: add_invoices.php');
 		}
 	}
 
@@ -77,7 +84,7 @@
 			<h4 class="center">Add Invoice</h4>
 			<form class="white" action="add_invoices.php" method="POST">
 				<label>Supplier Name:</label>
-				<input type="text" name="supplier" value=<?php echo $invoice_supplier?>>
+				<input type="text" name="inv_supplier" value=<?php echo $invoice_supplier?>>
 				<div class="red-text"><?php echo $errors['inv_supplier']; ?></div>
 				<label>Invoice Number:</label>
 				<input type="text" name="inv_no" value=<?php echo $invoice_number?>>
