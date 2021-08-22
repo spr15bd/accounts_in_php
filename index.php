@@ -49,6 +49,14 @@ if (isset($_POST["supplier"])) {
 		if (count($invoices) > 0) {
 ?>
 			<table><th><?php echo htmlspecialchars($_POST["supplier"])?></th>
+				<tr>
+					
+					<td>Invoice Number</td>
+					<td>Reference</td>
+					<td>Invoice Date</td>
+					<td>Description</td>
+					<td>Total</td>
+				</tr>
 <?php
 			foreach ($invoices as $invoice) {
 ?>
