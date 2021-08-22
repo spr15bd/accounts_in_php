@@ -67,7 +67,7 @@ if (isset($_POST["supplier"])) {
 					<td><?php echo $invoice["id"]?></td>
 					<td><?php echo $invoice["date"]?></td>
 					<td><?php echo $invoice["description"]?></td>
-					<td><?php echo "£".$invoice["amount"]?></td>
+					<td><?php echo "£".number_format($invoice["amount"], 2)?></td>
 				</tr>
 <?php		
 			}
