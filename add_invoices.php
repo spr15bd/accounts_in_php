@@ -61,13 +61,12 @@
 			echo('errors in the form');			
 		} else {
 			echo('there are no errors in the form');
-			$sql = "INSERT INTO invoices (supplier, number, date, description, office, overhead, amount ) VALUES ($invoice_supplier, $invoice_number, $invoice_date, $invoice_description, $office, $overhead, $invoice_amount)";
-			if ($conn->query($sql) === TRUE) {
-  				echo "New record created successfully";
-			} else {
-  				echo "Error: " . $sql . "<br>" . $conn->error;
-			}
-
+			$sql = "INSERT INTO invoices (supplier, number, date, description, office, overhead, amount) VALUES (?,?,?,?,?,?,?)";
+			$stmt = $conn->prepare($sql);
+			if(!$stmt){ throw new Exception($conn->error); echo $conn->error;}
+			$stmt->bind_param("sssssss", $invoice_supplier, $invoice_number, $invoice_date, $invoice_description, $office, $overhead, $invoice_amount);
+			$stmt->execute();
+			
 			$conn->close();
 			//header('Location: add_invoices.php');
 		}
