@@ -56,6 +56,8 @@ if (isset($_POST["supplier"])) {
 					<td>Invoice Date</td>
 					<td>Description</td>
 					<td>Total</td>
+					<td>Outstanding</td>
+					<td>Payment Date</td>
 				</tr>
 <?php
 			foreach ($invoices as $invoice) {
@@ -68,6 +70,8 @@ if (isset($_POST["supplier"])) {
 					<td><?php echo $invoice["date"]?></td>
 					<td><?php echo $invoice["description"]?></td>
 					<td><?php echo "£".number_format($invoice["amount"], 2)?></td>
+					<td><?php echo "£".number_format($invoice["amount"], 2)?></td>
+					<td></td>
 				</tr>
 <?php		
 			}
