@@ -48,17 +48,20 @@ if (isset($_POST["supplier"])) {
 		mysqli_free_result($result);
 		if (count($invoices) > 0) {
 ?>
-			<table class="table table-striped"><th><?php echo htmlspecialchars($_POST["supplier"])?></th>
+			<table class="table table-striped">
+				<thead>
+				<div class="text-center"><b><?php echo htmlspecialchars($_POST["supplier"])?></b></div>
 				<tr>
 					
-					<td>Invoice Number</td>
-					<td>Reference</td>
-					<td>Invoice Date</td>
-					<td>Description</td>
-					<td>Total</td>
-					<td>Outstanding</td>
-					<td>Payment Date</td>
+					<th>Invoice Number</th>
+					<th>Reference</th>
+					<th>Invoice Date</th>
+					<th>Description</th>
+					<th>Total</td>
+					<th>Outstanding</th>
+					<th>Payment Date</th>
 				</tr>
+				</thead>
 <?php
 			foreach ($invoices as $invoice) {
 ?>
