@@ -36,4 +36,19 @@
 					</div>
 				</div>
 			</div>
+			<div class="container">
+				<div class="row mt-3">
+					<div class="col-lg-3">
+						<div class="btn btn-info">
+							Supplier Review
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="btn btn-info">
+							Add invoice
+						</div>
+					</div>
+				</div>
+				<hr>
+			</div>
 		</div>

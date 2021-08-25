@@ -48,7 +48,7 @@ if (isset($_POST["supplier"])) {
 		mysqli_free_result($result);
 		if (count($invoices) > 0) {
 ?>
-			<table><th><?php echo htmlspecialchars($_POST["supplier"])?></th>
+			<table class="table table-striped"><th><?php echo htmlspecialchars($_POST["supplier"])?></th>
 				<tr>
 					
 					<td>Invoice Number</td>
