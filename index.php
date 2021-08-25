@@ -51,7 +51,7 @@ if (isset($_POST["supplier"])) {
 			<table class="table table-striped">
 				<thead>
 				<div class="text-center"><b><?php echo htmlspecialchars($_POST["supplier"])?></b></div>
-				<tr>
+				<tr class="bg-info">
 					
 					<th>Invoice Number</th>
 					<th>Reference</th>
