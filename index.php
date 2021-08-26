@@ -7,19 +7,16 @@
 	if (!$conn) {
 		echo "Conection error: " . mysqli_connect_error();
 	} else {
-		if (isset($_GET["view"])&&htmlspecialchars($_GET["view"])=="supplier_review") {
+		//if (isset($_GET["view"])&&htmlspecialchars($_GET["view"])=="supplier_review") {
 			// display a textbox enabling user to select a supplier
 			
 			$content.=("
-				<form class='white' action='index.php?view=supplier_review' method='POST'>
-					<label>Supplier name:</label>
-					<input type='text' name='supplier'>
-				</form>
+				
 			");
 				
 			
 			
-		}
+		//}
 	}
 ?>
 
@@ -30,11 +27,20 @@
 <?php
 include('templates/header.php');
 include('templates/footer.php');
+?>
+<div v-if='supplierReview'>
+	<div v-if='supplierReview'>
+		<form class='white' action='index.php?view=supplier_review' method='POST'>
+			<label>Supplier name:</label>
+			<input type='text' name='supplier'>
+		</form>
+	</div>
+</div> 
 
-echo $content; 
-if (isset($_POST["supplier"])) {
-	
+<div v-if="supplier_review">
 
+
+<?php
 	// write query for all invoices
 	$sql_query = "SELECT * FROM invoices WHERE supplier='".htmlspecialchars($_POST["supplier"])."'";
 
@@ -82,10 +88,12 @@ if (isset($_POST["supplier"])) {
 			</table>
 <?php
 		}
-	}
-	
+?>
+</div>
 
-	
+</div>	
+
+<?php	
 
 	// close connection
 	mysqli_close($conn);
