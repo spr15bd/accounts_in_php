@@ -26,7 +26,6 @@
 
 <?php
 include('templates/header.php');
-include('templates/footer.php');
 ?>
 <div v-if='supplierReview'>
 	<div v-if='supplierReview'>
@@ -36,6 +35,10 @@ include('templates/footer.php');
 		</form>
 	</div>
 </div> 
+<?php
+include('templates/footer.php');
+?>
+
 
 <div v-if="supplier_review">
 
