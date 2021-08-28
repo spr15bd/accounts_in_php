@@ -21,25 +21,17 @@
 ?>
 
 
-<!doctype html>
 
 
 <?php
 include('templates/header.php');
 ?>
-<div v-if='supplierReview'>
-	<div v-if='supplierReview'>
-		<form class='white' action='index.php?view=supplier_review' method='POST'>
-			<label>Supplier name:</label>
-			<input type='text' name='supplier'>
-		</form>
-	</div>
-</div> 
+
 <?php
 include('templates/footer.php');
 ?>
 
-
+<!--
 <div v-if="supplier_review">
 
 
@@ -57,6 +49,7 @@ include('templates/footer.php');
 		mysqli_free_result($result);
 		if (count($invoices) > 0) {
 ?>
+
 			<table class="table table-striped">
 				<thead>
 				<div class="text-center"><b><?php echo htmlspecialchars($_POST["supplier"])?></b></div>
@@ -71,6 +64,7 @@ include('templates/footer.php');
 					<th>Payment Date</th>
 				</tr>
 				</thead>
+
 <?php
 			foreach ($invoices as $invoice) {
 ?>
@@ -103,6 +97,6 @@ include('templates/footer.php');
 	
 }
 ?>
-
+-->
 
 </html>

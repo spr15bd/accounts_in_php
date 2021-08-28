@@ -21,6 +21,7 @@
 	<body class="grey lighten-2">
 		<div id="app">
 			{{message}}
+			
 			<div class="container-fluid">
 				<div class="row bg-dark">
 					<div class="col-lg-12>
@@ -34,20 +35,48 @@
 									
 								</p>
 								<div class="col-lg-3">
-						<button class="btn btn-info" @click="supplierReview=true">
-							Supplier Review
-						</button>
-					</div>
-					<div class="col-lg-3">
-						<button class="btn btn-info" @click="supplierReview=false">
-							Add invoice
-						</button>
-					</div>
+									<button class="btn btn-info" @click="supplierReview=true">
+										Supplier Review {{supplierReview}}
+									</button>
+								</div>
+								<div class="col-lg-3">
+									<button class="btn btn-info" @click="supplierReview=false">
+										Add invoice
+									</button>
+								</div>
 							</div>
 
 						</nav>
 					</div>
 				</div>
+				<div v-if="supplierReview">
+					Eyyo!!
+				</div>
 			</div>
 			
+				
+				
+				
+			
+	
+			
+			<footer class="section"></footer>
+			<div class="center grey-text">Copyright 2021 Bevan Dady</div>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+			
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				
+					supplierReview: false,
+					message: 'Hello vue!'
+				
+			}
+		});
+
+
+	</script>
+		</div>
+	</body>
 		
