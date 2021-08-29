@@ -50,7 +50,8 @@
 					</div>
 				</div>
 				<div v-if="supplierReview">
-					Eyyo!!
+					<label>Supplier Name:</label>
+					<input type="text" name="supplier"></input>
 				</div>
 			</div>
 			
