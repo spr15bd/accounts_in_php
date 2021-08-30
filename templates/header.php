@@ -20,7 +20,7 @@
 </head>
 	<body class="grey lighten-2">
 		<div id="app">
-			{{message}}
+			
 			
 			<div class="container-fluid">
 				<div class="row bg-dark">
@@ -49,7 +49,8 @@
 						</nav>
 					</div>
 				</div>
-				<div v-if="supplierReview">
+				<div class="row" v-if="supplierReview">
+					<p class="text-center py-5">
 					<label>Supplier Name:</label>
 					<input type="text" name="supplier"></input>
 				</div>
