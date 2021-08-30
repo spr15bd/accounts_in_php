@@ -52,7 +52,11 @@
 				<div class="row" v-if="supplierReview">
 					<p class="text-center py-5">
 					<label>Supplier Name:</label>
-					<input type="text" name="supplier"></input>
+					<input type="text" name="supplier" v-model="suppl"></input>
+				</div>
+				<div class="row" v-if="supplierReview">
+					<p class="text-center py-5">
+					{{suppl}}
 				</div>
 			</div>
 			
@@ -72,7 +76,8 @@
 			data: {
 				
 					supplierReview: false,
-					message: 'Hello vue!'
+					message: 'Hello vue!',
+					suppl: "None"
 				
 			}
 		});
