@@ -31,13 +31,13 @@ include('templates/header.php');
 include('templates/footer.php');
 ?>
 
-<!--
-<div v-if="supplier_review">
 
+<div v-if="suppl">
+{{suppl}}
 
-<?php
+<?php	
 	// write query for all invoices
-	$sql_query = "SELECT * FROM invoices WHERE supplier='".htmlspecialchars($_POST["supplier"])."'";
+	$sql_query = "SELECT * FROM invoices WHERE supplier='".{suppl}."'";
 
 	// make the query and get result
 	$result = mysqli_query($conn, $sql_query);
@@ -52,7 +52,7 @@ include('templates/footer.php');
 
 			<table class="table table-striped">
 				<thead>
-				<div class="text-center"><b><?php echo htmlspecialchars($_POST["supplier"])?></b></div>
+				<div class="text-center"><b><?php echo suppl?></b></div>
 				<tr class="bg-info">
 					
 					<th>Invoice Number</th>
@@ -97,6 +97,6 @@ include('templates/footer.php');
 	
 }
 ?>
--->
+
 
 </html>
