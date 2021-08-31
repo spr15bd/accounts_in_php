@@ -37,7 +37,7 @@ include('templates/footer.php');
 
 <?php	
 	// write query for all invoices
-	$sql_query = "SELECT * FROM invoices WHERE supplier='".{suppl}."'";
+	$sql_query = "SELECT * FROM invoices WHERE supplier=''";
 
 	// make the query and get result
 	$result = mysqli_query($conn, $sql_query);

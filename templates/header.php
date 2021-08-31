@@ -26,7 +26,7 @@
 				<div class="row bg-dark">
 					<div class="col-lg-12>
 						<nav class="white" z-depth-3>
-							<div class="container">
+							<div>
 								
 								<p class="text-center text-light display-5 p-8">
 									An accounting system
@@ -34,12 +34,14 @@
 									
 									
 								</p>
-								<div class="col-lg-3">
+							</div>
+							<div class="btn-group" role="group">
+								<div class="col-lg-6">
 									<button class="btn btn-info" @click="supplierReview=true">
-										Supplier Review {{supplierReview}}
+										Supplier Review 
 									</button>
 								</div>
-								<div class="col-lg-3">
+								<div class="col-lg-6">
 									<button class="btn btn-info" @click="supplierReview=false">
 										Add invoice
 									</button>
