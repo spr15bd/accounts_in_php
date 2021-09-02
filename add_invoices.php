@@ -81,7 +81,7 @@
 	<?php include 'templates/header.php';?>
 		<section class="container grey-text">
 			<h4 class="center">Add Invoice</h4>
-			<form class="white" action="add_invoices.php" method="POST">
+			<form class="white" action="database_queries.php?supplier=$_POST['inv_supplier']" method="POST">
 				<label>Supplier Name:</label>
 				<input type="text" name="inv_supplier" value=<?php echo $invoice_supplier?>>
 				<div class="red-text"><?php echo $errors['inv_supplier']; ?></div>
