@@ -53,8 +53,10 @@
 				</div>
 				<div class="row" v-if="supplierReview">
 					<p class="text-center py-5">
-					<label>Supplier Name:</label>
-					<input type="text" name="supplier" v-model="suppl"></input>
+                        <form class="white" action="database_queries.php?supplier=$_POST['inv_supplier']" method="POST">
+                            <label>Supplier Name:</label>
+                            <input type="text" name="supplier" v-model="suppl"></input>
+                        </form>
 				</div>
 				<div class="row" v-if="supplierReview">
 					<p class="text-center py-5">
@@ -88,4 +90,5 @@
 	</script>
 		</div>
 	</body>
+		
 		
