@@ -88,7 +88,7 @@ include('templates/footer.php');
 ?>
 </div>
 
-</div>	
+
 
 <?php	
 

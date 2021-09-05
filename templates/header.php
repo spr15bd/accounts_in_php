@@ -53,7 +53,7 @@
 				</div>
 				<div class="row" v-if="supplierReview">
 					<p class="text-center py-5">
-                        <form class="white" action="database_queries.php?supplier=$_POST['inv_supplier']" method="POST">
+                        <form class="white" action="database_queries.php?supplier=\'Ulreco\'" method="POST">
                             <label>Supplier Name:</label>
                             <input type="text" name="supplier" v-model="suppl"></input>
                         </form>
@@ -74,25 +74,24 @@
 			<div class="center grey-text">Copyright 2021 Bevan Dady</div>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
 			
-	<script>
-		var app = new Vue({
-			el: '#app',
-			data: {
-				
-					supplierReview: false,
-					message: 'Hello vue!',
-					suppl: "None"
-				
-			}
-		});
+            <script>
+                var app = new Vue({
+                    el: '#app',
+                    data: {
+
+                            supplierReview: false,
+                            message: 'Hello vue!',
+                            suppl: "None"
+
+                    }
+                });
 
 
-	</script>
+            </script>
 		</div>
-	</body>
-<<<<<<< HEAD
+	
+
+
 		
-=======
 		
-		
->>>>>>> 753e6c317cb381592a34f5042a4739d5eacf5a43
+
