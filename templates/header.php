@@ -53,7 +53,7 @@
 				</div>
 				<div class="row" v-if="supplierReview">
 					<p class="text-center py-5">
-                        <form class="white" action="database_queries.php?supplier=\'Ulreco\'" method="POST">
+                        <form class="white" action="database_queries.php?supplier=suppl" method="POST">
                             <label>Supplier Name:</label>
                             <input type="text" name="supplier" v-model="suppl"></input>
                         </form>
