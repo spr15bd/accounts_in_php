@@ -53,7 +53,7 @@
 				</div>
 				<div class="row" v-if="supplierReview">
 					<p class="text-center py-5">
-                        <form class="white" action="database_queries.php?supplier=suppl" method="POST">
+                        <form class="white" action="database_queries.php" method="POST">
                             <label>Supplier Name:</label>
                             <input type="text" name="supplier" v-model="suppl"></input>
                         </form>
@@ -72,21 +72,25 @@
 			
 			<footer class="section"></footer>
 			<div class="center grey-text">Copyright 2021 Bevan Dady</div>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
-			
-            <script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+			<script>
                 var app = new Vue({
                     el: '#app',
                     data: {
 
-                            supplierReview: false,
-                            message: 'Hello vue!',
-                            suppl: "None"
+                        supplierReview: false,
+                        message: 'Hello vue!',
+                        suppl: "None"
 
+                    },
+                    methods: {
+                        getSupplier() {
+                            axios.get("localhost/accounting_system/database_queries.php").then(function(response));            
+                        }             
+                                            
                     }
                 });
-
-
             </script>
 		</div>
 	
