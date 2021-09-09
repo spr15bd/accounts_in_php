@@ -78,7 +78,7 @@
                 var app = new Vue({
                     el: '#app',
                     data: {
-
+                        errorMsg: "",                                                                
                         supplierReview: false,
                         message: 'Hello vue!',
                         suppl: "None"
@@ -86,7 +86,13 @@
                     },
                     methods: {
                         getSupplier() {
-                            axios.get("localhost/accounting_system/database_queries.php").then(function(response));            
+                            axios.get("localhost/accounting_system/database_queries.php").then(function(response){
+                                if (response.data.error) {
+                                    app.errorMsg = response.data.message;                                                   
+                                } else {
+                                                                                        
+                                }                                                      
+                            });            
                         }             
                                             
                     }
