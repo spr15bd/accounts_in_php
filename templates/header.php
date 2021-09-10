@@ -53,7 +53,7 @@
 				</div>
 				<div class="row" v-if="supplierReview">
 					<p class="text-center py-5">
-                        <form class="white" action="database_queries.php" method="POST">
+                        <form class="white" action="this.getSupplier" method="POST">
                             <label>Supplier Name:</label>
                             <input type="text" name="supplier" v-model="suppl"></input>
                         </form>
@@ -88,10 +88,13 @@
                         getSupplier() {
                             axios.get("localhost/accounting_system/database_queries.php").then(function(response){
                                 if (response.data.error) {
-                                    app.errorMsg = response.data.message;                                                   
+                                    app.errorMsg = response.data.message;  
+                                    
+                                    console.log("error");            
                                 } else {
-                                                                                        
-                                }                                                      
+                                       
+                                    console.log("got data");                 
+                                }                                                     
                             });            
                         }             
                                             
