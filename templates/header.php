@@ -53,15 +53,16 @@
 				</div>
 				<div class="row" v-if="supplierReview">
 					<p class="text-center py-5">
-                        <form class="white" action="this.getSupplier" method="POST">
+                        <form class="white" action="#">
                             <label>Supplier Name:</label>
-                            <input type="text" name="supplier" v-model="suppl"></input>
+                            <input type="text" name="supplier"  v-model="suppl"></input>
+                            <button class="btn btn-info" @click="getSupplier();">
+				                Supplier Review 
+							</button>
                         </form>
+                    </p>
 				</div>
-				<div class="row" v-if="supplierReview">
-					<p class="text-center py-5">
-					{{suppl}}
-				</div>
+				
 			</div>
 			
 				
