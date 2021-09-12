@@ -17,20 +17,21 @@
 			padding: 20px;		
 		}
 	</style>
+    
 </head>
 	<body class="grey lighten-2">
+   
 		<div id="app">
-			
 			
 			<div class="container-fluid">
 				<div class="row bg-dark">
-					<div class="col-lg-12>
-						<nav class="white" z-depth-3>
+					<div class="col-lg-12">
+						<nav class="white">
 							<div>
 								
 								<p class="text-center text-light display-5 p-8">
 									An accounting system
-									
+									{{message}}
 									
 									
 								</p>
@@ -55,8 +56,8 @@
 					<p class="text-center py-5">
                         <form class="white" action="#">
                             <label>Supplier Name:</label>
-                            <input type="text" name="supplier"  v-model="suppl"></input>
-                            <button class="btn btn-info" @click="getSupplier();">
+                            <input type="text" name="supplier" @keyup.enter="getSupplier" v-model="suppl"></input>
+                            <button class="btn btn-info" @click="getSupplier">
 				                Supplier Review 
 							</button>
                         </form>
@@ -73,20 +74,23 @@
 			
 			<footer class="section"></footer>
 			<div class="center grey-text">Copyright 2021 Bevan Dady</div>
+            <script src="https://unpkg.com/vue@next"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+            
 			<script>
-                var app = new Vue({
-                    el: '#app',
-                    data: {
-                        errorMsg: "",                                                                
-                        supplierReview: false,
-                        message: 'Hello vue!',
-                        suppl: "None"
+                let app = Vue.createApp({
+                    data: function() {
+                        return {                                    
+                            errorMsg: '',                                                                
+                            supplierReview: false,
+                            message: 'Hello vue!',
+                            suppl: 'None'
+                        }
 
                     },
                     methods: {
                         getSupplier() {
+                            console.log("getting supplier data");                         
                             axios.get("localhost/accounting_system/database_queries.php").then(function(response){
                                 if (response.data.error) {
                                     app.errorMsg = response.data.message;  
@@ -100,10 +104,11 @@
                         }             
                                             
                     }
-                });
+                })
+                app.mount('#app')
             </script>
 		</div>
-	
+	   
 
 
 		
