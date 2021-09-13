@@ -98,6 +98,38 @@ include('templates/footer.php');
 }
 ?>
 <script src="https://unpkg.com/vue@next"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
+            
+			<script>
+                let app = Vue.createApp({
+                    data: function() {
+                        return {                                    
+                            errorMsg: '',                                                                
+                            supplierReview: false,
+                            message: 'Hello vue!',
+                            suppl: 'None'
+                        }
+
+                    },
+                    methods: {
+                        getSupplier() {
+                            console.log("getting supplier data");                         
+                            axios.get("database_queries.php").then(function(response){
+                                if (response.data.error) {
+                                    app.errorMsg = response.data.message;  
+                                    
+                                    console.log("error");            
+                                } else {
+                                       
+                                    console.log("got data");                 
+                                }                                                     
+                            });            
+                        }             
+                                            
+                    }
+                })
+                app.mount('#app')
+            </script>
 </body>
 
 </html>

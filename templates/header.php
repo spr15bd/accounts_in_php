@@ -31,7 +31,7 @@
 								
 								<p class="text-center text-light display-5 p-8">
 									An accounting system
-									{{message}}
+									
 									
 									
 								</p>
@@ -74,39 +74,7 @@
 			
 			<footer class="section"></footer>
 			<div class="center grey-text">Copyright 2021 Bevan Dady</div>
-            <script src="https://unpkg.com/vue@next"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
             
-			<script>
-                let app = Vue.createApp({
-                    data: function() {
-                        return {                                    
-                            errorMsg: '',                                                                
-                            supplierReview: false,
-                            message: 'Hello vue!',
-                            suppl: 'None'
-                        }
-
-                    },
-                    methods: {
-                        getSupplier() {
-                            console.log("getting supplier data");                         
-                            axios.get("localhost/accounting_system/database_queries.php").then(function(response){
-                                if (response.data.error) {
-                                    app.errorMsg = response.data.message;  
-                                    
-                                    console.log("error");            
-                                } else {
-                                       
-                                    console.log("got data");                 
-                                }                                                     
-                            });            
-                        }             
-                                            
-                    }
-                })
-                app.mount('#app')
-            </script>
 		</div>
 	   
 
