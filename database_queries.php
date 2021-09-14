@@ -20,7 +20,7 @@
 			// fetch the resulting query as an associative array
 			if ($result) {
 				$invoices = mysqli_fetch_all($result, MYSQLI_ASSOC);
-                
+                echo json_encode($invoices);
 				// free result from memory
 				mysqli_free_result($result); 	
 				

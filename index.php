@@ -107,7 +107,8 @@ include('templates/footer.php');
                             errorMsg: '',                                                                
                             supplierReview: false,
                             message: 'Hello vue!',
-                            suppl: 'None'
+                            suppl: 'None',
+                            invoices: []
                         }
 
                     },
@@ -120,8 +121,8 @@ include('templates/footer.php');
                                     
                                     console.log("error");            
                                 } else {
-                                       
-                                    console.log("got data");                 
+                                    app.invoices = response.data.invoices;   
+                                    console.log(app.invoices);                 
                                 }                                                     
                             });            
                         }             
