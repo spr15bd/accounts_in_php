@@ -6,7 +6,9 @@
 	if (!$conn) {
 		echo "Conection error: " . mysqli_connect_error();
 	} else {
+        echo "Successful connection.";
 		if (isset($_POST["supplier"])) {
+            echo "Successful connection and input is populated.";
 			// perform a SELECT sql query
 			
 			$supplier = htmlspecialchars($_POST["supplier"]);

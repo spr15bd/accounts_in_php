@@ -122,7 +122,7 @@ include('templates/footer.php');
                                     console.log("error");            
                                 } else {
                                     app.invoices = response.data.invoices;   
-                                    console.log(app.invoices);                 
+                                    console.log("invoices are: "+app.invoices[0]);                 
                                 }                                                     
                             });            
                         }             
