@@ -116,11 +116,13 @@ include('templates/footer.php');
                         getSupplier() {
                             console.log("getting supplier data");                         
                             axios.get("database_queries.php").then(function(response){
+                                console.log("index.php:  got database_queries.php");   
                                 if (response.data.error) {
                                     app.errorMsg = response.data.message;  
                                     
                                     console.log("error");            
                                 } else {
+                                    console.log("index.php:  Success getting database_queries response")
                                     app.invoices = response.data.invoices;   
                                     console.log("invoices are: "+app.invoices[0]);                 
                                 }                                                     

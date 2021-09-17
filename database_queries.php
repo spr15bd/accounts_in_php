@@ -1,5 +1,6 @@
 <?php
 	// connect to database
+    echo "Connecting to db";
 	$conn = mysqli_connect('localhost', 'root', '', 'accounts');
 	
 	// check connection
