@@ -123,8 +123,8 @@ include('templates/footer.php');
                                     console.log("error");            
                                 } else {
                                     console.log("index.php:  Success getting database_queries response")
-                                    app.invoices = response.data.invoices;   
-                                    console.log("invoices are: "+app.invoices[0]);                 
+                                    app.invoices = json_decode(response.data.invoices);   
+                                    console.log("invoices are: "+app.invoices);                 
                                 }                                                     
                             });            
                         }             
