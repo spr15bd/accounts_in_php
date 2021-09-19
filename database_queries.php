@@ -14,18 +14,19 @@
 			
 			$supplier = htmlspecialchars($_POST["supplier"]);
 			$sql_query = "SELECT * FROM invoices WHERE supplier='$supplier'";
+            $invoices = array();
             echo $sql_query;
 			// make the query and get result
 			
                 
-            $result = mysqli_query($conn, $sql_query);
+            $invoices = mysqli_query($conn, $sql_query);
 
 			// fetch the resulting query as an associative array
-			if ($result) {
-				$invoices = mysqli_fetch_all($result, MYSQLI_ASSOC);
-                echo json_encode($invoices);
+			if ($invoices) {
+				$result['invoices'] = mysqli_fetch_all($invoices, MYSQLI_ASSOC);
+                echo json_encode($result);
 				// free result from memory
-				mysqli_free_result($result); 	
+				//mysqli_free_result($result); 	
 				
 			
 			}
