@@ -15,6 +15,9 @@
 			$supplier = htmlspecialchars($_POST["supplier"]);
 			$sql_query = "SELECT * FROM invoices WHERE supplier='$supplier'";
             $invoices = array();
+            while ($row=$sql_query->fetch_assoc()){
+                array_push($invoices, $row);
+            }
             echo $sql_query;
 			// make the query and get result
 			
