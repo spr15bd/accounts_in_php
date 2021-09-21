@@ -36,18 +36,8 @@ include('templates/footer.php');
 {{suppl}}
 
 <?php	
-	// write query for all invoices
-	$sql_query = "SELECT * FROM invoices WHERE supplier=''";
-
-	// make the query and get result
-	$result = mysqli_query($conn, $sql_query);
-
-	// fetch the resulting query as an associative array
-	if ($result) {
-		$invoices = mysqli_fetch_all($result, MYSQLI_ASSOC);
-		// free result from memory
-		mysqli_free_result($result);
-		if (count($invoices) > 0) {
+	
+    if (count($invoices) > 0) {
 ?>
 
 			<table class="table table-striped">
