@@ -1,29 +1,4 @@
 <?php
-	$content = "";
-	// connect to database
-	$conn = mysqli_connect('localhost', 'root', '', 'accounts');
-	
-	// check connection
-	if (!$conn) {
-		echo "Conection error: " . mysqli_connect_error();
-	} else {
-		//if (isset($_GET["view"])&&htmlspecialchars($_GET["view"])=="supplier_review") {
-			// display a textbox enabling user to select a supplier
-			
-			$content.=("
-				
-			");
-				
-			
-			
-		//}
-	}
-?>
-
-
-
-
-<?php
 include('templates/header.php');
 ?>
 
@@ -83,9 +58,7 @@ include('templates/footer.php');
 <?php	
 
 	// close connection
-	mysqli_close($conn);
 	
-}
 ?>
 <script src="https://unpkg.com/vue@next"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
