@@ -12,7 +12,7 @@ include('templates/footer.php');
 
 <?php	
 	
-    if (count($invoices) > 0) {
+    if ($invoices && count($invoices) > 0) {
 ?>
 
 			<table class="table table-striped">

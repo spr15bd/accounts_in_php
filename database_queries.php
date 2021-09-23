@@ -18,7 +18,7 @@
                 array_push($invoices, $row);
             }
             $result['invoices'] = $invoices;
-            echo $sql_query;
+            //echo $sql_query;
 			
 			
                 
@@ -27,7 +27,7 @@
 			// fetch the resulting query as an associative array
 			//if ($invoices) {
 				//$result['invoices'] = mysqli_fetch_all($invoices, MYSQLI_ASSOC);
-                echo json_encode($result);
+                echo json_encode($result['invoices']);
 				
 				
 			
