@@ -12,12 +12,12 @@ include('templates/footer.php');
 
 <?php	
 	
-    if ($invoices && count($invoices) > 0) {
+    //if ($invoices && count($invoices) > 0) {
 ?>
 
 			<table class="table table-striped">
 				<thead>
-				<div class="text-center"><b><?php echo suppl?></b></div>
+				<div class="text-center"><b><?php //echo suppl?></b></div>
 				<tr class="bg-info">
 					
 					<th>Invoice Number</th>
@@ -31,25 +31,26 @@ include('templates/footer.php');
 				</thead>
 
 <?php
-			foreach ($invoices as $invoice) {
+			//foreach ($invoices as $invoice) {
 ?>
 				
 				<tr>
 					
-					<td><?php echo $invoice["number"]?></td>
-					<td><?php echo $invoice["id"]?></td>
-					<td><?php echo $invoice["date"]?></td>
-					<td><?php echo $invoice["description"]?></td>
-					<td><?php echo "£".number_format($invoice["amount"], 2)?></td>
-					<td><?php echo "£".number_format($invoice["amount"], 2)?></td>
+					<td><?php //echo $invoice["number"]?></td>
+					<td><?php //echo $invoice["id"]?></td>
+					<td><?php //echo $invoice["date"]?></td>
+					<td><?php //echo $invoice["description"]?></td>
+					<td><?php //echo "£".number_format($invoice["amount"], 2)?></td>
+					<td><?php //echo "£".number_format($invoice["amount"], 2)?></td>
 					<td></td>
 				</tr>
+                
 <?php		
-			}
+			//}
 ?>
 			</table>
 <?php
-		}
+		//}
 ?>
 </div>
 
@@ -70,7 +71,7 @@ include('templates/footer.php');
                             errorMsg: '',                                                                
                             supplierReview: false,
                             message: 'Hello vue!',
-                            suppl: 'None',
+                            //suppl: 'None',
                             invoices: []
                         }
 
