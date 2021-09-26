@@ -1,8 +1,8 @@
 <?php
 	// connect to database
     echo "Connecting to db";
-	$conn = mysqli_connect('localhost', 'root', '', 'accounts');
-	
+	$conn = new mysqli('localhost', 'root', '', 'accounts');
+	$result = array('error'=>false);
 	// check connection
 	if (!$conn) {
 		echo "Conection error: " . mysqli_connect_error();
