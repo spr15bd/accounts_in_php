@@ -79,7 +79,7 @@ include('templates/footer.php');
                     methods: {
                         getSupplier() {
                             console.log("getting supplier data");                         
-                            axios.get("http://localhost/accounting_system/database_queries.php").then(function(response){
+                            axios.get("database_queries.php").then(function(response){
                                 console.log("index.php:  got database_queries.php");   
                                 if (response.data.error) {
                                     app.errorMsg = response.data.message;  
@@ -87,7 +87,7 @@ include('templates/footer.php');
                                     console.log("error");            
                                 } else {
                                     console.log("index.php:  Success getting database_queries response")
-                                    app.invoices = response.data.invoices;   
+                                    app.invoices = response.data;   
                                     console.log(app.invoices);                 
                                 }                                                     
                             });            
