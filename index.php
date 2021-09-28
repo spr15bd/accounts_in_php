@@ -86,7 +86,7 @@ include('templates/footer.php');
                                     
                                     console.log("error");            
                                 } else {
-                                    console.log("index.php:  Success getting database_queries response")
+                                    console.log("index.php:  Success getting database_queries response");
                                     app.invoices = response.data;   
                                     console.log(app.invoices);                 
                                 }                                                     
