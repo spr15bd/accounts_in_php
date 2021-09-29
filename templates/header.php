@@ -31,7 +31,7 @@
 								
 								<p class="text-center text-light display-5 p-8">
 									An accounting system
-									
+									{{this.message}}
 									
 									
 								</p>

@@ -6,9 +6,9 @@ include('templates/header.php');
 include('templates/footer.php');
 ?>
 
-
+{{this.message}}
 <div v-if="suppl">
-{{suppl}}
+
 
 <?php	
 	
