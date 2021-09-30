@@ -1,6 +1,6 @@
 <?php
 	// connect to database
-    echo "Connecting to db";
+    echo "database_queries: Connecting to db";
 	$conn = new mysqli('localhost', 'root', '', 'accounts');
 	$result = array('error'=>false);
 	// check connection
@@ -18,20 +18,12 @@
                 array_push($invoices, $row);
             }
             $result['invoices'] = $invoices;
-            //echo $sql_query;
-			
-			
-                
-            //$invoices = mysqli_query($conn, $sql_query);
-
-			// fetch the resulting query as an associative array
-			//if ($invoices) {
-				//$result['invoices'] = mysqli_fetch_all($invoices, MYSQLI_ASSOC);
-                return json_encode($result['invoices']);
+           
+            return json_encode($result['invoices']);
 				
 				
 			
-			}
+			
         }
 	}
 

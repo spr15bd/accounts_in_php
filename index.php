@@ -79,7 +79,7 @@ include('templates/footer.php');
                     methods: {
                         getSupplier() {
                             console.log("getting supplier data");                         
-                            axios.get("database_queries.php").then(function(response){
+                            axios.post("database_queries.php").then(function(response){
                                 console.log("index.php:  got database_queries.php");   
                                 if (response.data.error) {
                                     app.errorMsg = response.data.message;  
