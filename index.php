@@ -79,16 +79,16 @@ include('templates/footer.php');
                     methods: {
                         getSupplier() {
                             console.log("getting supplier data");                         
-                            axios.post("database_queries.php").then(function(response){
+                            axios.get("database_queries.php").then(function(response){
                                 console.log("index.php:  got database_queries.php");   
                                 if (response.data.error) {
                                     app.errorMsg = response.data.message;  
                                     
                                     console.log("error");            
                                 } else {
-                                    console.log("index.php:  Success getting database_queries response");
+                                    console.log("vue:  Success getting database_queries response");
                                     app.invoices = response.data;   
-                                    console.log(app.invoices);                 
+                                    console.log("Result is "+app.invoices);                 
                                 }                                                     
                             });            
                         }             
