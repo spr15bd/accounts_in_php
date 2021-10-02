@@ -71,15 +71,15 @@ include('templates/footer.php');
                             errorMsg: '',                                                                
                             supplierReview: false,
                             message: 'Hello vue!',
-                            //suppl: 'None',
+                            suppl: 'None',
                             invoices: []
                         }
 
                     },
                     methods: {
-                        getSupplier() {
-                            console.log("getting supplier data");                         
-                            axios.get("database_queries.php").then(function(response){
+                        getSupplier(supplier) {
+                            console.log("getting supplier data for "+supplier);                         
+                            axios.get("database_queries.php", { params: { supplierName: supplier } }).then(function(response){
                                 console.log("index.php:  got database_queries.php");   
                                 if (response.data.error) {
                                     app.errorMsg = response.data.message;  

@@ -56,8 +56,8 @@
 					<p class="text-center py-5">
                         
                             <label>Supplier Name:</label>
-                            <input type="text" name="supplier" @keyup.enter="getSupplier" v-model="suppl"></input>
-                            <button class="btn btn-info" @click="getSupplier">
+                            <input type="text" name="supplier" @keyup.enter="getSupplier(suppl)" v-model="suppl"></input>
+                            <button class="btn btn-info" @click="getSupplier(suppl)">
 				                Supplier Review 
 							</button>
                         
