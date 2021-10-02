@@ -87,7 +87,7 @@ include('templates/footer.php');
                                     console.log("error");            
                                 } else {
                                     console.log("vue:  Success getting database_queries response");
-                                    app.invoices = response.data;   
+                                    app.invoices = JSON.stringify(response);   
                                     console.log("Result is "+app.invoices);                 
                                 }                                                     
                             });            
