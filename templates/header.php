@@ -19,64 +19,7 @@
 	</style>
     
 </head>
-	<body class="grey lighten-2">
-   
-		<div id="app">
-			
-			<div class="container-fluid">
-				<div class="row bg-dark">
-					<div class="col-lg-12">
-						<nav class="white">
-							<div>
-								
-								<p class="text-center text-light display-5 p-8">
-									An accounting system
-									{{this.message}}
-									
-									
-								</p>
-							</div>
-							<div class="btn-group" role="group">
-								<div class="col-lg-6">
-									<button class="btn btn-info" @click="supplierReview=true">
-										Supplier Review 
-									</button>
-								</div>
-								<div class="col-lg-6">
-									<button class="btn btn-info" @click="supplierReview=false">
-										Add invoice
-									</button>
-								</div>
-							</div>
-
-						</nav>
-					</div>
-				</div>
-				<div class="row" v-if="supplierReview">
-					<p class="text-center py-5">
-                        
-                            <label>Supplier Name:</label>
-                            <input type="text" name="supplier" @keyup.enter="getSupplier(suppl)" v-model="suppl"></input>
-                            <button class="btn btn-info" @click="getSupplier(suppl)">
-				                Supplier Review 
-							</button>
-                        
-                    </p>
-				</div>
-				
-			</div>
-			
-				
-				
-				
-			
 	
-			
-			<footer class="section"></footer>
-			<div class="center grey-text">Copyright 2021 Bevan Dady</div>
-            
-		</div>
-	   
 
 
 		
