@@ -49,18 +49,6 @@ include('templates/header.php');
 				
 			</div>
 			
-				
-				
-				
-			
-	
-			
-			<footer class="section"></footer>
-			<div class="center grey-text">Copyright 2021 Bevan Dady</div>
-            
-		</div>
-	   
-
 <?php
 include('templates/footer.php');
 ?>
