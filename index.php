@@ -45,15 +45,7 @@ include('templates/header.php');
 							</button>
                         
                     </p>
-				</div>
-				
-			</div>
-			
-<?php
-include('templates/footer.php');
-?>
-
-{{this.message}}
+                    {{this.message}}
 <div v-if="suppl">
 
 
@@ -100,6 +92,15 @@ include('templates/footer.php');
 		//}
 ?>
 </div>
+				</div>
+				
+			</div>
+			
+<?php
+include('templates/footer.php');
+?>
+
+
 
 
 
