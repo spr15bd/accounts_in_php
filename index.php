@@ -45,7 +45,7 @@ include('templates/header.php');
 							</button>
                         
                     </p>
-                    {{this.message}}
+                    
 <div v-if="suppl">
 
 
@@ -118,7 +118,6 @@ include('templates/footer.php');
                         return {                                    
                             errorMsg: '',                                                                
                             supplierReview: false,
-                            message: 'Hello vue!',
                             suppl: 'None',
                             invoices: []
                         }
