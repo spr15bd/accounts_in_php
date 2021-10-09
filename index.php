@@ -46,7 +46,7 @@ include('templates/header.php');
                         
                     </p>
                     
-<div v-if="suppl">
+<div v-if="invoices.length>0">
 
 
 <?php	
@@ -118,7 +118,7 @@ include('templates/footer.php');
                         return {                                    
                             errorMsg: '',                                                                
                             supplierReview: false,
-                            suppl: 'None',
+                            suppl: null,
                             invoices: []
                         }
 
