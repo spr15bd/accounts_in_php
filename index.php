@@ -45,18 +45,17 @@ include('templates/header.php');
 							</button>
                         
                     </p>
-                    
-<div v-if="invoices.length>0">
+                    {{invoices}}{{this.errorMsg}}
+<div v-if="this.invoices.length>0">
 
 
-<?php	
 	
-    //if ($invoices && count($invoices) > 0) {
-?>
+	
+  
 
 			<table class="table table-striped">
 				<thead>
-				<div class="text-center"><b><?php //echo suppl?></b></div>
+				<div class="text-center"><b>{{suppl}}</b></div>
 				<tr class="bg-info">
 					
 					<th>Invoice Number</th>
@@ -69,9 +68,7 @@ include('templates/header.php');
 				</tr>
 				</thead>
 
-<?php
-			//foreach ($invoices as $invoice) {
-?>
+
 				
 				<tr>
 					
@@ -84,13 +81,10 @@ include('templates/header.php');
 					<td></td>
 				</tr>
                 
-<?php		
-			//}
-?>
+
 			</table>
-<?php
-		//}
-?>
+
+
 </div>
 				</div>
 				
@@ -104,11 +98,7 @@ include('templates/footer.php');
 
 
 
-<?php	
 
-	// close connection
-	
-?>
 <script src="https://unpkg.com/vue@next"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
             
@@ -116,12 +106,11 @@ include('templates/footer.php');
                 let app = Vue.createApp({
                     data: function() {
                         return {                                    
-                            errorMsg: '',                                                                
+                            errorMsg: 'yo',                                                                
                             supplierReview: false,
                             suppl: null,
                             invoices: []
                         }
-
                     },
                     methods: {
                         getSupplier(supplier) {
@@ -134,8 +123,8 @@ include('templates/footer.php');
                                     console.log("error");            
                                 } else {
                                     console.log("vue:  Success getting database_queries response");
-                                    app.invoices = JSON.stringify(response);   
-                                    console.log("Result is "+app.invoices);                 
+                                    this.invoices = response.data;   
+                                    //console.log("Result is "+JSON.stringify(this.invoices));                 
                                 }                                                     
                             });            
                         }             
