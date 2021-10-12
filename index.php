@@ -3,101 +3,75 @@ include('templates/header.php');
 ?>
 
 <body class="grey lighten-2">
-   
-		<div id="app">
-			
-			<div class="container-fluid">
-				<div class="row bg-dark">
-					<div class="col-lg-12">
-						<nav class="white">
-							<div>
-								
-								<p class="text-center text-light display-5 p-8">
-									An accounting system
-									{{this.message}}
-									
-									
-								</p>
-							</div>
-							<div class="btn-group" role="group">
-								<div class="col-lg-6">
-									<button class="btn btn-info" @click="supplierReview=true">
-										Supplier Review 
-									</button>
-								</div>
-								<div class="col-lg-6">
-									<button class="btn btn-info" @click="supplierReview=false">
-										Add invoice
-									</button>
-								</div>
-							</div>
-
-						</nav>
-					</div>
+    <div id="app">
+        <div class="container-fluid">
+            <div class="row bg-dark">
+				<div class="col-lg-12">
+				    <nav class="white">
+				        <div>
+				            <p class="text-center text-light display-5 p-8">
+				                An accounting system
+								{{this.message}}
+				            </p>
+				        </div>
+				        <div class="btn-group" role="group">
+				            <div class="col-lg-6">
+								<button class="btn btn-info" @click="supplierReview=true">
+								    Supplier Review 
+								</button>
+				            </div>
+				            <div class="col-lg-6">
+								<button class="btn btn-info" @click="supplierReview=false">
+								    Add invoice
+								</button>
+				            </div>
+				        </div>
+                    </nav>
 				</div>
-				<div class="row" v-if="supplierReview">
-					<p class="text-center py-5">
-                        
-                            <label>Supplier Name:</label>
-                            <input type="text" name="supplier" @keyup.enter="getSupplier(suppl)" v-model="suppl"></input>
-                            <button class="btn btn-info" @click="getSupplier(suppl)">
-				                Supplier Review 
-							</button>
-                        
-                    </p>
-                    {{invoices}}{{this.errorMsg}}
-<div v-if="this.invoices.length>0">
-
-
-	
-	
-  
-
-			<table class="table table-striped">
-				<thead>
-				<div class="text-center"><b>{{suppl}}</b></div>
-				<tr class="bg-info">
-					
-					<th>Invoice Number</th>
-					<th>Reference</th>
-					<th>Invoice Date</th>
-					<th>Description</th>
-					<th>Total</td>
-					<th>Outstanding</th>
-					<th>Payment Date</th>
-				</tr>
-				</thead>
-
-
-				
-				<tr>
-					
-					<td><?php //echo $invoice["number"]?></td>
-					<td><?php //echo $invoice["id"]?></td>
-					<td><?php //echo $invoice["date"]?></td>
-					<td><?php //echo $invoice["description"]?></td>
-					<td><?php //echo "£".number_format($invoice["amount"], 2)?></td>
-					<td><?php //echo "£".number_format($invoice["amount"], 2)?></td>
-					<td></td>
-				</tr>
-                
-
-			</table>
-
-
-</div>
-				</div>
-				
-			</div>
-			
-<?php
-include('templates/footer.php');
-?>
-
-
-
-
-
+            </div>
+            <div class="row" v-if="supplierReview">
+                <p class="text-center py-5">
+                    <label>Supplier Name:</label>
+                    <input type="text" name="supplier" @keyup.enter="getSupplier(suppl)" v-model="suppl"></input>
+                    <button class="btn btn-info" @click="getSupplier(suppl)">
+				        Supplier Review 
+				    </button>
+                </p>
+                {{invoices}}{{this.errorMsg}}
+                <div v-show="this.invoices.length>0">
+                    <table class="table table-striped">
+                        <thead>
+                            <div class="text-center"><b>{{suppl}}</b></div>
+                            <tr class="bg-info">
+                                <th>Invoice Number</th>
+                                <th>Reference</th>
+                                <th>Invoice Date</th>
+                                <th>Description</th>
+                                <th>Total</td>
+                                <th>Outstanding</th>
+                                <th>Payment Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                               <td>{{invoices[0].number}}</td>
+                               <td><?php //echo $invoice["id"]?></td>
+                               <td><?php //echo $invoice["date"]?></td>
+                               <td><?php //echo $invoice["description"]?></td>
+                               <td><?php //echo "£".number_format($invoice["amount"], 2)?></td>
+                               <td><?php //echo "£".number_format($invoice["amount"], 2)?></td>
+                               <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <?php
+        include('templates/footer.php');
+        ?>
+    </div>
+</body>
 
 <script src="https://unpkg.com/vue@next"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
@@ -124,7 +98,7 @@ include('templates/footer.php');
                                 } else {
                                     console.log("vue:  Success getting database_queries response");
                                     this.invoices = response.data;   
-                                    //console.log("Result is "+JSON.stringify(this.invoices));                 
+                                    console.log("Result is "+JSON.stringify(this.invoices));                 
                                 }                                                     
                             });            
                         }             
