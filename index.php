@@ -38,7 +38,7 @@ include('templates/header.php');
 				    </button>
                 </p>
                 {{invoices}}{{this.errorMsg}}
-                <div v-show="this.invoices.length>0">
+                <div v-if="this.invoices.length>0">
                     <table class="table table-striped">
                         <thead>
                             <div class="text-center"><b>{{suppl}}</b></div>
@@ -92,15 +92,18 @@ include('templates/header.php');
                             axios.get("database_queries.php", { params: { supplierName: supplier } }).then(function(response){
                                 console.log("index.php:  got database_queries.php");   
                                 if (response.data.error) {
-                                    app.errorMsg = response.data.message;  
+                                    app.errorMsg = response.data.message 
                                     
-                                    console.log("error");            
+                                    console.log("error")            
                                 } else {
-                                    console.log("vue:  Success getting database_queries response");
+                                    console.log("vue:  Success getting database_queries response")
                                     this.invoices = response.data;   
-                                    console.log("Result is "+JSON.stringify(this.invoices));                 
+                                    console.log("Result is "+this.invoices)
+                                    for(let property in this.invoices[0]) {
+                                        alert(property + "=" + this.invoices[0][property])
+                                    }
                                 }                                                     
-                            });            
+                            })         
                         }             
                                             
                     }
