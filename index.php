@@ -11,7 +11,7 @@ include('templates/header.php');
 				        <div>
 				            <p class="text-center text-light display-5 p-8">
 				                An accounting system
-								{{this.message}}
+								{{this.invoices[0]}}
 				            </p>
 				        </div>
 				        <div class="btn-group" role="group">
@@ -37,8 +37,9 @@ include('templates/header.php');
 				        Supplier Review 
 				    </button>
                 </p>
-                {{invoices}}{{this.errorMsg}}
-                <div v-if="this.invoices.length>0">
+                {{invoices}}{{invoices.length}}
+                <div v-if="this.invoices.length > 0">
+                    {{this.invoices.length}}
                     <table class="table table-striped">
                         <thead>
                             <div class="text-center"><b>{{suppl}}</b></div>
@@ -97,10 +98,10 @@ include('templates/header.php');
                                     console.log("error")            
                                 } else {
                                     console.log("vue:  Success getting database_queries response")
-                                    this.invoices = response.data;   
+                                    invoices = JSON.stringify(response.data);   
                                     console.log("Result is "+this.invoices)
                                     for(let property in this.invoices[0]) {
-                                        alert(property + "=" + this.invoices[0][property])
+                                        console.log(property + "=" + this.invoices[0][property])
                                     }
                                 }                                                     
                             })         
