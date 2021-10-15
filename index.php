@@ -1,6 +1,24 @@
-<?php
-include('templates/header.php');
-?>
+<html>
+<head>
+	<title>Accounts System</title>
+	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	
+	
+	<style type="text/css">
+		.brand{
+			background: #adbbec;
+		}
+		.brand-text{
+			color: #aabbec !important;
+		}
+		form{
+			max-width: 460px;
+			margin: 20px auto;	
+			padding: 20px;		
+		}
+	</style>
+</head>
 
 <body class="grey lighten-2">
     <div id="app">
@@ -68,9 +86,7 @@ include('templates/header.php');
                 </div>
             </div>
         </div>
-        <?php
-        include('templates/footer.php');
-        ?>
+        <div class="center grey-text">Copyright 2021 Bevan Dady</div>
     </div>
 </body>
 
@@ -110,7 +126,7 @@ include('templates/header.php');
                     }
                 })
                 app.mount('#app')
-            </script>
+</script>
 </body>
 
 </html>
