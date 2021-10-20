@@ -70,13 +70,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                               <td></td>
-                               <td></td>
-                               <td></td>
-                               <td></td>
-                               <td></td>
-                               <td></td>
+                            <tr v-for="invoice in invoices">
+                               <td>{{invoice.number}}</td>
+                               <td>{{invoice.id}}</td>
+                               <td>{{invoice.date}}</td>
+                               <td>{{invoice.description}}</td>
+                               <td>{{invoice.amount}}</td>
+                               <td>{{invoice.amount}}</td>
                                <td></td>
                             </tr>
                         </tbody>
