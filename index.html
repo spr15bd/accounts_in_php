@@ -28,7 +28,7 @@
 								</button>
 				            </div>
 				            <div class="col-lg-6">
-								<button class="btn btn-info" @click="supplierReview=false">
+								<button class="btn btn-info" @click="addInvoice=true">
 								    Add invoice
 								</button>
 				            </div>
@@ -72,6 +72,9 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div v-if="addInvoice">
+                
             </div>
         </div>
         <div class="center grey-text">Copyright 2021 Bevan Dady</div>
