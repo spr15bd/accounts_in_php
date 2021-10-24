@@ -74,7 +74,35 @@
                 </div>
             </div>
             <div v-if="addInvoice">
-                
+                <section class="container grey-text">
+                <h4 class="center">Add Invoice</h4>
+                <form class="white" action="database_queries.php?supplier=$_POST['inv_supplier']" method="POST">
+                    <label>Supplier Name:</label>
+                    <input type="text" name="inv_supplier" value=<?php echo $invoice_supplier?>>
+                    <div class="red-text"><?php echo $errors['inv_supplier']; ?></div>
+                    <label>Invoice Number:</label>
+                    <input type="text" name="inv_no" value=<?php echo $invoice_number?>>
+                    <div class="red-text"><?php echo $errors['inv_no']; ?></div>
+                    <label>Invoice Date:</label>
+                    <input type="text" name="inv_date" value=<?php echo $invoice_date?>>
+                    <div class="red-text"><?php echo $errors['inv_date']; ?></div>
+                    <label>Invoice Description:</label>
+                    <input type="text" name="inv_desc" value=<?php echo $invoice_description?>>
+                    <div class="red-text"><?php echo $errors['inv_desc']; ?></div>
+                    <label>Office:</label>
+                    <input type="text" name="office" value=<?php echo $office?>>
+                    <div class="red-text"><?php echo $errors['office']; ?></div>
+                    <label>Overhead:</label>
+                    <input type="text" name="overhead" value=<?php echo $overhead?>>
+                    <div class="red-text"><?php echo $errors['overhead']; ?></div>
+                    <label>Invoice Amount:</label>
+                    <input type="text" name="inv_amt" value=<?php echo $invoice_amount?>>
+                    <div class="red-text"><?php echo $errors['inv_amt']; ?></div>
+                    <div class="center">
+                        <input type="submit" name="submit" value="submit" class="btn brand z-depth-0">
+                    </div>
+                </form>
+		</section>
             </div>
         </div>
         <div class="center grey-text">Copyright 2021 Bevan Dady</div>
