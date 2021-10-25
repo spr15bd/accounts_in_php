@@ -10,7 +10,7 @@ export default {
                                                            
                             errorMsg: 'yo',                                                                
                             supplierReview: false,
-                            add_invoice: false,
+                            addInvoice: false,
                             suppl: null,
                             invoices: []
                         
