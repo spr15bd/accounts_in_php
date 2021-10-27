@@ -23,17 +23,17 @@
 				        </div>
 				        <div class="btn-group" role="group">
 				            <div class="col-lg-6">
-								<button class="btn btn-info" @click="supplierReview=true; addInvoice=false">
+								<button class="btn btn-info" @click="this.supplierReview=true; addInvoice=false">
 								    Supplier Review 
 								</button>
 				            </div>
 				            <div class="col-lg-6">
-								<button class="btn btn-info" @click="addInvoice=true; supplierReview=false">
+								<button class="btn btn-info" @click="addInvoice=true; this.supplierReview=false">
 								    Add invoice
 								</button>
 				            </div>
                             <div class="col-lg-6">
-								<button class="btn btn-info" @click="addInvoice=false; supplierReview=false">
+								<button class="btn btn-info" @click="addInvoice=false; this.supplierReview=false">
 								    Back
 								</button>
 				            </div>
@@ -41,7 +41,7 @@
                     </nav>
 				</div>
             </div>
-            <div v-if="supplierReview">
+            <div v-if="this.supplierReview">
                 <p class="text-center py-5">
                     <label>Supplier Name:</label>
                     <input type="text" name="supplier" @keyup.enter="getSupplier(suppl)" v-model="suppl"></input>
@@ -83,26 +83,26 @@
                     <h4 class="center">Add Invoice</h4>
                     <form class="white" action="database_queries.php?supplier=$_POST['inv_supplier']" method="POST">
                         <label>Supplier Name:</label>
-                        <input type="text" name="inv_supplier" value=<?php echo $invoice_supplier?>>
-                        <div class="red-text"><?php echo $errors['inv_supplier']; ?></div>
+                        <input type="text" name="inv_supplier" value="">
+                        <div class="red-text"></div>
                         <label>Invoice Number:</label>
-                        <input type="text" name="inv_no" value=<?php echo $invoice_number?>>
-                        <div class="red-text"><?php echo $errors['inv_no']; ?></div>
+                        <input type="text" name="inv_no" value="">
+                        <div class="red-text"></div>
                         <label>Invoice Date:</label>
-                        <input type="text" name="inv_date" value=<?php echo $invoice_date?>>
-                        <div class="red-text"><?php echo $errors['inv_date']; ?></div>
+                        <input type="text" name="inv_date" value="">
+                        <div class="red-text"></div>
                         <label>Invoice Description:</label>
-                        <input type="text" name="inv_desc" value=<?php echo $invoice_description?>>
-                        <div class="red-text"><?php echo $errors['inv_desc']; ?></div>
+                        <input type="text" name="inv_desc" value="">
+                        <div class="red-text"></div>
                         <label>Office:</label>
-                        <input type="text" name="office" value=<?php echo $office?>>
-                        <div class="red-text"><?php echo $errors['office']; ?></div>
+                        <input type="text" name="office" value="">
+                        <div class="red-text"></div>
                         <label>Overhead:</label>
-                        <input type="text" name="overhead" value=<?php echo $overhead?>>
-                        <div class="red-text"><?php echo $errors['overhead']; ?></div>
+                        <input type="text" name="overhead" value="">
+                        <div class="red-text"></div>
                         <label>Invoice Amount:</label>
-                        <input type="text" name="inv_amt" value=<?php echo $invoice_amount?>>
-                        <div class="red-text"><?php echo $errors['inv_amt']; ?></div>
+                        <input type="text" name="inv_amt" value="">
+                        <div class="red-text"></div>
                         <div class="center">
                             <input type="submit" name="submit" value="submit" class="btn brand z-depth-0">
                         </div>
