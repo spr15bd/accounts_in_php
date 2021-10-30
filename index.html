@@ -81,16 +81,26 @@
             <div v-if="addInvoice">
                 <section class="container grey-text">
                     <h4 class="center">Add Invoice</h4>
-                    <form class="white" action="database_queries.php?supplier=$_POST['inv_supplier']" method="POST">
-                        <label>Supplier Name:</label>
-                        <input type="text" name="inv_supplier" value="">
-                        <div class="red-text"></div>
-                        <label>Invoice Number:</label>
-                        <input type="text" name="inv_no" value="">
-                        <div class="red-text"></div>
-                        <label>Invoice Date:</label>
-                        <input type="text" name="inv_date" value="">
-                        <div class="red-text"></div>
+                    <form class="white" action="" method="POST">
+                        <div class="mb-3">
+                            <label>Supplier Name:</label>
+                            <input type="text" name="inv_supplier" value="">
+                            <div class="red-text"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label>Invoice Number:</label>
+                            <input type="text" name="inv_no" value="">
+                            <div class="red-text"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label>Invoice Date:</label>
+                            <input type="text" name="inv_date" value="">
+                            <div class="red-text"></div>
+                        </div>
+                       
+                       
+                       
+                        
                         <label>Invoice Description:</label>
                         <input type="text" name="inv_desc" value="">
                         <div class="red-text"></div>
