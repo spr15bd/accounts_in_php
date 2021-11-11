@@ -81,7 +81,7 @@
             <div v-if="addInvoice">
                 <section>
                     <h4 class="center">Add Invoice</h4>
-                    <form class="white" action="" method="POST">
+                    <form class="white">
                         <div class="mb-3">
                             <div><label>Supplier Name:</label></div>
                             <div><input type="text" name="inv_supplier" value=""></div>
@@ -118,7 +118,7 @@
                             <div class="red-text"></div>
                         </div>
                         <div class="center">
-                            <input type="button" name="submit" value="submit" class="btn btn-primary">
+                            <input type="button" name="submit" @click="update()" class="btn btn-primary">
                         </div>
                     </form>
                 </section>

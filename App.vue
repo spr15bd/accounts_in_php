@@ -36,7 +36,10 @@ export default {
                                     }
                                 }                                                     
                             })         
-                        }             
+                        },
+                        update() {
+                            console.log("about to update db")
+                        }
                                             
                     }
 }
