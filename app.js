@@ -25,7 +25,10 @@ const app = Vue.createApp({
                                     console.log(this.invoices)
                                 }                                                    
                                   
-                        }             
+                        },
+                        update() {
+                            console.log("updating")
+                        }
                     }
 })
 
