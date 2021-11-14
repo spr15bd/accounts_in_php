@@ -84,17 +84,17 @@
                     <form class="white">
                         <div class="mb-3">
                             <div><label>Supplier Name:</label></div>
-                            <div><input type="text" name="inv_supplier" value=""></div>
+                            <div><input type="text" name="inv_supplier" v-model="supplier"></div>
                             <div class="col red-text"></div>
                         </div>
                         <div class="mb-3">
                             <div><label>Invoice Number:</label></div>
-                            <div><input type="text" name="inv_no" value=""></div>
+                            <div><input type="text" name="inv_no" v-model="invoiceNumber"></div>
                             <div class="col red-text"></div>
                         </div>
                         <div class="mb-3">
                             <div><label>Invoice Date:</label></div>
-                            <div><input type="text" name="inv_date" value=""></div>
+                            <div><input type="text" name="inv_date" v-model="invoiceDate"></div>
                             <div class="red-text"></div>
                         </div>
                         <div class="mb-3">

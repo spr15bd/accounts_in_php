@@ -7,7 +7,10 @@ const app = Vue.createApp({
                             supplierReview: false,
                             addInvoice: false,
                             suppl: "Ulreco",
-                            invoices: null
+                            invoices: null,
+                            supplier: null,
+                            invoiceNumber: null,
+                            invoiceDate: null
                         }
                     },
                     methods: {
@@ -26,7 +29,7 @@ const app = Vue.createApp({
                                 }                                                    
                                   
                         },
-                        update() {
+                        async update() {
                             console.log("updating")
                         }
                     }
