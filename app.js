@@ -30,7 +30,7 @@ const app = Vue.createApp({
                                   
                         },
                         async update() {
-                            console.log("updating")
+                            console.log("updating ", this.supplier, this.invoiceNumber)
                         }
                     }
 })
