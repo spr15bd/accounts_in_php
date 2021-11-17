@@ -10,7 +10,10 @@ const app = Vue.createApp({
                             invoices: null,
                             supplier: null,
                             invoiceNumber: null,
-                            invoiceDate: null
+                            invoiceDate: null,
+                            invoiceDescription: null,
+                            office: null,
+                            overhead: null
                         }
                     },
                     methods: {
@@ -30,7 +33,7 @@ const app = Vue.createApp({
                                   
                         },
                         async update() {
-                            console.log("updating ", this.supplier, this.invoiceNumber)
+                            console.log("updating ", this.supplier, this.invoiceNumber, this.invoiceDate, this.invoiceDescription, this.office)
                         }
                     }
 })
