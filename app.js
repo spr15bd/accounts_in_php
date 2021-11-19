@@ -3,7 +3,6 @@ const app = Vue.createApp({
 
                     data() {
                         return {
-                            errorMsg: 'yo',                                                                
                             supplierReview: false,
                             addInvoice: false,
                             suppl: "Ulreco",
@@ -14,7 +13,7 @@ const app = Vue.createApp({
                             invoiceDescription: null,
                             office: null,
                             overhead: null,
-                            invoiceAmount
+                            invoiceAmount: null
                         }
                     },
                     methods: {
@@ -35,7 +34,8 @@ const app = Vue.createApp({
                         },
                         async update() {
                             console.log("updating ", this.supplier, this.invoiceNumber, this.invoiceDate, this.invoiceDescription, this.office, this.overhead, this.invoiceAmount)
-                            const res = await axios.post("database_queries.php", { params: { supplierName: supplier } })
+                            let data = [this.supplier, this.invoiceNumber, this.invoiceDate ]
+                            const res = await axios.post("database_queries.php", { params: { data: data } })
                         }
                     }
 })
