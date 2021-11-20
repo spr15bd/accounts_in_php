@@ -8,7 +8,7 @@
 		//echo "Conection error: " . mysqli_connect_error();
 	} else {
         //echo "Successful connection.";
-		//if (isset($_GET["supplier"])) {
+		if (isset($_GET["supplier"])) {
             //echo "Successful connection and input is populated.";
 			// perform a SELECT sql query - make the query and get result
 			$supplier = htmlspecialchars($_GET["supplierName"]);
@@ -24,7 +24,9 @@
 				
 			
 			
-        //}
+        } else {
+            echo "success";
+        }
 	}
 
 

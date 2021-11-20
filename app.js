@@ -36,6 +36,8 @@ const app = Vue.createApp({
                             console.log("updating ", this.supplier, this.invoiceNumber, this.invoiceDate, this.invoiceDescription, this.office, this.overhead, this.invoiceAmount)
                             let data = [this.supplier, this.invoiceNumber, this.invoiceDate ]
                             const res = await axios.post("database_queries.php", { params: { data: data } })
+                            const {results} = res
+                            console.log("app.js:  got database_queries.php"+res);   
                         }
                     }
 })
