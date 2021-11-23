@@ -25,6 +25,9 @@
 			
 			
         } else {
+            $sql_query = $conn->query("INSERT INTO invoices VALUES ()");
+            echo htmlspecialchars($_GET['supplierName']);
+            echo htmlspecialchars($_GET['invoiceNumber']);
             echo "successful return";
         }
 	}
