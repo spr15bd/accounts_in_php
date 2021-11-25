@@ -25,11 +25,11 @@
 			
 			
         } else {
-            $sql_query = $conn->query("INSERT INTO invoices VALUES ()");
+            $sql_query = $conn->query("INSERT INTO invoices VALUES ('Ulreco','1234','25/11/2021','Stationery','Holwich','7580','30.00')");
+            
             echo "data";
-            echo htmlspecialchars(data);
-            echo htmlspecialchars($_GET['invoiceNumber']);
-            echo "successful return";
+            
+            
         }
 	}
 
