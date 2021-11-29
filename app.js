@@ -13,7 +13,8 @@ const app = Vue.createApp({
                             invoiceDescription: null,
                             office: null,
                             overhead: null,
-                            invoiceAmount: null
+                            invoiceAmount: null,
+                            statusMessage: null
                         }
                     },
                     methods: {
