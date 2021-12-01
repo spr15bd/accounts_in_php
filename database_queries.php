@@ -27,7 +27,7 @@
         } else {
             $sql_query = $conn->query("INSERT INTO invoices (supplier, number, date, description, office, overhead, amount)VALUES ('Ulreco','1234','2021-11-23','Stationery','Holwich','7580','30.00')");
             if ($sql_query) {
-                echo "success";
+                echo "success".$_GET["data"];
             } else {
                 echo "failure";
             }
