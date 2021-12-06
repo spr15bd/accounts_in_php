@@ -25,10 +25,11 @@
 			
 			
         } else {
-            $vars = $_POST['params'];
-            $sql_query = $conn->query("INSERT INTO invoices ('".$vars."', number, date, description, office, overhead, amount)VALUES ('Ulreco','1234','2021-11-23','Stationery','Holwich','7580','30.00')");
+            $vars = $_POST['data1'];
+            $sql_query = $conn->query("INSERT INTO invoices (supplier, number, date, description, office, overhead, amount)VALUES ('".$vars."','1234','2021-11-23','Stationery','Holwich','7580','30.00')");
             if ($sql_query) {
-                echo "success".$_POST["data"];
+                $_POST = json_decode(file_get_contents("php://input"),true);
+                echo "success".$_POST["data1"];
             } else {
                 echo "failure";
             }
