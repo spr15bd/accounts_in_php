@@ -1,4 +1,6 @@
 <?php
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET, POST");
 	// connect to database
     //echo "database_queries: Connecting to db";
 	$conn = new mysqli('localhost', 'root', '', 'accounts');
@@ -25,11 +27,13 @@
 			
 			
         } else {
-            $vars = $_POST['data1'];
+            $data = json_decode(file_get_contents("php://input"),true);
+            $result = $data['info']
             $sql_query = $conn->query("INSERT INTO invoices (supplier, number, date, description, office, overhead, amount)VALUES ('".$vars."','1234','2021-11-23','Stationery','Holwich','7580','30.00')");
             if ($sql_query) {
-                $_POST = json_decode(file_get_contents("php://input"),true);
-                echo "success".$_POST["data1"];
+                
+                
+                echo "success".$result;
             } else {
                 echo "failure";
             }
