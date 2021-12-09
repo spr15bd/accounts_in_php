@@ -29,7 +29,8 @@
         } else {
             $data = json_decode(file_get_contents("php://input"),true);
             $result = $data['info'];
-            $sql_query = $conn->query("INSERT INTO invoices (supplier, number, date, description, office, overhead, amount)VALUES ('".$result."','1234','2021-11-23','Stationery','Holwich','7580','30.00')");
+            $invoiceNo = $data['info'];
+            $sql_query = $conn->query("INSERT INTO invoices (supplier, number, date, description, office, overhead, amount)VALUES ('".$supplier."','".$invoiceNo."','2021-11-23','Stationery','Holwich','7580','30.00')");
             if ($sql_query) {
                 
                 
