@@ -29,12 +29,12 @@
         } else {
             $data = json_decode(file_get_contents("php://input"),true);
             $result = $data['info'];
-            $invoiceNo = $data['info'];
-            $sql_query = $conn->query("INSERT INTO invoices (supplier, number, date, description, office, overhead, amount)VALUES ('".$supplier."','".$invoiceNo."','2021-11-23','Stationery','Holwich','7580','30.00')");
+            //$invoiceNo = $data['info'];
+            $sql_query = $conn->query("INSERT INTO invoices (supplier, number, date, description, office, overhead, amount)VALUES ('".$result['supplier']."','".$result['invoiceNo']."','2021-11-23','Stationery','Holwich','7580','30.00')");
             if ($sql_query) {
                 
                 
-                echo "success".$result;
+                echo "success".$result['invoiceDate'];
             } else {
                 echo "failure";
             }
