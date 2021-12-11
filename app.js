@@ -35,7 +35,7 @@ const app = Vue.createApp({
                         },
                         async update() {
                             console.log("updating ", this.supplier, this.invoiceNumber, this.invoiceDate, this.invoiceDescription, this.office, this.overhead, this.invoiceAmount)
-                            let payload = {info: { supplier: this.supplier, invoiceNo: this.invoiceNumber, invoiceDate: this.invoiceDate }}
+                            let payload = {info: { supplier: this.supplier, invoiceNumber: this.invoiceNumber, invoiceDate: this.invoiceDate }}
                             const res = await axios.post("database_queries.php", JSON.stringify(payload) )
                             const {results} = res
                             console.log("app.js:  got database_queries.php: ", res);   
