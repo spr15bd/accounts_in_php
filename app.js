@@ -22,7 +22,7 @@ const app = Vue.createApp({
                             console.log("getting supplier data for "+supplier);                         
                             const res = await axios.get("database_queries.php", { params: { supplierName: supplier } })
                             const {results} = res
-                            console.log("app.js:  got database_queries.php"+res);   
+                            console.log("app.js:  got database_queries.php"+JSON.stringify(res));   
                             
                                 console.log("vue:  Success getting database_queries response")
                                 this.invoices =  res.data

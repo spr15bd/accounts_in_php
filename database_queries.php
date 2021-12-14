@@ -11,7 +11,7 @@
 	} else {
         //echo "Successful connection.";
 		if (isset($_GET["supplier"])) {
-            //echo "Successful connection and input is populated.";
+            echo "Successful connection and input is populated.";
 			// perform a SELECT sql query - make the query and get result
 			$supplier = htmlspecialchars($_GET["supplierName"]);
 			$sql_query = $conn->query("SELECT * FROM invoices WHERE supplier='$supplier'");
@@ -29,7 +29,6 @@
         } else {
             $data = json_decode(file_get_contents("php://input"),true);
             $result = $data['info'];
-            //$invoiceNo = $data['info'];
             $sql_query = $conn->query("INSERT INTO invoices (supplier, number, date, description, office, overhead, amount)VALUES ('".$result['supplier']."','".$result['invoiceNumber']."','".$result['invoiceDate']."','".$result['invoiceDescription']."','".$result['office']."','".$result['overhead']."','".$result['invoiceAmount']."')");
             if ($sql_query) {
                 
