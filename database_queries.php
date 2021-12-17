@@ -10,9 +10,12 @@
 		//echo "Conection error: " . mysqli_connect_error();
 	} else {
         //echo "Successful connection.";
-		if (isset($_GET["supplier"])) {
+        echo ("GOT ".$data['info']);
+		if (isset($_GET['supplier'])) {
             //echo "Successful connection and input is populated.";
 			// perform a SELECT sql query - make the query and get result
+            $result = $data['info'];
+            echo ("GOT ".$_GET['supplier']);
 			$supplier = htmlspecialchars($_GET["supplierName"]);
 			$sql_query = $conn->query("SELECT * FROM invoices WHERE supplier='$supplier'");
             $invoices = array();
@@ -21,7 +24,7 @@
             }
             $result['invoices'] = $invoices;
            
-            echo json_encode($invoices);
+            
 				
 				
 			
