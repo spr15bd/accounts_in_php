@@ -14,8 +14,8 @@
 		if (isset($_GET['supplier'])) {
             //echo "Successful connection and input is populated.";
 			// perform a SELECT sql query - make the query and get result
-            $result = $data['info'];
-            echo ("GOT ".$_GET['supplier']);
+            $result = $data;
+            echo ("GOT ".$data);
 			$supplier = htmlspecialchars($_GET["supplierName"]);
 			$sql_query = $conn->query("SELECT * FROM invoices WHERE supplier='$supplier'");
             $invoices = array();
