@@ -19,8 +19,9 @@ const app = Vue.createApp({
                     },
                     methods: {
                         async getSupplier(supplier) {
-                            console.log("getting supplier data for "+supplier);                         
-                            const res = await axios.get("database_queries.php", { info: { supplierName: supplier } })
+                            console.log("getting supplier data for "+supplier);
+                        let payload = { info: { supplierName: supplier } }
+                            const res = await axios.get("database_queries.php", payload )
                             const {results} = res
                             console.log("app.js:  got database_queries.php", res);   
                             

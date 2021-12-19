@@ -14,15 +14,17 @@
 		if (isset($_GET['supplier'])) {
             //echo "Successful connection and input is populated.";
 			// perform a SELECT sql query - make the query and get result
-            $result = $data;
-            echo ("GOT ".$data);
+            $data = json_decode(file_get_contents("php://input"),true);
+            $result = $data['info'];
+
 			$supplier = htmlspecialchars($_GET["supplierName"]);
-			$sql_query = $conn->query("SELECT * FROM invoices WHERE supplier='$supplier'");
+			$sql_query = $conn->query("SELECT * FROM invoices WHERE supplier='$supplierName'");
             $invoices = array();
             while ($row=$sql_query->fetch_assoc()){
                 array_push($invoices, $row);
             }
-            $result['invoices'] = $invoices;
+            //$result['invoices'] = $invoices;
+            echo ($invoices);
            
             
 				
