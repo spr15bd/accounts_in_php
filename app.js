@@ -27,12 +27,11 @@ const app = Vue.createApp({
                             
                                 console.log("vue:  Success getting database_queries response")
                                 this.invoices =  res.data
-                                console.log("Result is "+this.invoices)
-                                for(let property in this.invoices) {
-                                    console.log(property + "=" + this.invoices[property])
-                                    console.log(this.invoices)
-                                }                                                    
-                                  
+                                //console.log("Result is "+this.invoices)
+                                //for(let property in this.invoices) {
+                                //    console.log(property + "=" + this.invoices[property])
+                                //    console.log(this.invoices)
+                                //}                                                    
                         },
                         async update() {
                             console.log("updating ", this.supplier, this.invoiceNumber, this.invoiceDate, this.invoiceDescription, this.office, this.overhead, this.invoiceAmount)
