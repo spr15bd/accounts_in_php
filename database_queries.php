@@ -24,7 +24,7 @@
                 array_push($invoices, $row);
             }
             //$result['invoices'] = $invoices;
-            echo ($GET['supplier']);
+            echo ($invoices);
            
             
 				
