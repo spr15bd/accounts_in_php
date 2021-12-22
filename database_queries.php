@@ -11,7 +11,7 @@
 	} else {
         //echo "Successful connection.";
         //echo ("GOT ".$data['info']);
-		if (isset($_GET['supplier'])) {
+		if (isset($_GET['supplierName'])) {
             //echo "Successful connection and input is populated.";
 			// perform a SELECT sql query - make the query and get result
             $data = json_decode(file_get_contents("php://input"),true);
@@ -24,7 +24,7 @@
                 array_push($invoices, $row);
             }
             //$result['invoices'] = $invoices;
-            echo ($invoices);
+            echo "success! ". $sql_query. $invoices;
            
             
 				
