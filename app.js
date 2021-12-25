@@ -19,11 +19,11 @@ const app = Vue.createApp({
                     },
                     methods: {
                         async getSupplier(supplier) {
-                            console.log("getting supplier data for "+supplier);
-                        let payload = { info: { supplierName: supplier } }
+                            console.log("app.js->getting supplier data for "+supplier);
+                        let payload = { name: { supplierName: supplier } }
                             const res = await axios.get("database_queries.php", payload )
                             const {results} = res
-                            console.log("app.js:  got database_queries.php", res);   
+                            console.log("app.js->getSupplier():  got database_queries.php", res);   
                             
                                 console.log("vue:  Success getting database_queries response")
                                 this.invoices =  res.data
@@ -38,7 +38,7 @@ const app = Vue.createApp({
                             let payload = {info: { supplier: this.supplier, invoiceNumber: this.invoiceNumber, invoiceDate: this.invoiceDate, invoiceDescription: this.invoiceDescription, office: this.office, overhead: this.overhead, invoiceAmount: this.invoiceAmount }}
                             const res = await axios.post("database_queries.php", payload )
                             const {results} = res
-                            console.log("app.js:  got database_queries.php: ", res);   
+                            console.log("app.js->update():  got database_queries.php: ", res);   
                         }
                     }
 })

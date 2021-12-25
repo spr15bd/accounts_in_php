@@ -23,7 +23,7 @@
 				        </div>
 				        <div class="btn-group" role="group">
 				            <div class="col-lg-6">
-								<button class="btn btn-info" @click="this.supplierReview=true; addInvoice=false">
+								<button class="btn btn-info" @click="supplierReview=true; addInvoice=false">
 								    Supplier Review 
 								</button>
 				            </div>
@@ -41,7 +41,7 @@
                     </nav>
 				</div>
             </div>
-            <div v-if="this.supplierReview">
+            <div v-if="supplierReview">
                 <p class="text-center py-5">
                     <label>Supplier Name:</label>
                     <input type="text" name="supplier" @keyup.enter="getSupplier(suppl)" v-model="suppl"></input>

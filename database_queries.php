@@ -9,13 +9,13 @@
 	if (!$conn) {
 		//echo "Conection error: " . mysqli_connect_error();
 	} else {
-        //echo "Successful connection.";
-        //echo ("GOT ".$data['info']);
-		if (isset($_GET['supplierName'])) {
+        $data = json_decode(file_get_contents("php://input"),true);
+        echo "data is ".$data;
+		if ($data) {
             //echo "Successful connection and input is populated.";
 			// perform a SELECT sql query - make the query and get result
-            $data = json_decode(file_get_contents("php://input"),true);
-            $result = $data['info'];
+            echo $data;
+            $result = $data['supplierName'];
 
 			$supplier = htmlspecialchars($_GET["supplierName"]);
 			$sql_query = $conn->query("SELECT * FROM invoices WHERE supplier='".$result['supplierName']."'");
@@ -31,8 +31,7 @@
 				
 			
 			
-        } else {
-            $data = json_decode(file_get_contents("php://input"),true);
+        } /*else {
             $result = $data['info'];
             $sql_query = $conn->query("INSERT INTO invoices (supplier, number, date, description, office, overhead, amount) VALUES ('".$result['supplier']."','".$result['invoiceNumber']."','".$result['invoiceDate']."','".$result['invoiceDescription']."','".$result['office']."','".$result['overhead']."','".$result['invoiceAmount']."')");
             if ($sql_query) {
@@ -44,6 +43,7 @@
             
             
         }
+        */
 	}
 
 
