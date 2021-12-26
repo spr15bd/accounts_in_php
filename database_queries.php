@@ -9,8 +9,8 @@
 	if (!$conn) {
 		//echo "Conection error: " . mysqli_connect_error();
 	} else {
-        $data = json_decode(file_get_contents("php://input"),true);
-        echo "data is ".$data;
+        $data = json_decode(file_get_contents('php://input'),true);
+        echo 'data is '.$data['data'];
 		if ($data) {
             //echo "Successful connection and input is populated.";
 			// perform a SELECT sql query - make the query and get result
