@@ -10,12 +10,12 @@
 		//echo "Conection error: " . mysqli_connect_error();
 	} else {
         $data = json_decode(file_get_contents('php://input'),true);
-        echo 'data is '.$data['data'];
+        echo $data['config']['data'];
 		if ($data) {
             //echo "Successful connection and input is populated.";
 			// perform a SELECT sql query - make the query and get result
-            echo $data;
-            $result = $data['supplierName'];
+            //echo $data;
+            $result = $data['config']['data'];
 
 			$supplier = htmlspecialchars($_GET["supplierName"]);
 			$sql_query = $conn->query("SELECT * FROM invoices WHERE supplier='".$result['supplierName']."'");
