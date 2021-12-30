@@ -10,8 +10,7 @@
 		//echo "Conection error: " . mysqli_connect_error();
 	} else {
         $data = json_decode(file_get_contents('php://input'),true);
-        $result = json_encode($data);
-        echo "got this data ".$result;
+        echo $data['data']['supplierName'];
 		if ($data) {
             //echo "Successful connection and input is populated.";
 			// perform a SELECT sql query - make the query and get result
