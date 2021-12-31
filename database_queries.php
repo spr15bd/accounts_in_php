@@ -10,23 +10,23 @@
 		//echo "Conection error: " . mysqli_connect_error();
 	} else {
         $data = json_decode(file_get_contents('php://input'),true);
-        echo $data['data']['supplierName'];
+        //echo $data['data']['supplierName'];
 		if ($data) {
             //echo "Successful connection and input is populated.";
 			// perform a SELECT sql query - make the query and get result
             //echo $data;
-            //$result = $data['config']['data'];
-            /*
-			$supplier = htmlspecialchars($_GET["supplierName"]);
-			$sql_query = $conn->query("SELECT * FROM invoices WHERE supplier='".$result['supplierName']."'");
+            $result = $data['data']['supplierName'];
+            $query = "SELECT * FROM invoices WHERE supplier='".$result."'";
+			//$supplier = htmlspecialchars($_GET["supplierName"]);
+			$sql_query = $conn->query($query);
             $invoices = array();
             while ($row=$sql_query->fetch_assoc()){
                 array_push($invoices, $row);
             }
-            */
+            
             //$result['invoices'] = $invoices;
             //echo "success! ". $sql_query. $invoices;
-           
+            echo json_encode($invoices);
             
 				
 				
