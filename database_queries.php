@@ -11,7 +11,7 @@
 	} else {
         $data = json_decode(file_get_contents('php://input'),true);
         //echo $data['data']['supplierName'];
-		if ($data) {
+		if ($data['data']['supplierName']) {
             //echo "Successful connection and input is populated.";
 			// perform a SELECT sql query - make the query and get result
             //echo $data;
@@ -34,7 +34,9 @@
 			
         } else {
             $result = $data['info'];
-            $sql_query = $conn->query("INSERT INTO invoices (supplier, number, date, description, office, overhead, amount) VALUES ('".$result['supplier']."','".$result['invoiceNumber']."','".$result['invoiceDate']."','".$result['invoiceDescription']."','".$result['office']."','".$result['overhead']."','".$result['invoiceAmount']."')");
+            $query = "INSERT INTO invoices (supplier, number, date, description, office, overhead, amount) VALUES ('".$result['supplier']."','".$result['invoiceNumber']."','".$result['invoiceDate']."','".$result['invoiceDescription']."','".$result['office']."','".$result['overhead']."','".$result['invoiceAmount']."')";
+            echo $query;
+            $sql_query = $conn->query($query);
             if ($sql_query) {
                 echo "success after running else in database_queries";
             } else {
