@@ -20,18 +20,12 @@ const app = Vue.createApp({
                     methods: {
                         async getSupplier(supplier) {
                             console.log("app.js->getting supplier data for "+supplier);
-                        let payload = { data: { supplierName: supplier } }
+                            let payload = { data: { supplierName: supplier } }
                             const res = await axios.post("database_queries.php", payload )
                             const {results} = res
                             console.log("app.js->getSupplier():  got database_queries.php", res);   
-                            
-                                console.log("vue:  Success getting database_queries response")
-                                this.invoices =  res.data
-                                //console.log("Result is "+this.invoices)
-                                //for(let property in this.invoices) {
-                                //    console.log(property + "=" + this.invoices[property])
-                                //    console.log(this.invoices)
-                                //}                                                    
+                            console.log("vue:  Success getting database_queries response")
+                            this.invoices =  res.data
                         },
                         async update() {
                             console.log("updating ", this.supplier, this.invoiceNumber, this.invoiceDate, this.invoiceDescription, this.office, this.overhead, this.invoiceAmount)
