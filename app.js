@@ -5,7 +5,6 @@ const app = Vue.createApp({
                         return {
                             supplierReview: false,
                             addInvoice: false,
-                            //suppl: "Ulreco",
                             invoices: null,
                             supplier: null,
                             invoiceNumber: null,
