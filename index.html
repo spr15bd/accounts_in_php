@@ -22,7 +22,12 @@
 				            </div>
 				            <div class="col-lg-6">
 								<button class="btn btn-info" @click="addInvoice=true; this.supplierReview=false">
-								    Add invoice
+								    Input invoices
+								</button>
+				            </div>
+                            <div class="col-lg-6">
+								<button class="btn btn-info" @click="addInvoice=false; this.supplierReview=false; this.payments=true">
+								    Process payments
 								</button>
 				            </div>
                             <div class="col-lg-6">
