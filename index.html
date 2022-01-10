@@ -16,22 +16,22 @@
 				        </div>
 				        <div class="btn-group" role="group">
 				            <div class="col-lg-6">
-								<button class="btn btn-info" @click="supplierReview=true; addInvoice=false; suppl=null">
+								<button class="btn btn-info" @click="supplierReview=true; addInvoice=false; suppl=null; payments=false">
 								    Supplier Review 
 								</button>
 				            </div>
 				            <div class="col-lg-6">
-								<button class="btn btn-info" @click="addInvoice=true; this.supplierReview=false">
+								<button class="btn btn-info" @click="addInvoice=true; this.supplierReview=false; payments=false">
 								    Input invoices
 								</button>
 				            </div>
                             <div class="col-lg-6">
-								<button class="btn btn-info" @click="addInvoice=false; this.supplierReview=false; this.payments=true">
+								<button class="btn btn-info" @click="addInvoice=false; this.supplierReview=false; payments=true">
 								    Process payments
 								</button>
 				            </div>
                             <div class="col-lg-6">
-								<button class="btn btn-info" @click="addInvoice=false; this.supplierReview=false">
+								<button class="btn btn-info" @click="addInvoice=false; this.supplierReview=false; payments=false">
 								    Back
 								</button>
 				            </div>
