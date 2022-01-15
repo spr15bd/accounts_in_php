@@ -19,7 +19,7 @@ const app = Vue.createApp({
                     },
                     methods: {
                         async getSupplier(supplier) {
-                            console.log("app.js->getting supplier data for "+supplier);
+                            console.log("app.js->getSupplier(): getting supplier data for "+supplier)
                             let payload = { data: { supplierName: supplier } }
                             const res = await axios.post("database_queries.php", payload )
                             const {results} = res
@@ -30,6 +30,11 @@ const app = Vue.createApp({
                             let payload = {info: { supplier: this.supplier, invoiceNumber: this.invoiceNumber, invoiceDate: this.invoiceDate, invoiceDescription: this.invoiceDescription, office: this.office, overhead: this.overhead, invoiceAmount: this.invoiceAmount }}
                             const res = await axios.post("database_queries.php", payload )
                             const {results} = res
+                        },
+                        async processPayments(supplier) {
+                            console.log("app.js->processPayments(): processing payments for "+supplier)
+                            console.log("Supplier is", supplier)
+                            
                         }
                     }
 })
