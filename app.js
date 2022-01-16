@@ -14,7 +14,8 @@ const app = Vue.createApp({
                             office: null,
                             overhead: null,
                             invoiceAmount: null,
-                            statusMessage: null
+                            statusMessage: null,
+                            paymentProcessing: false
                         }
                     },
                     methods: {
@@ -32,8 +33,7 @@ const app = Vue.createApp({
                             const {results} = res
                         },
                         async processPayments(supplier) {
-                            console.log("app.js->processPayments(): processing payments for "+supplier)
-                            console.log("Supplier is", supplier)
+                            this.paymentProcessing = true
                             
                         }
                     }
