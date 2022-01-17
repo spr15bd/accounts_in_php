@@ -8,6 +8,7 @@ const app = Vue.createApp({
                             payments: false,
                             invoices: null,
                             supplier: null,
+                            supplierPayments: null,
                             invoiceNumber: null,
                             invoiceDate: null,
                             invoiceDescription: null,
