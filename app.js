@@ -35,7 +35,7 @@ const app = Vue.createApp({
                         },
                         async processPayments(supplier) {
                             this.paymentProcessing = true
-                            
+                            let payload = { data: { supplierNamePayment: supplier } }
                         }
                     }
 })
