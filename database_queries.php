@@ -22,7 +22,7 @@
             }
             
             echo json_encode($invoices);
-        } else {
+        } else if ($data['info']['supplier']) {
             $result = $data['info'];
             $query = "INSERT INTO invoices (supplier, number, date, description, office, overhead, amount) VALUES ('".$result['supplier']."','".$result['invoiceNumber']."','".$result['invoiceDate']."','".$result['invoiceDescription']."','".$result['office']."','".$result['overhead']."','".$result['invoiceAmount']."')";
             echo $query;
@@ -32,13 +32,9 @@
             } else {
                 echo "failure";
             }
-            
-            
-            
+        } else {
+            echo "Payments"
         }
         
 	}
-
-
-
 ?>
