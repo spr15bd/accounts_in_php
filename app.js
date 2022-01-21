@@ -16,13 +16,14 @@ const app = Vue.createApp({
                             overhead: null,
                             invoiceAmount: null,
                             statusMessage: null,
-                            paymentProcessing: false
+                            paymentProcessing: false,
+                            suppl: null
                         }
                     },
                     methods: {
-                        async getSupplier(supplier) {
+                        async getSupplier() {
                             console.log("app.js->getSupplier(): getting supplier data for "+supplier)
-                            let payload = { data: { supplierName: supplier } }
+                            let payload = { data: { supplierName: suppl } }
                             const res = await axios.post("database_queries.php", payload )
                             const {results} = res
                         
@@ -33,9 +34,10 @@ const app = Vue.createApp({
                             const res = await axios.post("database_queries.php", payload )
                             const {results} = res
                         },
-                        async processPayments(supplier) {
+                        async processPayments() {
+                            console.log("app.js->Processing payments")
                             this.paymentProcessing = true
-                            let payload = { data: { supplierNamePayment: supplier } }
+                            let payload = { data: { supplierNamePayment: supplierPayments } }
                         }
                     }
 })

@@ -43,7 +43,7 @@
                 <p class="text-center py-5">
                     <label>Supplier Name:</label>
                     <input type="text" name="supplier" @keyup.enter="getSupplier(suppl)" v-model="suppl"></input>
-                    <button class="btn btn-info" @click="getSupplier(suppl)">
+                    <button class="btn btn-info" @click="getSupplier()">
 				        Supplier Review 
 				    </button>
                 </p>
@@ -130,7 +130,7 @@
                     <p class="text-center py-5"></p>
                     <label>Supplier Name:</label>
                     <input type="text" name="supplier" @keyup.enter="processPayments(suppl)" v-model="supplierPayments"></input>
-                    <button class="btn btn-info" @click="processPayments(supplierPayments)">
+                    <button class="btn btn-info" @click="processPayments()">
 				        Process payments 
 				    </button>
                     <div v-if="paymentProcessing">

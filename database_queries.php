@@ -33,7 +33,7 @@
                 echo "failure";
             }
         } else {
-            echo "Payments"
+            echo "Payments";
         }
         
 	}
