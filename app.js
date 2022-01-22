@@ -22,7 +22,7 @@ const app = Vue.createApp({
                     },
                     methods: {
                         async getSupplier() {
-                            console.log("app.js->getSupplier(): getting supplier data for "+supplier)
+                            console.log("app.js->getSupplier(): getting supplier data for ", this.suppl)
                             let payload = { data: { supplierName: suppl } }
                             const res = await axios.post("database_queries.php", payload )
                             const {results} = res
@@ -37,7 +37,7 @@ const app = Vue.createApp({
                         async processPayments() {
                             console.log("app.js->Processing payments")
                             this.paymentProcessing = true
-                            let payload = { data: { supplierNamePayment: supplierPayments } }
+                            let payload = { data: { supplierNamePayment: this.supplierPayments } }
                         }
                     }
 })
