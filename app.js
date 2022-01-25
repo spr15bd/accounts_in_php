@@ -8,7 +8,7 @@ const app = Vue.createApp({
                             payments: false,
                             invoices: null,
                             supplier: null,
-                            supplierPayments: null,
+                            paymentsSupplier: null,
                             invoiceNumber: null,
                             invoiceDate: null,
                             invoiceDescription: null,
@@ -23,7 +23,7 @@ const app = Vue.createApp({
                     methods: {
                         async getSupplier() {
                             console.log("app.js->getSupplier(): getting supplier data for ", this.suppl)
-                            let payload = { data: { supplierName: suppl } }
+                            let payload = { data: { supplierName: this.suppl } }
                             const res = await axios.post("database_queries.php", payload )
                             const {results} = res
                         
@@ -35,9 +35,17 @@ const app = Vue.createApp({
                             const {results} = res
                         },
                         async processPayments() {
-                            console.log("app.js->Processing payments")
+                            //console.log("app.js->Processing payments")
+                            console.log("1 ")
                             this.paymentProcessing = true
-                            let payload = { data: { supplierNamePayment: this.supplierPayments } }
+                            console.log("2 ")
+                            let payload = { data: { supplierName: this.paymentsSupplier } }
+                            console.log("3 ")
+                            const res = await axios.get("database_queries.php", payload )
+                            console.log("4 ")
+                            const {results} = res
+                            console.log("5 ")
+                            console.log("Result ", res.data)
                         }
                     }
 })
