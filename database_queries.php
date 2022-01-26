@@ -33,7 +33,7 @@
                 echo "failure";
             }
         } else {
-            echo "Payments";
+             $query = "SELECT * FROM invoices WHERE supplier='".$result."' AND paid='true'";
         }
         
 	}
