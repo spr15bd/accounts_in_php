@@ -33,7 +33,12 @@
                 echo "failure";
             }
         } else {
-             $query = "SELECT * FROM invoices WHERE supplier='".$result."' AND paid='true'";
+            $query = "SELECT * FROM invoices WHERE supplier='".$result."' AND paid='true'";
+            $sql_query = $conn->query($query);
+            $invoices = array();
+            while ($row=$sql_query->fetch_assoc()){
+                array_push($invoices, $row);
+            }
         }
         
 	}
