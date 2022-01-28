@@ -33,12 +33,14 @@
                 echo "failure";
             }
         } else {
+            $result = $data['data']['supplierName'];
             $query = "SELECT * FROM invoices WHERE supplier='".$result."' AND paid='true'";
             $sql_query = $conn->query($query);
             $invoices = array();
             while ($row=$sql_query->fetch_assoc()){
                 array_push($invoices, $row);
             }
+            echo json_encode($invoices);
         }
         
 	}
