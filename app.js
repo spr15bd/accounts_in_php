@@ -4,6 +4,7 @@ const app = Vue.createApp({
                     data() {
                         return {
                             supplierReview: false,
+                            totalToPay: 0,
                             addInvoice: false,
                             payments: false,
                             invoices: null,
