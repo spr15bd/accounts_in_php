@@ -1,4 +1,12 @@
 <?php
+    function varDumpToString($var) {
+      ob_start();
+      var_dump($var);
+      $result = ob_get_clean();
+      return $result;
+   }
+
+
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Methods: GET, POST");
 	// connect to database
@@ -34,6 +42,7 @@
             }
         } else {
             $result = $data['data']['supplierName'];
+            echo "result is ".varDumpToString($data);
             $query = "SELECT * FROM invoices WHERE supplier='".$result."' AND paid='true'";
             $sql_query = $conn->query($query);
             $invoices = array();
