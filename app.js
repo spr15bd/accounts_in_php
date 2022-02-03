@@ -37,7 +37,7 @@ const app = Vue.createApp({
                         },
                         async processPayments() {
                             //console.log("app.js->Processing payments")
-                            console.log("1 ")
+                            console.log("1 ", this.paymentsSupplier)
                             this.paymentProcessing = true
                             console.log("2 ")
                             let payload = { data: { supplierName: this.paymentsSupplier } }
@@ -48,7 +48,7 @@ const app = Vue.createApp({
                             console.log("5 ")
                             //console.log("Result ", res.data)
                             this.invoices = res.data
-                            console.log("invoices ", this.invoices)
+                            console.log("res ", res, "invoices ", this.invoices)
                         }
                     }
 })

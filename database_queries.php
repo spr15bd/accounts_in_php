@@ -42,7 +42,7 @@
             }
         } else {
             $result = $data['data']['supplierName'];
-            echo "result is ".varDumpToString($data);
+            echo "result is ".$data;
             $query = "SELECT * FROM invoices WHERE supplier='".$result."' AND paid='true'";
             $sql_query = $conn->query($query);
             $invoices = array();
