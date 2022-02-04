@@ -48,7 +48,7 @@ const app = Vue.createApp({
                             console.log("5 ")
                             //console.log("Result ", res.data)
                             this.invoices = res.data
-                            console.log("res ", res, "invoices ", this.invoices)
+                            console.log("res ", res.config, "invoices ", this.invoices)
                         }
                     }
 })
