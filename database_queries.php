@@ -16,7 +16,8 @@
 	if (!$conn) {
 		echo "Conection error: " . mysqli_connect_error();
 	} else {
-        $data = json_decode(file_get_contents('php://input'),true);
+        $items = json_decode(file_get_contents('php://input'),true);
+        
 		if ($data['data']['supplierName']) {
 			// perform a SELECT sql query - make the query and get result
             
@@ -42,7 +43,7 @@
             }
         } else {
             $result = $data['data']['supplierName'];
-            echo "result is ".$data;
+            echo "result is ".$items['data'];
             $query = "SELECT * FROM invoices WHERE supplier='".$result."' AND paid='true'";
             $sql_query = $conn->query($query);
             $invoices = array();
