@@ -42,7 +42,7 @@ const app = Vue.createApp({
                             console.log("2 ")
                             let payload = { data: { supplierName: this.paymentsSupplier } }
                             console.log("3 ")
-                            const res = await axios.get("database_queries.php", payload )
+                            const res = await axios.post("database_queries.php", payload )
                             console.log("4 ")
                             const {results} = res
                             console.log("5 ")

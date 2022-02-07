@@ -43,7 +43,7 @@
             }
         } else {
             $result = $data['data']['supplierName'];
-            echo "result is ".$items['data'];
+            echo "result is ".$items;
             $query = "SELECT * FROM invoices WHERE supplier='".$result."' AND paid='true'";
             $sql_query = $conn->query($query);
             $invoices = array();
