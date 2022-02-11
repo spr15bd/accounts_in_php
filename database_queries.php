@@ -45,14 +45,14 @@
             $str = implode(" ", $items['data']);
             //$result = $data['data']['supplierName'];
             //echo "result is ".$items["data"];
-            $query = "SELECT * FROM invoices WHERE supplier='".$str."' AND paid='true'";
+            $query = "SELECT number, date, amount, paid FROM invoices WHERE supplier='".$str."' AND paid='true'";
             //echo $query;
             $sql_query = $conn->query($query);
             $invoices = array();
             while ($row=$sql_query->fetch_assoc()){
                 array_push($invoices, $row);
             }
-            echo json_encode($sql_query);
+            echo json_encode($invoices);
         }
         
 	}
