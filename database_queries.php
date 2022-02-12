@@ -17,12 +17,11 @@
 		echo "Conection error: " . mysqli_connect_error();
 	} else {
         $items = json_decode(file_get_contents('php://input'), true);
-        //echo("Here result of items is ".$str);
-		if ($data['data']['supplierName']) {
+        
+		if ($items['data']['supplierName']) {
 			// perform a SELECT sql query - make the query and get result
-            
-            $result = $data['data']['supplierName'];
-            $query = "SELECT * FROM invoices WHERE supplier='".$result."'";
+            $str = implode(" ", $items['data']['supplierName']);
+            $query = "SELECT * FROM invoices WHERE supplier='".$str."'";
 			//$supplier = htmlspecialchars($_GET["supplierName"]);
 			$sql_query = $conn->query($query);
             $invoices = array();
