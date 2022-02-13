@@ -19,8 +19,9 @@
         $items = json_decode(file_get_contents('php://input'), true);
         
 		if ($items['data']['supplierName']) {
+            echo("items ".$items['data']['supplierName'])
 			// perform a SELECT sql query - make the query and get result
-            $str = implode(" ", $items['data']['supplierName']);
+            $str = implode(" ", $items['data']);
             $query = "SELECT * FROM invoices WHERE supplier='".$str."'";
 			//$supplier = htmlspecialchars($_GET["supplierName"]);
 			$sql_query = $conn->query($query);
