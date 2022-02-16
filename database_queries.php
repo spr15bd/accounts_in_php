@@ -31,8 +31,8 @@
             }
             
             echo json_encode($invoices);
-        } else if ($data['info']['supplier']) {
-            $result = $data['info'];
+        } else if ($items['info']['supplier']) {
+            $result = $items['info'];
             $query = "INSERT INTO invoices (supplier, number, date, description, office, overhead, amount) VALUES ('".$result['supplier']."','".$result['invoiceNumber']."','".$result['invoiceDate']."','".$result['invoiceDescription']."','".$result['office']."','".$result['overhead']."','".$result['invoiceAmount']."')";
             echo $query;
             $sql_query = $conn->query($query);
