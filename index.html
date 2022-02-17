@@ -68,7 +68,7 @@
                                <td>{{invoice.date}}</td>
                                <td>{{invoice.description}}</td>
                                <td>{{invoice.amount}}</td>
-                               <td>{{invoice.amount}}</td>
+                               <td>{{invoice.paid}}</td>
                                <td></td>
                             </tr>
                         </tbody>
@@ -136,15 +136,14 @@
                     <div v-if="paymentProcessing">
                         Current total to pay: {{ totalToPay }} GBP
                         <br><br>
-                        {{ invoices }}
+            
                         <table>
                             <tr v-for="invoice in invoices">
                                <td>{{invoice.number}}</td>
                                <td>{{invoice.id}}</td>
                                <td>{{invoice.date}}</td>
-                               <td>{{invoice.description}}</td>
                                <td>{{invoice.amount}}</td>
-                               <td>{{invoice.amount}}</td>
+                               <td>{{invoice.paid}}</td>
                                <td></td>
                             </tr>
                         </table>
