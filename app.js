@@ -37,19 +37,12 @@ const app = Vue.createApp({
                             const {results} = res
                         },
                         async processPayments() {
-                            //console.log("app.js->Processing payments")
-                            console.log("1 ", this.paymentsSupplier)
                             this.paymentProcessing = true
-                            console.log("2 ")
                             let payload = { data: { supplierName: this.paymentsSupplier } }
-                            console.log("3 ")
                             const res = await axios.post("database_queries.php", payload )
-                            console.log("4 ")
                             const {results} = res
-                            console.log("5 ")
                             //console.log("Result ", res.data)
                             this.invoices = res.data
-                            console.log("res ", res.config, "invoices ", this.invoices)
                         }
                     }
 })
