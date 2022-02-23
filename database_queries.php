@@ -11,7 +11,7 @@
     header("Access-Control-Allow-Methods: GET, POST");
 	// connect to database
 	$conn = new mysqli('localhost', 'root', '', 'accounts');
-	$result = array();//('error'=>false);
+	$result = array();
 	// check connection
 	if (!$conn) {
 		echo "Conection error: " . mysqli_connect_error();
@@ -19,8 +19,6 @@
         $items = json_decode(file_get_contents('php://input'), true);
         
 		if ($items['data']['supplierName']) {
-            //echo $items['data']['supplierName'];
-			// perform a SELECT sql query - make the query and get result
             $str = implode(" ", $items['data']);
             $query = "SELECT * FROM invoices WHERE supplier='".$str."'";
 			//$supplier = htmlspecialchars($_GET["supplierName"]);
