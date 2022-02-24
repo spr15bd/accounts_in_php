@@ -138,13 +138,22 @@
                         <br><br>
             
                         <table>
+                            <tr>
+                                <th></th>
+                                <th>Inv No</th>
+                                <th>Inv ID</th>
+                                <th>Inv Date</th>
+                                <th>Inv Amt</th>
+                                <th>Paid</th>
+                            </tr>
                             <tr v-for="invoice in invoices">
-                               <td>{{invoice.number}}</td>
-                               <td>{{invoice.id}}</td>
-                               <td>{{invoice.date}}</td>
-                               <td>{{invoice.amount}}</td>
-                               <td>{{invoice.paid}}</td>
-                               <td></td>
+                                <td><input type="checkbox" value="invoice.number"/></td>
+                                <td>{{invoice.number}}</td>
+                                <td>{{invoice.id}}</td>
+                                <td>{{invoice.date}}</td>
+                                <td>{{invoice.amount}}</td>
+                                <td>{{invoice.paid}}</td>
+                                <td></td>
                             </tr>
                         </table>
                     </div>
