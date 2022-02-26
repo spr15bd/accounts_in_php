@@ -43,6 +43,10 @@ const app = Vue.createApp({
                             const res = await axios.post("database_queries.php", payload )
                             const {results} = res
                             this.invoices = res.data
+                        },
+                        updatePayment(paidAmount) {
+                            this.supplierPayment += paidAmount
+                            console.log("to be paid ", this.supplierPayment)
                         }
                     }
 })
