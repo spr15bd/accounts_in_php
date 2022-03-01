@@ -4,11 +4,12 @@ const app = Vue.createApp({
                     data() {
                         return {
                             supplierReview: false,
-                            supplierPayment: 0,
-                            totalToPay: 0,
+                            supplierPayment: Number.parseFloat(0.00),
+                            totalToPay: Number.parseFloat(0.00),
                             addInvoice: false,
                             payments: false,
-                            invoices: null,
+                            checkedInvoices: [],
+                            invoices: [ { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) } ],
                             supplier: null,
                             paymentsSupplier: null,
                             invoiceNumber: null,
@@ -46,9 +47,15 @@ const app = Vue.createApp({
                         },
                         updatePayment(index) {
                             this.invoices[index].paid = this.invoices[index].paid==0?this.invoices[index].amount:0
+                            this.invoices[index].amount = this.invoices[index].amount
                             
-                            this.supplierPayment += this.invoices[index].amount
-                            console.log("to be paid ", this.supplierPayment)
+                            if (this.checkedInvoices[index] == null || this.checkedInvoices[index] == false) {
+                                this.totalToPay += parseFloat(this.invoices[index].amount)
+                            } else if (this.checkedInvoices[index] == true) {
+                                this.totalToPay -= parseFloat(this.invoices[index].amount)
+                            }
+                            //this.totalToPay = parseFloat(this.totalToPay)
+                            console.log("to be paid ", this.totalToPay)
                         }
                     }
 })
