@@ -54,8 +54,10 @@ const app = Vue.createApp({
                             } else if (this.checkedInvoices[index] == true) {
                                 this.totalToPay -= parseFloat(this.invoices[index].amount)
                             }
-                            //this.totalToPay = parseFloat(this.totalToPay)
-                            console.log("to be paid ", this.totalToPay)
+                        },
+                        paymentsSum(invoices) {
+                            
+                            console.log("payments sum")
                         }
                     }
 })
