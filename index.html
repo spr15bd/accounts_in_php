@@ -126,7 +126,6 @@
                 <section>
                     <h4 class="center">Payment Processing</h4>
                     <br/>
-                    <br/>
                     <p class="text-center py-5"></p>
                     <label>Supplier Name:</label>
                     <input type="text" name="supplier" @keyup.enter="processPayments(suppl)" v-model="paymentsSupplier"></input>
@@ -135,7 +134,7 @@
 				    </button>
                     <div v-if="paymentProcessing">
                         Current total to pay: {{ totalToPay.toFixed(2) }} GBP
-                        <br><br>{{ invoices[0] }}
+                        <br><br>
             
                         <table>
                             <tr>
@@ -153,12 +152,10 @@
                                 <td class="px-4">{{invoice.date}}</td>
                                 <td class="px-4">{{invoice.amount}}</td>
                                 <td class="px-4">{{invoice.paid}}</td>
-                                <td></td>
                             </tr>
                             <tr>
                                 <td></td><td></td><td></td><td></td>
                                 <td>{{ paymentsSum(invoices) }}</td><td></td>
-                                
                             </tr>
                         </table>
                     </div>

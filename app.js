@@ -56,8 +56,11 @@ const app = Vue.createApp({
                             }
                         },
                         paymentsSum(invoices) {
-                            
-                            console.log("payments sum")
+                            let sum = 0
+                            invoices.forEach((invoice) => {
+                                sum += parseFloat(invoice['amount'])
+                            })
+                            return sum
                         }
                     }
 })
