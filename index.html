@@ -150,12 +150,12 @@
                                 <td class="px-4">{{invoice.number}}</td>
                                 <td class="px-4">{{invoice.id}}</td>
                                 <td class="px-4">{{invoice.date}}</td>
-                                <td class="px-4">{{invoice.amount}}</td>
-                                <td class="px-4">{{invoice.paid}}</td>
+                                <td class="px-4 text-right">{{invoice.amount}}</td>
+                                <td class="px-4 text-right">{{invoice.paid}}</td>
                             </tr>
                             <tr>
                                 <td></td><td></td><td></td><td></td>
-                                <td>{{ paymentsSum(invoices) }}</td><td></td>
+                                <td class="px-4 text-right">{{ paymentsSum(invoices) }}</td><td></td>
                             </tr>
                         </table>
                     </div>
