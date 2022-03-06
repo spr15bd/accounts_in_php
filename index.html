@@ -11,7 +11,7 @@
 				    <nav class="white">
 				        <div>
 				            <p class="text-center text-light display-5 p-8">
-				                An accounting system
+				                Purchase ledger
 							</p>
 				        </div>
 				        <div class="btn-group" role="group">
@@ -141,9 +141,9 @@
                                 <th></th>
                                 <th>Inv No</th>
                                 <th>Inv ID</th>
-                                <th>Inv Date</th>
-                                <th>Inv Amt</th>
-                                <th>Paid</th>
+                                <th class="px-4 text-right">Inv Date</th>
+                                <th class="px-4 text-right">Inv Amt</th>
+                                <th class="px-4 text-right">Paid</th>
                             </tr>
                             <tr v-for="(invoice, index) in invoices">
                                 <td class="px-4"><input type="checkbox" v-model="checkedInvoices[index]" @click="updatePayment(index)"/></td>
@@ -155,7 +155,7 @@
                             </tr>
                             <tr>
                                 <td></td><td></td><td></td><td></td>
-                                <td class="px-4 text-right">{{ paymentsSum(invoices) }}</td><td></td>
+                                <td class="px-4 text-right">{{ paymentsSum(invoices) }}</td><td class="px-4 text-right">{{ totalToPay.toFixed(2) }}</td>
                             </tr>
                         </table>
                     </div>
