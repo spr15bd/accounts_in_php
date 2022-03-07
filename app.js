@@ -31,7 +31,7 @@ const app = Vue.createApp({
                             const {results} = res
                         
                             this.invoices =  res.data
-                            console.log("app.js->getSupplier(): invoices ", this.invoices)
+                            console.log("app.js->getSupplier(): invoices ", this.invoices, "length: ", this.invoices.length)
                         },
                         async update() {
                             let payload = {info: { supplier: this.supplier, invoiceNumber: this.invoiceNumber, invoiceDate: this.invoiceDate, invoiceDescription: this.invoiceDescription, office: this.office, overhead: this.overhead, invoiceAmount: this.invoiceAmount }}
