@@ -47,7 +47,8 @@
 				        Supplier Review 
 				    </button>
                 </p>
-                <div v-if="invoices.length > 0">
+                <div v-if="invoices">
+                    <div v-if="invoices.length > 0">
                     <table class="table table-striped">
                         <thead>
                             <div class="text-center"><b>{{suppl}}</b></div>
@@ -76,6 +77,7 @@
                 </div>
                 <div v-else>
                     No record for this supplier.
+                </div>
                 </div>
             </div>
             <div v-if="addInvoice">
