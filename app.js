@@ -9,6 +9,7 @@ const app = Vue.createApp({
                             addInvoice: false,
                             payments: false,
                             checkedInvoices: [],
+                            vendorInvoices: null,
                             invoices: [ { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) } ],
                             supplier: null,
                             paymentsSupplier: null,
@@ -30,8 +31,7 @@ const app = Vue.createApp({
                             const res = await axios.post("database_queries.php", payload )
                             const {results} = res
                         
-                            this.invoices =  res.data
-                            console.log("app.js->getSupplier(): invoices ", this.invoices, "length: ", this.invoices.length)
+                            this.vendorInvoices =  res.data
                         },
                         async update() {
                             let payload = {info: { supplier: this.supplier, invoiceNumber: this.invoiceNumber, invoiceDate: this.invoiceDate, invoiceDescription: this.invoiceDescription, office: this.office, overhead: this.overhead, invoiceAmount: this.invoiceAmount }}

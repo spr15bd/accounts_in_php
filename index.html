@@ -47,8 +47,8 @@
 				        Supplier Review 
 				    </button>
                 </p>
-                <div v-if="invoices">
-                    <div v-if="invoices.length > 0">
+                <div v-if="vendorInvoices">
+                    <div v-if="vendorInvoices.length > 0">
                     <table class="table table-striped">
                         <thead>
                             <div class="text-center"><b>{{suppl}}</b></div>
@@ -63,7 +63,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="invoice in invoices">
+                            <tr v-for="invoice in vendorInvoices">
                                <td>{{invoice.number}}</td>
                                <td>{{invoice.id}}</td>
                                <td>{{invoice.date}}</td>
