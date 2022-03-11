@@ -51,13 +51,14 @@
                     <div v-if="vendorInvoices.length > 0">
                     <table class="table table-striped">
                         <thead>
-                            <div class="text-center"><b>{{suppl}}</b></div>
+                            <div class="text-center fw-bold"><h3>{{suppl}}</h3></div>
                             <tr class="bg-info">
                                 <th>Invoice Number</th>
                                 <th>Reference</th>
                                 <th>Invoice Date</th>
                                 <th>Description</th>
-                                <th>Total</td>
+                                <th>Total</th>
+                                <th>Paid</th>
                                 <th>Outstanding</th>
                                 <th>Payment Date</th>
                             </tr>
@@ -70,6 +71,7 @@
                                <td>{{invoice.description}}</td>
                                <td>{{invoice.amount}}</td>
                                <td>{{invoice.paid}}</td>
+                               <td>{{invoice.amount - invoice.paid}}</td>
                                <td></td>
                             </tr>
                         </tbody>
