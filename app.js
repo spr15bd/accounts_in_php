@@ -46,7 +46,7 @@ const app = Vue.createApp({
                             this.invoices = res.data
                         },
                         updatePayment(index) {
-                            this.invoices[index].paid = this.invoices[index].paid==0?this.invoices[index].amount:0
+                            this.invoices[index].paid = this.invoices[index].paid==0?this.invoices[index].amount:"0.00"
                             this.invoices[index].amount = this.invoices[index].amount
                             
                             if (this.checkedInvoices[index] == null || this.checkedInvoices[index] == false) {
