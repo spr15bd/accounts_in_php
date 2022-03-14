@@ -63,6 +63,11 @@ const app = Vue.createApp({
                             })
                             return sum
                         }
+                    },
+                    computed: {
+                        sum(invoices) {
+                            return "sum"
+                        }
                     }
 })
 

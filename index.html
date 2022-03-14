@@ -74,6 +74,15 @@
                                <td>{{invoice.amount - invoice.paid}}</td>
                                <td></td>
                             </tr>
+                            <tr>
+                               <td></td>
+                               <td></td>
+                               <td></td>
+                               <td></td>
+                               <td>{{ sum(vendorInvoices) }}</td>
+                               <td></td>
+                               <td></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -133,6 +142,11 @@
                 <section>
                     <h4 class="center">Payment Processing</h4>
                     <br/>
+                    <div class="col-lg-6">
+								<button class="btn btn-info" @click="supplierReview=false; addInvoice=false; suppl=null; payments=false; paymentsSummaryPage=true">
+								    Payments summary
+								</button>
+				            </div>
                     <p class="text-center py-5"></p>
                     <label>Supplier Name:</label>
                     <input type="text" name="supplier" @keyup.enter="processPayments(suppl)" v-model="paymentsSupplier"></input>
