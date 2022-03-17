@@ -69,19 +69,20 @@
                                <td>{{invoice.id}}</td>
                                <td>{{invoice.date}}</td>
                                <td>{{invoice.description}}</td>
-                               <td>{{invoice.amount}}</td>
-                               <td>{{invoice.paid}}</td>
-                               <td>{{invoice.amount - invoice.paid}}</td>
-                               <td></td>
+                               <td class="text-end">{{invoice.amount}}</td>
+                               <td class="text-end">{{invoice.paid}}</td>
+                               <td class="text-end">{{invoice.amount - invoice.paid}}</td>
+                               <td class="text-end"></td>
                             </tr>
                             <tr>
                                <td></td>
                                <td></td>
                                <td></td>
                                <td></td>
-                               <td>{{ reviewSum(vendorInvoices) }}</td>
-                               <td></td>
-                               <td></td>
+                               <td class="text-end">{{ reviewTotalSum(vendorInvoices).toFixed(2) }}</td>
+                               <td class="text-end">{{ reviewPaidSum(vendorInvoices).toFixed(2) }}</td>
+                               <td class="text-end"></td>
+                               <td class="text-end"></td>
                             </tr>
                         </tbody>
                     </table>
