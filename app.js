@@ -77,6 +77,13 @@ const app = Vue.createApp({
                                 sum += parseFloat(invoice.paid)
                             })
                             return sum
+                        },
+                        reviewOutstandingSum(invoices) {
+                            let sum = 0
+                            invoices.forEach((invoice)=> {
+                                sum += parseFloat(invoice.amount - invoice.paid)
+                            })
+                            return sum
                         }
                     },
                     computed: {
