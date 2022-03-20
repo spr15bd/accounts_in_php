@@ -8,6 +8,7 @@ const app = Vue.createApp({
                             totalToPay: Number.parseFloat(0.00),
                             addInvoice: false,
                             payments: false,
+                            paymentsArr: [],
                             checkedInvoices: [],
                             vendorInvoices: null,
                             invoices: [ { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) } ],
@@ -43,12 +44,12 @@ const app = Vue.createApp({
                             this.paymentProcessing = true
                             let payload = { data: { supplierName: this.paymentsSupplier } }
                             const res = await axios.post("database_queries.php", payload )
-                            const {results} = res
                             this.invoices = res.data
                         },
                         updatePayment(index) {
                             this.invoices[index].paid = this.invoices[index].paid==0?this.invoices[index].amount:"0.00"
                             this.invoices[index].amount = this.invoices[index].amount
+                            this.paymentsArr[paymentsSupplier] = {this.invoices}
                             
                             if (this.checkedInvoices[index] == null || this.checkedInvoices[index] == false) {
                                 this.totalToPay += parseFloat(this.invoices[index].amount)
