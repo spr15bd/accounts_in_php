@@ -189,10 +189,13 @@
                 </section>
             </div>
             <div v-if="paymentsSummaryPage">
-                Payments summary here (loop through the payments suppliers array){{paymentsArr}}
-                <div v-for="supplier in paymentsArr">
+                Payments summary here (loop through the payments suppliers array){{paymentsArr['Ulreco']}}
+                <div v-for="supplier, index in paymentsArr">
                     <div>
-                        {{supplier}}
+                        {{ supplier }}
+                    </div>
+                    <div>
+                        {{paymentsArr[index]}}
                     </div>
                     <br>
                 </div>
