@@ -8,7 +8,7 @@ const app = Vue.createApp({
                             totalToPay: Number.parseFloat(0.00),
                             addInvoice: false,
                             payments: false,
-                            paymentsArr: [],
+                            paymentsSelected: {},
                             checkedInvoices: [],
                             vendorInvoices: null,
                             invoices: [ { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) } ],
@@ -49,7 +49,7 @@ const app = Vue.createApp({
                         updatePayment(index) {
                             this.invoices[index].paid = this.invoices[index].paid==0?this.invoices[index].amount:"0.00"
                             this.invoices[index].amount = this.invoices[index].amount
-                            this.paymentsArr[String(this.paymentsSupplier)] = this.totalToPay
+                            this.paymentsSelected[String(this.paymentsSupplier)] = this.totalToPay
                             console.log("PaymentsArr ", this.paymentsArr)           
                             if (this.checkedInvoices[index] == null || this.checkedInvoices[index] == false) {
                                 this.totalToPay += parseFloat(this.invoices[index].amount)
