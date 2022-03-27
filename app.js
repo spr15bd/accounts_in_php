@@ -1,6 +1,4 @@
 const app = Vue.createApp({
-    
-
                     data() {
                         return {
                             supplierReview: false,
@@ -31,8 +29,6 @@ const app = Vue.createApp({
                             console.log("app.js->getSupplier(): getting supplier data for ", this.suppl)
                             let payload = { data: { supplierName: this.suppl } }
                             const res = await axios.post("database_queries.php", payload )
-                            const {results} = res
-                        
                             this.vendorInvoices =  res.data
                         },
                         async update() {
@@ -49,13 +45,13 @@ const app = Vue.createApp({
                         updatePayment(index) {
                             this.invoices[index].paid = this.invoices[index].paid==0?this.invoices[index].amount:"0.00"
                             this.invoices[index].amount = this.invoices[index].amount
-                            this.paymentsSelected[String(this.paymentsSupplier)] = this.totalToPay
                             console.log("PaymentsArr ", this.paymentsArr)           
                             if (this.checkedInvoices[index] == null || this.checkedInvoices[index] == false) {
                                 this.totalToPay += parseFloat(this.invoices[index].amount)
                             } else if (this.checkedInvoices[index] == true) {
                                 this.totalToPay -= parseFloat(this.invoices[index].amount)
                             }
+                            this.paymentsSelected[String(this.paymentsSupplier)] = this.totalToPay
                         },
                         paymentsSum(invoices) {
                             let sum = 0
