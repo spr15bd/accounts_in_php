@@ -44,14 +44,18 @@ const app = Vue.createApp({
                         },
                         updatePayment(index) {
                             this.invoices[index].paid = this.invoices[index].paid==0?this.invoices[index].amount:"0.00"
-                            this.invoices[index].amount = this.invoices[index].amount
-                            console.log("PaymentsArr ", this.paymentsArr)           
+                            this.invoices[index].amount = this.invoices[index].amount           
                             if (this.checkedInvoices[index] == null || this.checkedInvoices[index] == false) {
                                 this.totalToPay += parseFloat(this.invoices[index].amount)
                             } else if (this.checkedInvoices[index] == true) {
                                 this.totalToPay -= parseFloat(this.invoices[index].amount)
                             }
                             this.paymentsSelected[String(this.paymentsSupplier)] = this.totalToPay
+                            console.log("PaymentsSelected ", this.paymentsSelected)
+                            this.paymentsSelected.grandTotal = 0
+                            this.paymentsSelected.forEach((supplier)=>{
+                              this.paymentsSelected.grandTotal += supplier  
+                            })
                         },
                         paymentsSum(invoices) {
                             let sum = 0
