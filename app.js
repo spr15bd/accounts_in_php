@@ -7,10 +7,8 @@ const app = Vue.createApp({
                             addInvoice: false,
                             payments: false,
                             paymentsSelected: {
-                                [ supplier: null ], 
-                            }
-                                { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) }
-                            ,
+                                [ { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) } ], 
+                            },
                             checkedInvoices: [],
                             vendorInvoices: null,
                             invoices: [ { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) } ],
@@ -47,6 +45,7 @@ const app = Vue.createApp({
                             this.invoices = res.data
                         },
                         updatePayment(index) {
+                            //NEW LINE: this.paymentsSelected['Ulreco'][invoices].paid = this.invoices[index].paid==0?this.invoices[index].amount:"0.00"
                             this.invoices[index].paid = this.invoices[index].paid==0?this.invoices[index].amount:"0.00"
                             this.invoices[index].amount = this.invoices[index].amount           
                             if (this.checkedInvoices[index] == null || this.checkedInvoices[index] == false) {
