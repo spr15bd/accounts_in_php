@@ -45,8 +45,8 @@ const app = Vue.createApp({
                             this.invoices = res.data
                         },
                         updatePayment(index) {
-                            //NEW LINE: this.paymentsSelected['Ulreco'][invoices].paid = this.invoices[index].paid==0?this.invoices[index].amount:"0.00"
-                            this.invoices[index].paid = this.invoices[index].paid==0?this.invoices[index].amount:"0.00"
+                            this.paymentsSelected['Ulreco'][invoices].paid = this.invoices[index].paid==0?this.invoices[index].amount:"0.00"
+                            // OLD LINE: this.invoices[index].paid = this.invoices[index].paid==0?this.invoices[index].amount:"0.00"
                             this.invoices[index].amount = this.invoices[index].amount           
                             if (this.checkedInvoices[index] == null || this.checkedInvoices[index] == false) {
                                 this.totalToPay += parseFloat(this.invoices[index].amount)

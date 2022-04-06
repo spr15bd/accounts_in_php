@@ -41,10 +41,7 @@
             }
         } else {
             $str = implode(" ", $items['data']);
-            //$result = $data['data']['supplierName'];
-            //echo "result is ".$items["data"];
             $query = "SELECT number, date, amount, paid FROM invoices WHERE supplier='".$str."' AND paid='true'";
-            //echo $query;
             $sql_query = $conn->query($query);
             $invoices = array();
             while ($row=$sql_query->fetch_assoc()){
