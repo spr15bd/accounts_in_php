@@ -7,7 +7,7 @@ const app = Vue.createApp({
                             addInvoice: false,
                             payments: false,
                             paymentsSelected: {
-                                [ { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) } ], 
+                                invoice: [ { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) } ]
                             },
                             checkedInvoices: [],
                             vendorInvoices: null,
@@ -47,6 +47,7 @@ const app = Vue.createApp({
                         updatePayment(index) {
                             this.paymentsSelected['Ulreco'][invoices].paid = this.invoices[index].paid==0?this.invoices[index].amount:"0.00"
                             // OLD LINE: this.invoices[index].paid = this.invoices[index].paid==0?this.invoices[index].amount:"0.00"
+                            console.log("paymentsSelected: ", this.paymentsSelected)
                             this.invoices[index].amount = this.invoices[index].amount           
                             if (this.checkedInvoices[index] == null || this.checkedInvoices[index] == false) {
                                 this.totalToPay += parseFloat(this.invoices[index].amount)
