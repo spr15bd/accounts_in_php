@@ -7,7 +7,7 @@ const app = Vue.createApp({
                             addInvoice: false,
                             payments: false,
                             paymentsSelected: {
-                                invoice: { 
+                                supplier: { 
                                     id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) 
                                 }
                             },
