@@ -11,6 +11,7 @@ const app = Vue.createApp({
                                     Ulreco: [{ id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2)}]
                                 }
                             },
+                            invoices: [],
                             checkedInvoices: [],
                             vendorInvoices: null,
                             //invoices: [ { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) } ],
