@@ -169,7 +169,7 @@
                                         <th class="px-4 text-right">Inv Amt</th>
                                         <th class="px-4 text-right">Paid</th>
                                     </tr>
-                                    <tr v-for="(invoice, index) in paymentsSelected[String(paymentsSupplier)].invoices">
+                                    <tr v-for="(invoice, index) in vendorInvoices">
                                         <td class="px-4"><input type="checkbox" v-model="checkedInvoices[index]" @click="updatePayment(index)"/></td>
                                         <td class="px-4">{{invoice.number}}</td>
                                         <td class="px-4">{{invoice.id}}</td>
