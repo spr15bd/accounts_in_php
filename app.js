@@ -60,7 +60,7 @@ const app = Vue.createApp({
                             this.paymentsSelected[String(this.paymentsSupplier)] = this.totalToPay
                             console.log("PaymentsSelected ", this.paymentsSelected)
                             this.paymentsSelected.grandTotal = 0
-                            this.paymentsSelected.forEach((supplier)=>{
+                            for (supplier in this.paymentsSelected)=>{
                               this.paymentsSelected.grandTotal += supplier  
                             })
                         },
