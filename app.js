@@ -8,7 +8,7 @@ const app = Vue.createApp({
                             payments: false,
                             paymentsSelected: {
                                 supplier: {
-                                    Ulreco: [{ id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2)}]
+                                    Ulreco: []
                                 }
                             },
                             //invoices: [],
@@ -60,9 +60,9 @@ const app = Vue.createApp({
                             this.paymentsSelected[String(this.paymentsSupplier)] = this.totalToPay
                             console.log("PaymentsSelected ", this.paymentsSelected)
                             this.paymentsSelected.grandTotal = 0
-                            for (supplier in this.paymentsSelected)=>{
+                            for (supplier in this.paymentsSelected) {
                               this.paymentsSelected.grandTotal += supplier  
-                            })
+                            }
                         },
                         paymentsSum(invoices) {
                             let sum = 0
