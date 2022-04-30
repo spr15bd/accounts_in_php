@@ -157,7 +157,6 @@
                     <div v-if="paymentProcessing">
                         Current total to pay: {{ totalToPay.toFixed(2) }} GBP
                         <br><br>
-            
                         <div v-if="invoices">
                             <div v-if="invoices.length > 0">
                                 <table>
@@ -169,7 +168,7 @@
                                         <th class="px-4 text-right">Inv Amt</th>
                                         <th class="px-4 text-right">Paid</th>
                                     </tr>
-                                    <tr v-for="(invoice, index) in paymentsSelected.supplier['Ulreco']">
+                                    <tr v-for="(invoice, index) in vendorInvoices">
                                         <td class="px-4"><input type="checkbox" v-model="checkedInvoices[index]" @click="updatePayment(index)"/></td>
                                         <td class="px-4">{{invoice.number}}</td>
                                         <td class="px-4">{{invoice.id}}</td>
