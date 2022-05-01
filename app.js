@@ -54,7 +54,7 @@ const app = Vue.createApp({
                             this.paymentProcessing = true
                             let payload = { data: { supplierName: this.paymentsSupplier } }
                             const res = await axios.post("database_queries.php", payload )
-                            this.invoices = res.data
+                            this.vendorInvoices = res.data
                             console.log("res from getting invs ", res)
                         },
                         updatePayment(index) {
