@@ -8,15 +8,15 @@ const app = Vue.createApp({
                             payments: false,
                             paymentsSelected: {
                                 supplier: {
-                                    Ulreco: [] invoices,
+                                    Ulreco: [],
                                        
                                         //{ id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) },
                                         //{ id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) },
                                         //{ id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) },
                                         //{ id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) }
                                     //],
-                                    TenSystems: [] invs,
-                                    SharpDesign: [] invs,
+                                    TenSystems: [],
+                                    SharpDesign: [],
                                 }
                             },
                             //invoices: [],
@@ -59,7 +59,10 @@ const app = Vue.createApp({
                         },
                         updatePayment(index) {
                             console.log("index is ", index)
-                            this.paymentsSelected.supplier['Ulreco'][index].paid = this.paymentsSelected.supplier['Ulreco'][index].paid?==0.00?this.vendorInvoices.supplier['Ulreco'][index].amount:"0.00"
+                            if (!this.paymentsSelected.supplier['Ulreco'][index].paid) {
+                                //this.paymentsSelected.supplier['Ulreco'][index].paid = 0
+                            }
+                            this.paymentsSelected.supplier['Ulreco'][index].paid = this.paymentsSelected.supplier['Ulreco'][index].paid===0.00?this.vendorInvoices.supplier['Ulreco'][index].amount:"0.00"
                             // OLD LINE: this.invoices[index].paid = this.invoices[index].paid==0?this.invoices[index].amount:"0.00"
                             console.log("paymentsSelected: ", this.paymentsSelected)
                             this.invoices[index].amount = this.invoices[index].amount           
