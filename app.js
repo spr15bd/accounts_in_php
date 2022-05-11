@@ -9,17 +9,10 @@ const app = Vue.createApp({
                             paymentsSelected: {
                                 supplier: {
                                     Ulreco: [],
-                                       
-                                        //{ id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) },
-                                        //{ id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) },
-                                        //{ id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) },
-                                        //{ id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) }
-                                    //],
                                     TenSystems: [],
                                     SharpDesign: [],
                                 }
                             },
-                            //invoices: [],
                             checkedInvoices: [],
                             vendorInvoices: null,
                             invoices: [ { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) } ],
@@ -55,7 +48,6 @@ const app = Vue.createApp({
                             let payload = { data: { supplierName: this.paymentsSupplier } }
                             const res = await axios.post("database_queries.php", payload )
                             this.vendorInvoices = res.data
-                            console.log("res from getting invs ", res)
                         },
                         updatePayment(index) {
                             console.log("index is ", index)
