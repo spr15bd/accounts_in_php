@@ -51,9 +51,7 @@ const app = Vue.createApp({
                         },
                         updatePayment(index) {
                             console.log("index is ", index)
-                            //if (!this.paymentsSelected.supplier['Ulreco'][index].paid) {
-                            //    //this.paymentsSelected.supplier['Ulreco'][index].paid = 0
-                            //}
+                        
                             this.paymentsSelected.supplier['Ulreco'][index] = this.paymentsSelected.supplier['Ulreco'][index]===0.00?this.vendorInvoices.supplier['Ulreco'][index].amount:"0.00"
                             console.log("paymentsSelected: ", this.paymentsSelected)
                             //this.invoices[index].amount = this.invoices[index].amount           
