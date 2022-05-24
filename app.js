@@ -53,7 +53,11 @@ const app = Vue.createApp({
                             console.log("index is ", index) 
                             console.log("vendorInvoices: ", this.vendorInvoices)
                         
-                            this.paymentsSelected.supplier['Ulreco'][index] = this.paymentsSelected.supplier['Ulreco'][index]==0.00?this.vendorInvoices[index].amount:0.00
+                            if (this.paymentsSelected.supplier['Ulreco'][index] == 0) {
+                                this.paymentsSelected.supplier['Ulreco'][index] = this.vendorInvoices[index].amount
+                            } else {
+                                this.paymentsSelected.supplier['Ulreco'][index] = 0.00
+                            }
                             console.log("payment selected: ", this.paymentsSelected.supplier['Ulreco'][index])
                             console.log("invoice selected: ", this.vendorInvoices[index].amount)
                             //this.invoices[index].amount = this.invoices[index].amount           
