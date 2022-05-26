@@ -60,6 +60,7 @@ const app = Vue.createApp({
                                 this.paymentsSelected.supplier['Ulreco'][index] = 0.00
                                 console.log("From amount to zero")
                             }
+                            this.totalToPay += this.paymentsSelected.supplier['Ulreco'][index]
                             console.log("payment selected: ", this.paymentsSelected.supplier['Ulreco'][index])
                             console.log("invoice selected: ", this.vendorInvoices[index].amount)
                             //this.invoices[index].amount = this.invoices[index].amount           
