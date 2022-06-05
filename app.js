@@ -50,7 +50,6 @@ const app = Vue.createApp({
                             this.vendorInvoices = res.data
                         },
                         updatePayment(index) {
-                            console.log("index is ", index) 
                             console.log("vendorInvoices: ", this.vendorInvoices)
                             console.log("amount is ", this.paymentsSelected.supplier['Ulreco'][index])
                             if (this.paymentsSelected.supplier['Ulreco'][index] == 0.00 || this.paymentsSelected.supplier['Ulreco'][index] === undefined) {
@@ -62,8 +61,6 @@ const app = Vue.createApp({
                                 console.log("From amount to zero")
                                 this.totalToPay -= parseFloat(this.vendorInvoices[index].amount)
                             }
-                            
-                            console.log("payment selected: ", this.paymentsSelected.supplier['Ulreco'][index])
                             console.log("total to pay: ", this.totalToPay)
                             console.log("invoice selected: ", this.vendorInvoices[index].amount)
                             //this.invoices[index].amount = this.invoices[index].amount           
