@@ -7,11 +7,9 @@ const app = Vue.createApp({
                             addInvoice: false,
                             payments: false,
                             paymentsSelected: {
-                                supplier: {
-                                    Ulreco: [],
-                                    TenSystems: [],
-                                    SharpDesign: [],
-                                }
+                                supplier: [
+                                    suppliers: []
+                                ]
                             },
                             checkedInvoices: [],
                             vendorInvoices: null,
@@ -53,12 +51,10 @@ const app = Vue.createApp({
                             console.log("vendorInvoices: ", this.vendorInvoices)
                             console.log("amount is ", this.paymentsSelected.supplier['Ulreco'][index])
                             if (this.paymentsSelected.supplier['Ulreco'][index] == 0.00 || this.paymentsSelected.supplier['Ulreco'][index] === undefined) {
-                                console.log("From 0 to amount")
                                 this.paymentsSelected.supplier['Ulreco'][index] = parseFloat(this.vendorInvoices[index].amount)
                                 this.totalToPay += parseFloat(this.vendorInvoices[index].amount)
                             } else {
                                 this.paymentsSelected.supplier['Ulreco'][index] = 0.00
-                                console.log("From amount to zero")
                                 this.totalToPay -= parseFloat(this.vendorInvoices[index].amount)
                             }
                             console.log("total to pay: ", this.totalToPay)
