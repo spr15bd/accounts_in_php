@@ -34,7 +34,7 @@ const app = Vue.createApp({
                             let payload = { data: { supplierName: this.suppl } }
                             const res = await axios.post("database_queries.php", payload )
                             this.vendorInvoices =  res.data
-                            this.paymentsSelected['Ulreco'] = vendorInvoices
+                            this.paymentsSelected['Ulreco'] = this.vendorInvoices
                         },
                         async update() {
                             let payload = {info: { supplier: this.supplier, invoiceNumber: this.invoiceNumber, invoiceDate: this.invoiceDate, invoiceDescription: this.invoiceDescription, office: this.office, overhead: this.overhead, invoiceAmount: this.invoiceAmount }}
@@ -46,8 +46,9 @@ const app = Vue.createApp({
                             this.paymentProcessing = true
                             let payload = { data: { supplierName: this.paymentsSupplier } }
                             const res = await axios.post("database_queries.php", payload )
-                            console.log("result is ", res)
+                           
                             this.vendorInvoices = res.data
+                            console.log("result is ", this.vendorInvoices)
                         },
                         updatePayment(index) {
                             console.log("vendorInvoices: ", this.vendorInvoices)
