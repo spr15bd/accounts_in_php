@@ -150,13 +150,13 @@
 				            </div>
                     <p class="text-center py-5"></p>
                     <label>Supplier Name:</label>
-                    <input type="text" name="supplier" @keyup.enter="processPayments(suppl)" v-model="paymentsSupplier"></input>
-                    <button class="btn btn-info" @click="processPayments()">
+                    <input type="text" name="supplier" @keyup.enter="processPayments()" v-model="paymentsSupplier"></input>
+                    <button class="btn btn-info" @click="processPayments">
 				        Process payments 
 				    </button>
                     <div v-if="paymentProcessing">
                         Current total to pay: {{ totalToPay.toFixed(2) }} GBP
-                        <br><br>vis: {{vendorInvoices}}
+                        <br><br>vendor invoices: {{vendorInvoices}}
                         <div v-if="invoices">
                             <div v-if="invoices.length > 0">
                                 <table>

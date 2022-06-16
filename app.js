@@ -48,16 +48,16 @@ const app = Vue.createApp({
                             const res = await axios.post("database_queries.php", payload )
                            
                             this.vendorInvoices = res.data
-                            console.log("result is ", this.vendorInvoices)
+                            console.log("result is vendorInvoices is: ", this.vendorInvoices)
                         },
                         updatePayment(index) {
                             console.log("vendorInvoices: ", this.vendorInvoices)
                             console.log("index is ", index)
-                            if (this.paymentsSelected['Ulreco'][index] == 0.00 || this.paymentsSelected['Ulreco'][index] === undefined) {
-                                this.paymentsSelected['Ulreco'][index] = parseFloat(this.vendorInvoices[index].amount)
+                            if (this.paymentsSelected.supplier['Ulreco'][index] == 0.00 || this.paymentsSelected['Ulreco'][index] === undefined) {
+                                this.paymentsSelected.supplier['Ulreco'][index] = parseFloat(this.vendorInvoices[index].amount)
                                 this.totalToPay += parseFloat(this.vendorInvoices[index].amount)
                             } else {
-                                this.paymentsSelected['Ulreco'][index] = 0.00
+                                this.paymentsSelected.supplier['Ulreco'][index] = 0.00
                                 this.totalToPay -= parseFloat(this.vendorInvoices[index].amount)
                             }
                             console.log("total to pay: ", this.totalToPay)
