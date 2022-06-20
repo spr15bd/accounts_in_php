@@ -156,7 +156,7 @@
 				    </button>
                     <div v-if="paymentProcessing">
                         Current total to pay: {{ totalToPay.toFixed(2) }} GBP
-                        <br><br>vendor invoices: {{vendorInvoices}}
+                        <br><br>vendor invoices: {{ vendorInvoices }}
                         <div v-if="invoices">
                             <div v-if="invoices.length > 0">
                                 <table>

@@ -12,7 +12,7 @@ const app = Vue.createApp({
                                 ]
                             },
                             checkedInvoices: [],
-                            vendorInvoices: null,
+                            vendorInvoices: [{ id: 0; supplier: ''; number: 0; date: null; description: ''; amount: 0; office: ''; overhead: ''}],
                             invoices: [ { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) } ],
                             supplier: null,
                             paymentsSummaryPage: false,
@@ -47,8 +47,9 @@ const app = Vue.createApp({
                             let payload = { data: { supplierName: this.paymentsSupplier } }
                             
                            
-                            this.vendorInvoices = JSON.stringify(await axios.post("database_queries.php", payload ))
-                            console.log("result is vendorInvoices is: ", this.vendorInvoices)
+                            let res = JSON.parse(JSON.stringify(await axios.post("database_queries.php", payload )))
+                            console.log("result is vendorInvoices is: ", res.data)
+                            this.vendorInvoices = res.data
                         },
                         updatePayment(index) {
                             console.log("vendorInvoices: ", this.vendorInvoices)
