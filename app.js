@@ -12,7 +12,7 @@ const app = Vue.createApp({
                                 ]
                             },
                             checkedInvoices: [],
-                            vendorInvoices: [{ id: 0; supplier: ''; number: 0; date: null; description: ''; amount: 0; office: ''; overhead: ''}],
+                            vendorInvoices: [null],
                             invoices: [ { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) } ],
                             supplier: null,
                             paymentsSummaryPage: false,
@@ -29,6 +29,7 @@ const app = Vue.createApp({
                         }
                     },
                     methods: {
+                        
                         async getSupplier() {
                             console.log("app.js->getSupplier(): getting supplier data for ", this.suppl)
                             let payload = { data: { supplierName: this.suppl } }
@@ -47,9 +48,9 @@ const app = Vue.createApp({
                             let payload = { data: { supplierName: this.paymentsSupplier } }
                             
                            
-                            let res = JSON.parse(JSON.stringify(await axios.post("database_queries.php", payload )))
+                            let res = await axios.post("database_queries.php", payload )
                             console.log("result is vendorInvoices is: ", res.data)
-                            this.vendorInvoices = res.data
+                            this.vendorInvoices = [res.data]
                         },
                         updatePayment(index) {
                             console.log("vendorInvoices: ", this.vendorInvoices)
