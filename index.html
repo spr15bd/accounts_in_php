@@ -150,8 +150,8 @@
 				            </div>
                     <p class="text-center py-5"></p>
                     <label>Supplier Name:</label>
-                    <input type="text" name="supplier" @keyup.enter="processPayments()" v-model="paymentsSupplier"></input>
-                    <button class="btn btn-info" @click="processPayments">
+                    <input type="text" name="supplier" @keyup.enter="getSupplier" v-model="paymentsSupplier"></input>
+                    <button class="btn btn-info" @click="getSupplier">
 				        Process payments 
 				    </button>
                     <div v-if="paymentProcessing">
