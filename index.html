@@ -11,7 +11,7 @@
 				    <nav class="white">
 				        <div>
 				            <p class="text-center text-light display-5 p-8">
-				                Purchase ledger  {{paymentsSelected}}Vendor invoices
+				                Purchase ledger
 							</p>
 				        </div>
 				        <div class="btn-group" role="group">
@@ -150,8 +150,8 @@
 				            </div>
                     <p class="text-center py-5"></p>
                     <label>Supplier Name:</label>
-                    <input type="text" name="supplier" @keyup.enter="getSupplier" v-model="paymentsSupplier"></input>
-                    <button class="btn btn-info" @click="getSupplier">
+                    <input type="text" name="supplier" @keyup.enter="processPayments" v-model="suppl"></input>
+                    <button class="btn btn-info" @click="processPayments">
 				        Process payments 
 				    </button>
                     <div v-if="paymentProcessing">
