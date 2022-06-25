@@ -6,11 +6,11 @@ const app = Vue.createApp({
                             totalToPay: Number.parseFloat(0.00),
                             addInvoice: false,
                             payments: false,
-                            paymentsSelected: {
-                                supplier: [
+                            paymentsSelected: [
+                                [
                                     []
                                 ]
-                            },
+                            ],
                             checkedInvoices: [],
                             vendorInvoices: [],
                             invoices: [ { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) } ],
