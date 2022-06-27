@@ -59,18 +59,6 @@ const app = Vue.createApp({
                             }
                             console.log("total to pay: ", this.totalToPay)
                             console.log("invoice selected: ", this.vendorInvoices[index].amount)
-                            //this.invoices[index].amount = this.invoices[index].amount           
-                            /*if (this.checkedInvoices[index] == null || this.checkedInvoices[index] == false) {
-                                this.totalToPay += parseFloat(this.invoices[index].amount)
-                            } else if (this.checkedInvoices[index] == true) {
-                                this.totalToPay -= parseFloat(this.invoices[index].amount)
-                            }*/
-                            //this.paymentsSelected[String(this.paymentsSupplier)] = this.totalToPay
-                            //console.log("PaymentsSelected ", this.paymentsSelected)
-                            //this.paymentsSelected.grandTotal = 0
-                            //for (invoice in this.paymentsSelected['Ulreco']) {
-                            // this.paymentsSelected.grandTotal += invoice  
-                            //}
                         },
                         paymentsSum(invoices) {
                             console.log("invoices ", invoices)
