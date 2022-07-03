@@ -45,7 +45,8 @@ const app = Vue.createApp({
                             if (!this.paymentsSelected[this.suppl]) {
                                 this.paymentsSelected.push(this.suppl)
                             }
-                            this.paymentsSelected['Ulreco'].push(this.vendorInvoices)
+                            console.log("paymentsSelected: ", this.paymentsSelected)
+                            //this.paymentsSelected['Ulreco'].push(this.vendorInvoices)
                         },
                         updatePayment(index) {
                             console.log("vendorInvoices: ", this.vendorInvoices)
