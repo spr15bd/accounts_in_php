@@ -6,7 +6,7 @@ const app = Vue.createApp({
                             totalToPay: Number.parseFloat(0.00),
                             addInvoice: false,
                             payments: false,
-                            paymentsSelected: [],
+                            paymentsSelected: {},
                             checkedInvoices: [],
                             vendorInvoices: [],
                             invoices: [ { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) } ],
@@ -43,7 +43,7 @@ const app = Vue.createApp({
                             this.paymentProcessing = true
                             this.getSupplier()
                             if (!this.paymentsSelected[this.suppl]) {
-                                this.paymentsSelected.push(this.suppl)
+                                this.paymentsSelected[this.suppl] = this.vendorInvoices
                             }
                             console.log("paymentsSelected: ", this.paymentsSelected)
                             //this.paymentsSelected['Ulreco'].push(this.vendorInvoices)
