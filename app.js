@@ -52,11 +52,11 @@ const app = Vue.createApp({
                             console.log("vendorInvoices[index] before update: ", this.vendorInvoices[index])
                             console.log("index is ", index)
                             console.log("paymentsSelected ", this.paymentsSelected)
-                            if (this.paymentsSelected['Ulreco'][index].amount == 0.00 || this.paymentsSelected['Ulreco'][index].amount === undefined) {
-                                this.paymentsSelected['Ulreco'][index].amount = parseFloat(this.vendorInvoices[index].amount)
+                            if (this.paymentsSelected['Ulreco'][index].paid == 0.00 || this.paymentsSelected['Ulreco'][index].paid === undefined) {
+                                this.paymentsSelected['Ulreco'][index].paid = parseFloat(this.vendorInvoices[index].amount)
                                 this.totalToPay += parseFloat(this.vendorInvoices[index].amount)
                             } else {
-                                this.paymentsSelected['Ulreco'][index] = 0.00
+                                this.paymentsSelected['Ulreco'][index].paid = 0.00
                                 this.totalToPay -= parseFloat(this.vendorInvoices[index].amount)
                             }
                             console.log("vendorInvoices[index] after update: ", this.vendorInvoices[index])
