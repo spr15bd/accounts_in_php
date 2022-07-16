@@ -93,8 +93,8 @@ const app = Vue.createApp({
                             })
                             return sum
                         },
-                        toTwoDecimalPlaces(value) {
-                            return value.toFixed(2)
+                        toTwoDecimalPlaces(total) {
+                            return total.toFixed(2)
                         }
                     },
                     computed: {
