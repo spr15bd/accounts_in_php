@@ -174,11 +174,11 @@
                                         <td class="px-4">{{invoice.id}}</td>
                                         <td class="px-4">{{invoice.date}}</td>
                                         <td class="px-4 text-right">{{invoice.amount}}</td>
-                                        <td class="px-4 text-right">{{toTwoDecimalPlaces(paymentsSelected[suppl][index].paid)}}</td>
+                                        <td class="px-4 text-right">{{paymentsSelected[suppl][index].paid}}</td>
                                     </tr>
                                     <tr>
                                         <td></td><td></td><td></td><td class="pl-4 text-right">Total</td>
-                                        <td class="px-4 text-right">{{ paymentsSum(vendorInvoices).toFixed(2) }}</td><td class="px-4 text-right">{{ totalToPay }}</td>
+                                        <td class="px-4 text-right">{{ paymentsSum(vendorInvoices).toFixed(2) }}</td><td class="px-4 text-right">{{ totalToPay.toFixed(2) }}</td>
                                     </tr>
                                 </table>
                             </div>
