@@ -54,10 +54,10 @@ const app = Vue.createApp({
                             console.log("paymentsSelected ", this.paymentsSelected)
                             if (this.paymentsSelected['Ulreco'][index].paid == 0.00 || this.paymentsSelected['Ulreco'][index].paid === undefined) {
                                 this.paymentsSelected['Ulreco'][index].paid = parseFloat(this.vendorInvoices[index].amount).toFixed(2)
-                                this.totalToPay += parseFloat(this.vendorInvoices[index].amount).toFixed(2)
+                                this.totalToPay += parseFloat(this.vendorInvoices[index].amount)
                             } else {
                                 this.paymentsSelected['Ulreco'][index].paid = parseFloat(0.00).toFixed(2)
-                                this.totalToPay -= parseFloat(this.vendorInvoices[index].amount).toFixed(2)
+                                this.totalToPay -= parseFloat(this.vendorInvoices[index].amount)
                             }
                         },
                         paymentsSum(invoices) {
@@ -97,7 +97,7 @@ const app = Vue.createApp({
                         }
                     },
                     computed: {
-                        
+                       
                     }
 })
 
