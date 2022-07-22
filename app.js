@@ -90,10 +90,12 @@ const app = Vue.createApp({
                             })
                             return sum
                         },
-                        toTwoDecimalPlaces(value) {
-                            console.log(value)
-                            console.log("is of type ", typeof value)
-                            return parseInt(value).toFixed(2)
+                        amountPaid(index) {
+                            if (this.paymentsSelected[this.suppl]) {
+                                return this.paymentsSelected[this.suppl][index].paid
+                            } else {
+                                return 0.00    
+                            }
                         }
                     },
                     computed: {
