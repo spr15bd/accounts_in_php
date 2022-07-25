@@ -21,6 +21,7 @@ const app = Vue.createApp({
                             invoiceAmount: null,
                             statusMessage: null,
                             paymentProcessing: false,
+                            selected: false,
                             suppl: null
                         }
                     },
