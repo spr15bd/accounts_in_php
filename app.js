@@ -12,7 +12,6 @@ const app = Vue.createApp({
                             invoices: [ { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) } ],
                             supplier: null,
                             paymentsSummaryPage: false,
-                            //paymentsSupplier: null,
                             invoiceNumber: null,
                             invoiceDate: null,
                             invoiceDescription: null,
@@ -28,12 +27,9 @@ const app = Vue.createApp({
                     methods: {
                         
                         async getSupplier() {
-                            console.log("app.js->getSupplier(): getting supplier data for ", this.suppl)
                             let payload = { data: { supplierName: this.suppl } }
                             const res = await axios.post("database_queries.php", payload )
-                            this.vendorInvoices =  res.data
-                            console.log("getSupplier() returned ", this.vendorInvoices)
-                            
+                            this.vendorInvoices =  res.data               
                         },
                         async update() {
                             let payload = {info: { supplier: this.supplier, invoiceNumber: this.invoiceNumber, invoiceDate: this.invoiceDate, invoiceDescription: this.invoiceDescription, office: this.office, overhead: this.overhead, invoiceAmount: this.invoiceAmount }}
@@ -47,7 +43,6 @@ const app = Vue.createApp({
                             if (!this.paymentsSelected[this.suppl]) {
                                 this.paymentsSelected[this.suppl] = this.vendorInvoices
                             }
-                            console.log("paymentsSelected: ", this.paymentsSelected)
                         },
                         updatePayment(index) {
                             console.log("vendorInvoices[index] before update: ", this.vendorInvoices[index])
@@ -62,7 +57,6 @@ const app = Vue.createApp({
                             }
                         },
                         paymentsSum(invoices) {
-                            console.log("invoices ", invoices)
                             let sum = 0
                             invoices?.forEach((invoice) => {
                                 sum += parseFloat(invoice.amount)
@@ -70,7 +64,6 @@ const app = Vue.createApp({
                             return sum
                         },
                         reviewTotalSum(invoices) {
-                            console.log("invoices", invoices)
                             let sum = 0
                             invoices.forEach((invoice)=> {
                                 sum += parseFloat(invoice.amount)
