@@ -31,9 +31,7 @@ const app = Vue.createApp({
                             const res = await axios.post("database_queries.php", payload )
                             if (res.data) {
                                 this.vendorInvoices =  res.data 
-                            } else {
-                                this.vendorInvoices = []
-                            }
+                            } 
                                           
                         },
                         async update() {
@@ -45,9 +43,9 @@ const app = Vue.createApp({
                             console.log("Processing payments")
                             this.paymentProcessing = true
                             await this.getSupplier()
-                            if (!this.paymentsSelected[this.suppl]) {
-                                this.paymentsSelected[this.suppl] = this.vendorInvoices
-                            }
+                            //if (!this.paymentsSelected[this.suppl]) {
+                            //    this.paymentsSelected[this.suppl] = this.vendorInvoices
+                            //}
                         },
                         updatePayment(index) {
                             console.log("vendorInvoices[index] before update: ", this.vendorInvoices[index])
