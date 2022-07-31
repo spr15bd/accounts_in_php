@@ -21,7 +21,8 @@ const app = Vue.createApp({
                             statusMessage: null,
                             paymentProcessing: false,
                             selected: false,
-                            suppl: null
+                            suppl: null,
+                            paid: null
                         }
                     },
                     methods: {
@@ -89,7 +90,8 @@ const app = Vue.createApp({
                         },
                         amountPaid(index) {
                             if (this.paymentsSelected[this.suppl]) {
-                                return this.paymentsSelected[this.suppl][index].paid
+                                this.paid = this.paymentsSelected[this.suppl]
+                                return this.paid[index].paid
                             } else {
                                 return 0.00    
                             }
