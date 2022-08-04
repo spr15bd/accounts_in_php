@@ -31,7 +31,7 @@ const app = Vue.createApp({
                             let payload = { data: { supplierName: this.suppl } }
                             const res = await axios.post("database_queries.php", payload )
                             if (res.data) {
-                                this.vendorInvoices =  res.data 
+                                this.vendorInvoices[this.suppl] =  res.data // TODO -change all this.vendorInvoices to array of the chosen supplier
                             } 
                                           
                         },
