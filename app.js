@@ -8,7 +8,7 @@ const app = Vue.createApp({
                             payments: false,
                             paymentsSelected: {},
                             checkedInvoices: [],
-                            vendorInvoices: [],
+                            vendorInvoices: {},
                             invoices: [ { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) } ],
                             supplier: null,
                             paymentsSummaryPage: false,
@@ -45,11 +45,11 @@ const app = Vue.createApp({
                             this.paymentProcessing = true
                             await this.getSupplier()
                             if (!this.paymentsSelected[this.suppl]) {
-                                this.paymentsSelected[this.suppl] = this.vendorInvoices
+                                this.paymentsSelected[this.suppl] = this.vendorInvoices[this.suppl]
                             }
                         },
                         updatePayment(index) {
-                            console.log("vendorInvoices[index] before update: ", this.vendorInvoices[index])
+                            console.log("vendorInvoices[index] before update: ", this.vendorInvoices[this.suppl][index])
                             console.log("supplier is ", this.suppl)
                             console.log("paymentsSelected ", this.paymentsSelected)
                             if (this.paymentsSelected[this.suppl][index]?.paid == 0.00 || this.paymentsSelected[this.suppl][index]?.paid === undefined) {
