@@ -41,7 +41,6 @@ const app = Vue.createApp({
                             const {results} = res
                         },
                         async processPayments() {
-                            console.log("Processing payments")
                             this.paymentProcessing = true
                             await this.getSupplier()
                             if (!this.paymentsSelected[this.suppl]) {
@@ -62,7 +61,7 @@ const app = Vue.createApp({
                         },
                         paymentsSum(invoices) {
                             let sum = 0
-                                console.log("app.js->paymentsSum: ", invoices)
+                            console.log("app.js->paymentsSum: ", invoices)
                             invoices?.forEach((invoice) => {
                                 sum += parseFloat(invoice.amount)
                             })
@@ -94,7 +93,6 @@ const app = Vue.createApp({
                                 this.paid[index] = this.paymentsSelected[this.suppl][index].paid
                                 return this.paymentsSelected[this.suppl][index].paid     
                             } else {
-                                console.log("this.paid ", this.paid)
                                 return this.paid[index]
                             }
                             
