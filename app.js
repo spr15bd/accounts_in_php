@@ -62,7 +62,7 @@ const app = Vue.createApp({
                         paymentsSum(invoices) {
                             let sum = 0
                             console.log("app.js->paymentsSum: ", invoices)
-                            invoices?.forEach((invoice) => {
+                            Object.entries(invoices)?.forEach((invoice) => {
                                 sum += parseFloat(invoice.amount)
                             })
                             return sum
@@ -89,6 +89,8 @@ const app = Vue.createApp({
                             return sum
                         },
                         amountPaid(index) {
+                                console.log("this.paid[index]: ", this.paid[index])
+                                console.log("this.paymentsSelected[this.suppl][index].paid: ", this.paymentsSelected[this.suppl][index].paid)
                             if (this.paymentsSelected[this.suppl]) {
                                 this.paid[index] = this.paymentsSelected[this.suppl][index].paid
                                 return this.paymentsSelected[this.suppl][index].paid     
