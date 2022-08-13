@@ -189,7 +189,7 @@
             </div>
             <div v-if="paymentsSummaryPage">
                 <br><br><br>
-                <div v-for="value, key in paymentsSelected">
+                <div v-for="value, key in paymentsSelected[suppl]">
                     <div class="row">
                         <div class="col">
                             {{ key }}
@@ -207,7 +207,7 @@
                     <div class="col">
                     </div>
                     <div class="col">
-                        {{ paymentsSelected.grandTotal }}
+                        {{ paymentsSelected[suppl].grandTotal }}
                     </div>
                     <div class="col-10">
                             
