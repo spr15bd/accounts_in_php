@@ -54,11 +54,11 @@ const app = Vue.createApp({
                             if (this.paymentsSelected[this.suppl][index]?.paid == 0.00 || this.paymentsSelected[this.suppl][index]?.paid === undefined) {
                                 this.paymentsSelected[this.suppl][index].paid = parseFloat(this.vendorInvoices[this.suppl][index].amount).toFixed(2)
                                 //this.totalToPay += parseFloat(this.vendorInvoices[this.suppl][index].amount)
-                                this.paymentsSelected[this.suppl][totalToPay] += parseFloat(this.vendorInvoices[this.suppl][index].amount)
+                                //this.paymentsSelected[this.suppl]['totalToPay'] += parseFloat(this.vendorInvoices[this.suppl][index].amount)
                             } else {
                                 this.paymentsSelected[this.suppl][index].paid = parseFloat(0.00).toFixed(2)
                                 //this.totalToPay -= parseFloat(this.vendorInvoices[this.suppl][index].amount)
-                                this.paymentsSelected[this.suppl][totalToPay] -= parseFloat(this.vendorInvoices[this.suppl][index].amount)
+                                //this.paymentsSelected[this.suppl]['totalToPay'] -= parseFloat(this.vendorInvoices[this.suppl][index].amount)
                             }
                         },
                         paymentsSum(supplier) {
@@ -70,6 +70,7 @@ const app = Vue.createApp({
                             Object.entries(supplier)?.forEach((invoice) => {
                                 sum += parseFloat(invoice.amount)
                             })
+                            this.paymentsSelected[this.suppl]['totalToPay'] = sum    
                             return sum
                         },
                         reviewTotalSum(invoices) {
