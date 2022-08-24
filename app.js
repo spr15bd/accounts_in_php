@@ -22,6 +22,7 @@ const app = Vue.createApp({
                             paymentProcessing: false,
                             selected: false,
                             suppl: null,
+                            totalPaid: {},
                             paid: []
                         }
                     },
@@ -70,8 +71,7 @@ const app = Vue.createApp({
                             Object.entries(supplier)?.forEach((invoice) => {
                                 sum += parseFloat(invoice.amount)
                             })
-                            let total = new String('total')
-                            this.paymentsSelected[this.suppl][total] = sum    
+                            this.totalPaid[this.suppl] = sum    
                             return sum
                         },
                         reviewTotalSum(invoices) {
