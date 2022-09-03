@@ -22,7 +22,7 @@ const app = Vue.createApp({
                             paymentProcessing: false,
                             selected: false,
                             suppl: null,
-                            totalPaid: {},
+                            totalPaid: [],
                             paid: []
                         }
                     },
