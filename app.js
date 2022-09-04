@@ -69,8 +69,8 @@ const app = Vue.createApp({
                             supplier[this.suppl]?.forEach((invoice) => {
                                 sum += parseFloat(invoice.paid)
                             })
-                            this.totalPaid[this.suppl] = sum
-                            console.log("total to pay on this supplier ", sum)
+                            this.totalPaid[String(this.suppl)] = sum
+                            console.log("total to pay ", this.totalPaid)
                             return sum
                         },
                         reviewTotalSum(invoices) {
