@@ -70,7 +70,7 @@ const app = Vue.createApp({
                                 sum += parseFloat(invoice.paid)
                             })
                             this.totalPaid[String(this.suppl)] = sum
-                            console.log("total to pay ", this.totalPaid)
+                            console.log("total to pay ", this.totalPaid['Ulreco'])
                             return sum
                         },
                         reviewTotalSum(invoices) {
