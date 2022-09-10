@@ -206,11 +206,9 @@
                 <div class="row">
                     <div class="col">
                     </div>
-                    <div class="col" v-for="(value,key) in Object.keys(totalPaid)">
-                        12
-                        tpu{{ key }} : {{ value }}
-                        tpi{{ totalPaid }}
-                    </div>{{ totalPaid['Ulreco'] }}{{typeof totalPaid}}{{Object.keys(totalPaid)}}
+                    <div class="col" v-for="(value,key) in Object.entries(totalPaid)">
+                        {{ key }} : {{ value }}
+                    </div>
                     <div class="col-10">
                             
                     </div>
