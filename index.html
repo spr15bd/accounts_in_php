@@ -189,29 +189,12 @@
             </div>
             <div v-if="paymentsSummaryPage">
                 <br><br><br>
-                <div v-for="value, key in paymentsSelected[suppl]">
-                    <div class="row">
-                        <div class="col">
-                            {{ key }}
-                        </div>
-                        <div class="col">
-                            {{ value }}
-                        </div>
-                        <div class="col-10">
-                            
-                        </div>
-                    </div>
-                    <br>
-                </div>
-                <div class="row">
+                
+                <div class="row" v-for="(value,key) in Object.entries(totalPaid)">
                     <div class="col">
-                    </div>
-                    <div class="col" v-for="(value,key) in Object.entries(totalPaid)">
                         {{ key }} : {{ value }}
                     </div>
-                    <div class="col-10">
-                            
-                    </div>
+                    
                 </div>
             </div>
         </div>
