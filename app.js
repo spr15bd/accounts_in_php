@@ -93,9 +93,6 @@ const app = Vue.createApp({
                             return sum
                         },
                         amountPaid(index) {
-                                //console.log("index is: ", index)
-                                //console.log("this.paid[index]: ", this.paid[index])
-                                //console.log("this.paymentsSelected[this.suppl][index].paid: ", this.paymentsSelected[this.suppl][index].paid)
                             if (this.paymentsSelected[this.suppl]) {
                                 this.paid[index] = this.paymentsSelected[this.suppl][index].paid
                                 return this.paymentsSelected[this.suppl][index].paid     
