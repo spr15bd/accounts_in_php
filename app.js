@@ -59,7 +59,7 @@ const app = Vue.createApp({
                             }
                         },
                         paymentsSum(supplier) {
-                            if (supplier) {
+                            if (supplier[this.suppl]) {
                                 let sum = 0
                                 console.log("supplier to sum: ", supplier[this.suppl])
 
