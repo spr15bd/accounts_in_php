@@ -189,12 +189,15 @@
             </div>
             <div v-if="paymentsSummaryPage">
                 <br><br><br>
-                
-                <div class="row" v-for="(value,key) in Object.entries(totalPaid)">
-                    <div class="col">
-                        {{ key }} : {{ value }}
+                <div v-if="Object.entries(totalPaid).length > 0">
+                    <div class="row" v-for="(value,key) in Object.entries(totalPaid)">
+                        <div class="col">
+                            {{ key }} : {{ value }}
+                        </div>
                     </div>
-                    
+                </div>
+                <div v-else>
+                    No payments selected
                 </div>
             </div>
         </div>
