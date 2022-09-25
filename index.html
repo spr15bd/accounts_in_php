@@ -192,8 +192,11 @@
                 <div v-if="Object.entries(totalPaid).length > 0">
                     <div class="row" v-for="(value,key) in Object.entries(totalPaid)">
                         <div class="col">
-                            {{ key }} : {{ parseInt(value).toFixed(2) }}
+                            {{ value[0] }} : GBP {{ value[1] }}
                         </div>
+                    </div>
+                    <div>
+                        Total paid:
                     </div>
                 </div>
                 <div v-else>
