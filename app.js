@@ -103,7 +103,9 @@ const app = Vue.createApp({
                         }
                     },
                     computed: {
-                       
+                       grandTotalPaid() {
+                           console.log("grand total: ", this.totalPaid)
+                       }
                     }
 })
 
