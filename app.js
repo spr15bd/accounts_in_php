@@ -105,8 +105,9 @@ const app = Vue.createApp({
                     computed: {
                        grandTotalPaid() {
                            console.log("grand total: ", this.totalPaid)
-                           let supplierPayments = Object.entries(this.totalPaid.map(suppliers=>suppliers.value))
+                           let supplierPayments = Object.entries(this.totalPaid)
                            console.log(supplierPayments)
+                           return supplierPayments
                        }
                     }
 })
