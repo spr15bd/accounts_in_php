@@ -49,9 +49,6 @@ const app = Vue.createApp({
                             }
                         },
                         updatePayment(index) {
-                            console.log("vendorInvoices[index] before update: ", this.vendorInvoices[this.suppl][index])
-                            console.log("supplier is ", this.suppl)
-                            console.log("paymentsSelected ", this.paymentsSelected)
                             if (this.paymentsSelected[this.suppl][index]?.paid == 0.00 || this.paymentsSelected[this.suppl][index]?.paid === undefined) {
                                 this.paymentsSelected[this.suppl][index].paid = parseFloat(this.vendorInvoices[this.suppl][index].amount).toFixed(2)
                             } else {
@@ -67,7 +64,6 @@ const app = Vue.createApp({
                                     sum += parseFloat(invoice.paid)
                                 })
                                 this.totalPaid[this.suppl] = sum
-                                console.log("total to pay ", this.totalPaid['Ulreco'])
                                 return sum
                             }
                         },
@@ -104,12 +100,10 @@ const app = Vue.createApp({
                     },
                     computed: {
                        grandTotalPaid() {
-                           console.log("grand total: ", this.totalPaid)
                            let supplierPayments = Object.entries(this.totalPaid)
                            supplierPayments = supplierPayments.map(sp => {
                                return sp[1]
                            })
-                           console.log(supplierPayments)
                            let sum = 0
                            supplierPayments.forEach(payment => {
                                 sum += payment
