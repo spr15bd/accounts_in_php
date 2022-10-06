@@ -29,15 +29,17 @@
             
             echo json_encode($invoices);
         } else if ($items) {
-            if ($items['info']['supplier']) {
-                $result = $items['info'];
-                $query = "INSERT INTO invoices (supplier, number, date, description, office, overhead, amount) VALUES ('".$result['supplier']."','".$result['invoiceNumber']."','".$result['invoiceDate']."','".$result['invoiceDescription']."','".$result['office']."','".$result['overhead']."','".$result['invoiceAmount']."')";
-                echo $query;
-                $sql_query = $conn->query($query);
-                if ($sql_query) {
-                    echo "success after running else in database_queries";
-                } else {
-                    echo "failure";
+            if ($items['info']) {
+                if ($items['info']['supplier']) {
+                    $result = $items['info'];
+                    $query = "INSERT INTO invoices (supplier, number, date, description, office, overhead, amount) VALUES ('".$result['supplier']."','".$result['invoiceNumber']."','".$result['invoiceDate']."','".$result['invoiceDescription']."','".$result['office']."','".$result['overhead']."','".$result['invoiceAmount']."')";
+                    echo $query;
+                    $sql_query = $conn->query($query);
+                    if ($sql_query) {
+                        echo "success after running else in database_queries";
+                    } else {
+                        echo "failure";
+                    }
                 }
             }
         } else {
