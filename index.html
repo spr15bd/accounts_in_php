@@ -144,7 +144,10 @@
                     <h4 class="center">Payment Processing</h4>
                     <br/>
                     <div class="col-lg-6">
-								<button class="btn btn-info" @click="supplierReview=false; addInvoice=false; suppl=null; payments=false; paymentsSummaryPage=true">
+								<button v-if="!paymentsSummaryPage" class="btn btn-info" @click="supplierReview=false; addInvoice=false; suppl=null; payments=false; paymentsSummaryPage=true">
+								    Payments summary
+								</button>
+                                <button v-else class="btn btn-info" @click="supplierReview=false; addInvoice=false; suppl=null; payments=false; paymentsSummaryPage=true">
 								    Payments summary
 								</button>
 				            </div>
