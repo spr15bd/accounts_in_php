@@ -144,10 +144,7 @@
                     <h4 class="center">Payment Processing</h4>
                     <br/>
                     <div class="col-lg-6">
-								<button v-if="!paymentsSummaryPage" class="btn btn-info" @click="supplierReview=false; addInvoice=false; suppl=null; payments=false; paymentsSummaryPage=true">
-								    Payments summary
-								</button>
-                                <button v-else class="btn btn-info" @click="supplierReview=false; addInvoice=false; suppl=null; payments=false; paymentsSummaryPage=true">
+								<button class="btn btn-info" @click="supplierReview=false; addInvoice=false; suppl=null; payments=false; paymentsSummaryPage=true">
 								    Payments summary
 								</button>
 				            </div>
@@ -191,7 +188,13 @@
                 </section>
             </div>
             <div v-if="paymentsSummaryPage">
-                <br><br><br>
+                <h4 class="center">Payment Processing</h4>
+                <br>
+                <div class="col-lg-6">
+								<button class="btn btn-info" @click="supplierReview=false; addInvoice=false; suppl=null; payments=false; paymentsSummaryPage=false">
+								    Payments summary
+								</button>
+				            </div>
                 <div v-if="Object.entries(totalPaid).length > 0">
                     <div class="row" v-for="(value,key) in Object.entries(totalPaid)">
                         <div class="col">
