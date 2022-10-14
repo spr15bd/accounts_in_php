@@ -59,7 +59,6 @@ const app = Vue.createApp({
                         paymentsSum(supplier) {
                             if (supplier[this.suppl]) {
                                 let sum = 0
-                                console.log("supplier to sum: ", supplier[this.suppl])
 
                                 if (supplier && this.suppl) {
                                     supplier[this.suppl].forEach((invoice) => {
