@@ -194,6 +194,9 @@
 								<button class="btn btn-info" @click="supplierReview=false; addInvoice=false; payments=true; paymentsSummaryPage=false">
 								    Payments summary
 								</button>
+                                <button class="btn btn-info" @click="supplierReview=false; addInvoice=false; payments=true; paymentsSummaryPage=false">
+								    Process payments
+								</button>
 				            </div>
                 <div v-if="Object.entries(totalPaid).length > 0">
                     <div class="row" v-for="(value,key) in Object.entries(totalPaid)">
