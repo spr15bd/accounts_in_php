@@ -42,7 +42,7 @@ const app = Vue.createApp({
                             const res = await axios.post("database_queries.php", payload )
                             const {results} = res
                         },
-                        async processPayments() {
+                        async processPaymentsScreen() {
                             this.paymentProcessing = true
                             await this.getSupplier()
                             if (!this.paymentsSelected[this.suppl]) {

@@ -151,7 +151,7 @@
                     <p class="text-center py-5"></p>
                     <label>Supplier Name:</label>
                     <input type="text" name="supplier" v-model="suppl"></input>
-                    <button class="btn btn-info" @click="processPayments">
+                    <button class="btn btn-info" @click="processPaymentsScreen()">
 				        Process payments 
 				    </button>
                     <div v-if="paymentProcessing">
@@ -194,7 +194,7 @@
 								<button class="btn btn-info" @click="supplierReview=false; addInvoice=false; payments=true; paymentsSummaryPage=false">
 								    Payments summary
 								</button>
-                                <button class="btn btn-info" @click="supplierReview=false; addInvoice=false; payments=true; paymentsSummaryPage=false">
+                                <button class="btn btn-dark" @click="process">
 								    Process payments
 								</button>
 				            </div>
