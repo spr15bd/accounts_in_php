@@ -49,6 +49,9 @@ const app = Vue.createApp({
                                 this.paymentsSelected[this.suppl] = this.vendorInvoices[this.suppl]
                             }
                         },
+                        async processPayments() {
+                            console.log("processing payments")    
+                        },
                         updatePayment(index) {
                             if (this.paymentsSelected[this.suppl][index]?.paid == 0.00 || this.paymentsSelected[this.suppl][index]?.paid === undefined) {
                                 this.paymentsSelected[this.suppl][index].paid = parseFloat(this.vendorInvoices[this.suppl][index].amount).toFixed(2)
