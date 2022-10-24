@@ -158,7 +158,7 @@
                         Current total to pay: {{ totalToPay?.toFixed(2) }} GBP{{suppl}}
                         <br><br>
                         <div>
-                            <div v-if="suppl">
+                            <div v-if="suppl && vendorInvoices[suppl]">
                                 <table>
                                     <tr>
                                         <th></th>
