@@ -155,7 +155,7 @@
 				        Process payments 
 				    </button>
                     <div v-if="paymentProcessing">
-                        Current total to pay: {{ totalToPay?.toFixed(2) }} GBP{{suppl}}
+                        Current total to pay: {{ grandTotalPaid }} GBP{{suppl}}
                         <br><br>
                         <div>
                             <div v-if="suppl && vendorInvoices[suppl]">
@@ -191,13 +191,13 @@
                 <h4 class="center">Payment Processing</h4>
                 <br>
                 <div class="col-lg-6">
-								<button class="btn btn-info" @click="supplierReview=false; addInvoice=false; payments=true; paymentsSummaryPage=false">
-								    Payments summary
-								</button>
-                                <button class="btn btn-dark" @click="processPayments">
-								    Process payments
-								</button>
-				            </div>
+                    <button class="btn btn-info" @click="supplierReview=false; addInvoice=false; payments=true; paymentsSummaryPage=false">
+                        Back
+                    </button>
+                    <button class="btn btn-dark" @click="processPayments">
+						Process payments
+					</button>
+				</div>										    		
                 <div v-if="Object.entries(totalPaid).length > 0">
                     <div class="row" v-for="(value,key) in Object.entries(totalPaid)">
                         <div class="col">
