@@ -194,7 +194,7 @@
                     <button class="btn btn-info w-40" @click="supplierReview=false; addInvoice=false; payments=true; paymentsSummaryPage=false">
                         Back
                     </button>
-                    <button class="btn btn-dark" @click="processPayments">
+                    <button class="btn btn-dark" @click="confirmProcessPaymentsScreen = true; paymentsSummaryPage=false">
 						Process payments
 					</button>
 				</div>										    		
@@ -211,6 +211,9 @@
                 <div v-else>
                     No payments selected
                 </div>
+            </div>
+            <div v-if="confirmProcessPaymentsScreen">
+                Please confirm you wish to allocate the payments.
             </div>
         </div>
     </div>
