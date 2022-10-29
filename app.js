@@ -50,7 +50,8 @@ const app = Vue.createApp({
                             }
                         },
                         async processPayments() {
-                            console.log("processing payments")    
+                            console.log("processing payments")
+                            
                         },
                         updatePayment(index) {
                             if (this.paymentsSelected[this.suppl][index]?.paid == 0.00 || this.paymentsSelected[this.suppl][index]?.paid === undefined) {
