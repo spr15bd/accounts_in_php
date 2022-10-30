@@ -1,6 +1,7 @@
 const app = Vue.createApp({
                     data() {
                         return {
+                            confirmProcessPaymentsScreen: false,
                             supplierReview: false,
                             supplierPayment: Number.parseFloat(0.00),
                             totalToPay: Number.parseFloat(0.00),
