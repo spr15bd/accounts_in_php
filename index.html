@@ -155,6 +155,7 @@
 				        Process payments 
 				    </button>
                     <div v-if="paymentProcessing">
+                        totalPaid as array: {{Object.entries(this.totalPaid)}}
                         Current total to pay: {{ grandTotalPaid }} GBP{{suppl}}
                         <br><br>
                         <div>

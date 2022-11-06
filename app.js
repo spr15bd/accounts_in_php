@@ -112,7 +112,7 @@ const app = Vue.createApp({
                            console.log("this.totalPaid", this.totalPaid)
                            console.log("this.totalPaid.Ulreco", this.totalPaid['Ulreco'])
                            console.log("totalPaid converted to key-values: ", Object.keys(this.totalPaid).map((key) => [Number(key), this.totalPaid[key]]))
-                           console.log("totalPaid converted to array: ", Object.keys(this.totalPaid)
+                           console.log("supplierPayments: ", Object.entries(this.totalPaid))
                            supplierPayments = supplierPayments.map(sp => {
                                return sp[1]
                            })
