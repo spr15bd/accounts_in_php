@@ -117,10 +117,11 @@ const app = Vue.createApp({
                                return sp[1]
                            })
                            let sum = 0
-                           supplierPayments.forEach(payment => {
-                                sum += payment
+                           supplierPayments.forEach((value, key) => {
+                                sum += value
                                 console.log("Sum ", sum)
                            })
+                           
                            return sum
                        }
                     }
