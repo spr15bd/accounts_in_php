@@ -113,9 +113,9 @@ const app = Vue.createApp({
                            console.log("this.totalPaid.Ulreco", this.totalPaid['Ulreco'])
                            console.log("totalPaid converted to key-values: ", Object.keys(this.totalPaid).map((key) => [Number(key), this.totalPaid[key]]))
                            console.log("supplierPayments: ", Object.entries(this.totalPaid))
-                           supplierPayments = supplierPayments.map(sp => {
-                               return sp[1]
-                           })
+                           //supplierPayments = supplierPayments.map(sp => {
+                            //   return sp[1]
+                           //})
                            let sum = 0
                            supplierPayments.forEach((value, key) => {
                                 sum += value
