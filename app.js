@@ -123,6 +123,7 @@ const app = Vue.createApp({
                                 //console.log("value ", value)
                                 //console.log("key ", key)
                                 console.log("supplier ", supplier)
+                                console.log("supplier 2 ", supplier."Indigo Arrow")
                            })
                            
                            return sum
