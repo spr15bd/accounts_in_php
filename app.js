@@ -27,6 +27,16 @@ const app = Vue.createApp({
                             paid: []
                         }
                     },
+                    watch: {
+                        // whenever question changes, this function will run
+                        totalPaid(newQuestion, oldQuestion) {
+                          let supplierPayments = Object.entries(this.totalPaid)
+                           console.log("this.totalPaid", this.totalPaid)
+                           console.log("this.totalPaid.Ulreco", this.totalPaid['Ulreco'])
+                           console.log("totalPaid converted to key-values: ", Object.keys(this.totalPaid).map((key) => [Number(key), this.totalPaid[key]]))
+                           console.log("supplierPayments: ", Object.entries(this.totalPaid))
+                        }
+                    },
                     methods: {
                         
                         async getSupplier() {
@@ -123,7 +133,7 @@ const app = Vue.createApp({
                                 //console.log("value ", value)
                                 //console.log("key ", key)
                                 console.log("supplier ", supplier)
-                                console.log("supplier 2 ", supplier."Indigo Arrow")
+                                console.log("supplier 2 ", supplier["Indigo Arrow"])
                            })
                            
                            return sum
