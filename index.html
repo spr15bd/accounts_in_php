@@ -156,7 +156,7 @@
 				    </button>
                     <div v-if="paymentProcessing">
                         totalPaid: {{totalPaid}}
-                        totalPaid as array: {{Object.entries(totalPaid)}}
+                        totalPaid as array: {{Object.entries(totalPaid)[1]}}
                         Current total to pay: {{ grandTotalPaid }} GBP{{suppl}}
                         <br><br>
                         <div>
@@ -207,7 +207,7 @@
                         </div>
                     </div>
                     <div>
-                        Total paid: GBP {{ grandTotalPaid() }}
+                        Total paid: GBP {{ grandTotalPaid }}
                     </div>
                 </div>
                 <div v-else>

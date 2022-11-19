@@ -28,13 +28,13 @@ const app = Vue.createApp({
                         }
                     },
                     watch: {
-                        // whenever question changes, this function will run
-                        totalPaid(newQuestion, oldQuestion) {
-                          let supplierPayments = Object.entries(this.totalPaid)
-                           console.log("this.totalPaid", this.totalPaid)
-                           console.log("this.totalPaid.Ulreco", this.totalPaid['Ulreco'])
-                           console.log("totalPaid converted to key-values: ", Object.keys(this.totalPaid).map((key) => [Number(key), this.totalPaid[key]]))
-                           console.log("supplierPayments: ", Object.entries(this.totalPaid))
+                        // whenever totalPaid changes, this function will run
+                        totalPaid(newVal, oldVal) {
+                          let supplierPayments = Object.entries(newVal)
+                           console.log("this.totalPaid", newVal)
+                           console.log("this.totalPaid.Ulreco", newVal['Ulreco'])
+                           console.log("totalPaid converted to key-values: ", Object.keys(newVal).map((key) => [Number(key), newVal[key]]))
+                           console.log("supplierPayments: ", Object.entries(newVal))
                         }
                     },
                     methods: {
@@ -119,10 +119,10 @@ const app = Vue.createApp({
                     computed: {
                        grandTotalPaid() {
                            let supplierPayments = Object.entries(this.totalPaid)
-                           console.log("this.totalPaid", this.totalPaid)
-                           console.log("this.totalPaid.Ulreco", this.totalPaid['Ulreco'])
-                           console.log("totalPaid converted to key-values: ", Object.keys(this.totalPaid).map((key) => [Number(key), this.totalPaid[key]]))
-                           console.log("supplierPayments: ", Object.entries(this.totalPaid))
+                           //console.log("this.totalPaid", this.totalPaid)
+                           //console.log("this.totalPaid.Ulreco", this.totalPaid['Ulreco'])
+                           //console.log("totalPaid converted to key-values: ", Object.keys(this.totalPaid).map((key) => [Number(key), this.totalPaid[key]]))
+                           //console.log("supplierPayments: ", Object.entries(this.totalPaid))
                            //supplierPayments = supplierPayments.map(sp => {
                             //   return sp[1]
                            //})
