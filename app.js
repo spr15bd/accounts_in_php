@@ -114,10 +114,8 @@ const app = Vue.createApp({
                                 return this.paid[index]
                             }
                             
-                        }
-                    },
-                    computed: {
-                       grandTotalPaid() {
+                        },
+                        grandTotalPaid() {
                            let supplierPayments = Object.entries(this.totalPaid)
                            //console.log("this.totalPaid", this.totalPaid)
                            //console.log("this.totalPaid.Ulreco", this.totalPaid['Ulreco'])
