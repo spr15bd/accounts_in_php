@@ -54,7 +54,7 @@ const app = Vue.createApp({
 
         },
         updatePayment(index) {
-            if (this.paymentsSelected[this.suppl][index]?.paid == 0.00 || this.paymentsSelected[this.suppl][index]?.paid === undefined) {
+            if (this.paymentsSelected[this.suppl][index]?.paid == 0.00 || this.paymentsSelected[this.suppl][index]?.paid === undefined || this.paymentsSelected[this.suppl][index]?.paid === null) {
                 this.paymentsSelected[this.suppl][index].paid = parseFloat(this.vendorInvoices[this.suppl][index].amount).toFixed(2)
             } else {
                 this.paymentsSelected[this.suppl][index].paid = parseFloat(0.00).toFixed(2)
