@@ -107,7 +107,7 @@ const app = Vue.createApp({
 
         },
         grandTotalPaid() {
-            // convert 
+            // convert to array
             let supplierPayments = Object.entries(this.totalPaid)
 
             let sum = 0
@@ -116,6 +116,11 @@ const app = Vue.createApp({
             })
 
             return sum
+        }
+    },
+    computed {
+        paidSuppliers() {
+            // if a supplier is paid zero, remove from object
         }
     }
 })
