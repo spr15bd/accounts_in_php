@@ -72,7 +72,6 @@ const app = Vue.createApp({
                     this.totalPaid[this.suppl] = sum==0?null:sum
                 }
                 
-
                 return sum
             }
         },
@@ -118,9 +117,10 @@ const app = Vue.createApp({
             return sum
         }
     },
-    computed {
+    computed: {
         paidSuppliers() {
             // if a supplier is paid zero, remove from object
+            this.totalPaid[this.suppl] = sum==0?null:sum
         }
     }
 })
