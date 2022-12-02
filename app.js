@@ -58,6 +58,8 @@ const app = Vue.createApp({
                 this.paymentsSelected[this.suppl][index].paid = parseFloat(this.vendorInvoices[this.suppl][index].amount).toFixed(2)
             } else {
                 this.paymentsSelected[this.suppl][index].paid = parseFloat(0.00).toFixed(2)
+                // if none of the supplier's invoices are marked for payment, remove them from the list of suppliers to be paid
+                
             }
         },
         paymentsSum(supplier) {
@@ -118,10 +120,7 @@ const app = Vue.createApp({
         }
     },
     computed: {
-        paidSuppliers() {
-            // if a supplier is paid zero, remove from object
-            this.totalPaid[this.suppl] = sum==0?null:sum
-        }
+        
     }
 })
 
