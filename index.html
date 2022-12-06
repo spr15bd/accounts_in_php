@@ -157,6 +157,7 @@
                     <div v-if="paymentProcessing">
                        inv checked {{ vendorInvoices[suppl] }}
                         totalPaid as array: {{Object.entries(totalPaid)}}
+                        example supplier: {{Object.entries(totalPaid)['Indigo Arrow']}}
                         Current total to pay: {{ grandTotalPaid }} GBP{{suppl}}
                         <br><br>
                         <div>
