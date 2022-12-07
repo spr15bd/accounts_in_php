@@ -79,8 +79,12 @@ const app = Vue.createApp({
                     supplier[this.suppl].forEach((invoice) => {
                         sum += parseFloat(invoice.paid)
                     })
-                    // added 24/11/22
-                    this.totalPaid[this.suppl] = sum==0?null:sum
+                    // added 24/11/22 - todo remove as won't take into account invoices selected totalling zero
+                    if (this.totalPaid[this.suppl] == 0 || this.totalPaid[this.suppl] == null) {
+                        delete this.totalPaid[this.suppl]
+                    } else {
+                        this.totalPaid[this.suppl] = sum==0?null:sum
+                    }
                 }
                 
                 return sum
