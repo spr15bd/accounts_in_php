@@ -155,9 +155,9 @@
 				        Process payments 
 				    </button>
                     <div v-if="paymentProcessing">
-                        Checked: {{vendorInvoices[suppl].checked}}
+                        Checked: {{vendorInvoices[suppl]}}
                         totalPaid as array: {{Object.entries(totalPaid)}}
-                        example supplier: {{Object.entries(totalPaid)['Indigo Arrow']}}
+                        PAYMENTSSELECTED: {{paymentsSelected}}
                         Current total to pay: {{ grandTotalPaid }} GBP{{suppl}}
                         <br><br>
                         <div>
