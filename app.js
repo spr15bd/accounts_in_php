@@ -62,6 +62,7 @@ const app = Vue.createApp({
                 
                 let totalInvoicesSelectedForPayment = 0
                 this.paymentsSelected[this.suppl].forEach(inv=> {
+                    console.log(inv, inv.paid)
                     if (inv.paid != 0.00) {
                         this.paymentsSelected[this.suppl].totalInvoicesSelectedForPayment += 1
                     } else {

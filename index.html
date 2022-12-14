@@ -157,7 +157,7 @@
                     <div v-if="paymentProcessing">
                         <!--Checked: {{vendorInvoices[suppl]}}
                         totalPaid as array: {{Object.entries(totalPaid)}}-->
-                        PAYMENTSSELECTED: {{paymentsSelected.filter(inv=>inv.paid>0)}}
+                        PAYMENTSSELECTED: {{Object.entries(paymentsSelected)}}
                         Current total to pay: {{ grandTotalPaid }} GBP{{suppl}}
                         <br><br>
                         <div>
