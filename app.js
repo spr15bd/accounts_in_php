@@ -61,14 +61,8 @@ const app = Vue.createApp({
                 // if none of the supplier's invoices are marked for payment, remove them from the list of suppliers to be paid
                 
                 let totalInvoicesSelectedForPayment = 0
-                this.paymentsSelected[this.suppl].forEach(inv=> {
-                    console.log(inv, inv.paid)
-                    if (inv.paid != 0.00) {
-                        this.paymentsSelected[this.suppl].totalInvoicesSelectedForPayment += 1
-                    } else {
-                        this.paymentsSelected[this.suppl].totalInvoicesSelectedForPayment -= 1
-                    }
-                })
+                console.log(Object.values(this.paymentsSelected[this.suppl]))
+                
                 if (totalInvoicesSelectedForPayment == 0) {
                     this.paymentsSelected = {}
                 }
