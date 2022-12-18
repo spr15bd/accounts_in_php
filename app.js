@@ -123,6 +123,11 @@ const app = Vue.createApp({
             })
 
             return sum
+        },
+        confirmProcessPayments() {
+            this.confirmProcessPaymentsScreen = true
+            this.paymentsSummaryPage=false
+            // check there are checked invoices, if so process payment
         }
     },
     computed: {

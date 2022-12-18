@@ -195,7 +195,7 @@
                     <button class="btn btn-info w-40" @click="supplierReview=false; addInvoice=false; payments=true; paymentsSummaryPage=false; confirmProcessPaymentsScreen=false">
                         Back
                     </button>
-                    <button class="btn btn-dark" v-if="Object.entries(totalPaid).length > 0" @click="confirmProcessPaymentsScreen = true; paymentsSummaryPage=false">
+                    <button class="btn btn-dark" v-if="Object.entries(totalPaid).length > 0" @click="confirmProcessPayments()">
 						Complete Process payments
 					</button>
 				</div>										    		
