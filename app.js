@@ -128,9 +128,9 @@ const app = Vue.createApp({
             this.confirmProcessPaymentsScreen = true
             this.paymentsSummaryPage=false
             // check there are checked invoices, if so process payment
-            let paymentMap = Object.entries(this.paymentsSelected).map((invoice)=>{
-                value.checked
-            })
+            let paymentMap = Object.entries(this.paymentsSelected['Ulreco']).map(invoice=>
+                invoice.checked
+            )
             console.log("pm ", paymentMap)
         }
     },
