@@ -134,7 +134,7 @@ const app = Vue.createApp({
             console.log("pm ", paymentMap)
             let totalCheckedUlreco = 0
             paymentMap.forEach(invoice=>{
-                if (invoice.checked) {
+                if (invoice===true) {
                     totalCheckedUlreco++
                 }
             })
