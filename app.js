@@ -25,6 +25,7 @@ const app = Vue.createApp({
             suppl: null,
             totalPaid: [],
             paid: []
+            totalCheckedUlreco: 0
         }
     },
     methods: {
@@ -135,10 +136,10 @@ const app = Vue.createApp({
             let totalCheckedUlreco = 0
             paymentMap.forEach(invoice=>{
                 if (invoice===true) {
-                    totalCheckedUlreco++
+                    this.totalCheckedUlreco++
                 }
             })
-            console.log("total selected invs Ulreco ", totalCheckedUlreco)
+            
         }
     },
     computed: {
