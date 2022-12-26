@@ -9,7 +9,7 @@ const app = Vue.createApp({
             payments: false,
             paymentsSelected: {},
             checkedInvoices: [],
-            vendorInvoices: {},
+            vendorInvoices: [],
             invoices: [ { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) } ],
             supplier: null,
             paymentsSummaryPage: false,
@@ -24,7 +24,7 @@ const app = Vue.createApp({
             selected: false,
             suppl: null,
             totalPaid: [],
-            paid: []
+            paid: [],
             totalCheckedUlreco: 0
         }
     },
@@ -133,7 +133,6 @@ const app = Vue.createApp({
                 invoice.checked
             )
             console.log("pm ", paymentMap)
-            let totalCheckedUlreco = 0
             paymentMap.forEach(invoice=>{
                 if (invoice===true) {
                     this.totalCheckedUlreco++
