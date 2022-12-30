@@ -11,7 +11,7 @@
 				    <nav class="white">
 				        <div>
 				            <p class="text-center text-light display-5 p-8">
-				                Purchase ledger
+				                Purchase ledger{{typeof vendorInvoices}}
 							</p>
 				        </div>
 				        <div class="btn-group" role="group">
@@ -47,8 +47,8 @@
 				        Supplier Review 
 				    </button>
                 </p>
-                <div v-if="vendorInvoices.Ulreco">
-                    <div v-if="vendorInvoices.length > 0">
+                <div v-if="Object.values(vendorInvoices).length > 0">
+                    
                     <table class="table table-striped">
                         <thead>
                             <div class="text-center fw-bold"><h3>{{suppl}}</h3></div>
