@@ -11,7 +11,7 @@
 				    <nav class="white">
 				        <div>
 				            <p class="text-center text-light display-5 p-8">
-				                Purchase ledger{{vendorInvoices['Ulreco']}}
+				                Purchase ledger{{vendorInvoices[suppl]}}
 							</p>
 				        </div>
 				        <div class="btn-group" role="group">
@@ -64,7 +64,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="invoice in vendorInvoices">
+                            <tr v-for="invoice in vendorInvoices[suppl]">
                                <td>{{invoice.number}}</td>
                                <td>{{invoice.id}}</td>
                                <td>{{invoice.date}}</td>
