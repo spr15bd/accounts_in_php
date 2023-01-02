@@ -34,7 +34,6 @@ const app = Vue.createApp({
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
                 this.vendorInvoices[this.suppl] =  res.data
-                console.log("res ", res.data)
                 payload = null
             } 
 
