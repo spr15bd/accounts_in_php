@@ -11,7 +11,7 @@
 				    <nav class="white">
 				        <div>
 				            <p class="text-center text-light display-5 p-8">
-				                Purchase ledger{{vendorInvoices[suppl]}}
+				                Purchase ledger
 							</p>
 				        </div>
 				        <div class="btn-group" role="group">
@@ -71,7 +71,7 @@
                                <td>{{invoice.description}}</td>
                                <td class="text-end">{{invoice.amount}}</td>
                                <td class="text-end">{{invoice.paid}}</td>
-                               <td class="text-end">{{invoice.amount - invoice.paid}}</td>
+                               <td class="text-end">{{(invoice.amount - invoice.paid).toFixed(2)}}</td>
                                <td class="text-end"></td>
                             </tr>
                             <tr>
