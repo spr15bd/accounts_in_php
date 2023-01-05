@@ -75,13 +75,13 @@
                                <td class="text-end"></td>
                             </tr>
                             <tr>
+                               <td class="text-end fw-bold">Totals</td>
                                <td></td>
                                <td></td>
                                <td></td>
-                               <td></td>
-                               <td class="text-end">{{ reviewTotalSum(vendorInvoices).toFixed(2) }}</td>
-                               <td class="text-end">{{ reviewPaidSum(vendorInvoices).toFixed(2) }}</td>
-                               <td class="text-end">{{ reviewOutstandingSum(vendorInvoices).toFixed(2) }}</td>
+                               <td class="text-end fw-bold">{{ reviewTotalSum(vendorInvoices[suppl]).toFixed(2) }}</td>
+                               <td class="text-end fw-bold">{{ reviewPaidSum(vendorInvoices[suppl]).toFixed(2) }}</td>
+                               <td class="text-end fw-bold">{{ reviewOutstandingSum(vendorInvoices[suppl]).toFixed(2) }}</td>
                                <td class="text-end"></td>
                             </tr>
                         </tbody>
