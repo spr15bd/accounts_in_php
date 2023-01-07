@@ -54,21 +54,6 @@ const app = Vue.createApp({
             console.log("processing payments")
 
         },
-        updatePayment(index) {
-            /*if (this.paymentsSelected[this.suppl][index]?.paid == 0.00 || this.paymentsSelected[this.suppl][index]?.paid === undefined || this.paymentsSelected[this.suppl][index]?.paid === null) {
-                this.paymentsSelected[this.suppl][index].paid = parseFloat(this.vendorInvoices[this.suppl][index].amount).toFixed(2)
-            } else {
-                this.paymentsSelected[this.suppl][index].paid = parseFloat(0.00).toFixed(2)
-                // if none of the supplier's invoices are marked for payment, remove them from the list of suppliers to be paid
-                
-                let totalInvoicesSelectedForPayment = 0
-                console.log(Object.values(this.paymentsSelected[this.suppl]))
-                
-                if (totalInvoicesSelectedForPayment == 0) {
-                    this.paymentsSelected = {}
-                }
-            }*/
-        },
         paymentsSum(supplier) {
             if (supplier[this.suppl]) {
                 let sum = 0
