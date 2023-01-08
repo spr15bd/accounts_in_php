@@ -124,6 +124,9 @@ const app = Vue.createApp({
                 }
             })
             
+        },
+        updatePayment(index) {
+            console.log("update payment", index);   
         }
     },
     computed: {
