@@ -151,7 +151,7 @@
 				        Process payments 
 				    </button>
                     <div v-if="paymentProcessing">
-                        PAYMENTSSELECTED: {{Object.entries(paymentsSelected)}}
+                        PAYMENTSSELECTED: {{Object.entries(vendorInvoices)}}
                         <br><br>
                         <div>
                             <div v-if="suppl && vendorInvoices[suppl]">
@@ -195,7 +195,7 @@
 					</button>
 				</div>										    		
                 <div v-if="Object.entries(totalPaid).length > 0">
-                    <div class="row" v-for="(value,key) in Object.entries(totalPaid)">
+                    <div class="row" v-for="(value,key) in Object.entries(vendorInvoices)">
                         <div class="col">
                             {{ value[0] }} : GBP {{ value[1]?.toFixed(2) }}
                         </div>
