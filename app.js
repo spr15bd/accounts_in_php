@@ -25,7 +25,7 @@ const app = Vue.createApp({
             suppl: null,
             totalPaid: [],
             paid: [],
-            selectedPayents: []
+            selectedPayments: []
         }
     },
     methods: {
@@ -124,13 +124,15 @@ const app = Vue.createApp({
                 }
             })
             
-        },
-        updatePayment(index) {
-            console.log("update payment", index);   
         }
     },
     computed: {
-        
+        updatePayments(id) {
+            if (!this.selectedPayments.includes(id)) {
+                this.selectedPayments.push(id);
+            }
+            console.log("update payment", index);   
+        }
     }
 })
 
