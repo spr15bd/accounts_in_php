@@ -165,7 +165,7 @@
                                         <th class="px-4 text-right">Paid</th>
                                     </tr>
                                     <tr v-for="(invoice, index) in vendorInvoices[suppl]">
-                                        <td class="px-4"><input type="checkbox" @click="updatePayments(invoice.id)"/></td>
+                                        <td class="px-4"><input type="checkbox" v-model="checked" @click="updatePayments(invoice.id)"/></td>
                                         <td class="px-4">{{invoice.number}}</td>
                                         <td class="px-4">{{invoice.id}}</td>
                                         <td class="px-4">{{invoice.date}}</td>
