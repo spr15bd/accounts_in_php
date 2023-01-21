@@ -25,7 +25,8 @@ const app = Vue.createApp({
             suppl: null,
             totalPaid: [],
             paid: [],
-            selectedPayments: []
+            selectedPayments: [],
+            checked: []
         }
     },
     methods: {
