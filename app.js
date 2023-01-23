@@ -91,14 +91,19 @@ const app = Vue.createApp({
             })
             return sum
         },
-        amountPaid(index) {
-            if (this.paymentsSelected[this.suppl]) {
+        amountPaid(idx) {
+            /*if (this.paymentsSelected[this.suppl]) {
                 this.paid[index] = this.paymentsSelected[this.suppl][index].paid
                 return this.paymentsSelected[this.suppl][index].paid     
             } else {
                 return this.paid[index]
+            }*/
+            
+            if (selectedPayments.includes(idx)) {
+                return Object.entries(vendorInvoices)['Ulreco'].filter(inv=>{
+                    inv.id===idx
+                })
             }
-
         },
         grandTotalPaid() {
             // convert to array
