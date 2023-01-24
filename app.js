@@ -99,8 +99,10 @@ const app = Vue.createApp({
                 return this.paid[index]
             }*/
             
-            if (selectedPayments.includes(idx)) {
-                return Object.entries(vendorInvoices)['Ulreco'].filter(inv=>{
+            if (this.selectedPayments.includes(idx)) {
+                let vendorInvoices = Object.entries(this.vendorInvoices)
+                console.log("vendorInvoices contains ", vendorInvoices)
+                return vendorInvoices[1].filter(inv=>{
                     inv.id===idx
                 })
             }
