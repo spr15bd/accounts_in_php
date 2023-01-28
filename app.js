@@ -100,14 +100,14 @@ const app = Vue.createApp({
             }*/
             
             if (this.selectedPayments.includes(idx)) {
-                let vendorInvoices = Object.entries(this.vendorInvoices)
+                let vendorInvoices = Object.entries(this.vendorInvoices)[0][1]
+                console.log(vendorInvoices)
                 vendorInvoices.forEach(item=>{
-                    console.log("vendorInvoices contains ", item[1])
+                    if (item.id === idx) {
+                        return item.amount
+                    }
                 })
                 
-                return this.vendorInvoices[0][1].filter(inv=>{
-                    inv.id===idx
-                })
             }
         },
         grandTotalPaid() {
