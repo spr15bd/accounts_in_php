@@ -34,6 +34,7 @@ const app = Vue.createApp({
             let payload = { data: { supplierName: this.suppl } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
+                //console.log("res ", res.data, "data type ", typeof res.data)
                 this.vendorInvoices[this.suppl] =  res.data
                 payload = null
             } 
@@ -98,8 +99,14 @@ const app = Vue.createApp({
             } else {
                 return this.paid[index]
             }*/
+            console.log("amountPaid vIs ", this.vendorInvoices[0], "data type ", typeof this.vendorInvoices)
             
-            if (this.selectedPayments.includes(idx)) {
+            let vendorInvoices = Object.entries(this.vendorInvoices)[0][1]
+            let selectedInvoice = vendorInvoices.find(inv=>{
+                inv.id === idx
+            })
+            return selectedInvoice.amount - selectedInvoice.paid
+            /*if (this.selectedPayments.includes(idx)) {
                 let vendorInvoices = Object.entries(this.vendorInvoices)[0][1]
                 console.log(vendorInvoices)
                 vendorInvoices.forEach(item=>{
@@ -108,7 +115,7 @@ const app = Vue.createApp({
                     }
                 })
                 
-            }
+            }*/
         },
         grandTotalPaid() {
             // convert to array
