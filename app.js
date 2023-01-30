@@ -99,9 +99,10 @@ const app = Vue.createApp({
             } else {
                 return this.paid[index]
             }*/
-            console.log("amountPaid vIs ", this.vendorInvoices[0], "data type ", typeof this.vendorInvoices)
+            console.log("amountPaid vIs ", this.vendorInvoices['Ulreco'], "data type ", typeof this.vendorInvoices)
             
-            let vendorInvoices = Object.entries(this.vendorInvoices)[0][1]
+            let vendorInvoices = Object.entries(this.vendorInvoices['Ulreco'])[0][1]
+            console.log(vendorInvoices, typeof vendorInvoices)
             let selectedInvoice = vendorInvoices.find(inv=>{
                 inv.id === idx
             })
