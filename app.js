@@ -101,11 +101,12 @@ const app = Vue.createApp({
             }*/
             console.log("amountPaid vIs ", this.vendorInvoices['Ulreco'], "data type ", typeof this.vendorInvoices)
             
-            let vendorInvoices = Object.entries(this.vendorInvoices['Ulreco'])[0][1]
+            let vendorInvoices = Object.entries(this.vendorInvoices['Ulreco'])
             console.log(vendorInvoices, typeof vendorInvoices)
             let selectedInvoice = vendorInvoices.find(inv=>{
-                inv.id === idx
+                Number(inv[1].id) === idx
             })
+            console.log(selectedInvoice)
             return selectedInvoice.amount - selectedInvoice.paid
             /*if (this.selectedPayments.includes(idx)) {
                 let vendorInvoices = Object.entries(this.vendorInvoices)[0][1]
