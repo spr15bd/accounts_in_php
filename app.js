@@ -93,6 +93,7 @@ const app = Vue.createApp({
             return sum
         },
         amountPaid(idx) {
+            console.log("index is ", idx)
             /*if (this.paymentsSelected[this.suppl]) {
                 this.paid[index] = this.paymentsSelected[this.suppl][index].paid
                 return this.paymentsSelected[this.suppl][index].paid     
@@ -103,11 +104,14 @@ const app = Vue.createApp({
             
             let vendorInvoices = Object.entries(this.vendorInvoices['Ulreco'])
             console.log(vendorInvoices, typeof vendorInvoices)
-            let selectedInvoice = vendorInvoices.find(inv=>{
-                Number(inv[1].id) === idx
+            vendorInvoices.forEach(inv=>{
+                console.log("inv is ", inv, "typeof ", typeof inv[1].id, "typeof indx ", typeof idx, "index of inv: ", inv[1].id)
             })
-            console.log(selectedInvoice)
-            return selectedInvoice.amount - selectedInvoice.paid
+            let selectedInvoice = vendorInvoices.find(inv=>{
+                Number(inv[1].id) === Number(idx)
+            })
+            console.log("selected inv ", selectedInvoice)
+            return selectedInvoice['amount'] - selectedInvoice['paid']
             /*if (this.selectedPayments.includes(idx)) {
                 let vendorInvoices = Object.entries(this.vendorInvoices)[0][1]
                 console.log(vendorInvoices)
