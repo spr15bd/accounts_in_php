@@ -148,7 +148,7 @@ const app = Vue.createApp({
             if (!this.selectedPayments.includes(idx)) {
                 this.selectedPayments.push(idx);
             } else {
-                this.selectedPayments.filter(id=>id!===idx)
+                this.selectedPayments = this.selectedPayments.filter(id=>id!==idx)
             }
             console.log("update payment", idx);   
         }
