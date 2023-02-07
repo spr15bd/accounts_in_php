@@ -95,6 +95,11 @@ const app = Vue.createApp({
         amountPaid(idx) {
             // if index is selected, return amount outstanding on invoice
             // otherwise return zero
+            if (selectedPayments.includes(idx)) {
+                // show the balance owed ie total minus already paid
+            } else {
+                // show zero
+            }
             console.log("amountPaid vIs ", this.vendorInvoices['Ulreco'], "data type ", typeof this.vendorInvoices)
             
             let vendorInvoices = Object.values(this.vendorInvoices['Ulreco'])
@@ -145,12 +150,13 @@ const app = Vue.createApp({
             
         },
             updatePayments(idx) {
+            // add the invoice id to an array if the invoice is selected for payment
+            // if the invoice has already been selected for payment, deselct it ie remove it from the array
             if (!this.selectedPayments.includes(idx)) {
                 this.selectedPayments.push(idx);
             } else {
                 this.selectedPayments = this.selectedPayments.filter(id=>id!==idx)
-            }
-            console.log("update payment", idx);   
+            } 
         }
     },
     computed: {
