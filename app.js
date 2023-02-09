@@ -101,7 +101,7 @@ const app = Vue.createApp({
                 inv.id === idx
             )
                 // show the balance owed ie total minus already paid
-                return selectedInvoice['amount'] - selectedInvoice['paid']
+                return (selectedInvoice['amount'] - selectedInvoice['paid']).toFixed(2)
             } else {
                 // show zero
                 return 0.00
