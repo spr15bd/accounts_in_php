@@ -10,6 +10,7 @@ const app = Vue.createApp({
             paymentsSelected: {},
             checkedInvoices: [],
             vendorInvoices: [],
+            allInvoices: [],
             invoices: [ { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) } ],
             supplier: null,
             paymentsSummaryPage: false,
@@ -36,6 +37,16 @@ const app = Vue.createApp({
             if (res.data) {
                 //console.log("res ", res.data, "data type ", typeof res.data)
                 this.vendorInvoices[this.suppl] =  res.data
+                payload = null
+            } 
+
+        },
+        async getAllSuppliers() {
+            let payload = { data: { supplierName: 'all' } }
+            const res = await axios.post("database_queries.php", payload )
+            if (res.data) {
+                //console.log("res ", res.data, "data type ", typeof res.data)
+                this.allInvoices =  res.data
                 payload = null
             } 
 
