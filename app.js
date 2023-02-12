@@ -178,11 +178,13 @@ const app = Vue.createApp({
     },
     computed: {
         displaySelectedPayments () {
-            this.selectedPayments.forEach(payment=>{
+            this.selectedPayments.forEach(id=>{
                 // get the invoice from its id
+                console.log("payment id: ", id)
                 // sum over supplier
             })
             // return the array for display
+            return this.allInvoices
         }
     }
 })
