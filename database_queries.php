@@ -20,7 +20,11 @@
         
 		if ($items['data']['supplierName']) {
             $str = implode(" ", $items['data']);
-            $query = "SELECT * FROM invoices WHERE supplier='".$str."'";
+            if ($str==='all') {
+                $query = "SELECT * FROM invoices";
+            } else {
+                $query = "SELECT * FROM invoices WHERE supplier='".$str."'";
+            }
 			$sql_query = $conn->query($query);
             $invoices = array();
             while ($row=$sql_query->fetch_assoc()){
