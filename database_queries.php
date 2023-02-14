@@ -18,20 +18,26 @@
 	} else {
         $items = json_decode(file_get_contents('php://input'), true);
         
-		if ($items['data']['supplierName']) {
-            $str = implode(" ", $items['data']);
-            if ($str==='all') {
-                $query = "SELECT * FROM invoices";
+		if ($items['data']) {
+            if ($items['data']['supplierName']) {
+                $str = implode(" ", $items['data']);
+                echo $str;
+                if ($str==='all') {
+                    $query = "SELECT * FROM invoices";
+                } else {
+                    $query = "SELECT * FROM invoices WHERE supplier='".$str."'";
+                }
+                $sql_query = $conn->query($query);
+                $invoices = array();
+                while ($row=$sql_query->fetch_assoc()){
+                    array_push($invoices, $row);
+                }
+
+                echo json_encode($invoices);
             } else {
-                $query = "SELECT * FROM invoices WHERE supplier='".$str."'";
-            }
-			$sql_query = $conn->query($query);
-            $invoices = array();
-            while ($row=$sql_query->fetch_assoc()){
-                array_push($invoices, $row);
+                echo $items['data'];
             }
             
-            echo json_encode($invoices);
         } else if ($items) {
             if ($items['info']) {
                 if ($items['info']['supplier']) {
