@@ -20,11 +20,10 @@
         
 		if ($items['data']) {
             if ($items['data']['supplierName']) {
-                $str = implode(" ", $items['data']);
-                echo $str;
-                if ($str==='all') {
+                if ($items['data']['supplierName']==='all') {
                     $query = "SELECT * FROM invoices";
                 } else {
+                    $str = implode(" ", $items['data']);
                     $query = "SELECT * FROM invoices WHERE supplier='".$str."'";
                 }
                 $sql_query = $conn->query($query);
