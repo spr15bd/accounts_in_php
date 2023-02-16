@@ -30,6 +30,9 @@ const app = Vue.createApp({
             checked: []
         }
     },
+    async mounted() {
+        await this.getAllSuppliers()
+    },
     methods: {
         async getSupplier() {
             let payload = { data: { supplierName: this.suppl } }
