@@ -31,6 +31,7 @@ const app = Vue.createApp({
         }
     },
     async mounted() {
+    console.log("mounted")
         await this.getAllSuppliers()
     },
     methods: {
@@ -42,17 +43,16 @@ const app = Vue.createApp({
                 this.vendorInvoices[this.suppl] =  res.data
                 payload = null
             } 
-
         },
         async getAllSuppliers() {
+            console.log("get all suppliers")
             let payload = { data: { supplierName: 'all' } }
-            const res = await axios.post("database_queries.php", payload )
+            const res = await axios.get("database_queries.php", payload )
             if (res.data) {
                 console.log("res of all suppliers", res.data, "data type ", typeof res.data)
                 this.allInvoices =  res.data
                 payload = null
             } 
-
         },
         async update() {
             let payload = {info: { supplier: this.supplier, invoiceNumber: this.invoiceNumber, invoiceDate: this.invoiceDate, invoiceDescription: this.invoiceDescription, office: this.office, overhead: this.overhead, invoiceAmount: this.invoiceAmount }}
