@@ -140,7 +140,7 @@
                     <h4 class="center">Payment Processing</h4>
                     <br/>
                     <div class="col-lg-6">
-								<button class="btn btn-info w-40" @click="supplierReview=false; addInvoice=false; payments=false; paymentsSummaryPage=true">
+								<button class="btn btn-info w-40" @click="showPaymentsSummary()">
 								    Payments summary
 								</button>
 				            </div>
@@ -207,6 +207,7 @@
                 <div v-else>
                     No payments selected{{totalPaid}}
                     selected payments: {{displaySelectedPayments}}
+                    {{ allInvoices }}
                 </div>
             </div>
             <div v-if="confirmProcessPaymentsScreen">

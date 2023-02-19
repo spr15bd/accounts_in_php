@@ -31,8 +31,7 @@ const app = Vue.createApp({
         }
     },
     async mounted() {
-    console.log("mounted")
-        await this.getAllSuppliers()
+        console.log("mounted")
     },
     methods: {
         async getSupplier() {
@@ -169,7 +168,7 @@ const app = Vue.createApp({
             })
             
         },
-            updatePayments(idx) {
+        updatePayments(idx) {
             // add the invoice id to an array if the invoice is selected for payment
             // if the invoice has already been selected for payment, deselct it ie remove it from the array
             if (!this.selectedPayments.includes(idx)) {
@@ -177,7 +176,14 @@ const app = Vue.createApp({
             } else {
                 this.selectedPayments = this.selectedPayments.filter(id=>id!==idx)
             } 
-        }
+        },
+            showPaymentsSummary() {
+                this.supplierReview=false
+                this.addInvoice=false
+                this.payments=false
+                this.paymentsSummaryPage=true
+                await this.getAllSuppliers()
+            }
     },
     computed: {
         displaySelectedPayments () {
