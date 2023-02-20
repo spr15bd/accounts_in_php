@@ -177,19 +177,19 @@ const app = Vue.createApp({
                 this.selectedPayments = this.selectedPayments.filter(id=>id!==idx)
             } 
         },
-            showPaymentsSummary() {
-                this.supplierReview=false
-                this.addInvoice=false
-                this.payments=false
-                this.paymentsSummaryPage=true
-                await this.getAllSuppliers()
-            }
+        async showPaymentsSummary() {
+            this.supplierReview=false
+            this.addInvoice=false
+            this.payments=false
+            this.paymentsSummaryPage=true
+            await this.getAllSuppliers()
+        }
     },
     computed: {
         displaySelectedPayments () {
-            this.selectedPayments.forEach(id=>{
+            this.selectedPayments.forEach(sp=>{
                 // get the invoice from its id
-                console.log("payment id: ", id)
+                console.log("payment id: ", sp.id)
                 // sum over supplier
             })
             // return the array for display
