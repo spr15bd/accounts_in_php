@@ -46,7 +46,7 @@ const app = Vue.createApp({
         async getAllSuppliers() {
             console.log("get all suppliers")
             let payload = { data: { supplierName: 'all' } }
-            const res = await axios.get("database_queries.php", payload )
+            const res = await axios.post("database_queries.php", payload )
             if (res.data) {
                 console.log("res of all suppliers", res.data, "data type ", typeof res.data)
                 this.allInvoices =  res.data
