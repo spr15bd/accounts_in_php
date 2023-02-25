@@ -182,18 +182,20 @@ const app = Vue.createApp({
             this.addInvoice=false
             this.payments=false
             this.paymentsSummaryPage=true
-            //await this.getAllSuppliers()
+            await this.getAllSuppliers()
         }
     },
     computed: {
         displaySelectedPayments () {
-            this.selectedPayments.forEach(sp=>{
+            //this.selectedPayments.forEach(sp=>{
                 // get the invoice from its id
-                console.log("payment id: ", sp)
+            //    console.log("payment id: ", sp)
                 // sum over supplier
-            })
+            //})
             // return the array for display
-            return this.allInvoices
+            this.allInvoices.forEach(invoice=>{
+                
+            })
         }
     }
 })
