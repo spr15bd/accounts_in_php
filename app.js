@@ -187,13 +187,16 @@ const app = Vue.createApp({
     },
     computed: {
         displaySelectedPayments () {
+            let sum=0
             this.selectedPayments.forEach(sp=>{
                 // get the invoice from its id
                 console.log("payment id: ", sp, "typeof: ", typeof sp)
                 let foundInv = this.allInvoices.find(inv=>inv.id===sp)
                 console.log("inv it belongs to ", foundInv)
                 // sum over supplier
+                sum += foundInv.amount
             })
+            console.log("sum of invs is ", sum)
             // return the array for display
             this.allInvoices.forEach(invoice=>{
                 console.log(invoice)
