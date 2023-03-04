@@ -13,6 +13,7 @@ const app = Vue.createApp({
             allInvoices: [],
             invoices: [ { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) } ],
             supplier: null,
+            suppliers: [],
             paymentsSummaryPage: false,
             invoiceNumber: null,
             invoiceDate: null,
@@ -188,7 +189,6 @@ const app = Vue.createApp({
     computed: {
         displaySelectedPayments () {
             let sum=0
-            let suppliers=[]
             this.selectedPayments.forEach(sp=>{
                 // get the invoice from its id
                 console.log("payment id: ", sp, "typeof: ", typeof sp)
@@ -196,7 +196,7 @@ const app = Vue.createApp({
                 console.log("inv it belongs to ", foundInv)
                 // sum over supplier
                 //if (!suppliers[String(foundInv.supplier)]) {
-                    suppliers[String(foundInv.supplier)] += foundInv?.amount
+                    this.suppliers[String(foundInv?.supplier)] += foundInv?.amount
                 //}
                 sum += Number(foundInv?.amount)
             })
