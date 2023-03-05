@@ -196,11 +196,12 @@ const app = Vue.createApp({
                 console.log("inv it belongs to ", foundInv)
                 // sum over supplier
                 //if (!suppliers[String(foundInv.supplier)]) {
-                    this.suppliers[String(foundInv?.supplier)] += foundInv?.amount
+                    this.suppliers[String(foundInv?.supplier)] += Number(foundInv?.amount)
                 //}
                 sum += Number(foundInv?.amount)
             })
             console.log("sum of invs is ", sum)
+            console.log("suppliers record ", this.suppliers)
             // return the array for display
             this.allInvoices.forEach(invoice=>{
                 console.log(invoice)
