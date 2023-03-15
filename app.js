@@ -13,7 +13,7 @@ const app = Vue.createApp({
             allInvoices: [],
             invoices: [ { id: Number, supplier: null, number: null, date: null, description: null, office: null, overhead: null, amount: parseFloat(0.00).toFixed(2), paid: parseFloat(0.00).toFixed(2) } ],
             supplier: null,
-            suppliers: [],
+            suppliers: {},
             paymentsSummaryPage: false,
             invoiceNumber: null,
             invoiceDate: null,
@@ -196,7 +196,7 @@ const app = Vue.createApp({
                 console.log("inv it belongs to ", foundInv)
                 // sum over supplier
                 if (!this.suppliers['Ulreco']) {
-                    this.suppliers.push({'Ulreco' : 0})
+                    this.suppliers['Ulreco'] = 0
                     console.log("created new supplier, ", foundInv?.supplier)
                 } else {
                     console.log("about to add ", foundInv?.amount, "with type ", typeof foundInv?.amount, " adding to ", foundInv?.supplier)
