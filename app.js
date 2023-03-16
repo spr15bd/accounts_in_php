@@ -194,6 +194,7 @@ const app = Vue.createApp({
                 console.log("payment id: ", sp, "typeof: ", typeof sp)
                 let foundInv = this.allInvoices.find(inv=>inv.id===sp)
                 console.log("inv it belongs to ", foundInv)
+                console.log("This is a ", foundInv?.supplier, " invoice.")
                 // sum over supplier
                 if (!this.suppliers['Ulreco']) {
                     this.suppliers['Ulreco'] = 0
