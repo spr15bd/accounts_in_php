@@ -196,9 +196,10 @@ const app = Vue.createApp({
                 console.log("inv it belongs to ", foundInv)
                 console.log("This is a ", foundInv?.supplier, " invoice.")
                 // sum over supplier
-                if (this.suppliers.Ulreco===undefined) {
-                    this.suppliers= {
-                        ['Ulreco']: 0   
+                if (this.suppliers !== {'Ulreco':0}) {
+                            console.log("Ulreco not found in suppliers")
+                    this.suppliers = {
+                        'Ulreco': 0   
                     }
                     console.log("created new supplier, ", this.suppliers)
                 } else {
