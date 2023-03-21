@@ -197,7 +197,9 @@ const app = Vue.createApp({
                 // sum over supplier
                 if (!this.suppliers.Ulreco) {
                     console.log("Ulreco not found in suppliers")
-                    this.suppliers.Ulreco = 0  
+                    this.suppliers = {
+                        Ulreco: foundInv?.amount        
+                    }
                     console.log("created new supplier, ", this.suppliers)
                 } else {
                     console.log("about to add ", foundInv?.amount, "with type ", typeof foundInv?.amount, " adding to ", foundInv?.supplier)
