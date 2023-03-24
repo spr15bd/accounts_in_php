@@ -195,7 +195,7 @@ const app = Vue.createApp({
                 console.log("inv it belongs to ", foundInv)
                 console.log("This is a ", foundInv?.supplier, " invoice.")
                 // sum over supplier
-                sum += Number(foundInv?.amount)
+                sum += Number(foundInv?.amount).toFixed(2)
                 if (!this.suppliers.Ulreco) {
                     console.log("Ulreco not found in suppliers")
                     this.suppliers = {
@@ -206,8 +206,7 @@ const app = Vue.createApp({
                     console.log("about to add ", foundInv?.amount, "with type ", typeof foundInv?.amount, " adding to ", foundInv?.supplier)
                     this.suppliers = {
                         Ulreco: sum         
-                    }
-                    this.suppliers.Ulreco += Number(foundInv?.amount)                          
+                    }                        
                 }
                 
             })
