@@ -188,26 +188,21 @@ const app = Vue.createApp({
     },
     computed: {
         displaySelectedPayments () {
-            let sum=0
+            let sum={}
             this.selectedPayments.forEach(sp=>{
                 // get the invoice from its id
                 let foundInv = this.allInvoices.find(inv=>inv.id===sp)
                 console.log("inv it belongs to ", foundInv)
                 console.log("This is a ", foundInv?.supplier, " invoice.")
                 // sum over supplier
-                sum += Number(foundInv?.amount)
-                if (!this.suppliers[foundInv?.supplier]) {
-                    console.log("Ulreco not found in suppliers")
-                    this.suppliers = {
-                        Ulreco: sum        
-                    }
-                    console.log("created new supplier, ", this.suppliers)
+                if (sum['Ulreco']) {
+                    sum['Ulreco'] += Number(foundInv?.amount)        
                 } else {
-                    console.log("about to add ", foundInv?.amount, "with type ", typeof foundInv?.amount, " adding to ", foundInv?.supplier)
-                    this.suppliers = {
-                        Ulreco: sum         
-                    }                        
+                    sum['Ulreco'] = 0
+                    sum['Ulreco'] += Number(foundInv?.amount)
                 }
+                
+                return sum
                 
             })
             console.log("sum of invs is ", sum)
