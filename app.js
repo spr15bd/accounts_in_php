@@ -194,12 +194,12 @@ const app = Vue.createApp({
                 let foundInv = this.allInvoices.find(inv=>inv.id===sp)
                 console.log("inv it belongs to ", foundInv)
                 console.log("This is a ", foundInv?.supplier, " invoice.")
-                // sum over supplier
-                if (sum['Ulreco']) {
-                    sum['Ulreco'] += Number(foundInv?.amount)        
+                // sum over 1 x supplier
+                if (sum[foundInv?.supplier]) {
+                    sum[foundInv?.supplier] += Number(foundInv?.amount)        
                 } else {
-                    sum['Ulreco'] = 0
-                    sum['Ulreco'] += Number(foundInv?.amount)
+                    sum[foundInv?.supplier] = 0
+                    sum[foundInv?.supplier] += Number(foundInv?.amount)
                 }
                 
                 return sum
