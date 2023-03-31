@@ -110,11 +110,12 @@ const app = Vue.createApp({
         amountPaid(idx) {
             // if index is selected, return amount outstanding on invoice
             // otherwise return zero
+            let selectedInvoice
             if (this.selectedPayments.includes(idx)) {
-                let vendorInvoices = Object.values(this.vendorInvoices['Ulreco'])
-                let selectedInvoice = vendorInvoices.find(inv=>
-                inv.id === idx
-            )
+                //let vendorInvoices = Object.values(this.vendorInvoices['Ulreco'])
+                selectedInvoice = vendorInvoices.find(inv=>
+                    inv.id === idx
+                )
                 // show the balance owed ie total minus already paid
                 return (selectedInvoice['amount'] - selectedInvoice['paid']).toFixed(2)
             } else {
