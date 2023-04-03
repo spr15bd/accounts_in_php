@@ -67,7 +67,6 @@ const app = Vue.createApp({
             }
         },
         async processPayments() {
-            console.log("processing payments")
 
         },
         paymentsSum(supplier) {
