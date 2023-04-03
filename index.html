@@ -151,7 +151,7 @@
 				        Process payments 
 				    </button>
                     <div v-if="paymentProcessing">
-                        PAYMENTSSELECTED: {{vendorInvoices[suppl]}}AllInvoices:{{allInvoices}}{{selectedPayments}}
+                        PAYMENTSSELECTED: {{vendorInvoices[suppl].filter(inv=>selectedPayments.includes(inv.id))}}AllInvoices:{{allInvoices}}{{selectedPayments}}
                         <br><br>
                         <div>
                             <div v-if="suppl && vendorInvoices[suppl]">
