@@ -208,10 +208,6 @@ const app = Vue.createApp({
             })
             console.log("sum of invs is ", sum)
             console.log("suppliers record ", this.suppliers)
-            // return the array for display
-            //this.allInvoices.forEach(invoice=>{
-            //    console.log(invoice)
-            //})
             return this.suppliers
         }
     }
