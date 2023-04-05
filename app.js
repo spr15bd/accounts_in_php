@@ -160,7 +160,7 @@ const app = Vue.createApp({
             this.paymentsSummaryPage=false
             // check there are checked invoices, if so process payment
             let paymentMap = this.paymentsSelected['Ulreco'].map(invoice=>
-                invoice.checked
+                invoice['Ulreco'].checked
             )
             console.log("pm ", paymentMap)
             paymentMap.forEach(invoice=>{
@@ -172,7 +172,7 @@ const app = Vue.createApp({
         },
         updatePayments(idx) {
             // add the invoice id to an array if the invoice is selected for payment
-            // if the invoice has already been selected for payment, deselct it ie remove it from the array
+            // if the invoice has already been selected for payment, deselect it ie remove it from the array
             if (!this.selectedPayments.includes(idx)) {
                 this.selectedPayments.push(idx);
             } else {

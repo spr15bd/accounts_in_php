@@ -151,7 +151,7 @@
 				        Process payments 
 				    </button>
                     <div v-if="paymentProcessing">
-                        VENDOR INVOICES: {{vendorInvoices[suppl].filter(inv=>selectedPayments.includes(inv.id))}}AllInvoices:{{allInvoices}}{{selectedPayments}}
+                        VENDOR INVOICES: {{vendorInvoices[suppl]?.filter(inv=>selectedPayments.includes(inv.id))}}AllInvoices:{{allInvoices}}{{selectedPayments}}
                         <br><br>
                         <div>
                             <div v-if="suppl && vendorInvoices[suppl]">
@@ -165,7 +165,7 @@
                                         <th class="px-4 text-right">Paid</th>
                                     </tr>
                                     <tr v-for="(invoice, index) in vendorInvoices[suppl]">
-                                        <td class="px-4"><input type="checkbox" v-model="checked[index]" @click="updatePayments(invoice.id)"/></td>
+                                        <td class="px-4"><input type="checkbox" v-model="checked[suppl][index]" @click="updatePayments(invoice.id)"/></td>
                                         <td class="px-4">{{invoice.number}}</td>
                                         <td class="px-4">{{invoice.id}}</td>
                                         <td class="px-4">{{invoice.date}}</td>
