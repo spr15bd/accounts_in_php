@@ -28,7 +28,7 @@ const app = Vue.createApp({
             totalPaid: [],
             paid: [],
             selectedPayments: [],
-            checked: []
+            checked: {}
         }
     },
     async mounted() {
