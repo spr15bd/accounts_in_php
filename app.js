@@ -111,7 +111,8 @@ const app = Vue.createApp({
             // otherwise return zero
             let selectedInvoice
             if (this.selectedPayments.includes(idx)) {
-                let vendorInvoices = Object.values(this.vendorInvoices['Ulreco'])
+                //7.4.2023 - let vendorInvoices = Object.values(this.vendorInvoices['Ulreco'])
+                let vendorInvoices = this.allInvoices
                 selectedInvoice = vendorInvoices.find(inv=>
                     inv.id === idx
                 )
