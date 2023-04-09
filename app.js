@@ -33,7 +33,6 @@ const app = Vue.createApp({
     },
     async mounted() {
         console.log("mounted")
-        await this.getAllSuppliers()
     },
     methods: {
         async getSupplier() {
@@ -112,9 +111,8 @@ const app = Vue.createApp({
             // otherwise return zero
             let selectedInvoice
             if (this.selectedPayments.includes(idx)) {
-                //7.4.2023 - let vendorInvoices = Object.values(this.vendorInvoices['Ulreco'])
-                let allInvoices = this.allInvoices
-                selectedInvoice = allInvoices.find(inv=>
+                let vendorInvoices = Object.values(this.vendorInvoices['Ulreco'])
+                selectedInvoice = vendorInvoices.find(inv=>
                     inv.id === idx
                 )
                 console.log("allInvoices: ", this.allInvoices)
