@@ -107,11 +107,13 @@ const app = Vue.createApp({
             return sum
         },
         amountPaid(idx) {
-            // if index is selected, return amount outstanding on invoice
+             // if index is selected, return amount outstanding on invoice
             // otherwise return zero
             let selectedInvoice
+          console.log("vendor invoices: ", this.vendorInvoices)
             if (this.selectedPayments.includes(idx)) {
-                let vendorInvoices = Object.values(this.vendorInvoices['Ulreco'])
+                let vendorInvoices = Object.values(this.vendorInvoices)['Ulreco']
+            
                 selectedInvoice = vendorInvoices.find(inv=>
                     inv.id === idx
                 )
