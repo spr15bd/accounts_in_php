@@ -39,7 +39,6 @@ const app = Vue.createApp({
             let payload = { data: { supplierName: this.suppl } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
-                //console.log("res ", res.data, "data type ", typeof res.data)
                 this.vendorInvoices[this.suppl] =  res.data
                 payload = null
             } 
@@ -110,10 +109,9 @@ const app = Vue.createApp({
              // if index is selected, return amount outstanding on invoice
             // otherwise return zero
             let selectedInvoice
-          console.log("vendor invoices: ", this.vendorInvoices)
+            console.log("vendor invoices: ", this.vendorInvoices)
             if (this.selectedPayments.includes(idx)) {
-                let vendorInvoices = Object.values(this.vendorInvoices)['Ulreco']
-            
+                let vendorInvoices = this.vendorInvoices['Ulreco']
                 selectedInvoice = vendorInvoices.find(inv=>
                     inv.id === idx
                 )
