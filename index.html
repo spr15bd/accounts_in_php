@@ -47,11 +47,11 @@
 				        Supplier Review 
 				    </button>
                 </p>
-                <div v-if="vendorInvoices[suppl]">
+                <div v-if="vendorInvoices">
                     
                     <table class="table table-striped">
                         <thead>
-                            <div class="text-center fw-bold"><h3>{{suppl}}</h3></div>
+                            <div class="text-center fw-bold"><h3>{{vendorInvoices[0].supplier}}</h3></div>
                             <tr class="bg-info">
                                 <th>Invoice Number</th>
                                 <th>Reference</th>
@@ -151,7 +151,7 @@
 				        Process payments 
 				    </button>
                     <div v-if="paymentProcessing">
-                        VENDOR INVOICES: {{vendorInvoices[suppl]?.filter(inv=>selectedPayments.includes(inv.id))}}AllInvoices:{{allInvoices}}{{selectedPayments}}
+                        VENDOR INVOICES: {{vendorInvoices?.filter(inv=>selectedPayments.includes(inv.id))}}AllInvoices:{{allInvoices}}{{selectedPayments}}
                         <br><br>
                         <div>
                             <div v-if="suppl && vendorInvoices[suppl]">
