@@ -51,7 +51,7 @@
                     
                     <table class="table table-striped">
                         <thead>
-                            <div class="text-center fw-bold"><h3>{{vendorInvoices[0].supplier}}</h3></div>
+                            <div class="text-center fw-bold"><h3>{{suppl}}</h3></div>
                             <tr class="bg-info">
                                 <th>Invoice Number</th>
                                 <th>Reference</th>
@@ -64,7 +64,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="invoice in vendorInvoices[suppl]">
+                            <tr v-for="invoice in vendorInvoices">
                                <td>{{invoice.number}}</td>
                                <td>{{invoice.id}}</td>
                                <td>{{invoice.date}}</td>
@@ -79,9 +79,9 @@
                                <td></td>
                                <td></td>
                                <td></td>
-                               <td class="text-end fw-bold">{{ reviewTotalSum(vendorInvoices[suppl]).toFixed(2) }}</td>
-                               <td class="text-end fw-bold">{{ reviewPaidSum(vendorInvoices[suppl]).toFixed(2) }}</td>
-                               <td class="text-end fw-bold">{{ reviewOutstandingSum(vendorInvoices[suppl]).toFixed(2) }}</td>
+                               <td class="text-end fw-bold">{{ reviewTotalSum(vendorInvoices).toFixed(2) }}</td>
+                               <td class="text-end fw-bold">{{ reviewPaidSum(vendorInvoices).toFixed(2) }}</td>
+                               <td class="text-end fw-bold">{{ reviewOutstandingSum(vendorInvoices).toFixed(2) }}</td>
                                <td class="text-end"></td>
                             </tr>
                         </tbody>
