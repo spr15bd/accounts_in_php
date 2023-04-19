@@ -154,7 +154,7 @@
                         VENDOR INVOICES: {{vendorInvoices?.filter(inv=>selectedPayments.includes(inv.id))}}AllInvoices:{{allInvoices}}{{selectedPayments}}
                         <br><br>
                         <div>
-                            <div v-if="suppl && vendorInvoices.length > 0">
+                            <div v-if="vendorInvoices.length > 0">
                                 <table>
                                     <tr>
                                         <th></th>
