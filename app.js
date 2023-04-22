@@ -76,12 +76,7 @@ const app = Vue.createApp({
                     sum += this.supplierPayments.filter(payment=>{
                         payment.id === id
                     }).amount
-                    console.log("id: ", id, ", running total: ", sum)
                 })
-                    
-                //this.totalPaid[this.suppl] = sum==0?null:sum
-                
-                
                 return sum
             }
         },
