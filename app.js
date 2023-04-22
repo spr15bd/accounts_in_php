@@ -31,16 +31,13 @@ const app = Vue.createApp({
             checked: {}
         }
     },
-    async mounted() {
-        console.log("mounted")
-    },
     methods: {
         async getSupplier() {
             let payload = { data: { supplierName: this.suppl } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
                 //console.log("res ", res.data, "data type ", typeof res.data)
-                this.vendorInvoices =  res.data
+                this.vendorInvoices[this.suppl] =  res.data
                 payload = null
             } 
         },
