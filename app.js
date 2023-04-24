@@ -36,8 +36,7 @@ const app = Vue.createApp({
             let payload = { data: { supplierName: this.suppl } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
-                //console.log("res ", res.data, "data type ", typeof res.data)
-                this.vendorInvoices[this.suppl] =  res.data
+                this.vendorInvoices = res.data
                 payload = null
             } 
         },
@@ -66,19 +65,16 @@ const app = Vue.createApp({
         async processPayments() {
 
         },
-        paymentsSum(supplier) {
-            console.log("paymentsSum")
-            if (supplier[this.suppl]) {
+        currentSupplierSum(supplier) {
+            console.log("supplier to sum payments for: ", supplier)
+            console.log("supplier payments ", this.supplierPayments)
+            if (supplier) {
                 let sum = 0
-
-                if (supplier && this.suppl) {
-                    supplier[this.suppl].forEach((invoice) => {
-                        sum += parseFloat(invoice.paid)
-                    })
-                    console.log("running total: ", sum)
-                    this.totalPaid[this.suppl] = sum==0?null:sum
-                }
-                
+                this.selectedPayments.forEach((id) => {
+                    sum += this.supplierPayments.filter(payment=>{
+                        payment.id === id
+                    }).amount
+                })
                 return sum
             }
         },
@@ -104,14 +100,13 @@ const app = Vue.createApp({
             return sum
         },
         amountPaid(idx) {
-            // if index is selected, return amount outstanding on invoice
+             // if index is selected, return amount outstanding on invoice
             // otherwise return zero
             let selectedInvoice
-	    console.log("vendor invoices: ", this.vendorInvoices)
+
+            console.log("vendor invoices: ", this.vendorInvoices)
             if (this.selectedPayments.includes(idx)) {
-                let vendorInvoices = Object.values(this.vendorInvoices)['Ulreco']
-		
-                selectedInvoice = vendorInvoices.find(inv=>
+                selectedInvoice = this.vendorInvoices.find(inv=>
                     inv.id === idx
                 )
                 console.log("allInvoices: ", this.allInvoices)
@@ -121,9 +116,9 @@ const app = Vue.createApp({
                 // show zero
                 return 0.00
             }
-            console.log("amountPaid vIs ", this.vendorInvoices['Ulreco'], "data type ", typeof this.vendorInvoices)
+            console.log("amountPaid vIs ", this.vendorInvoices, "data type ", typeof this.vendorInvoices)
             
-            let vendorInvoices = Object.values(this.vendorInvoices['Ulreco'])
+            let vendorInvoices = Object.values(this.vendorInvoices)
             console.log(vendorInvoices, typeof vendorInvoices)
             vendorInvoices.forEach(inv=>{
                 console.log("inv is ", inv, "typeof ", typeof inv.id, "typeof indx ", typeof idx, "index of inv: ", inv.id)
