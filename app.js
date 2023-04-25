@@ -31,7 +31,14 @@ const app = Vue.createApp({
             checked: {}
         }
     },
+    mounted: {
+        this.refresh()
+	},
     methods: {
+        async refresh() {
+            await this.getAllSuppliers()
+            console.log(this.allInvoices)
+		}
         async getSupplier() {
             let payload = { data: { supplierName: this.suppl } }
             const res = await axios.post("database_queries.php", payload )
