@@ -75,11 +75,10 @@ const app = Vue.createApp({
         currentSupplierSum(supplier) {
             console.log("supplier to sum payments for: ", supplier)
             console.log("supplier payments ", this.supplierPayments)
-            console.log("all invs ", this.allInvoices)
             if (supplier) {
                 let sum = 0
                 this.selectedPayments.forEach((id) => {
-                    sum += this.allPayments.filter(payment=>{
+                    sum += this.allInvoices.filter(payment=>{
                         payment.id === id
                     }).amount
                 })
@@ -112,9 +111,9 @@ const app = Vue.createApp({
             // otherwise return zero
             let selectedInvoice
 
-            console.log("vendor invoices: ", this.vendorInvoices)
+            console.log("all invoices: ", this.allInvoices)
             if (this.selectedPayments.includes(idx)) {
-                selectedInvoice = this.vendorInvoices.find(inv=>
+                selectedInvoice = this.allInvoices.find(inv=>
                     inv.id === idx
                 )
                 console.log("allInvoices: ", this.allInvoices)
@@ -124,7 +123,7 @@ const app = Vue.createApp({
                 // show zero
                 return 0.00
             }
-            console.log("amountPaid vIs ", this.vendorInvoices, "data type ", typeof this.vendorInvoices)
+            console.log("amountPaid vIs ", this.allInvoices, "data type ", typeof this.allInvoices)
             
             let vendorInvoices = Object.values(this.vendorInvoices)
             console.log(vendorInvoices, typeof vendorInvoices)
