@@ -113,11 +113,10 @@ const app = Vue.createApp({
 
             console.log("idx typeof: ", typeof idx)
             if (this.selectedPayments.includes(idx)) {
-                selectedInvoice = this.allInvoices.find(inv=>
-                console.log("id typeof: ", typeof inv.id)
+                selectedInvoice = this.allInvoices.find(inv=>{
                     inv.id === idx
-                )
-                console.log("allInvoices: ", this.allInvoices)
+                    console.log("allInvoices: ", this.allInvoices)
+				})
                 // show the balance owed ie total minus already paid
                 return (selectedInvoice['amount'] - selectedInvoice['paid']).toFixed(2)
             } else {
