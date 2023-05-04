@@ -112,10 +112,12 @@ const app = Vue.createApp({
             let selectedInvoice
 
             console.log("idx typeof: ", typeof idx)
+            console.log("allInvoices: ", this.allInvoices)
             if (this.selectedPayments.includes(idx)) {
+                console.log("includes idx")
                 selectedInvoice = this.allInvoices.find(inv=>{
-                    String(inv.id) === idx
-                    console.log("allInvoices: ", this.allInvoices)
+                    String(inv.id) === String(idx)
+                    
 				})
                 console.log("SELECTED INVOICE IS ", selectedInvoice)
                 // show the balance owed ie total minus already paid
