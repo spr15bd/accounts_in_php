@@ -115,8 +115,9 @@ const app = Vue.createApp({
             console.log("allInvoices: ", this.allInvoices)
             if (this.selectedPayments.includes(idx)) {
                 console.log("includes idx")
+                console.log("typeof allInvoices is: ", typeof this.allInvoices)
                 selectedInvoice = this.allInvoices.find(inv=>{
-                    String(inv.id) === String(idx)
+                    String(inv['id']) === String(idx)
                     
 				})
                 console.log("SELECTED INVOICE IS ", selectedInvoice)
