@@ -53,7 +53,7 @@ const app = Vue.createApp({
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
                 console.log("res of all suppliers", res.data, "data type ", typeof res.data)
-                this.allInvoices =  res.data
+                this.allInvoices =  Object.entries(res.data)
                 payload = null
             } 
         },
