@@ -115,14 +115,13 @@ const app = Vue.createApp({
             console.log("allInvoices: ", this.allInvoices)
             if (this.selectedPayments.includes(idx)) {
                 console.log("includes idx")
-                console.log("typeof allInvoices is: ", typeof Object.values(this.allInvoices))
-                selectedInvoice = this.allInvoices.find(inv=>{
+                console.log("allInvoices is an array?: ", Array.isArray(this.allInvoices))
+                selectedInvoice = this.allInvoices.find(inv=>
                     String(inv['id']) === String(idx)
-                    
-				})
+                )
                 console.log("SELECTED INVOICE IS ", selectedInvoice)
                 // show the balance owed ie total minus already paid
-                return (selectedInvoice['amount'] - selectedInvoice['paid']).toFixed(2)
+                return (Number(selectedInvoice['amount']) - Number(selectedInvoice['paid'])).toFixed(2)
             } else {
                 // show zero
                 return 0.00
