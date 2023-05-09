@@ -44,6 +44,9 @@ const app = Vue.createApp({
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
                 this.vendorInvoices = res.data
+                this.vendorInvoices.forEach(invoice=>{
+                    invoice.amount = (invoice.amount).toFixed(2)        
+				})
                 payload = null
             } 
         },
