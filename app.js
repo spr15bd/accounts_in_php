@@ -84,9 +84,10 @@ const app = Vue.createApp({
                 let supplierInvoices = this.allInvoices.filter(inv=>inv.supplier===supplier)
                 console.log(supplier + "'s invoices are: ", supplierInvoices)
                 this.selectedPayments.forEach((id) => {
-                    sum += this.allInvoices.filter(payment=>{
-                        payment['id'] === String(id)
-                    }).amount
+                    invoiceToAdd = supplierInvoices.find(inv=>inv.id === String(id))
+                    if (invoiceToAdd) {
+                        sum += invoiceToAdd.amount           
+					}
                 })
                 return sum
             }
