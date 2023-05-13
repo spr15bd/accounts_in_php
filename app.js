@@ -86,7 +86,7 @@ const app = Vue.createApp({
                 this.selectedPayments.forEach((id) => {
                     invoiceToAdd = supplierInvoices.find(inv=>inv.id === String(id))
                     if (invoiceToAdd) {
-                        sum += invoiceToAdd.amount           
+                        sum += Number(invoiceToAdd.amount)           
 					}
                 })
                 return sum
