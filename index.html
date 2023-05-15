@@ -197,7 +197,7 @@
 					</button>
 				</div>										    		
                 <div v-if="selectedPayments.length > 0">
-                    <div class="row" v-for="(value,key) in Object.entries(vendorInvoices)">
+                    <div class="row" v-for="(value,key) in AllInvoices.filter(inv=>inv.supplier='Ulreco')">
                         <div class="col">
                             {{ value[0] }} : GBP {{ value[1]?.toFixed(2) }}
                         </div>
