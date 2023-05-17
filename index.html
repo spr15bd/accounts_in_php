@@ -197,14 +197,14 @@
 					</button>
 				</div>										    		
                 <div v-if="selectedPayments.length > 0"><!--v-for="(value,key) in allInvoices.filter(inv=>inv.supplier='Ulreco')">-->
-                    <div class="row" 
+                    <div class="row"> 
                         <div class="col">
                              'Ulreco'  : GBP {{ currentSupplierSum('Ulreco')?.toFixed(2) }}
                              'Acorn Systems Ltd' : GBP {{ currentSupplierSum('Acorn Systems Ltd')?.toFixed(2) }}
                         </div>
                     </div>
                     <div>
-                        Total paid: GBP {{ grandTotalPaid()?.toFixed(2) }}
+                        Total paid: GBP {{ currentSupplierSum('Ulreco') + currentSupplierSum('Acorn Systems Ltd') }}
                     </div>
                 </div>
                 <div v-else>
