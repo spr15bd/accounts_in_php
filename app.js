@@ -28,7 +28,8 @@ const app = Vue.createApp({
             totalPaid: [],
             paid: [],
             selectedPayments: [],
-            checked: {}
+            checked: {},
+            paymentsRecord: {}
         }
     },
     mounted() {
@@ -89,6 +90,8 @@ const app = Vue.createApp({
                         sum += Number(invoiceToAdd.amount)           
 					}
                 })
+                this.paymentsRecord[supplier] = sum
+                console.log("paymentsRecord: ", this.paymentsRecord)
                 return sum
             }
         },
