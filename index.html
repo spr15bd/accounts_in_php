@@ -197,6 +197,11 @@
 					</button>
 				</div>										    		
                 <div v-if="selectedPayments.length > 0"><!--v-for="(value,key) in allInvoices.filter(inv=>inv.supplier='Ulreco')">-->
+                    <div v-for="supplier in paymentsRecord" class="row"> 
+                        <div class="col">
+                             GBP {{ supplier }}
+                        </div>
+                    </div>
                     <div class="row"> 
                         <div class="col">
                              'Ulreco'  : GBP {{ currentSupplierSum('Ulreco')?.toFixed(2) }}
