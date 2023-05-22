@@ -29,7 +29,7 @@ const app = Vue.createApp({
             paid: [],
             selectedPayments: [],
             checked: {},
-            paymentsRecord: {}
+            paymentsRecord: []
         }
     },
     mounted() {
