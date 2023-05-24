@@ -90,7 +90,7 @@ const app = Vue.createApp({
                         sum += Number(invoiceToAdd.amount)           
 					}
                 })
-                this.paymentsRecord.push(supplier=>sum)
+                this.paymentsRecord[supplier] = supplier + ":" + sum
                 console.log("paymentsRecord: ", this.paymentsRecord)
                 return sum
             }
