@@ -91,7 +91,7 @@ const app = Vue.createApp({
 					}
                 })
                 this.paymentsRecord[supplier] = sum
-                console.log("paymentsRecord: ", this.paymentsRecord)
+                console.log("paymentsRecord: ", Object.values(this.paymentsRecord))
                 return sum
             }
         },

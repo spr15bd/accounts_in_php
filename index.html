@@ -197,9 +197,9 @@
 					</button>
 				</div>										    		
                 <div v-if="selectedPayments.length > 0"><!--v-for="(value,key) in allInvoices.filter(inv=>inv.supplier='Ulreco')">-->
-                    <div v-for="(record, sum) in Object.values(paymentsRecord)" class="row"> 
+                    <div v-for="(value) in Object.values(paymentsRecord)" class="row"> 
                         <div class="col">
-                             GBP {{ record[supplier] }}
+                             GBP {{ value[idx] }}
                         </div>
                     </div>
                     <div class="row"> 
