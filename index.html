@@ -199,19 +199,10 @@
                 <div v-if="selectedPayments.length > 0"><!--v-for="(value,key) in allInvoices.filter(inv=>inv.supplier='Ulreco')">-->
                     <div v-for="(record) in Object.entries(paymentsRecord)" class="row"> 
                         <div class="col">
-                              {{ record=>supplier }} GBP {{ record=>amount}}
+                              {{ record[0] }} GBP {{ record[1]}}
                         </div>
                     </div>
-                    <div class="row"> 
-                        <div class="col">
-                             'Ulreco'  : GBP {{ currentSupplierSum('Ulreco') }}
-                        </div>
-                    </div>
-                    <div class="row"> 
-                        <div class="col">
-                             'Acorn Systems Ltd'  : GBP {{ currentSupplierSum('Acorn Systems Ltd') }}
-                        </div>
-                    </div>
+                   
                     <div>
                         Total paid: GBP {{ currentSupplierSum('Ulreco') + currentSupplierSum('Acorn Systems Ltd') }}
                     </div>
