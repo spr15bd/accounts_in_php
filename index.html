@@ -153,7 +153,6 @@
 				        Process payments 
 				    </button>
                     <div v-if="paymentProcessing">
-                        <!--VENDOR INVOICES: {{vendorInvoices?.filter(inv=>selectedPayments.includes(inv.id))}}AllInvoices:{{allInvoices}}{{selectedPayments}}-->
                         <br><br>
                         <div>
                             <div v-if="vendorInvoices.length > 0">
@@ -196,20 +195,20 @@
 						Complete Process payments
 					</button>
 				</div>										    		
-                <div v-if="selectedPayments.length > 0"><!--v-for="(value,key) in allInvoices.filter(inv=>inv.supplier='Ulreco')">-->
+                <div v-if="selectedPayments.length > 0">
                     <div v-for="(record) in Object.entries(paymentsRecord)" class="row"> 
                         <div class="col">
                               {{ record[0] }} GBP {{ record[1]}}
                         </div>
                     </div>
                    
-                    <div>
+                    <div class="fw-bold">
                         Total paid: GBP {{ currentSupplierSum('Ulreco') + currentSupplierSum('Acorn Systems Ltd') }}
                     </div>
                 </div>
                 <div v-else>
                     No payments selected{{totalPaid}}
-                    selected payments: {{displaySelectedPayments}}
+                    
                 </div>
             </div>
             <div v-if="confirmProcessPaymentsScreen">
