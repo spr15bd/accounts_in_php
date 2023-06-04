@@ -78,12 +78,9 @@ const app = Vue.createApp({
 
         },
         currentSupplierSum(supplier) {
-            console.log("supplier to sum payments for: ", supplier)
-            console.log("supplier payments ", this.supplierPayments)
             if (supplier) {
                 let sum = 0
                 let supplierInvoices = this.allInvoices.filter(inv=>inv.supplier===supplier)
-                console.log(supplier + "'s invoices are: ", supplierInvoices)
                 this.selectedPayments.forEach((id) => {
                     invoiceToAdd = supplierInvoices.find(inv=>inv.id === String(id))
                     if (invoiceToAdd) {
@@ -91,7 +88,6 @@ const app = Vue.createApp({
 					}
                 })
                 this.paymentsRecord[supplier] = sum
-                console.log("paymentsRecord: ", Object.keys(this.paymentsRecord), Object.values(this.paymentsRecord), Object.entries(this.paymentsRecord))
                 return sum
             }
         },
