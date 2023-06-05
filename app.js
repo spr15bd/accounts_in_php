@@ -116,16 +116,10 @@ const app = Vue.createApp({
              // if index is selected, return amount outstanding on invoice
             // otherwise return zero
             let selectedInvoice
-
-            console.log("idx typeof: ", typeof idx)
-            console.log("allInvoices: ", this.allInvoices)
             if (this.selectedPayments.includes(idx)) {
-                console.log("includes idx")
-                console.log("allInvoices is an array?: ", Array.isArray(this.allInvoices))
                 selectedInvoice = this.allInvoices.find(inv=>
                     String(inv['id']) === String(idx)
                 )
-                console.log("SELECTED INVOICE IS ", selectedInvoice)
                 // show the balance owed ie total minus already paid
                 return Number(selectedInvoice['amount']).toFixed(2)
             } else {
