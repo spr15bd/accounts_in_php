@@ -77,19 +77,17 @@ const app = Vue.createApp({
         async processPayments() {
 
         },
-        currentSupplierSum(supplier) {
-            if (supplier) {
+        currentSupplierSum() {
+            
                 let sum = 0
-                let supplierInvoices = this.allInvoices.filter(inv=>inv.supplier===supplier)
                 this.selectedPayments.forEach((id) => {
-                    invoiceToAdd = supplierInvoices.find(inv=>inv.id === String(id))
+                    invoiceToAdd = this.allInvoices.find(inv=>inv.id === String(id))
                     if (invoiceToAdd) {
                         sum += Number(invoiceToAdd.amount)           
 					}
                 })
-                this.paymentsRecord[supplier] = sum
                 return sum
-            }
+           
         },
         reviewTotalSum(invoices) {
             let sum = 0
