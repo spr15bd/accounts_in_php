@@ -151,7 +151,7 @@ const app = Vue.createApp({
         },
         grandTotalPaid() {
             // convert to array
-            let supplierPayments = Object.entries(this.totalPaid)
+            let supplierPayments = Object.entries(this.paymentsRecord)
 
             let sum = 0
             supplierPayments.forEach((supplier) => {
