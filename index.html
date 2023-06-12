@@ -50,7 +50,7 @@
 				    </button>
                 </p>
                 <div v-if="vendorInvoices.length > 0">
-                    
+                    {{vendorInvoices}}
                     <table class="table table-striped">
                         <thead>
                             <div class="text-center fw-bold"><h3>{{suppl}}</h3></div>
@@ -66,7 +66,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="invoice in vendorInvoices">
+                            <tr v-for="invoice in vendorInvoicesArray">
                                <td>{{invoice.number}}</td>
                                <td>{{invoice.id}}</td>
                                <td>{{invoice.date}}</td>
