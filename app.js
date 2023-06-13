@@ -95,7 +95,7 @@ const app = Vue.createApp({
             let sum = 0
             console.log("vendorInvoices typeof: ", typeof invoices)
             invoices.forEach((invoice)=> {
-                sum += parseFloat(invoice.amount)
+                sum += parseFloat(invoice["amount"])
             })
             return sum
         },
