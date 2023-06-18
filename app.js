@@ -38,7 +38,6 @@ const app = Vue.createApp({
     methods: {
         async refresh() {
             await this.getAllSuppliers()
-            console.log(this.allInvoices)
 		},
         async getSupplier() {
             let payload = { data: { supplierName: this.suppl } }
@@ -53,7 +52,6 @@ const app = Vue.createApp({
             } 
         },
         async getAllSuppliers() {
-            console.log("get all suppliers")
             let payload = { data: { supplierName: 'all' } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
@@ -129,7 +127,6 @@ const app = Vue.createApp({
                 // show zero
                 return 0.00
             }
-            console.log("amountPaid vIs ", this.allInvoices, "data type ", typeof this.allInvoices)
             
             let vendorInvoices = Object.values(this.vendorInvoices)
             console.log(vendorInvoices, typeof vendorInvoices)
