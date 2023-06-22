@@ -55,7 +55,6 @@ const app = Vue.createApp({
             let payload = { data: { supplierName: 'all' } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
-                console.log("res of all suppliers", res.data, "data type ", typeof res.data)
                 this.allInvoices =  Object.values(res.data)
                 payload = null
             } 
@@ -91,7 +90,6 @@ const app = Vue.createApp({
         },
         reviewTotalSum(invoices) {
             let sum = 0
-            console.log("vendorInvoices typeof: ", typeof invoices)
             invoices.forEach((invoice)=> {
                 sum += parseFloat(invoice["amount"])
             })
@@ -99,7 +97,6 @@ const app = Vue.createApp({
         },
         reviewPaidSum(invoices) {
             let sum = 0
-            console.log("vendorInvoices ", invoices)
             invoices.forEach((invoice)=> {
                 sum += parseFloat(invoice["paid"])
             })
@@ -138,16 +135,6 @@ const app = Vue.createApp({
             )
             console.log("selected inv ", selectedInvoice)
             return selectedInvoice['amount'] - selectedInvoice['paid']
-            /*if (this.selectedPayments.includes(idx)) {
-                let vendorInvoices = Object.entries(this.vendorInvoices)[0][1]
-                console.log(vendorInvoices)
-                vendorInvoices.forEach(item=>{
-                    if (item.id === idx) {
-                        return item.amount
-                    }
-                })
-                
-            }*/
         },
         grandTotalPaid() {
             // convert to array
