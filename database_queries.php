@@ -33,6 +33,15 @@
                 }
 
                 echo json_encode($invoices);
+            } else if ($items['data']['id']) {
+                $str = implode(" ", $items['data']);
+                $query = "SELECT * FROM paid WHERE id='".$str."'";
+                
+                $sql_query = $conn->query($query);
+                
+                $row=$sql_query->fetch_assoc()
+                
+                echo json_encode($row);
             } else {
                 echo $items['data'];
             }
