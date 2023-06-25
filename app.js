@@ -60,8 +60,13 @@ const app = Vue.createApp({
                 payload = null
             } 
         },
-        async getPaid() {
-            console.log("get paid")
+        async getPaid(id) {
+        let payload = { data: { id: id } }
+            const res = await axios.get("database_queries.php", payload )
+            if (res.data) {
+                this.allInvoices =  Object.values(res.data)
+                payload = null
+            } 
 		},
         async update() {
             let payload = {info: { supplier: this.supplier, invoiceNumber: this.invoiceNumber, invoiceDate: this.invoiceDate, invoiceDescription: this.invoiceDescription, office: this.office, overhead: this.overhead, invoiceAmount: this.invoiceAmount }}
