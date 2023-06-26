@@ -64,7 +64,7 @@ const app = Vue.createApp({
         let payload = { data: { id: id } }
             const res = await axios.get("database_queries.php", payload )
             if (res.data) {
-                this.allInvoices =  Object.values(res.data)
+                this.paid =  Object.values(res.data)
                 payload = null
             } 
 		},

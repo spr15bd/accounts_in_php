@@ -42,7 +42,7 @@
 				</div>
             </div>
             <div v-if="supplierReview">
-                <p class="text-center py-5">
+                <p class="text-center py-5">{{paid}}
                     <label>Supplier Name:</label>
                     <input type="text" name="supplier" @keyup.enter="getSupplier(suppl)" v-model="suppl"></input>
                     <button class="btn btn-info" @click="getSupplier()">

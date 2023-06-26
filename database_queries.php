@@ -39,7 +39,7 @@
                 
                 $sql_query = $conn->query($query);
                 
-                $row=$sql_query->fetch_assoc()
+                $row=$sql_query->fetch_assoc();
                 
                 echo json_encode($row);
             } else {
