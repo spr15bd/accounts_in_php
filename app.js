@@ -38,7 +38,7 @@ const app = Vue.createApp({
     methods: {
         async refresh() {
             await this.getAllSuppliers()
-            await this.getPaid()
+            await this.getPaid(3)
 		},
         async getSupplier() {
             let payload = { data: { supplierName: this.suppl } }
@@ -61,7 +61,8 @@ const app = Vue.createApp({
             } 
         },
         async getPaid(id) {
-        let payload = { data: { id: id } }
+        console.log("id: ", id)
+            let payload = { data: { id: id } }
             const res = await axios.get("database_queries.php", payload )
             if (res.data) {
                 this.paid =  Object.values(res.data)
