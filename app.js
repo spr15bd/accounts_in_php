@@ -137,14 +137,10 @@ const app = Vue.createApp({
             }
             
             let vendorInvoices = Object.values(this.vendorInvoices)
-            console.log(vendorInvoices, typeof vendorInvoices)
-            vendorInvoices.forEach(inv=>{
-                console.log("inv is ", inv, "typeof ", typeof inv.id, "typeof indx ", typeof idx, "index of inv: ", inv.id)
-            })
+            
             selectedInvoice = vendorInvoices.find(inv=>
                 inv.id === idx
             )
-            console.log("selected inv ", selectedInvoice)
             return selectedInvoice['amount'] - selectedInvoice['paid']
         },
         grandTotalPaid() {
