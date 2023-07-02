@@ -18,7 +18,7 @@
 	} else {
         $items = json_decode(file_get_contents('php://input'), true);
         
-		if ($items['data']) {
+		if (isset($items['data'])) {
             if ($items['data']['supplierName']) {
                 if ($items['data']['supplierName']==='all') {
                     $query = "SELECT * FROM invoices";
@@ -37,7 +37,7 @@
                 echo $items['data'];
             }
             
-        } else if ($items) {
+        } else if (isset($items)) {
             if ($items['info']) {
                 if ($items['info']['supplier']) {
                     $result = $items['info'];
@@ -58,7 +58,7 @@
                 
                 $row=$sql_query->fetch_assoc();
                 
-                echo json_encode($row);
+                echo json_encode("Q: ", $query, ", R: ", $row);
             }
         } else {
             $str = implode(" ", $items['data']);
