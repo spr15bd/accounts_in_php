@@ -38,8 +38,8 @@
             }
             
         } else if (isset($items)) {
-            if ($items['info']) {
-                if ($items['info']['supplier']) {
+            if (isset($items['info'])) {
+                if (isset($items['info']['supplier'])) {
                     $result = $items['info'];
                     $query = "INSERT INTO invoices (supplier, number, date, description, office, overhead, amount) VALUES ('".$result['supplier']."','".$result['invoiceNumber']."','".$result['invoiceDate']."','".$result['invoiceDescription']."','".$result['office']."','".$result['overhead']."','".$result['invoiceAmount']."')";
                     echo $query;
