@@ -58,7 +58,7 @@
                 
                 $row=$sql_query->fetch_assoc();
                 
-                echo json_encode("Q: ", $query, ", R: ", $row);
+                echo "Q: ". $query. ", R: ". $row;
             }
         } else {
             $str = implode(" ", $items['data']);
