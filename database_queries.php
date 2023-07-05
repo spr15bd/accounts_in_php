@@ -58,7 +58,7 @@
                 
                 $row=$sql_query->fetch_assoc();
                 
-                echo "Q: ". $query. ", R: ". $row;
+                echo $row;
             }
         } else {
             $str = implode(" ", $items['data']);

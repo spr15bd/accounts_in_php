@@ -65,7 +65,7 @@ const app = Vue.createApp({
             let payload = { id: { id: id } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
-                this.paid =  Object.values(res.data)
+                this.paid =  res.data
                 console.log("app.js, this.paid returned ", this.paid)
                 payload = null
             } 
