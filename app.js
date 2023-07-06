@@ -38,7 +38,7 @@ const app = Vue.createApp({
     methods: {
         async refresh() {
             await this.getAllSuppliers()
-            await this.getPaid(3)
+            await this.getPaid(1)
 		},
         async getSupplier() {
             let payload = { data: { supplierName: this.suppl } }
