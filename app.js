@@ -169,6 +169,7 @@ const app = Vue.createApp({
                 }
                 console.log("total checked invs ", this.totalChecked)
             })
+            // send array of inv indexes to db, add them to the paid table
             await this.setPaid(1)
         },
         updatePayments(idx) {
