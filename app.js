@@ -169,7 +169,7 @@ const app = Vue.createApp({
                 }
                 console.log("total checked invs ", this.totalChecked)
             })
-            
+            await this.setPaid(1)
         },
         updatePayments(idx) {
             // add the invoice id to an array if the invoice is selected for payment
