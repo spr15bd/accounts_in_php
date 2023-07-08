@@ -157,6 +157,7 @@ const app = Vue.createApp({
         confirmProcessPayments() {
             this.confirmProcessPaymentsScreen = true
             this.paymentsSummaryPage=false
+            console.log("selectedPayments ", this.selectedPayments)
             console.log("allInvoices ", this.allInvoices)
             // check there are checked invoices, if so process payment
             let paymentMap = this.allInvoices.map(invoice=>
@@ -170,7 +171,7 @@ const app = Vue.createApp({
                 console.log("total checked invs ", this.totalChecked)
             })
             // send array of inv indexes to db, add them to the paid table
-            await this.setPaid(1)
+            //await this.setPaid(1)
         },
         updatePayments(idx) {
             // add the invoice id to an array if the invoice is selected for payment
