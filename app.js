@@ -60,8 +60,8 @@ const app = Vue.createApp({
                 payload = null
             } 
         },
-        async getPaid(id) {
-        console.log("id: ", id)
+        async setPaid(invs) {
+        console.log("invs: ", invs)
             let payload = { id: { id: id } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
@@ -158,20 +158,15 @@ const app = Vue.createApp({
             this.confirmProcessPaymentsScreen = true
             this.paymentsSummaryPage=false
             console.log("selectedPayments ", this.selectedPayments)
-            console.log("allInvoices ", this.allInvoices)
-            // check there are checked invoices, if so process payment
-            let paymentMap = this.allInvoices.map(invoice=>
-                invoice['Ulreco'].checked
+            
+            // check there are paid invoices, if so process payment
+            if (this.selectedPayments.length > 0) {
+                console.log("there are invoices to pay.")
+                // send array of inv indexes to db, add them to the paid table
+                //await this.setPaid(1)
             )
-            console.log("pm ", paymentMap)
-            paymentMap.forEach(invoice=>{
-                if (invoice===true) {
-                    this.totalChecked++
-                }
-                console.log("total checked invs ", this.totalChecked)
-            })
-            // send array of inv indexes to db, add them to the paid table
-            //await this.setPaid(1)
+            
+           
         },
         updatePayments(idx) {
             // add the invoice id to an array if the invoice is selected for payment
