@@ -62,7 +62,7 @@ const app = Vue.createApp({
         },
         async setPaid(invs) {
         console.log("invs: ", invs)
-            let payload = { id: { id: id } }
+            let payload = { invs: { id: id } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
                 this.paid =  res.data
@@ -163,7 +163,7 @@ const app = Vue.createApp({
             if (this.selectedPayments.length > 0) {
                 console.log("there are invoices to pay.")
                 // send array of inv indexes to db, add them to the paid table
-                //await this.setPaid(1)
+                await this.setPaid(this.selectedPayments)
             )
             
            
