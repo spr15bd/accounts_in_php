@@ -62,11 +62,10 @@ const app = Vue.createApp({
         },
         async setPaid(invs) {
         console.log("invs: ", invs)
-            let payload = { invs: { id: id } }
+            let payload = { data: { paid: invs } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
-                this.paid =  res.data
-                console.log("app.js, this.paid returned ", this.paid)
+                console.log("app.js, this.paid returned ", res.data)
                 payload = null
             } 
 		},
