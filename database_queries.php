@@ -19,7 +19,7 @@
         $items = json_decode(file_get_contents('php://input'), true);
         
 		if (isset($items['data'])) {
-            if ($items['data']['supplierName']) {
+            if (isset($items['data']['supplierName'])) {
                 if ($items['data']['supplierName']==='all') {
                     $query = "SELECT * FROM invoices";
                 } else {
@@ -34,7 +34,7 @@
 
                 echo json_encode($invoices);
             } else {
-                echo $items['data'];
+                echo $items['data']['paid'][0];
             }
             
         } else if (isset($items)) {
