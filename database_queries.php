@@ -37,6 +37,11 @@
                 $query = "INSERT INTO paid VALUES ('".$items['data']['paid'][0]."'";
                 $sql_query = $conn->query($query);
                 echo $items['data']['paid'][0];
+                if ($sql_query) {
+                        echo "success after running insert into paid table database_queries";
+                    } else {
+                        echo "failure";
+                    }
             }
             
         } else if (isset($items)) {
