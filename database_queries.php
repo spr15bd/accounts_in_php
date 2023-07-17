@@ -34,7 +34,8 @@
 
                 echo json_encode($invoices);
             } else {
-                $query = "INSERT INTO paid VALUES ('".$items['data']['paid'][0]."'";
+                echo $items['data']['paid'][0];
+                $query = "INSERT INTO paid (paid) VALUES ('".$items['data']['paid'][0].")'";
                 $sql_query = $conn->query($query);
                 if ($sql_query) {
                         echo "success after running insert into paid table database_queries";
