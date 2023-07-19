@@ -68,6 +68,7 @@
                 echo json_encode($row);
             }
         } else {
+            var_dump("payload: ". $items);
             $str = implode(" ", $items['data']);
             $query = "SELECT number, date, amount, paid FROM invoices WHERE supplier='".$str."' AND paid='true'";
             $sql_query = $conn->query($query);
