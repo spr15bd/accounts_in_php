@@ -17,6 +17,10 @@
 		echo "Conection error: " . mysqli_connect_error();
 	} else {
         $items = json_decode(file_get_contents('php://input'), true);
+
+        if (isset($items['params'])) {
+            var_dump("item param found");  
+		}
         
 		if (isset($items['data'])) {
             if (isset($items['data']['supplierName'])) {
