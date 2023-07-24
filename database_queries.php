@@ -34,13 +34,14 @@
 
                 echo json_encode($invoices);
             } else {
-                echo $items['data']['paid'][0];
+                //echo $items['data']['paid'][0];
                 $paidInvsStr = "";
                 foreach ($items['data']['paid'] as $paidInvoiceID) {
-                    $paidInvsStr .= $paidInvoiceID + ", ";
+                    $paidInvsStr .= $paidInvoiceID . ", ";
                 }
                 $paidInvsStr = substr($paidInvsStr, 0, -2);
                 $query = "INSERT INTO paid (paid) VALUES ('".$paidInvsStr."')";
+                echo $query;
                 $sql_query = $conn->query($query);
                 if ($sql_query) {
                         echo "success after running insert into paid table database_queries";
