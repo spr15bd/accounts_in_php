@@ -37,9 +37,9 @@
                 //echo $items['data']['paid'][0];
                 $query="";
                 foreach ($items['data']['paid'] as $paidInvoiceID) {
-                    $query .= "INSERT INTO paid (paid) VALUES ('".$paidInvoiceID.";')";
+                    $query .= "INSERT INTO paid (paid) VALUES ('".$paidInvoiceID."');";
                 }
-                echo $query;
+                //echo $query;
                 $sql_query = $conn->query($query);
                 if ($sql_query) {
                         echo "success after running insert into paid table database_queries";
