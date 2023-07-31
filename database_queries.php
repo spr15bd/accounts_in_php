@@ -36,15 +36,15 @@
             } else {
                 $query="";
                 foreach ($items['data']['paid'] as $paidInvoiceID) {
-                    $query .= "INSERT INTO paid (paid) VALUES ('".$paidInvoiceID."');";
-                }
-                echo $query;
-                $sql_query = $conn->query($query);
-                if ($sql_query) {
-                        echo "success after running insert into paid table database_queries";
+                    $query = "INSERT INTO paid (paid) VALUES ('".$paidInvoiceID."');";
+                    $sql_query = $conn->query($query);
+                    if ($sql_query) {
+                    echo "success after running insert into paid table database_queries";
                     } else {
                         echo "failure";
                     }
+                }
+                echo $query;
             }
             
         } else if (isset($items)) {
