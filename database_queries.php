@@ -24,7 +24,9 @@
                     $query = "SELECT * FROM invoices";
                 } else {
                     $str = implode(" ", $items['data']);
-                    $query = "SELECT * FROM invoices WHERE supplier='".$str."'";
+                    $query = "SELECT * FROM invoices i";
+                    $query .="INNER JOIN paid p ON p.paid = i.id";
+                    $query .="WHERE supplier='".$str."'";
                 }
                 $sql_query = $conn->query($query);
                 $invoices = array();
