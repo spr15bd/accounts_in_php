@@ -24,10 +24,11 @@
                     $query = "SELECT * FROM invoices";
                 } else {
                     $str = implode(" ", $items['data']);
-                    $query = "SELECT * FROM invoices i";
-                    $query .="INNER JOIN paid p ON p.paid = i.id";
+                    $query = "SELECT * FROM invoices i ";
+                    $query .="INNER JOIN paid p ON p.paid = i.id ";
                     $query .="WHERE supplier='".$str."'";
                 }
+                echo $query;
                 $sql_query = $conn->query($query);
                 $invoices = array();
                 while ($row=$sql_query->fetch_assoc()){
