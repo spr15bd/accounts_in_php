@@ -28,7 +28,6 @@
                     $query .="LEFT JOIN paid p ON p.paid = i.id ";
                     $query .="WHERE supplier='".$str."'";
                 }
-                echo $query;
                 $sql_query = $conn->query($query);
                 $invoices = array();
                 while ($row=$sql_query->fetch_assoc()){
