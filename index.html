@@ -55,7 +55,7 @@
                             <div class="text-center fw-bold"><h3>{{suppl}}</h3></div>
                             <tr class="bg-info">
                                 <th>Invoice Number</th>
-                                <th>Reference</th>
+                                <th>Payment Reference</th>
                                 <th>Invoice Date</th>
                                 <th>Description</th>
                                 <th class="text-end">Total</th>
@@ -72,7 +72,7 @@
                                <td>{{invoice.description}}</td>
                                <td class="text-end">{{invoice.amount}}</td>
                                <td class="text-end">{{invoice.paid}}</td>
-                               <td class="text-end">{{invoice.amount}}</td>
+                               <td class="text-end">{{invoice.amount - invoice.paid}}</td>
                                <td class="text-end"></td>
                             </tr>
                             <tr>
