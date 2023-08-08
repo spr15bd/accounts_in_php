@@ -38,13 +38,11 @@ const app = Vue.createApp({
     methods: {
         async refresh() {
             await this.getAllSuppliers()
-            //await this.getPaid(1)
 		},
         async getSupplier() {
             let payload = { data: { supplierName: this.suppl } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
-                console.log("res.data returned: ", res.data)
                 this.vendorInvoices = res.data
                 this.vendorInvoices.forEach(invoice=>{
                     
@@ -67,7 +65,6 @@ const app = Vue.createApp({
             let payload = { data: { paid: invs } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
-                console.log("app.js, this.paid returned ", res.data)
                 payload = null
             } 
 		},
@@ -158,11 +155,9 @@ const app = Vue.createApp({
         async confirmProcessPayments() {
             this.confirmProcessPaymentsScreen = true
             this.paymentsSummaryPage=false
-            console.log("selectedPayments ", this.selectedPayments)
             
             // check there are paid invoices, if so process payment
             if (this.selectedPayments.length > 0) {
-                console.log("there are invoices to pay.")
                 // send array of inv indexes to db, add them to the paid table
                 await this.setPaid(this.selectedPayments)
             }
@@ -192,8 +187,6 @@ const app = Vue.createApp({
             this.selectedPayments.forEach(sp=>{
                 // get the invoice from its id
                 let foundInv = this.allInvoices.find(inv=>inv.id===sp)
-                console.log("inv it belongs to ", foundInv)
-                console.log("This is a ", foundInv?.supplier, " invoice.")
                 // sum over 1 x supplier
                 if (sum[foundInv?.supplier]) {
                     sum[foundInv?.supplier] += Number(foundInv?.amount)        
