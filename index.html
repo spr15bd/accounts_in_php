@@ -55,24 +55,24 @@
                             <div class="text-center fw-bold"><h3>{{suppl}}</h3></div>
                             <tr class="bg-info">
                                 <th>Invoice Number</th>
-                                <th>Payment Reference</th>
                                 <th>Invoice Date</th>
                                 <th>Description</th>
                                 <th class="text-end">Total</th>
                                 <th class="text-end">Paid</th>
                                 <th class="text-end">Outstanding</th>
+                                <th>Payment Reference</th>
                                 <th>Payment Date</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="invoice in vendorInvoicesArray">
                                <td>{{invoice.number}}</td>
-                               <td>{{invoice.id}}</td>
                                <td>{{invoice.date}}</td>
                                <td>{{invoice.description}}</td>
                                <td class="text-end">{{invoice.amount}}</td>
                                <td class="text-end">{{invoice.paid}}</td>
                                <td class="text-end">{{invoice.amount - invoice.paid}}</td>
+                               <td>{{invoice.id}}</td>
                                <td class="text-end"></td>
                             </tr>
                             <tr>
