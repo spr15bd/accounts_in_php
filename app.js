@@ -199,8 +199,6 @@ const app = Vue.createApp({
                 return sum
                 
             })
-            console.log("sum of invs is ", sum)
-            console.log("suppliers record ", this.suppliers)
             return this.suppliers
         },
         vendorInvoicesArray() {
