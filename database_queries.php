@@ -48,7 +48,6 @@
                 }
                 echo $query;
             }
-            
         } else if (isset($items)) {
             if (isset($items['info'])) {
                 if (isset($items['info']['supplier'])) {
@@ -82,6 +81,5 @@
             }
             echo json_encode($invoices);
         }
-        
 	}
 ?>
