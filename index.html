@@ -65,7 +65,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="invoice in vendorInvoicesArray">{{ invoice }}
+                            <tr v-for="invoice in vendorInvoicesArray">
                                <td>{{invoice.number}}</td>
                                <td>{{invoice.date}}</td>
                                <td>{{invoice.description}}</td>
@@ -152,7 +152,7 @@
 				        Process payments 
 				    </button>
                     <div v-if="paymentProcessing">
-                        <br><br>
+                        <br><br>{{vendorInvoicesArray}}
                         <div>
                             <div v-if="vendorInvoices.length > 0">
                                 <table>
@@ -167,7 +167,7 @@
                                     <tr v-for="(invoice, index) in vendorInvoicesArray">{{ checked }}
                                         <td v-if="invoice.paid < invoice.amount" class="px-4"><input type="checkbox" v-model="checked[invoice.id]" @click="updatePayments(invoice.id)"/></td>
                                         <td v-if="invoice.paid < invoice.amount" class="px-4">{{invoice.number}}</td>
-                                        <td v-if="invoice.paid < invoice.amount" class="px-4">{{invoice.id}}</td>
+                                        <td v-if="invoice.paid < invoice.amount" class="px-4">{{invoice.paidid}}</td>
                                         <td v-if="invoice.paid < invoice.amount" class="px-4">{{invoice.date}}</td>
                                         <td v-if="invoice.paid < invoice.amount" class="px-4 text-right">{{invoice.amount}}</td>
                                         <td v-if="invoice.paid < invoice.amount" class="px-4 text-right">{{invoice.paid}}</td>
