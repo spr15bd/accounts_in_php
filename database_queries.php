@@ -33,7 +33,7 @@
                 while ($row=$sql_query->fetch_assoc()){
                     array_push($invoices, $row);
                 }
-
+                var_dump($invoices);
                 echo json_encode($invoices);
             } else {
                 $query="";
