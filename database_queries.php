@@ -30,11 +30,12 @@
                 }
                 $sql_query = $conn->query($query);
                 $invoices = array();
-                while ($row=$sql_query->fetch_assoc()){
-                    array_push($invoices, $row);
-                }
-                var_dump($invoices);
-                echo json_encode($invoices);
+                //while ($row=$sql_query->fetch_assoc()){
+                //    array_push($invoices, $row);
+                //}
+                $row=$sql_query->fetch_assoc();
+                var_dump($row);
+                //echo json_encode($invoices);
             } else {
                 $query="";
                 foreach ($items['data']['paid'] as $paidInvoiceID) {
