@@ -29,6 +29,7 @@
                     $query .="WHERE supplier='".$str."'";
                 }
                 $sql_query = $conn->query($query);
+                var_dump("sql query: ".$sql_query);
                 $invoices = array();
                 //while ($row=$sql_query->fetch_assoc()){
                 //    array_push($invoices, $row);
