@@ -29,13 +29,13 @@
                     $query .="WHERE supplier='".$str."'";
                 }
                 $sql_query = $conn->query($query);
-                var_dump("items.data: ".$items['data']. ", sql query: ".$sql_query);
+                var_dump("str: ".$str.", items.data.supplierName: ".$items['data']['supplierName']. ", query: ".$query.", sql query: ".$sql_query);
                 $invoices = array();
-                //while ($row=$sql_query->fetch_assoc()){
-                //    array_push($invoices, $row);
-                //}
-                $row=$sql_query->fetch_assoc();
-                var_dump($row);
+                while ($row=$sql_query->fetch_assoc()){
+                    array_push($invoices, $row);
+                }
+                //$row=$sql_query->fetch_assoc();
+                //var_dump($row);
                 //echo json_encode($invoices);
             } else {
                 $query="";
