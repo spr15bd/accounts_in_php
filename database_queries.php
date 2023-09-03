@@ -24,19 +24,19 @@
                     $query = "SELECT * FROM invoices";
                 } else {
                     $str = implode(" ", $items['data']);
-                    $query = "SELECT i.id, supplier, date, number, description, office, overhead, amount, created_at, paidid FROM invoices i ";
+                    $query = "SELECT i.id, supplier, date, number, description, office, overhead, amount, paidid FROM invoices i ";
                     $query .="LEFT JOIN paid p ON p.id = i.id ";
                     $query .="WHERE supplier='".$str."'";
                 }
                 $sql_query = $conn->query($query);
-                var_dump("str: ".$str.", items.data.supplierName: ".$items['data']['supplierName']. ", query: ".$query.", sql query: ".$sql_query);
+                //var_dump("str: ".$str.", items.data.supplierName: ".$items['data']['supplierName']. ", query: ".$query.", sql query: ".$sql_query);
                 $invoices = array();
                 while ($row=$sql_query->fetch_assoc()){
                     array_push($invoices, $row);
                 }
                 //$row=$sql_query->fetch_assoc();
                 //var_dump($row);
-                //echo json_encode($invoices);
+                echo json_encode($invoices);
             } else {
                 $query="";
                 foreach ($items['data']['paid'] as $paidInvoiceID) {
