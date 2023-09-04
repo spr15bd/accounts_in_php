@@ -44,7 +44,7 @@ const app = Vue.createApp({
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
                 this.vendorInvoices = res.data
-		this.vendorInvoices = Object.entries(this.vendorInvoices)
+		        //this.vendorInvoices = Object.entries(this.vendorInvoices)
                 console.log("Supplier query returned ", this.vendorInvoices)
                 this.vendorInvoices.forEach(invoice=>{
                     
