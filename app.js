@@ -44,8 +44,6 @@ const app = Vue.createApp({
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
                 this.vendorInvoices = res.data
-		        //this.vendorInvoices = Object.entries(this.vendorInvoices)
-                console.log("Supplier query returned ", this.vendorInvoices)
                 this.vendorInvoices.forEach(invoice=>{
                     
                     invoice.amount = (Math.round(invoice.amount * 100) / 100).toFixed(2)
@@ -63,7 +61,6 @@ const app = Vue.createApp({
             } 
         },
         async setPaid(invs) {
-        console.log("invs: ", invs)
             let payload = { data: { paid: invs } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
