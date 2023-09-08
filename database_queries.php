@@ -24,7 +24,7 @@
                     $query = "SELECT * FROM invoices";
                 } else {
                     $str = implode(" ", $items['data']);
-                    $query = "SELECT i.id, supplier, date, number, description, office, overhead, amount, paidid FROM invoices i ";
+                    $query = "SELECT i.id, i.supplier, date, number, description, office, overhead, amount, p.paidid, p.amount FROM invoices i ";
                     $query .="LEFT JOIN paid p ON p.id = i.id ";
                     $query .="WHERE supplier='".$str."'";
                 }
