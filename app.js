@@ -106,16 +106,16 @@ const app = Vue.createApp({
         reviewPaidSum(invoices) {
             let sum = 0
             invoices.forEach((invoice)=> {
-                sum += parseFloat(invoice["paid"])
+                sum += parseFloat(invoice["paidAmount"])
             })
             return sum
         },
         reviewOutstandingSum(invoices) {
             let sum = 0
             invoices.forEach((invoice)=> {
-                console.log("invoice: ", invoice)
                 // temp - todo add in total outstanding on the inv, new table id and paid
-                sum += invoice.id?0.00:parseFloat(invoice["amount"])
+                //sum += invoice.id?0.00:parseFloat(invoice["amount"]) 18.09.2023
+                sum += invoice.amount - invoice.paidAmount
             })
             return sum
         },
