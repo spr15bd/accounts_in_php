@@ -36,6 +36,10 @@
                 echo json_encode($invoices);
             } else {
                 $query="";
+                
+                var_dump("$items[data][paid]: " . $items['data']['paid']);
+                
+                
                 foreach ($items['data']['paid'] as $paidInvoiceID) {
                     $query = "INSERT INTO paid (id, amount) VALUES ('".$paidInvoiceID."', '".$paidAmount."');";
                     $sql_query = $conn->query($query);
