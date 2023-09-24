@@ -88,6 +88,7 @@ const app = Vue.createApp({
                 let supplierInvoices = this.allInvoices.filter(inv=>inv.supplier===supplier)
                 console.log("supplier invoices: ", supplierInvoices)
                 this.selectedPayments.forEach((id) => {
+                    console.log("id: ", id)
                     invoiceToAdd = supplierInvoices.find(inv=>inv.id === String(id))
                     console.log("Invoice To Add: ", invoiceToAdd)
                     if (invoiceToAdd) {
