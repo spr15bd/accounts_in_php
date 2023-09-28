@@ -149,7 +149,7 @@
                     <label>Supplier Name:</label>
                     <input type="text" name="supplier" v-model="suppl"></input>
                     <button class="btn btn-info" @click="processPaymentsScreen()">
-				        Process payments 
+				        Process payments {{suppl}}{{vendorInvoices}}
 				    </button>
                     <div v-if="paymentProcessing">
                         <br><br>
@@ -190,7 +190,7 @@
                         Back
                     </button>
                     <button class="btn btn-dark" v-if="selectedPayments.length > 0" @click="confirmProcessPaymentsScreen=true">
-						Complete Process payments{{allInvoices.filter(inv=>inv["Supplier"]!=="Ulreco")}}
+						Complete Process payments{{allInvoices}}
 					</button>
 				</div>										    		
                 <div v-if="selectedPayments.length > 0">
