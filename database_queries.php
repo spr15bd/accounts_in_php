@@ -27,11 +27,10 @@
                     $query = "SELECT i.id, i.supplier, i.date, i.number, i.description, i.office, i.overhead, i.amount, p.paidid, p.amount as paidAmount FROM invoices i ";
                     $query .="LEFT JOIN paid p ON p.id = i.id ";
                     $query .="WHERE supplier='".$str."'";
-                    var_dump($query);// 29.09.23
+                    $query = str_replace("'", "", $query);
                 }
                 $sql_query = $conn->query($query);
                 $invoices = array();
-                var_dump($sql_query->fetch_assoc());// 29.09.23
                 while ($row=$sql_query->fetch_assoc()){
                     array_push($invoices, $row);
                 }
