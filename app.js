@@ -43,6 +43,7 @@ const app = Vue.createApp({
             let payload = { data: { supplierName: this.suppl } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
+                console.log("typeof (vendorInvoices): ", typeof this.vendorInvoices)
                 this.vendorInvoices = res.data
                 this.vendorInvoices.forEach(invoice=>{
                     
