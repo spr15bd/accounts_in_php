@@ -23,13 +23,13 @@
                 if ($items['data']['supplierName']==='all') {
                     $query = "SELECT * FROM invoices";
                 } else {
-                    var_dump("supplier: ".$items['data']['supplierName']);
+                    //var_dump("supplier: ".$items['data']['supplierName']);
                     $str = implode(" ", $items['data']);
                     $query = "SELECT i.id, i.supplier, i.date, i.number, i.description, i.office, i.overhead, i.amount, p.paidid, p.amount as paidAmount FROM invoices i ";
                     $query .="LEFT JOIN paid p ON p.id = i.id ";
                     $query .="WHERE supplier='".$str."'";
-                    $query = str_replace("'", "", $query);
-                    var_dump("Query: ".$query);
+                    $query = str_replace("'s", "s", $query);
+                    //var_dump("Query: ".$query);
                 }
                 $sql_query = $conn->query($query);
                 $invoices = array();
