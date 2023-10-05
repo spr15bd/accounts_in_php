@@ -149,7 +149,7 @@
                     <label>Supplier Name:</label>
                     <input type="text" name="supplier" v-model="suppl"></input>
                     <button class="btn btn-info" @click="processPaymentsScreen()">
-				        Process payments {{suppl}}{{vendorInvoices}}
+				        Select {{suppl}}{{vendorInvoices}}
 				    </button>
                     <div v-if="paymentProcessing">
                         <br><br>
@@ -196,12 +196,12 @@
                 <div v-if="selectedPayments.length > 0">
                     <div v-for="(record) in Object.entries(paymentsRecord)" class="row"> 
                         <div class="col">
-                              {{ record[0] }} GBP {{ record[1]}}
+                              {{ record[0] }} GBP {{ record[1].toFixed(2)}}
                         </div>
                     </div>
                    
                     <div class="fw-bold">
-                        Total paid: GBP {{ grandTotalPaid() }}
+                        Total paid: GBP {{ grandTotalPaid().toFixed(2) }}
                     </div>
                 </div>
                 <div v-else>
