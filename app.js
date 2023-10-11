@@ -96,6 +96,7 @@ const app = Vue.createApp({
                         sum += Number(invoiceToAdd.amount)           
                     }
                 })
+                // only create if it's an existing supplier
                 this.paymentsRecord[supplier] = sum
                 return sum
             }
