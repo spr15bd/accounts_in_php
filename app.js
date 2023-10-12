@@ -85,9 +85,11 @@ const app = Vue.createApp({
         },
         currentSupplierSum(supplier) {
             console.log("Supplier chosen: ", supplier, ", All Invoices: ", this.allInvoices)
-            if (supplier) {
+            let supplierInvoices = this.allInvoices.filter(inv=>inv.supplier===supplier)
+            // only create if it's an existing supplier with invoices on the system
+            if (supplierInvoices) {
                 let sum = 0
-                let supplierInvoices = this.allInvoices.filter(inv=>inv.supplier===supplier)
+                
                 console.log("supplier invoices: ", supplierInvoices)
                 this.selectedPayments.forEach((payment) => {
                     
@@ -96,7 +98,7 @@ const app = Vue.createApp({
                         sum += Number(invoiceToAdd.amount)           
                     }
                 })
-                // only create if it's an existing supplier
+                
                 this.paymentsRecord[supplier] = sum
                 return sum
             }
