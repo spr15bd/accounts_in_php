@@ -87,7 +87,7 @@ const app = Vue.createApp({
             console.log("Supplier chosen: ", supplier, ", All Invoices: ", this.allInvoices)
             let supplierInvoices = this.allInvoices.filter(inv=>inv.supplier===supplier)
             // only create if it's an existing supplier with invoices on the system
-            if (supplierInvoices) {
+            if (supplierInvoices.length > 0) {
                 let sum = 0
                 
                 console.log("supplier invoices: ", supplierInvoices)
