@@ -193,7 +193,7 @@
 						Complete Process payments{{allInvoices}}
 					</button>
 				</div>									    		
-                <div v-if="selectedPayments.length > 0">
+                <div v-if="selectedPayments.length > 0">{{Object.entries(paymentsRecord)}}
                     <div v-for="(record) in Object.entries(paymentsRecord)" class="row"> 
                         <div class="col">
                               {{ record[0] }} GBP {{ record[1].toFixed(2)}}
