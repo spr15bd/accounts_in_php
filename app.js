@@ -100,7 +100,9 @@ const app = Vue.createApp({
                 })
                 
                 // only allow if paymentsRecord > 0 for a supplier
-                this.paymentsRecord[supplier] = sum
+                if (sum > 0) {
+                    this.paymentsRecord[supplier] = sum
+                }
                 return sum
             }
         },
