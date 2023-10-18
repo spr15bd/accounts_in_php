@@ -90,7 +90,6 @@ const app = Vue.createApp({
             if (supplierInvoices.length > 0) {
                 let sum = 0
                 
-                console.log("supplier invoices: ", supplierInvoices)
                 this.selectedPayments.forEach((payment) => {
                     
                     invoiceToAdd = supplierInvoices.find(inv=>inv.id === String(payment.idx))
@@ -177,8 +176,6 @@ const app = Vue.createApp({
         updatePayments(idx, amount) {
             // add the invoice id to an array if the invoice is selected for payment
             // if the invoice has already been selected for payment, deselect it ie remove it from the array
-
-            console.log("idx ", idx)
 
             if (!this.selectedPayments.includes(idx)) {
                 this.selectedPayments.push({idx: idx, amount: amount});
