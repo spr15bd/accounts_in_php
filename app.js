@@ -169,6 +169,7 @@ const app = Vue.createApp({
             if (this.selectedPayments.length > 0) {
                 // send array of inv indexes to db, add them to the paid table
                 await this.setPaid(this.selectedPayments)
+                this.confirmProcessPaymentsScreen = false
             }
             
            
