@@ -80,8 +80,12 @@ const app = Vue.createApp({
                 this.paymentsSelected[this.suppl] = this.vendorInvoices[this.suppl]
             }
         },
-        async processPayments() {
-
+        async displayPaid(inv) {
+            if (checked[inv.id]) {
+                return inv.amount 
+            } else {
+                return 0.00
+            }
         },
         currentSupplierSum(supplier) {
             console.log("Supplier chosen: ", supplier, ", All Invoices: ", this.allInvoices)
@@ -94,7 +98,8 @@ const app = Vue.createApp({
                     
                     invoiceToAdd = supplierInvoices.find(inv=>inv.id === String(payment.idx))
                     if (invoiceToAdd) {
-                        sum += Number(invoiceToAdd.amount)           
+                        sum += Number(invoiceToAdd.paid)
+                        // checked[invoice.id]?invoice.amount:"0.00"
                     }
                 })
                 

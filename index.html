@@ -170,7 +170,7 @@
                                         <td v-if="invoice.paid < invoice.amount" class="px-4">{{invoice.id}}</td>
                                         <td v-if="invoice.paid < invoice.amount" class="px-4">{{invoice.date}}</td>
                                         <td v-if="invoice.paid < invoice.amount" class="px-4 text-right">{{invoice.amount}}</td>
-                                        <td v-if="invoice.paid < invoice.amount" class="px-4 text-right">{{checked[invoice.id]?invoice.amount:"0.00"}}</td>
+                                        <td v-if="invoice.paid < invoice.amount" class="px-4 text-right">{{displayPaid(invoice)}}</td>
                                     </tr>
                                     <tr>
                                         <td></td><td></td><td></td><td class="pl-4 text-right">Total</td>
