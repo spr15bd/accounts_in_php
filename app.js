@@ -80,8 +80,8 @@ const app = Vue.createApp({
                 this.paymentsSelected[this.suppl] = this.vendorInvoices[this.suppl]
             }
         },
-        async displayPaid(inv) {
-            if (checked[inv.id]) {
+        displayPaid(inv) {
+            if (this.checked[inv.id]) {
                 return inv.amount 
             } else {
                 return 0.00
