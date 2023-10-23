@@ -81,6 +81,7 @@ const app = Vue.createApp({
             }
         },
         displayPaid(inv) {
+            console.log(inv.id, " ", this.checked)
             if (this.checked[inv.id]) {
                 return inv.amount 
             } else {
@@ -88,7 +89,7 @@ const app = Vue.createApp({
             }
         },
         currentSupplierSum(supplier) {
-            console.log("Supplier chosen: ", supplier, ", All Invoices: ", this.allInvoices)
+            //console.log("Supplier chosen: ", supplier, ", All Invoices: ", this.allInvoices)
             let supplierInvoices = this.allInvoices.filter(inv=>inv.supplier===supplier)
             // only create if it's an existing supplier with invoices on the system
             if (supplierInvoices.length > 0) {
