@@ -99,7 +99,8 @@ const app = Vue.createApp({
                     
                     invoiceToAdd = supplierInvoices.find(inv=>inv.id === String(payment.idx))
                     if (invoiceToAdd) {
-                        sum += Number(invoiceToAdd.paid)
+                        console.log("inv to add: ", invoiceToAdd)
+                        sum += Number(displayPaid(invoiceToAdd))
                         // checked[invoice.id]?invoice.amount:"0.00"
                     }
                 })
