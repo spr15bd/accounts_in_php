@@ -81,7 +81,6 @@ const app = Vue.createApp({
             }
         },
         displayPaid(inv) {
-            console.log(inv.id, " ", this.checked)
             if (this.checked[inv.id]) {
                 return inv.amount 
             } else {
@@ -99,8 +98,7 @@ const app = Vue.createApp({
                     
                     invoiceToAdd = supplierInvoices.find(inv=>inv.id === String(payment.idx))
                     if (invoiceToAdd) {
-                        console.log("inv to add: ", invoiceToAdd)
-                        sum += Number(displayPaid(invoiceToAdd))
+                        sum += Number(this.displayPaid(invoiceToAdd))
                         // checked[invoice.id]?invoice.amount:"0.00"
                     }
                 })
