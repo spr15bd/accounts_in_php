@@ -85,6 +85,7 @@ const app = Vue.createApp({
                 console.log("inv ", inv, " checked.")
                 return inv.amount 
             } else {
+                console.log("inv ", inv, " not checked.")
                 return 0.00
             }
         },
