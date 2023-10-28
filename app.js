@@ -82,6 +82,7 @@ const app = Vue.createApp({
         },
         displayPaid(inv) {
             if (this.checked[inv.id]) {
+                console.log("inv ", inv, " checked.")
                 return inv.amount 
             } else {
                 return 0.00
