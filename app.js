@@ -186,7 +186,7 @@ const app = Vue.createApp({
             // add the invoice id to an array if the invoice is selected for payment
             // if the invoice has already been selected for payment, deselect it ie remove it from the array
             // TODO - filter out duplicate objects
-            if (!this.selectedPayments.includes(idx)) {
+            if (!this.selectedPayments.some(payment => payment.idx === idx)) {
                 this.selectedPayments.push({idx: idx, amount: amount});
             } else {
                 this.selectedPayments = this.selectedPayments.filter(id=>id!==idx)
