@@ -189,6 +189,7 @@ const app = Vue.createApp({
                 this.selectedPayments.push({idx: idx, amount: amount});
             } else {
                 this.selectedPayments = this.selectedPayments.filter(id=>id!==idx)
+                console.log("removed inv, id: ", idx)
             } 
         },
         async showPaymentsSummary() {
