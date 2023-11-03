@@ -98,8 +98,9 @@ const app = Vue.createApp({
                 let sum = 0
                 console.log("Selected payments: ", this.selectedPayments)
                 this.selectedPayments.forEach((payment) => {
-                    
+                    console.log("payment: ", payment)
                     invoiceToAdd = supplierInvoices.find(inv=>inv.id === String(payment.idx))
+                    console.log("invoiceToAdd: ", invoiceToAdd)
                     if (invoiceToAdd) {
                         sum += Number(this.displayPaid(invoiceToAdd))
                         // checked[invoice.id]?invoice.amount:"0.00"
