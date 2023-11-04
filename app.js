@@ -103,7 +103,7 @@ const app = Vue.createApp({
                     console.log("invoiceToAdd: ", invoiceToAdd)
                     if (invoiceToAdd) {
                         sum += Number(this.displayPaid(invoiceToAdd))
-                        // checked[invoice.id]?invoice.amount:"0.00"
+                        console.log("sum is now ", sum)
                     }
                 })
                 
