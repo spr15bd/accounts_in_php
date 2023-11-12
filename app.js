@@ -45,7 +45,7 @@ const app = Vue.createApp({
             if (res.data) {
                 console.log("typeof (vendorInvoices): ", typeof this.vendorInvoices)
                 this.vendorInvoices = res.data
-                this.vendorInvoices.forEach(invoice=>{
+                Object.values(this.vendorInvoices).forEach(invoice=>{
                     
                     invoice.amount = (Math.round(invoice.amount * 100) / 100).toFixed(2)
                     invoice.paid = invoice.paid?invoice.amount:"0.00"
