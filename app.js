@@ -18,6 +18,7 @@ const app = Vue.createApp({
             invoiceNumber: null,
             invoiceDate: null,
             invoiceDescription: null,
+            invoicePosted: false,
             office: null,
             overhead: null,
             invoiceAmount: null,
@@ -72,6 +73,7 @@ const app = Vue.createApp({
             let payload = {info: { supplier: this.supplier, invoiceNumber: this.invoiceNumber, invoiceDate: this.invoiceDate, invoiceDescription: this.invoiceDescription, office: this.office, overhead: this.overhead, invoiceAmount: this.invoiceAmount }}
             const res = await axios.post("database_queries.php", payload )
             const {results} = res
+            this.invoicePosted = true
         },
         async processPaymentsScreen() {
             this.paymentProcessing = true
