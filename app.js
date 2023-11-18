@@ -110,8 +110,8 @@ const app = Vue.createApp({
                 // if paymentsRecord === 0, remove them from paymentsRecord array
                 console.log(typeof this.paymentsRecord, " (typeof)")
                 console.log("PR before filter: ", Object.values(this.paymentsRecord))
-                this.paymentsRecord = Object.entries(this.paymentsRecord).filter(payment=>payment !== 0)
-                console.log("PR after filter: ", Object.values(this.paymentsRecord))
+                this.paymentsRecord = Object.entries(this.paymentsRecord).filter(payment=>payment.value !== 0)
+                console.log("PR after filter: ", this.paymentsRecord)
                 
                 return sum
             }
