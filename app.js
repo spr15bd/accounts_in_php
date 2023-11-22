@@ -105,14 +105,19 @@ const app = Vue.createApp({
                     }
                 })
                 
-                // only allow if paymentsRecord > 0 for a supplier
+                
                 this.paymentsRecord[supplier] = sum
+                // filter out any payments with no invoices allocated
+                
+                console.log("PR as object: ", this.paymentsRecord)
+                console.log("PR as array: ", Object.values(this.paymentsRecord))
+                
                 // if paymentsRecord === 0, remove them from paymentsRecord array
-                console.log(typeof Object.entries(this.paymentsRecord), " (typeof)")
-                console.log("PR before filter: ", this.paymentsRecord
-                Object.values(this.paymentsRecord).filter(payment=>payment.value !== 0)
-                console.log("PR after filter: ", Object.values(this.paymentsRecord))
-                console.log("sum: ", sum)
+                //console.log(typeof Object.entries(this.paymentsRecord), " (typeof)")
+                
+                //Object.values(this.paymentsRecord).filter(payment=>payment.value !== 0)
+                
+                //console.log("sum: ", sum)
                 return sum
             }
         },
