@@ -110,7 +110,7 @@ const app = Vue.createApp({
                 // filter out any payments with no invoices allocated
                 
                 console.log("PR as object: ", this.paymentsRecord)
-                console.log("PR as array: ", Object.values(this.paymentsRecord))
+                console.log("PR as array: ", Object.entries(this.paymentsRecord))
                 
                 // if paymentsRecord === 0, remove them from paymentsRecord array
                 //console.log(typeof Object.entries(this.paymentsRecord), " (typeof)")
@@ -119,6 +119,9 @@ const app = Vue.createApp({
                 
                 //console.log("sum: ", sum)
                 return sum
+            } else {
+                // if there are no invoices to pay to the supplier, remove supplier from the payments record
+                delete this.paymentsRecord.supplier
             }
         },
         reviewTotalSum(invoices) {
