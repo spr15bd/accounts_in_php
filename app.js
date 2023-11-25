@@ -90,6 +90,7 @@ const app = Vue.createApp({
             }
         },
         currentSupplierSum(supplier) {
+            console.log("supplierInvoices.length is: ", supplierInvoices?.length)
             // sum of supplier's payments
             // filter out all other supplier invoices
             let supplierInvoices = this.allInvoices.filter(inv=>inv.supplier===supplier)
@@ -120,6 +121,7 @@ const app = Vue.createApp({
                 //console.log("sum: ", sum)
                 return sum
             } else {
+                console.log("about to delete record")
                 // if there are no invoices to pay to the supplier, remove supplier from the payments record
                 delete this.paymentsRecord.supplier
             }
