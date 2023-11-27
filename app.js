@@ -90,10 +90,11 @@ const app = Vue.createApp({
             }
         },
         currentSupplierSum(supplier) {
-            console.log("supplierInvoices.length is: ", supplierInvoices?.length)
             // sum of supplier's payments
             // filter out all other supplier invoices
             let supplierInvoices = this.allInvoices.filter(inv=>inv.supplier===supplier)
+            console.log("supplier: ", supplier)
+            console.log("supplierInvoices.length is: ", supplierInvoices?.length)
             // only sum supplier payments if it's an existing supplier with invoices on the system
             if (supplierInvoices.length > 0) {
                 let sum = 0
