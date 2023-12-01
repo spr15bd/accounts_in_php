@@ -128,6 +128,7 @@ const app = Vue.createApp({
                 //Object.values(this.paymentsRecord).filter(payment=>payment.value !== 0)
                 
                 //console.log("sum: ", sum)
+                console.log("PI size: ", this.paymentInvoices.length)
                 return sum
             }
         },
