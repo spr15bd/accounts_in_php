@@ -128,7 +128,7 @@ const app = Vue.createApp({
                 //Object.values(this.paymentsRecord).filter(payment=>payment.value !== 0)
                 
                 //console.log("sum: ", sum)
-                console.log("PI size: ", this.paymentInvoices.length)
+                console.log("PI size: ", paymentInvoices.length)
                 return sum
             }
         },
@@ -209,8 +209,9 @@ const app = Vue.createApp({
             if (!this.selectedPayments.some(payment => payment.idx === idx)) {
                 this.selectedPayments.push({idx: idx, amount: amount});
             } else {
-                this.selectedPayments = this.selectedPayments.filter(id=>id!==idx)
-                console.log("removed inv, id: ", idx)
+                console.log("already added inv; ")
+                this.selectedPayments = this.selectedPayments.filter(payments=>payment.id!==idx)
+                console.log("selectedPayments is now: ", this.selectedPayments)
             } 
         },
         async showPaymentsSummary() {
