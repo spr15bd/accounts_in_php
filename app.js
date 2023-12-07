@@ -107,9 +107,9 @@ const app = Vue.createApp({
                         console.log("payment no ", payment.idx, " is true")
                         invoiceToAdd = supplierInvoices.find(inv=>inv.id === String(payment.idx))
                     } else {
-                        \\temp else
-                            console.log("payment no ", payment.idx, " is ", this.checked[payment.idx])
-                        }
+                        //temp else 
+                        console.log("payment no ", payment.idx, " is ", this.checked[payment.idx])
+                    }
                     console.log("invoiceToAdd: ", invoiceToAdd)
                     if (invoiceToAdd) {
                         sum += Number(this.displayPaid(invoiceToAdd))
