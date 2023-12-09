@@ -195,7 +195,7 @@
 					</button>
 				</div>									    		
                 <div v-if="selectedPayments.length > 0">
-                    <div v-for="(record) in Object.entries(paymentsRecord)" class="row"> 
+                    <div v-for="record in Object.entries(paymentsRecord)" class="row"> 
                         <div class="col">
                               {{ record[0] }} GBP {{ record[1].toFixed(2)}}
                         </div>

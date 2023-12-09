@@ -120,8 +120,10 @@ const app = Vue.createApp({
                 if (paymentInvoices.length <1) {
                     console.log("about to delete record")
                     // if there are no invoices to pay to the supplier, remove supplier from the payments record
-                        console.log("PR: ", this.paymentsRecord[supplier])
-                    delete this.paymentsRecord[supplier]
+                    console.log("PR: ", this.paymentsRecord)
+                    delete Object.entries(this.paymentsRecord).find(supplier=>{
+                        supplier[0] == supplier
+                    })
                 }
                 
                 this.paymentsRecord[supplier] = sum
