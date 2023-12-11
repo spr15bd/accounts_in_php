@@ -122,11 +122,13 @@ const app = Vue.createApp({
                 if (paymentInvoices.length <1) {
                     console.log("about to delete record")
                     // if there are no invoices to pay to the supplier, remove supplier from the payments record
-                    console.log("PR: ", Object.entries(this.paymentsRecord))
+                    console.log("PR selected supplier: ", Object.entries(this.paymentsRecord).find(supplier=>{
+                        supplier[0] === supplier
+                    }))
                     delete Object.entries(this.paymentsRecord).find(supplier=>{
                         supplier[0] === supplier
                     })
-                    console.log("PR after deletion of supplier: ", this.paymentsRecord)
+                    console.log("PR after deletion of supplier: ", Object.entries(this.paymentsRecord))
                 }
                 
                 
