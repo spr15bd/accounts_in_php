@@ -121,11 +121,13 @@ const app = Vue.createApp({
                 this.paymentsRecord[supplier] = sum
                 if (paymentInvoices.length <1) {
                     console.log("about to delete record")
+                    let paymentsArray = Object.entries(this.paymentsRecord)
+                    console.log("paymentsArray: ", paymentsArray)
                     // if there are no invoices to pay to the supplier, remove supplier from the payments record
-                    console.log("PR selected supplier: ", Object.entries(this.paymentsRecord).find(supplier=>{
-                        supplier[0] === supplier
+                    console.log("PR selected supplier: ", paymentsArray.find(supplier=>{
+                        supplier[String(supplier)] === supplier
                     }))
-                    delete Object.entries(this.paymentsRecord).find(supplier=>{
+                    delete paymentsArray.find(supplier=>{
                         supplier[0] === supplier
                     })
                     console.log("PR after deletion of supplier: ", Object.entries(this.paymentsRecord))
@@ -134,8 +136,8 @@ const app = Vue.createApp({
                 
                 // filter out any payments with no invoices allocated
                 
-                console.log("PR as object: ", this.paymentsRecord)
-                console.log("PR as array: ", Object.entries(this.paymentsRecord))
+                //console.log("PR as object: ", this.paymentsRecord)
+                //console.log("PR as array: ", Object.entries(this.paymentsRecord))
                 
                 // if paymentsRecord === 0, remove them from paymentsRecord array
                 //console.log(typeof Object.entries(this.paymentsRecord), " (typeof)")
