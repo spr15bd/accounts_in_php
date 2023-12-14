@@ -127,8 +127,8 @@ const app = Vue.createApp({
                     console.log("PR selected supplier: ", paymentsArray.find(supplier=>{
                         supplier[String(supplier)] === supplier
                     }))
-                    delete paymentsArray.find(supplier=>{
-                        supplier[0] === supplier
+                    delete paymentsArray.find(suppl=>{
+                        suppl.key === supplier
                     })
                     console.log("PR after deletion of supplier: ", Object.entries(this.paymentsRecord))
                 }
