@@ -121,18 +121,19 @@ const app = Vue.createApp({
                 this.paymentsRecord[supplier] = sum
                 if (paymentInvoices.length <1) {
                     console.log("about to delete record")
-                    let paymentsArray = Object.entries(this.paymentsRecord)
-                    console.log("paymentsArray: ", paymentsArray)
+                    //let paymentsArray = Object.entries(this.paymentsRecord)
+                    console.log("paymentsRecord: ", this.paymentsRecord)
+                    delete this.paymentsRecord[supplier]
                     // if there are no invoices to pay to the supplier, remove supplier from the payments record
-                    let paymentToDelete = paymentsArray.find(supplier=>{
-                        supplier[String(supplier)] === supplier
-                    })
-                    let indexOfPaymentToDelete = paymentsArray.indexOf(paymentToDelete)
-                    console.log("PR selected supplier: ", paymentToDelete, " index no is ", indexOfPaymentToDelete)
-                    delete paymentsArray.find(suppl=>{
-                        suppl.key === supplier
-                    })
-                    console.log("PR after deletion of supplier: ", paymentsArray)
+                    //let paymentToDelete = paymentsArray.find(suppl=>{
+                    //    suppl[String(supplier)] === supplier
+                    //})
+                    //let indexOfPaymentToDelete = paymentsArray.indexOf(paymentToDelete)
+                    //console.log("PR selected supplier: ", paymentToDelete, " index no is ", indexOfPaymentToDelete)
+                    //delete paymentsArray.find(suppl=>{
+                    //    suppl.key === supplier
+                    //})
+                    //console.log("PR after deletion of supplier: ", paymentsArray)
                 }
                 
                 
