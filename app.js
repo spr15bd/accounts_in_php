@@ -99,7 +99,7 @@ const app = Vue.createApp({
             console.log("supplierInvoices.length is: ", supplierInvoices?.length)
             // only sum supplier payments if it's an existing supplier with invoices on the system
             if (supplierInvoices.length > 0) {
-                let sum = 0
+                let sum = 0.00
                 console.log("selected payments: ", this.selectedPayments)
                 this.selectedPayments.forEach((payment) => {
                         
@@ -121,34 +121,9 @@ const app = Vue.createApp({
                 this.paymentsRecord[supplier] = sum
                 if (paymentInvoices.length <1) {
                     console.log("about to delete record")
-                    //let paymentsArray = Object.entries(this.paymentsRecord)
                     console.log("paymentsRecord: ", this.paymentsRecord)
                     delete this.paymentsRecord[supplier]
-                    // if there are no invoices to pay to the supplier, remove supplier from the payments record
-                    //let paymentToDelete = paymentsArray.find(suppl=>{
-                    //    suppl[String(supplier)] === supplier
-                    //})
-                    //let indexOfPaymentToDelete = paymentsArray.indexOf(paymentToDelete)
-                    //console.log("PR selected supplier: ", paymentToDelete, " index no is ", indexOfPaymentToDelete)
-                    //delete paymentsArray.find(suppl=>{
-                    //    suppl.key === supplier
-                    //})
-                    //console.log("PR after deletion of supplier: ", paymentsArray)
                 }
-                
-                
-                // filter out any payments with no invoices allocated
-                
-                //console.log("PR as object: ", this.paymentsRecord)
-                //console.log("PR as array: ", Object.entries(this.paymentsRecord))
-                
-                // if paymentsRecord === 0, remove them from paymentsRecord array
-                //console.log(typeof Object.entries(this.paymentsRecord), " (typeof)")
-                
-                //Object.values(this.paymentsRecord).filter(payment=>payment.value !== 0)
-                
-                //console.log("sum: ", sum)
-                console.log("PI size: ", paymentInvoices.length)
                 return sum
             }
         },
