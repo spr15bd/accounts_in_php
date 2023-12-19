@@ -150,10 +150,10 @@
                     <label>Supplier Name:</label>
                     <input type="text" name="supplier" v-model="suppl"></input>
                     <button class="btn btn-info" @click="processPaymentsScreen()">
-				        Select {{suppl}}{{vendorInvoices}}
+				        Select
 				    </button>
                     <div v-if="paymentProcessing">
-                        <br><br>{{ checked[1] }}PR:{{Object.entries(paymentsRecord)}}
+                        <br><br>{{ checked[1] }}PR:{{Object.entries(paymentsRecord)}}{{vendorInvoicesArray}}
                         <div>
                             <div v-if="vendorInvoices.length > 0">
                                 <table>
