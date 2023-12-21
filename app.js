@@ -86,7 +86,7 @@ const app = Vue.createApp({
             if (this.checked[inv.id]) {
                 return inv.amount 
             } else {
-                return 0.00
+                return Number(0).toFixed(2)
             }
         },
         currentSupplierSum(supplier) {
@@ -205,7 +205,7 @@ const app = Vue.createApp({
                 this.selectedPayments.push({idx: idx, amount: amount});
             } else {
                 console.log("already added inv; ")
-                this.selectedPayments = this.selectedPayments.filter(payments=>payment.id!==idx)
+                this.selectedPayments = this.selectedPayments.filter(payment=>payment.id!==idx)
                 console.log("selectedPayments is now: ", this.selectedPayments)
             } 
         },
