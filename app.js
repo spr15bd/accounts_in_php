@@ -30,7 +30,8 @@ const app = Vue.createApp({
             paid: [],
             selectedPayments: [],
             checked: {},
-            paymentsRecord: []
+            paymentsRecord: [],
+            currentSupplierSum: 0.00
         }
     },
     mounted() {
@@ -86,7 +87,7 @@ const app = Vue.createApp({
             if (this.checked[inv.id]) {
                 return inv.amount 
             } else {
-                return Number(0).toFixed(2)
+                return 0.00
             }
         },
         currentSupplierSum(supplier) {
@@ -124,6 +125,7 @@ const app = Vue.createApp({
                     console.log("paymentsRecord: ", this.paymentsRecord)
                     delete this.paymentsRecord[supplier]
                 }
+                this.currentSupplierSum = sum
                 return sum
             }
         },
