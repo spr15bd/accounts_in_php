@@ -192,6 +192,7 @@ const app = Vue.createApp({
                 // send array of inv indexes to db, add them to the paid table
                 await this.setPaid(this.selectedPayments)
                 this.confirmProcessPaymentsScreen = false
+                this.message = "Payments hasve been allocated."
             }
             
            
