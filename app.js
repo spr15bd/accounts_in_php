@@ -31,7 +31,8 @@ const app = Vue.createApp({
             selectedPayments: [],
             checked: {},
             paymentsRecord: [],
-            selectedSupplierSum: 0.00
+            selectedSupplierSum: 0.00,
+            message: null
         }
     },
     mounted() {
