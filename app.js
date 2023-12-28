@@ -66,6 +66,7 @@ const app = Vue.createApp({
         },
         async setPaid(invs) {
             let payload = { data: { paid: invs } }
+            console.log("payload ", payload)
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
                 payload = null
@@ -193,7 +194,8 @@ const app = Vue.createApp({
                 // send array of inv indexes to db, add them to the paid table
                 await this.setPaid(this.selectedPayments)
                 this.confirmProcessPaymentsScreen = false
-                this.message = "Payments hasve been allocated."
+                console.log("selected payments ", this.selectedPayments)
+                this.message = "Payments have been allocated."
             }
             
            
