@@ -95,7 +95,7 @@ const app = Vue.createApp({
         currentSupplierSum(supplier) {
             // sum of supplier's payments
             // filter out all other supplier invoices
-            let invoiceToAdd = null
+            let invoiceToAdd
             let paymentInvoices = []
             let supplierInvoices = this.allInvoices.filter(inv=>inv.supplier===supplier)
             console.log("supplier: ", supplier)
@@ -105,7 +105,7 @@ const app = Vue.createApp({
                 let sum = 0.00
                 //console.log("selected payments: ", this.selectedPayments)
                 this.selectedPayments.forEach((payment) => {
-                        
+                    invoiceToAdd = null   
                     if (this.checked[payment.idx]) {
                         console.log("payment no ", payment.idx, " is true")
                         invoiceToAdd = supplierInvoices.find(inv=>inv.id === String(payment.idx))
