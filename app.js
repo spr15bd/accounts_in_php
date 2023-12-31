@@ -103,7 +103,6 @@ const app = Vue.createApp({
             // only sum supplier payments if it's an existing supplier with invoices on the system
             if (supplierInvoices.length > 0) {
                 let sum = 0.00
-                //console.log("selected payments: ", this.selectedPayments)
                 this.selectedPayments.forEach((payment) => {
                     invoiceToAdd = null   
                     if (this.checked[payment.idx]) {
@@ -113,14 +112,11 @@ const app = Vue.createApp({
                     if (invoiceToAdd) {
                         sum += Number(this.displayPaid(invoiceToAdd))
                         paymentInvoices.push(invoiceToAdd)
-                        console.log("sum is now ", sum)
                     }
                 })
                         
                 this.paymentsRecord[supplier] = sum
                 if (paymentInvoices.length <1) {
-                    console.log("about to delete record")
-                    console.log("paymentsRecord: ", this.paymentsRecord)
                     delete this.paymentsRecord[supplier]
                 }
                 this.selectedSupplierSum = sum
@@ -140,7 +136,6 @@ const app = Vue.createApp({
             invoices.forEach((invoice)=> {
                 sum += parseFloat(invoice["paidAmount"])
             })
-            console.log("sum is: ", sum)
             return sum
         },
         reviewOutstandingSum(invoices) {
