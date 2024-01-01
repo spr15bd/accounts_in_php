@@ -40,7 +40,7 @@
             } else {
                 $query="";
                 
-                //var_dump("$items[data][paid]: " . $items['data']['paid']);
+                var_dump("$items[data][paid]: " . $items['data']['paid']);
                 
                 
                 foreach ($items['data']['paid'] as $paidInvoiceID) {

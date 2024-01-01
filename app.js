@@ -69,6 +69,7 @@ const app = Vue.createApp({
             console.log("payload ", payload)
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
+                console.log("data: ", res.data)
                 payload = null
             } 
 		},
