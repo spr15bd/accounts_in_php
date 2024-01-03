@@ -40,8 +40,7 @@
             } else {
                 $query="";
                 
-                var_dump("$items[data][paid]: " . $items['data']['paid']);
-                
+                var_dump("items[data][paid]: " . $items['data']['paid'][0]);
                 
                 foreach ($items['data']['paid'] as $paidInvoiceID) {
                     $query = "INSERT INTO paid (id, amount) VALUES ('".$paidInvoiceID."', '".$paidAmount."');";
