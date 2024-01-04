@@ -39,8 +39,8 @@
                 echo json_encode($invoices);
             } else {
                 $query="";
-                
-                var_dump("items[data][paid]: " . $items['data']['paid'][0]);
+                echo $items['data']['paid'][0][idx];
+                var_dump("items[data][paid]: " . $items['data']['paid'][0][idx]);
                 
                 foreach ($items['data']['paid'] as $paidInvoiceID) {
                     $query = "INSERT INTO paid (id, amount) VALUES ('".$paidInvoiceID."', '".$paidAmount."');";
