@@ -42,7 +42,7 @@
                 //var_dump("items[data][paid]: " . $items['data']['paid'][0]['idx']);
                 
                 foreach ($items['data']['paid'] as $paidInvoice) {
-                    $query = "INSERT INTO paid (id, amount) VALUES ('".$paidInvoice['idx']."', '".$paidInvoice['amount']."');";
+                    $query = "INSERT INTO paid (id, amount) VALUES (".$paidInvoice['idx'].", '".$paidInvoice['amount']."');";
                     $sql_query = $conn->query($query);
                     if ($sql_query) {
                     echo "success after running insert into paid table database_queries";
