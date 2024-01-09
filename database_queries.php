@@ -29,7 +29,6 @@
                     $query .="LEFT JOIN paid p ON p.id = i.id ";
                     $query .="WHERE supplier='".$str."'";
                     $query = str_replace("'s", "s", $query);
-                    //var_dump("Query: ".$query);
                 }
                 $sql_query = $conn->query($query);
                 $invoices = array();
@@ -39,8 +38,6 @@
                 echo json_encode($invoices);
             } else {
                 $query="";
-                //var_dump("items[data][paid]: " . $items['data']['paid'][0]['idx']);
-                
                 foreach ($items['data']['paid'] as $paidInvoice) {
                     $query = "INSERT INTO paid (id, amount) VALUES (".$paidInvoice['idx'].", '".$paidInvoice['amount']."');";
                     $sql_query = $conn->query($query);
@@ -60,9 +57,9 @@
                     echo $query;
                     $sql_query = $conn->query($query);
                     if ($sql_query) {
-                        echo "success after invoice insert in database_queries";
+                        echo "success after invoice insert in database_queries.";
                     } else {
-                        echo "failure";
+                        echo "failure after attempted invoice insert in database_queries.";
                     }
                 }
             } else if ($items['id']) {
