@@ -32,7 +32,7 @@
                 }
                 $sql_query = $conn->query($query);
                 $invoices = array();
-                while ($row=$sql_query->fetch_assoc()){// changed from fetch_assoc
+                while ($row=$sql_query->fetch_assoc()){
                     array_push($invoices, $row);
                 }
                 echo json_encode($invoices);
