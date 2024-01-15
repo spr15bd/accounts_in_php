@@ -41,7 +41,9 @@
                 foreach ($items['data']['paid'] as $paidInvoice) {
                     // Only pay off invoice if unpaid previously
                     $query = "SELECT COUNT (*) FROM paid WHERE id = ".$paidInvoice['idx'];
-                    var_dump ("query: ".$query);
+                    $sql_query = $conn->query($query);
+                    $row=$sql_query->fetch_assoc();
+                    var_dump ("query: ".$row);
                     $query = "INSERT INTO paid (id, amount) VALUES (".$paidInvoice['idx'].", '".$paidInvoice['amount']."');";
                     $sql_query = $conn->query($query);
                     if ($sql_query) {
