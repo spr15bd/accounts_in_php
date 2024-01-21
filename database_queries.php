@@ -23,7 +23,6 @@
                 if ($items['data']['supplierName']==='all') {
                     $query = "SELECT * FROM invoices";
                 } else {
-                    //var_dump("supplier: ".$items['data']['supplierName']);
                     $str = implode(" ", $items['data']);
                     $query = "SELECT i.id, i.supplier, i.date, i.number, i.description, i.office, i.overhead, i.amount, p.paidid, p.amount as paidAmount FROM invoices i ";
                     $query .="LEFT JOIN paid p ON p.id = i.id ";
@@ -44,7 +43,7 @@
                     $sql_query = $conn->query($query);
                     $row=$sql_query->fetch_assoc();
                     $rows[] = $row;
-                    echo $rows;die();
+                    echo $rows[0];die();
                     $query = "INSERT INTO paid (id, amount) VALUES (".$paidInvoice['idx'].", '".$paidInvoice['amount']."');";
                     $sql_query = $conn->query($query);
                     if ($sql_query) {
