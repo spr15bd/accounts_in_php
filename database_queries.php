@@ -44,7 +44,7 @@
                     $rows=$sql_query->fetch_assoc();
                     foreach ($rows as $row) {
                         $rows[] = $row;
-                        echo $rows[0];
+                        echo "row ".$rows[0];
                     }
                     $query = "INSERT INTO paid (id, amount) VALUES (".$paidInvoice['idx'].", '".$paidInvoice['amount']."');";
                     $sql_query = $conn->query($query);
