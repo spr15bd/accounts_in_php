@@ -42,10 +42,10 @@
                     $query = "SELECT COUNT(*) FROM paid WHERE id = ".$paidInvoice['idx'];
                     $sql_query = $conn->query($query);
                     $rows=$sql_query->fetch_assoc();
-                    //foreach ($rows as $row) {
-                        $rows[] = $rows[0];
+                    foreach ($rows as $row) {
+                        $rows[] = $row;
                         echo "row ".$rows[0];
-                    //}
+                    }
                     $query = "INSERT INTO paid (id, amount) VALUES (".$paidInvoice['idx'].", '".$paidInvoice['amount']."');";
                     $sql_query = $conn->query($query);
                     if ($sql_query) {
