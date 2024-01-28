@@ -39,10 +39,13 @@
                 $query="";
                 foreach ($items['data']['paid'] as $paidInvoice) {
                     // Only pay off invoice if unpaid previously
+                    $count = 0;//this will be 1 if duplicate paid inv already exists
                     $query = "SELECT COUNT(*) FROM paid WHERE id = ".$paidInvoice['idx'];
                     $sql_query = $conn->query($query);
                     $rows=$sql_query->fetch_assoc();
+                    echo "typeof rows = :".gettype($rows);
                     foreach ($rows as $row) {
+                        echo "typeof row = :".gettype($row);
                         $rows[] = $row;
                         echo "row ".$rows[0];
                     }
