@@ -42,12 +42,13 @@
                     $count = 0;//this will be 1 if duplicate paid inv already exists
                     $query = "SELECT COUNT(*) FROM paid WHERE id = ".$paidInvoice['idx'];
                     $sql_query = $conn->query($query);
-                    $rows=$sql_query->fetch_assoc();
-                    echo "typeof rows = :".gettype($rows);
+                    $rows=$sql_query->fetch_row();
+                    echo "typeof rows = :".gettype($rows);//array
+                    echo "1st row: ".$rows[0];
                     foreach ($rows as $row) {
-                        echo "typeof row = :".gettype($row);
+                        echo "typeof row = :".gettype($row);//string
                         $rows[] = $row;
-                        echo "row ".$rows[0];
+                        echo "row ".$row;
                     }
                     $query = "INSERT INTO paid (id, amount) VALUES (".$paidInvoice['idx'].", '".$paidInvoice['amount']."');";
                     $sql_query = $conn->query($query);
