@@ -36,29 +36,32 @@
                 }
                 echo json_encode($invoices);
             } else {
-                $query="";
                 foreach ($items['data']['paid'] as $paidInvoice) {
                     // Only pay off invoice if unpaid previously
                     $count = 0;//this will be 1 if duplicate paid inv already exists
                     $query = "SELECT COUNT(*) FROM paid WHERE id = ".$paidInvoice['idx'];
                     $sql_query = $conn->query($query);
                     $rows=$sql_query->fetch_row();
-                    echo "typeof rows = :".gettype($rows);//array
-                    echo "1st row: ".$rows[0];
-                    foreach ($rows as $row) {
-                        echo "typeof row = :".gettype($row);//string
-                        $rows[] = $row;
-                        echo "row ".$row;
-                    }
-                    $query = "INSERT INTO paid (id, amount) VALUES (".$paidInvoice['idx'].", '".$paidInvoice['amount']."');";
-                    $sql_query = $conn->query($query);
-                    if ($sql_query) {
-                    echo "success after running insert into paid table database_queries";
+                    //echo "typeof rows = :".gettype($rows);//array
+                    //echo "1st row: ".$rows[0];
+                    //foreach ($rows as $row) {
+                    //    echo "typeof row = :".gettype($row);//string
+                    //    $rows[] = $row;
+                    //    echo "row ".$row;
+                    //}
+                    $count = $rows[0];
+                    if ($count > 0) {
+                        echo "cannot insert into paid table database_queries - inv already paid.";
                     } else {
-                        echo "failure";
-                    }
+                        $query = "INSERT INTO paid (id, amount) VALUES (".$paidInvoice['idx'].", '".$paidInvoice['amount']."');";
+                        $sql_query = $conn->query($query);
+                        if ($sql_query) {
+                        echo "success after running insert into paid table database_queries";
+                        } else {
+                            echo "failure";
+                        }
+                    }  
                 }
-                echo $query;
             }
         } else if (isset($items)) {
             if (isset($items['info'])) {
