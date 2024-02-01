@@ -38,7 +38,7 @@
             } else {
                 foreach ($items['data']['paid'] as $paidInvoice) {
                     // Only pay off invoice if unpaid previously
-                    $count = 0;//this will be 1 if duplicate paid inv already exists
+                    
                     $query = "SELECT COUNT(*) FROM paid WHERE id = ".$paidInvoice['idx'];
                     $sql_query = $conn->query($query);
                     $rows=$sql_query->fetch_row();
@@ -49,8 +49,8 @@
                     //    $rows[] = $row;
                     //    echo "row ".$row;
                     //}
-                    $count = $rows[0];
-                    if ($count > 0) {
+                    $duplicateCount = $rows[0];
+                    if ($duplicateCount > 0) {
                         echo "cannot insert into paid table database_queries - inv already paid.";
                     } else {
                         $query = "INSERT INTO paid (id, amount) VALUES (".$paidInvoice['idx'].", '".$paidInvoice['amount']."');";

@@ -71,6 +71,7 @@ const app = Vue.createApp({
             if (res.data) {
                 console.log("data: ", res.data)
                 payload = null
+                return res.data
             } 
 		},
         async update() {
@@ -186,10 +187,14 @@ const app = Vue.createApp({
             // check there are paid invoices, if so process payment
             if (this.selectedPayments.length > 0) {
                 // send array of inv indexes to db, add them to the paid table
-                await this.setPaid(this.selectedPayments)
+                let res = await this.setPaid(this.selectedPayments)
                 this.confirmProcessPaymentsScreen = false
                 console.log("selected payments ", this.selectedPayments)
-                this.message = "Payments have been allocated."
+                if (res) {
+                    this.message = res
+                } else {
+                    this.message = "Payments have been allocated."
+                }
             }
             
            
