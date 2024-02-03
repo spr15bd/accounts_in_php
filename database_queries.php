@@ -42,16 +42,9 @@
                     $query = "SELECT COUNT(*) FROM paid WHERE id = ".$paidInvoice['idx'];
                     $sql_query = $conn->query($query);
                     $rows=$sql_query->fetch_row();
-                    //echo "typeof rows = :".gettype($rows);//array
-                    //echo "1st row: ".$rows[0];
-                    //foreach ($rows as $row) {
-                    //    echo "typeof row = :".gettype($row);//string
-                    //    $rows[] = $row;
-                    //    echo "row ".$row;
-                    //}
                     $duplicateCount = $rows[0];
                     if ($duplicateCount > 0) {
-                        echo "cannot insert into paid table database_queries - inv already paid.";
+                        echo "Cannot process payment - inv already paid: ".$items['data'];
                     } else {
                         $query = "INSERT INTO paid (id, amount) VALUES (".$paidInvoice['idx'].", '".$paidInvoice['amount']."');";
                         $sql_query = $conn->query($query);
