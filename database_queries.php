@@ -44,7 +44,7 @@
                     $rows=$sql_query->fetch_row();
                     $duplicateCount = $rows[0];
                     if ($duplicateCount > 0) {
-                        echo "Cannot process payment - inv already paid: ".$items['data'];
+                        echo "Cannot process payment - inv already paid: ".$paidInvoice;
                     } else {
                         $query = "INSERT INTO paid (id, amount) VALUES (".$paidInvoice['idx'].", '".$paidInvoice['amount']."');";
                         $sql_query = $conn->query($query);
@@ -72,9 +72,7 @@
             } else if ($items['id']) {
                 $str = implode(" ", $items['id']);
                 $query = "SELECT * FROM paid WHERE id='".$str."'";
-                
                 $sql_query = $conn->query($query);
-                
                 $row=$sql_query->fetch_assoc();
                 
                 echo json_encode($row);
