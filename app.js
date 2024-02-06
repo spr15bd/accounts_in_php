@@ -199,7 +199,8 @@ const app = Vue.createApp({
             
            
         },
-        updatePayments(idx, amount) {
+        updatePayments(idx, amount, invoiceNo, supplier) {
+            console.log("PAYMENT TO ADD: ", idx, amount, invoiceNo, supplier)
             // add the invoice id to an array ('this.selectedPayments') if the invoice is selected for payment
             // if the invoice has already been selected for payment, deselect it ie remove it from the array
             if (!this.selectedPayments.some(payment => payment.idx === idx)) {
