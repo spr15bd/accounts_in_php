@@ -204,7 +204,7 @@ const app = Vue.createApp({
             // add the invoice id to an array ('this.selectedPayments') if the invoice is selected for payment
             // if the invoice has already been selected for payment, deselect it ie remove it from the array
             if (!this.selectedPayments.some(payment => payment.idx === idx)) {
-                this.selectedPayments.push({idx: idx, amount: amount});
+                this.selectedPayments.push({idx: idx, amount: amount, invNo: invoiceNo, supplier: supplier});
             } else {
                 console.log("already added inv; ")
                 this.selectedPayments = this.selectedPayments.filter(payment=>payment.id!==idx)
