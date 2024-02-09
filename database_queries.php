@@ -44,7 +44,7 @@
                     $rows=$sql_query->fetch_row();
                     $duplicateCount = $rows[0];
                     if ($duplicateCount > 0) {
-                        echo "Cannot process payment - inv already paid: ".$paidInvoice;
+                        echo "Cannot process payment - inv already paid: ".$paidInvoice['invNo'].@" ( ". $paidInvoice['supplier'] ." )";
                     } else {
                         $query = "INSERT INTO paid (id, amount) VALUES (".$paidInvoice['idx'].", '".$paidInvoice['amount']."');";
                         $sql_query = $conn->query($query);
