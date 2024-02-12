@@ -189,7 +189,6 @@ const app = Vue.createApp({
                 // send array of inv indexes to db, add them to the paid table
                 let res = await this.setPaid(this.selectedPayments)
                 this.confirmProcessPaymentsScreen = false
-                console.log("selected payments ", this.selectedPayments)
                 if (res) {
                     this.message = res
                 } else {
@@ -200,7 +199,6 @@ const app = Vue.createApp({
            
         },
         updatePayments(idx, amount, invoiceNo, supplier) {
-            console.log("PAYMENT TO ADD: ", idx, amount, invoiceNo, supplier)
             // add the invoice id to an array ('this.selectedPayments') if the invoice is selected for payment
             // if the invoice has already been selected for payment, deselect it ie remove it from the array
             if (!this.selectedPayments.some(payment => payment.idx === idx)) {
