@@ -238,6 +238,10 @@ const app = Vue.createApp({
         },
         vendorInvoicesArray() {
             return Object.values(this.vendorInvoices.filter(inv=>inv.paidAmount < inv.amount))  
+		},
+        // only include unpaid invoices
+        unpaidVendorInvoicesArray() {
+            return Object.values(this.vendorInvoices.filter(inv=>inv.paidAmount < inv.amount))  
 		}
     }
 })
