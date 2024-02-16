@@ -215,7 +215,13 @@ const app = Vue.createApp({
             this.payments=false
             this.paymentsSummaryPage=true
             await this.getAllSuppliers()
-        }
+        },
+        // only include unpaid invoices
+        unpaidVendorInvoicesArray() {
+            let invs = Object.values(this.vendorInvoices.filter(inv=>inv.paidAmount < inv.amount))
+            let id = invs.find(inv=>inv.id===idx)
+            return Object.values(this.vendorInvoices.filter(inv=>inv.paidAmount < inv.amount))  
+		}
     },
     computed: {
         displaySelectedPayments () {
@@ -239,12 +245,6 @@ const app = Vue.createApp({
         vendorInvoicesArray() {
             return Object.values(this.vendorInvoices.filter(inv=>inv.paidAmount < inv.amount))  
 		},
-        // only include unpaid invoices
-        unpaidVendorInvoicesArray() {
-            let invs = Object.values(this.vendorInvoices.filter(inv=>inv.paidAmount < inv.amount))
-            let id = invs.find(inv=>inv.id===idx)
-            return Object.values(this.vendorInvoices.filter(inv=>inv.paidAmount < inv.amount))  
-		}
     }
 })
 
