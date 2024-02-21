@@ -64,7 +64,7 @@
                                 <th>Payment Date</th>
                             </tr>
                         </thead>
-                        <tbody>unpaid: {{ unpaidVendorInvoicesArray }}
+                        <tbody>
                             <tr v-for="invoice in vendorInvoicesArray">
                                <td>{{invoice.number}}</td>
                                <td>{{invoice.date}}</td>
@@ -164,7 +164,7 @@
                                         <th class="px-4 text-right">Inv Date</th>
                                         <th class="px-4 text-right">Inv Amt</th>
                                         <th class="px-4 text-right">Paid</th>
-                                    </tr>via {{vendorInvoicesArray}}
+                                    </tr>via {{vendorInvoicesArray}}unpaid: {{ unpaidVendorInvoicesArray }}
                                     <!--Only show unpaid invoices-->
                                     <tr v-for="(invoice, index) in vendorInvoicesArray">
                                         <td v-if="invoice.paid < invoice.amount" class="px-4"><input type="checkbox" v-model="checked[invoice.id]" @click="updatePayments(invoice.id, invoice.amount, invoice.number, invoice.supplier)"/></td>

@@ -243,7 +243,7 @@ const app = Vue.createApp({
         unpaidVendorInvoicesArray() {
             let invs = Object.values(this.vendorInvoices.filter(inv=>inv.paidAmount < inv.amount))
             console.log("filtered unpaidVendorInvoicesArray: ", invs)
-            let id = invs.filter(inv=>paid.find(p=>p.idx===inv.idx))
+            let id = invs.filter(inv=>inv.paid.find(p=>p.idx===inv.idx))
             console.log("id ", id)
             return id
 		}                
