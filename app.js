@@ -241,9 +241,7 @@ const app = Vue.createApp({
 		},
         // only include unpaid invoices
         unpaidVendorInvoicesArray() {
-            console.log("vendorInvoicesArray: ", this.vendorInvoicesArray)
             let invs = Object.values(this.vendorInvoicesArray.filter(inv=>inv.paidid===null))
-            console.log("filtered unpaidVendorInvoicesArray: ", invs)
             return invs
 		}                
     }
