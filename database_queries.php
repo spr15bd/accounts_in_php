@@ -21,11 +21,13 @@
 		if (isset($items['data'])) {
             if (isset($items['data']['supplierName'])) {
                 if ($items['data']['supplierName']==='all') {
+                    // Show all invoices
                     $query = "SELECT * FROM invoices";
                 } else {
+                    // Show all invoices for a chosen supplier
                     $str = implode(" ", $items['data']);
                     $query = "SELECT i.id, i.supplier, i.date, i.number, i.description, i.office, i.overhead, i.amount, p.paidid, p.amount as paidAmount FROM invoices i ";
-                    $query .="LEFT JOIN paid p ON p.id = i.id ";
+                    $query .="INNER JOIN paid p ON p.id = i.id ";
                     $query .="WHERE supplier='".$str."'";
                     $query = str_replace("'s", "s", $query);
                 }
@@ -36,6 +38,7 @@
                 }
                 echo json_encode($invoices);
             } else {
+                // Pay invoices
                 foreach ($items['data']['paid'] as $paidInvoice) {
                     // Only pay off invoice if unpaid previously
                     
@@ -58,6 +61,7 @@
             }
         } else if (isset($items)) {
             if (isset($items['info'])) {
+                // Create a new invoice
                 if (isset($items['info']['supplier'])) {
                     $result = $items['info'];
                     $query = "INSERT INTO invoices (supplier, number, date, description, office, overhead, amount) VALUES ('".$result['supplier']."','".$result['invoiceNumber']."','".$result['invoiceDate']."','".$result['invoiceDescription']."','".$result['office']."','".$result['overhead']."','".$result['invoiceAmount']."')";
