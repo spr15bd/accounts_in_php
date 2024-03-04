@@ -43,10 +43,12 @@ const app = Vue.createApp({
             await this.getAllSuppliers()
 		},
         async getSupplier() {
+    console.log("app.js->getSupplier for ", this.suppl)
             let payload = { data: { supplierName: this.suppl } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
-                console.log("typeof (vendorInvoices): ", typeof this.vendorInvoices)
+                console.log("vendorInvoices: ", Object.values(this.vendorInvoices))
+                console.log("typeof (vendorInvoices): ", typeof Object.values(this.vendorInvoices))
                 this.vendorInvoices = res.data
                 Object.values(this.vendorInvoices).forEach(invoice=>{
                     
