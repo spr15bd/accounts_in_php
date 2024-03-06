@@ -27,7 +27,7 @@
                     // Show all invoices for a chosen supplier
                     $str = implode(" ", $items['data']);
                     $query = "SELECT i.id, i.supplier, i.date, i.number, i.description, i.office, i.overhead, i.amount, p.paidid, p.amount as paidAmount FROM invoices i ";
-                    $query .="INNER JOIN paid p ON p.id = i.id ";
+                    $query .="LEFT JOIN paid p ON p.id = i.id ";
                     $query .="WHERE supplier='".$str."'";
                     $query = str_replace("'s", "s", $query);
                 }
