@@ -134,15 +134,11 @@ const app = Vue.createApp({
             return sum
         },
         reviewPaidSum(invoices) {
-            console.log("reviewPaidSum: ", invoices)
-            console.log("typeof: ", typeof invoices)
             let sum = 0
             invoices.forEach((invoice)=> {
                 // make paidAmount non-nullable and zero by default in the db
-                console.log("invoice ", invoice["paidAmount"])
                 sum += parseFloat(invoice["paidAmount"])
             })
-            console.log("reviewPaidSum, sum: ", sum)
             return sum
         },
         reviewOutstandingSum(invoices) {
