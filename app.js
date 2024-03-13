@@ -136,8 +136,9 @@ const app = Vue.createApp({
         reviewPaidSum(invoices) {
             let sum = 0
             invoices.forEach((invoice)=> {
-                // make paidAmount non-nullable and zero by default in the db
-                sum += parseFloat(invoice["paidAmount"])
+                // make paidAmount non-nullable and zero by default in the db, sum all invs in the array
+                console.log("Invoice: ", invoice)
+                if (typeof invoice.paidAmount === Number) sum += parseFloat(invoice["paidAmount"])
             })
             return sum
         },
