@@ -137,8 +137,8 @@ const app = Vue.createApp({
             let sum = 0
             invoices.forEach((invoice)=> {
                 // make paidAmount non-nullable and zero by default in the db, sum all invs in the array
-                console.log("Invoice: ", invoice)
-                if (typeof invoice.paidAmount === String) {
+                console.log("Invoice: ", invoice, "typeof paidAmount: ", typeof invoice.paidAmount)
+                if (typeof invoice.paidAmount === string) {
                     console.log("String invoice found")
                     sum += parseFloat(invoice["paidAmount"])
                 }
