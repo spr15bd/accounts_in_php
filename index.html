@@ -70,7 +70,7 @@
                                <td>{{invoice.date}}</td>
                                <td>{{invoice.description}}</td>
                                <td class="text-end">{{invoice.amount}}</td>
-                               <td class="text-end">{{invoice.paidAmount}}</td>
+                               <td class="text-end">{{invoice.paidAmount?.toFixed(2)}}</td>
                                <td class="text-end">{{(invoice.amount - invoice.paidAmount).toFixed(2)}}</td>
                                <td>{{invoice.paidid}}</td>
                                <td class="text-end"></td>
@@ -171,7 +171,7 @@
                                         <td class="px-4">{{invoice.number}}</td>
                                         <td class="px-4">{{invoice.id}}</td>
                                         <td class="px-4">{{invoice.date}}</td>
-                                        <td class="px-4 text-right">{{invoice['amount'].toFixed(2)}}</td>
+                                        <td class="px-4 text-right">{{invoice['amount']}}</td>
                                         <td class="px-4 text-right">{{displayPaid(invoice)}}</td>
                                     </tr>
                                     <tr>
