@@ -245,13 +245,13 @@ const app = Vue.createApp({
         },
         vendorInvoicesArray() {
             let invoices = Object.values(this.vendorInvoices.filter(inv=>inv.paidAmount < inv.amount))
-            //invoices.forEach(inv=>{
-                //console.log("invoice", inv, "typeof ", typeof inv)
+            invoices.forEach(inv=>{
+                console.log("invoice", inv, "typeof ", typeof inv)
                 //if inv.paid
-                //inv.map((val, i) =>{
-                //    return val === null ? 0:val    
-                //})         
-            //})
+                inv.map((val, i) =>{
+                    return val === null ? 0.00:val.toFixed(2)    
+                })         
+            })
             return invoices            
 		},
         // only include unpaid invoices
