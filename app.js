@@ -248,7 +248,8 @@ const app = Vue.createApp({
             invoices.forEach(inv=>{
                 console.log("invoice", inv, "typeof ", typeof inv)
                 //if inv.paid
-                inv.map((val, i) =>{
+                Object.values(inv).map((val, i) =>{
+                        console.log("val: ", val)
                     return val === null ? 0.00:val.toFixed(2)    
                 })         
             })
