@@ -250,7 +250,7 @@ const app = Vue.createApp({
                 //if inv.paid
                 Object.values(inv).map((val, i) =>{
                         console.log("val: ", val)
-                    return val === null ? 0.00:val.toFixed(2)    
+                    return val === null ? 0.00: typeof val === 'Number'?val.toFixed(2): val  
                 })         
             })
             return invoices            
