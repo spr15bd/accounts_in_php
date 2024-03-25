@@ -253,6 +253,19 @@ const app = Vue.createApp({
                     return val === null ? 0.00: typeof val === 'number'?val.toFixed(2): val  
                 })     
                 console.log("invoice after processing ", inv)
+                inv = []
+                inv['amount'] = inv.amount
+                inv['date'] = inv.date
+                inv['description'] = inv.description
+                inv['id'] = inv.id,
+                inv['number'] = inv.number
+                       'office': inv.office,
+                       'overhead': inv.overhead,
+                       'paid': inv.paid,
+                       'paidAmount': inv.paidAmount,
+                       'paidid': inv.paidid,
+                       'supplier': inv.supplier
+                      ]
             })
             return invoices            
 		},
