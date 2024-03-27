@@ -259,14 +259,15 @@ const app = Vue.createApp({
                 inv['description'] = inv.description
                 inv['id'] = inv.id,
                 inv['number'] = inv.number
-                       'office': inv.office,
-                       'overhead': inv.overhead,
-                       'paid': inv.paid,
-                       'paidAmount': inv.paidAmount,
-                       'paidid': inv.paidid,
-                       'supplier': inv.supplier
-                      ]
+                inv['office'] = inv.office
+                inv['overhead'] = inv.overhead
+                inv['paid'] = inv.paid
+                inv['paidAmount'] = inv.paidAmount?inv.paidAmount:"0.00"
+                inv['paidid'] = inv.paidid
+                inv['supplier'] = inv.supplier
+                      
             })
+            console.log("invoices: ", invoices)
             return invoices            
 		},
         // only include unpaid invoices
