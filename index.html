@@ -142,10 +142,11 @@
                     <h4 class="center underline">Payment Processing</h4>
                     <br/>
                     <div class="col-lg-6">
-								<button class="btn btn-info w-40" @click="showPaymentsSummary()">
-								    Payments summary
-								</button>
-				            </div>
+				        <button class="btn btn-info w-40" @click="showPaymentsSummary()">
+						  Payments summary
+						</button>
+				    </div>
+                    <div>Please select invoices to pay by supplier.  When ready to pay click "Payments Summary".</div>
                     <p class="text-center py-5"></p>
                     <label>Supplier Name:</label>
                     <input type="text" name="supplier" v-model="suppl"></input>
@@ -164,7 +165,7 @@
                                         <th class="px-4 text-right">Inv Date</th>
                                         <th class="px-4 text-right">Inv Amt</th>
                                         <th class="px-4 text-right">Paid</th>
-                                    </tr>via {{vendorInvoicesArray}}unpaid: {{ unpaidVendorInvoicesArray }}
+                                    </tr>
                                     <!--Only show unpaid invoices-->
                                     <tr v-for="(invoice, index) in unpaidVendorInvoicesArray">
                                         <td class="px-4"><input type="checkbox" v-model="checked[invoice.id]" @click="updatePayments(invoice.id, invoice.amount, invoice.number, invoice.supplier)"/></td>
