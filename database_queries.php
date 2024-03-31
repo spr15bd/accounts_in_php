@@ -52,7 +52,7 @@
                         $query = "INSERT INTO paid (id, amount) VALUES (".$paidInvoice['idx'].", '".$paidInvoice['amount']."');";
                         $sql_query = $conn->query($query);
                         if ($sql_query) {
-                        echo "success after running insert into paid table database_queries";
+                        echo "success after running insert into paid table database_queries: ". $query;
                         } else {
                             echo "failure";
                         }
