@@ -131,7 +131,7 @@
                         <div class="center">
                             <input type="button" name="submit" @click="update()" class="btn btn-primary" value="Post invoice">
                         </div>
-                        <div v-if="invoicePosted">Invoice successfully added.</div>
+                        <div v-if="invoicePosted">Invoice successfully added. <input type="button" name="submit" @click="reset()" class="btn btn-primary" value="Add another"></div>
                         <br/>
                         <div>{{statusMessage}}</div>
                     </form>
