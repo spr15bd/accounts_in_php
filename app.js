@@ -222,6 +222,15 @@ const app = Vue.createApp({
             this.payments=false
             this.paymentsSummaryPage=true
             await this.getAllSuppliers()
+        },   
+        reset () {
+            // reset form to input invoices
+            this.supplier = null
+            this.invoiceNumber = null
+            this.invoiceDate = null
+            this.invoiceAmount = null
+            this.office = null
+            this.overhead = null
         }
     },
     computed: {
