@@ -228,9 +228,10 @@ const app = Vue.createApp({
             this.supplier = null
             this.invoiceNumber = null
             this.invoiceDate = null
-            this.invoiceAmount = null
+            this.invoiceDescription = null
             this.office = null
             this.overhead = null
+            this.invoiceAmount = null
         }
     },
     computed: {
