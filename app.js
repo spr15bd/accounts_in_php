@@ -201,6 +201,7 @@ const app = Vue.createApp({
                 } else {
                     this.message = "Payments have been allocated."
                     // refresh screen so that payments show as allocated.
+                    this.refresh()
                 }
             }
             
