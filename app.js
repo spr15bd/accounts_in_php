@@ -200,8 +200,10 @@ const app = Vue.createApp({
                     this.message = res
                 } else {
                     this.message = "Payments have been allocated."
-                    // refresh screen so that payments show as allocated.
+                    this.suppl = null
+                    // refresh screen so that payments show as allocated. TODO - Supplier payments review screen should be wiped
                     this.refresh()
+                    
                 }
             }
             
