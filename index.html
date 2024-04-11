@@ -156,7 +156,7 @@
                     <div v-if="paymentProcessing">
                         <br><br>
                         <div>
-                            <div v-if="vendorInvoices.length > 0">
+                            <div v-if="unpaidVendorInvoicesArray.length > 0">
                                 <table>
                                     <tr>
                                         <th></th>
@@ -181,7 +181,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div v-if="vendorInvoices.length === 0">There are no outstanding invoices for {{suppl}}typeof: {{typeof vendorInvoices}}</div>
+                            <div v-else>There are no outstanding invoices for {{suppl}}typeof: {{typeof vendorInvoices}}</div>
                         </div>
                     </div>
                 </section>
