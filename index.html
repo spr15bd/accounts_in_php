@@ -213,7 +213,7 @@
                 </div>
             </div>
             <div v-if="confirmProcessPaymentsScreen">
-                Please confirm you wish to allocate the payments.
+                Please confirm you wish to allocate the payments.{{selectedPayments}}
                 <button class="btn btn-dark" v-if="selectedPayments.length > 0" @click="confirmProcessPayments()">
 				Confirm
 			</button>
