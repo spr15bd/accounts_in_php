@@ -203,6 +203,7 @@ const app = Vue.createApp({
                     this.suppl = null
                     // refresh screen so that payments show as allocated. TODO - Supplier payments review screen should be wiped
                     this.supplierReview = false
+                    this.vendorInvoices = null
                     //this.refresh()
                     
                 }
@@ -216,9 +217,7 @@ const app = Vue.createApp({
             if (!this.selectedPayments.some(payment => payment.idx === idx)) {
                 this.selectedPayments.push({idx: idx, amount: amount, invNo: invoiceNo, supplier: supplier});
             } else {
-                console.log("already added inv; ")
                 this.selectedPayments = this.selectedPayments.filter(payment=>payment.idx!==String(idx))
-                console.log("selectedPayments is now: ", this.selectedPayments)
             } 
         },
         async showPaymentsSummary() {
