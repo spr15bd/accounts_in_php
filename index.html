@@ -23,17 +23,17 @@
 								</button>
 				            </div>
 				            <div class="col-lg-6">
-								<button class="btn btn-info" @click="addInvoice=true; this.supplierReview=false; payments=false">
+								<button class="btn btn-info" @click="addInvoice=true; supplierReview=false; payments=false">
 								    Input invoices
 								</button>
 				            </div>
                             <div class="col-lg-6">
-								<button class="btn btn-info" @click="addInvoice=false; this.supplierReview=false; payments=true">
+								<button class="btn btn-info" @click="addInvoice=false; supplierReview=false; payments=true; vendorInvoices = null">
 								    Process payments
 								</button>
 				            </div>
                             <div class="col-lg-6">
-								<button class="btn btn-info" @click="addInvoice=false; this.supplierReview=false; payments=false">
+								<button class="btn btn-info" @click="addInvoice=false; supplierReview=false; payments=false">
 								    Back
 								</button>
 				            </div>
