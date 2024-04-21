@@ -47,9 +47,6 @@ const app = Vue.createApp({
             let payload = { data: { supplierName: this.suppl } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
-                console.log("res.data: ", res.data)
-                console.log("vendorInvoices: ", Object.values(this.vendorInvoices))
-                console.log("typeof (vendorInvoices): ", typeof Object.values(this.vendorInvoices))
                 this.vendorInvoices = res.data
                 Object.values(this.vendorInvoices).forEach(invoice=>{
                     
@@ -258,7 +255,7 @@ const app = Vue.createApp({
             return this.suppliers
         },
         vendorInvoicesArray() {
-            let invoices = Object.values(this.vendorInvoices.filter(inv=>inv.paidAmount < inv.amount))
+            let invoices = Object.values(this.vendorInvoices?.filter(inv=>inv.paidAmount < inv.amount))
             invoices.forEach(inv=>{
                 inv['amount'] = inv.amount
                 inv['date'] = inv.date
@@ -273,13 +270,11 @@ const app = Vue.createApp({
                 inv['supplier'] = inv.supplier
                       
             })
-            console.log("invoices: ", invoices)
             return invoices            
 		},
         // only include unpaid invoices
         unpaidVendorInvoicesArray() {
             let invs = Object.values(this.vendorInvoicesArray.filter(inv=>inv.paidid===null))
-            console.log(invs)
             return invs
 		}                
     }
