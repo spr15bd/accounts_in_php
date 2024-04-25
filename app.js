@@ -255,7 +255,7 @@ const app = Vue.createApp({
             return this.suppliers
         },
         vendorInvoicesArray() {
-            let invoices
+            let invoices = []
             if (this.vendorInvoices) {
                 invoices = Object.values(this.vendorInvoices?.filter(inv=>inv.paidAmount < inv.amount))            
             }
