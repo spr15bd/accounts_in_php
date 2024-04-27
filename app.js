@@ -116,7 +116,7 @@ const app = Vue.createApp({
                 })
                         
                 this.paymentsRecord[supplier] = sum
-                if (paymentInvoices.length <1) {
+                if (paymentInvoices.length < 1) {
                     delete this.paymentsRecord[supplier]
                 }
                 this.selectedSupplierSum = sum
@@ -134,7 +134,6 @@ const app = Vue.createApp({
             let sum = 0
             invoices.forEach((invoice)=> {
                 // make paidAmount non-nullable and zero by default in the db, sum all invs in the array
-                console.log("Invoice: ", invoice, "typeof paidAmount: ", typeof invoice.paidAmount)
                 if (invoice.paidAmount) {
                     console.log("String invoice found")
                     sum += parseFloat(invoice["paidAmount"])
@@ -146,7 +145,6 @@ const app = Vue.createApp({
             let sum = 0
             invoices.forEach((invoice)=> {
                 // temp - todo add in total outstanding on the inv, new table id and paid
-                //sum += invoice.id?0.00:parseFloat(invoice["amount"]) 18.09.2023
                 sum += invoice.amount - invoice.paidAmount
             })
             return sum
@@ -201,8 +199,6 @@ const app = Vue.createApp({
                     // refresh screen so that payments show as allocated. TODO - Supplier payments review screen should be wiped
                     this.supplierReview = false
                     this.vendorInvoices = null
-                    //this.refresh()
-                    
                 }
             }
             
