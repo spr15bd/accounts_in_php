@@ -43,7 +43,6 @@ const app = Vue.createApp({
             await this.getAllSuppliers()
 		},
         async getSupplier() {
-    console.log("app.js->getSupplier for ", this.suppl)
             let payload = { data: { supplierName: this.suppl } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
@@ -66,7 +65,6 @@ const app = Vue.createApp({
         },
         async setPaid(invs) {
             let payload = { data: { paid: invs } }
-            console.log("payload ", payload)
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
                 console.log("data: ", res.data)
@@ -106,7 +104,6 @@ const app = Vue.createApp({
                 this.selectedPayments.forEach((payment) => {
                     invoiceToAdd = null   
                     if (this.checked[payment.idx]) {
-                        console.log("payment no ", payment.idx, " is true")
                         invoiceToAdd = supplierInvoices.find(inv=>inv.id === String(payment.idx))
                     }
                     if (invoiceToAdd) {
