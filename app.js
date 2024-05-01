@@ -48,7 +48,6 @@ const app = Vue.createApp({
             if (res.data) {
                 this.vendorInvoices = res.data
                 Object.values(this.vendorInvoices).forEach(invoice=>{
-                    
                     invoice.amount = (Math.round(invoice.amount * 100) / 100).toFixed(2)
                     invoice.paid = invoice.paid?invoice.amount:"0.00"
 				})
@@ -132,7 +131,6 @@ const app = Vue.createApp({
             invoices.forEach((invoice)=> {
                 // make paidAmount non-nullable and zero by default in the db, sum all invs in the array
                 if (invoice.paidAmount) {
-                    console.log("String invoice found")
                     sum += parseFloat(invoice["paidAmount"])
                 }
             })
@@ -147,7 +145,7 @@ const app = Vue.createApp({
             return sum
         },
         amountPaid(idx) {
-             // if index is selected, return amount outstanding on invoice
+            // if index is selected, return amount outstanding on invoice
             // otherwise return zero
             let selectedInvoice
             if (this.selectedPayments.includes(idx)) {
@@ -157,7 +155,6 @@ const app = Vue.createApp({
                 // show the balance owed ie total minus already paid
                 return Number(selectedInvoice['amount']).toFixed(2)
             } else {
-                // show zero
                 return 0.00
             }
             
