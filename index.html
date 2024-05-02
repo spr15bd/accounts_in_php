@@ -165,6 +165,7 @@
                                         <th class="px-4 text-right">Inv Date</th>
                                         <th class="px-4 text-right">Inv Amt</th>
                                         <th class="px-4 text-right">Paid</th>
+                                        <th class="px-4 text-right">Payment Date</th>
                                     </tr>
                                     <!--Only show unpaid invoices-->
                                     <tr v-for="(invoice, index) in unpaidVendorInvoicesArray" v-if="unpaidVendorInvoicesArray?.length > 0">
@@ -174,6 +175,7 @@
                                         <td class="px-4">{{invoice.date}}</td>
                                         <td class="px-4 text-right">{{invoice['amount']}}</td>
                                         <td class="px-4 text-right">{{displayPaid(invoice)}}</td>
+                                        <td class="px-4 text-right">PAYMENT DATE INPUT HERE</td>
                                     </tr>
                                     <tr>
                                         <td></td><td></td><td></td><td class="px-4 text-right">Total</td>
