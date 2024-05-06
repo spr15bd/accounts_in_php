@@ -184,7 +184,7 @@ const app = Vue.createApp({
             // check there are paid invoices, if so process payment
             if (this.selectedPayments.length > 0) {
                 // send array of inv indexes to db, add them to the paid table
-                console.log("selectedPayments: ", this.selectedPayments)
+                console.log("selectedPayments: ", this.selectedPayments, "payment date: ", this.date)
                 /*let res = await this.setPaid(this.selectedPayments)
                 this.confirmProcessPaymentsScreen = false
                 if (res) {
