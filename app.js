@@ -64,6 +64,8 @@ const app = Vue.createApp({
             } 
         },
         async setPaid(invs) {
+            console.log("invs to pay: ", invs)
+            console.log("payment date: ", this.date)
             let payload = { data: { paid: invs } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
