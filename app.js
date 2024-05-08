@@ -187,7 +187,7 @@ const app = Vue.createApp({
             if (this.selectedPayments.length > 0) {
                 // send array of inv indexes to db, add them to the paid table
                 console.log("selectedPayments: ", this.selectedPayments, "payment date: ", this.date)
-                /*let res = await this.setPaid(this.selectedPayments)
+                let res = await this.setPaid(this.selectedPayments)
                 this.confirmProcessPaymentsScreen = false
                 if (res) {
                     this.message = res
@@ -197,7 +197,7 @@ const app = Vue.createApp({
                     // refresh screen so that payments show as allocated. TODO - Supplier payments review screen should be wiped
                     this.supplierReview = false
                     this.vendorInvoices = null
-                }*/
+                }
             }
             
            
