@@ -55,6 +55,7 @@
                             <div class="text-center fw-bold"><h3>{{suppl}}</h3></div>
                             <tr class="bg-info">
                                 <th>Invoice Number</th>
+                                <th>Invoice Reference</th>
                                 <th>Invoice Date</th>
                                 <th>Description</th>
                                 <th class="text-end">Total</th>
@@ -67,6 +68,7 @@
                         <tbody>
                             <tr v-for="invoice in vendorInvoicesArray">
                                <td>{{invoice.number}}</td>
+                               <td>{{invoice.idx}}</td>
                                <td>{{invoice.date}}</td>
                                <td>{{invoice.description}}</td>
                                <td class="text-end">{{invoice.amount}}</td>
@@ -77,6 +79,7 @@
                             </tr>
                             <tr>
                                <td class="text-end fw-bold">Totals</td>
+                               <td></td>
                                <td></td>
                                <td></td>
                                <td class="text-end fw-bold">{{ reviewTotalSum(vendorInvoicesArray).toFixed(2) }}</td>
