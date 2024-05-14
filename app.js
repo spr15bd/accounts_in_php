@@ -18,7 +18,6 @@ const app = Vue.createApp({
             invoiceNumber: null,
             invoiceDate: null,
             invoiceDescription: null,
-            invoicePosted: false,
             office: null,
             overhead: null,
             invoiceAmount: null,
@@ -30,10 +29,7 @@ const app = Vue.createApp({
             paid: [],
             selectedPayments: [],
             checked: {},
-            paymentsRecord: [],
-            selectedSupplierSum: 0.00,
-            message: null,
-            date: null
+            paymentsRecord: []
         }
     },
     mounted() {
@@ -48,10 +44,11 @@ const app = Vue.createApp({
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
                 this.vendorInvoices = res.data
-                Object.values(this.vendorInvoices).forEach(invoice=>{
+                console.log("Supplier query returned ", this.vendorInvoices)
+                this.vendorInvoices.forEach(invoice=>{
                     invoice.amount = (Math.round(invoice.amount * 100) / 100).toFixed(2)
                     invoice.paid = invoice.paid?invoice.amount:"0.00"
-				})
+		})
                 payload = null
             } 
         },
@@ -64,21 +61,17 @@ const app = Vue.createApp({
             } 
         },
         async setPaid(invs) {
-            console.log("invs to pay: ", invs)
-            console.log("payment date: ", this.date)
+        console.log("invs: ", invs)
             let payload = { data: { paid: invs } }
-            //const res = await axios.post("database_queries.php", payload )
-            /*if (res.data) {
-                console.log("data: ", res.data)
+            const res = await axios.post("database_queries.php", payload )
+            if (res.data) {
                 payload = null
-                return res.data
-            } */
+            } 
 		},
         async update() {
             let payload = {info: { supplier: this.supplier, invoiceNumber: this.invoiceNumber, invoiceDate: this.invoiceDate, invoiceDescription: this.invoiceDescription, office: this.office, overhead: this.overhead, invoiceAmount: this.invoiceAmount }}
             const res = await axios.post("database_queries.php", payload )
             const {results} = res
-            this.invoicePosted = true
         },
         async processPaymentsScreen() {
             this.paymentProcessing = true
@@ -87,38 +80,20 @@ const app = Vue.createApp({
                 this.paymentsSelected[this.suppl] = this.vendorInvoices[this.suppl]
             }
         },
-        displayPaid(inv) {
-            if (this.checked[inv.id]) {
-                return inv.amount 
-            } else {
-                return 0.00
-            }
+        async processPayments() {
+
         },
         currentSupplierSum(supplier) {
-            // sum of supplier's payments
-            // filter out all other supplier invoices
-            let invoiceToAdd
-            let paymentInvoices = []
-            let supplierInvoices = this.allInvoices.filter(inv=>inv.supplier===supplier)
-            // only sum supplier payments if it's an existing supplier with invoices on the system
-            if (supplierInvoices.length > 0) {
-                let sum = 0.00
-                this.selectedPayments.forEach((payment) => {
-                    invoiceToAdd = null   
-                    if (this.checked[payment.idx]) {
-                        invoiceToAdd = supplierInvoices.find(inv=>inv.id === String(payment.idx))
-                    }
+            if (supplier) {
+                let sum = 0
+                let supplierInvoices = this.allInvoices.filter(inv=>inv.supplier===supplier)
+                this.selectedPayments.forEach((id) => {
+                    invoiceToAdd = supplierInvoices.find(inv=>inv.id === String(id))
                     if (invoiceToAdd) {
-                        sum += Number(this.displayPaid(invoiceToAdd))
-                        paymentInvoices.push(invoiceToAdd)
+                        sum += Number(invoiceToAdd.amount)           
                     }
                 })
-                        
                 this.paymentsRecord[supplier] = sum
-                if (paymentInvoices.length < 1) {
-                    delete this.paymentsRecord[supplier]
-                }
-                this.selectedSupplierSum = sum
                 return sum
             }
         },
@@ -132,23 +107,21 @@ const app = Vue.createApp({
         reviewPaidSum(invoices) {
             let sum = 0
             invoices.forEach((invoice)=> {
-                // make paidAmount non-nullable and zero by default in the db, sum all invs in the array
-                if (invoice.paidAmount) {
-                    sum += parseFloat(invoice["paidAmount"])
-                }
+                sum += parseFloat(invoice["paid"])
             })
             return sum
         },
         reviewOutstandingSum(invoices) {
             let sum = 0
             invoices.forEach((invoice)=> {
+                console.log("invoice: ", invoice)
                 // temp - todo add in total outstanding on the inv, new table id and paid
-                sum += invoice.amount - invoice.paidAmount
+                sum += invoice.id?0.00:parseFloat(invoice["amount"])
             })
             return sum
         },
         amountPaid(idx) {
-            // if index is selected, return amount outstanding on invoice
+             // if index is selected, return amount outstanding on invoice
             // otherwise return zero
             let selectedInvoice
             if (this.selectedPayments.includes(idx)) {
@@ -158,6 +131,7 @@ const app = Vue.createApp({
                 // show the balance owed ie total minus already paid
                 return Number(selectedInvoice['amount']).toFixed(2)
             } else {
+                // show zero
                 return 0.00
             }
             
@@ -186,29 +160,21 @@ const app = Vue.createApp({
             // check there are paid invoices, if so process payment
             if (this.selectedPayments.length > 0) {
                 // send array of inv indexes to db, add them to the paid table
-                console.log("selectedPayments: ", this.selectedPayments, "payment date: ", this.date)
-                let res = await this.setPaid(this.selectedPayments)
-                this.confirmProcessPaymentsScreen = false
-                if (res) {
-                    this.message = res
-                } else {
-                    this.message = "Payments have been allocated."
-                    this.suppl = null
-                    // refresh screen so that payments show as allocated. TODO - Supplier payments review screen should be wiped
-                    this.supplierReview = false
-                    this.vendorInvoices = null
-                }
+                await this.setPaid(this.selectedPayments)
             }
             
            
         },
-        updatePayments(idx, amount, invoiceNo, supplier) {
-            // add the invoice id to an array ('this.selectedPayments') if the invoice is selected for payment
+        updatePayments(idx) {
+            // add the invoice id to an array if the invoice is selected for payment
             // if the invoice has already been selected for payment, deselect it ie remove it from the array
-            if (!this.selectedPayments.some(payment => payment.idx === idx)) {
-                this.selectedPayments.push({idx: idx, amount: amount, invNo: invoiceNo, supplier: supplier});
+
+            console.log("idx ", idx)
+
+            if (!this.selectedPayments.includes(idx)) {
+                this.selectedPayments.push(idx);
             } else {
-                this.selectedPayments = this.selectedPayments.filter(payment=>payment.idx!==String(idx))
+                this.selectedPayments = this.selectedPayments.filter(id=>id!==idx)
             } 
         },
         async showPaymentsSummary() {
@@ -217,16 +183,6 @@ const app = Vue.createApp({
             this.payments=false
             this.paymentsSummaryPage=true
             await this.getAllSuppliers()
-        },   
-        reset () {
-            // reset form to input invoices
-            this.supplier = null
-            this.invoiceNumber = null
-            this.invoiceDate = null
-            this.invoiceDescription = null
-            this.office = null
-            this.overhead = null
-            this.invoiceAmount = null
         }
     },
     computed: {
@@ -249,31 +205,8 @@ const app = Vue.createApp({
             return this.suppliers
         },
         vendorInvoicesArray() {
-            let invoices = []
-            if (this.vendorInvoices) {
-                invoices = Object.values(this.vendorInvoices?.filter(inv=>inv.paidAmount < inv.amount))            
-            }
-            invoices.forEach(inv=>{
-                inv['amount'] = inv.amount
-                inv['date'] = inv.date
-                inv['description'] = inv.description
-                inv['id'] = inv.id,
-                inv['number'] = inv.number
-                inv['office'] = inv.office
-                inv['overhead'] = inv.overhead
-                inv['paid'] = Number(inv.paid)
-                inv['paidAmount'] = inv.paidAmount?Number(inv.paidAmount):0.00
-                inv['paidid'] = inv.paidid
-                inv['supplier'] = inv.supplier
-                      
-            })
-            return invoices            
-		},
-        // only include unpaid invoices
-        unpaidVendorInvoicesArray() {
-            let invs = Object.values(this.vendorInvoicesArray.filter(inv=>inv.paidid===null))
-            return invs
-		}                
+            return Object.values(this.vendorInvoices)  
+		}
     }
 })
 
