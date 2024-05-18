@@ -212,6 +212,10 @@ const app = Vue.createApp({
             } 
         },
         async showPaymentsSummary() {
+            if (!this.date) {
+                this.paymentsSummaryMessage = "Please enter a payment date."
+                return
+            }
             this.supplierReview=false
             this.addInvoice=false
             this.payments=false
