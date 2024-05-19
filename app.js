@@ -33,7 +33,8 @@ const app = Vue.createApp({
             paymentsRecord: [],
             selectedSupplierSum: 0.00,
             message: null,
-            date: null
+            date: null,
+            paymentsSummaryMessage: ""
         }
     },
     mounted() {
