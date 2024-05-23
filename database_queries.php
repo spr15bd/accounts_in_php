@@ -41,7 +41,8 @@
                 // Pay invoices
                 foreach ($items['data']['paid'] as $paidInvoice) {
                     // Only pay off invoice if unpaid previously
-                    
+                    // test for 23rd May 2024:
+                    echo "PAID INV: " . $paidInvoice['date'];
                     $query = "SELECT COUNT(*) FROM paid WHERE id = ".$paidInvoice['idx'];
                     $sql_query = $conn->query($query);
                     $rows=$sql_query->fetch_row();
