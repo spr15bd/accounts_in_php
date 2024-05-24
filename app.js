@@ -29,7 +29,11 @@ const app = Vue.createApp({
             paid: [],
             selectedPayments: [],
             checked: {},
-            paymentsRecord: []
+            paymentsRecord: [],
+            selectedSupplierSum: 0.00,
+            message: null,
+            date: null,
+            paymentsSummaryMessage: ""
         }
     },
     mounted() {
@@ -178,6 +182,10 @@ const app = Vue.createApp({
             } 
         },
         async showPaymentsSummary() {
+            if (!this.date) {
+                this.paymentsSummaryMessage = "Please enter a payment date."
+                return
+            }
             this.supplierReview=false
             this.addInvoice=false
             this.payments=false

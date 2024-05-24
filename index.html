@@ -68,7 +68,7 @@
                         <tbody>
                             <tr v-for="invoice in vendorInvoicesArray">
                                <td>{{invoice.number}}</td>
-                               <td>{{invoice.idx}}</td>
+                               <td>{{invoice.id}}</td>
                                <td>{{invoice.date}}</td>
                                <td>{{invoice.description}}</td>
                                <td class="text-end">{{invoice.amount}}</td>
@@ -150,6 +150,7 @@
 						</button>
 				    </div>
                     <div>Please select invoices to pay by supplier.  When ready to pay click "Payments Summary".</div>
+                    <div class="text-danger">{{ paymentsSummaryMessage }}</div>
                     <p class="text-center py-5"></p>
                     <label>Supplier Name:</label>
                     <input type="text" name="supplier" v-model="suppl"></input>
@@ -220,7 +221,7 @@
             <div v-if="confirmProcessPaymentsScreen">
                 Please confirm you wish to allocate the payments.
                 <div v-for="inv in selectedPayments">
-                  {{inv.amount}} {{inv.invNo}} {{inv.supplier}}
+                  GBP {{inv.amount}} {{inv.invNo}} {{inv.supplier}} {{ date }}
                 </div>
                 <button class="btn btn-dark" v-if="selectedPayments.length > 0" @click="confirmProcessPayments()">
 				Confirm
