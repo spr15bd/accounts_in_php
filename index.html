@@ -72,8 +72,8 @@
                                <td>{{invoice.date}}</td>
                                <td>{{invoice.description}}</td>
                                <td class="text-end">{{invoice.amount}}</td>
-                               <td class="text-end">{{(invoice.paidAmount).toFixed(2)}}</td>
-                               <td class="text-end">{{(invoice.amount - invoice.paidAmount).toFixed(2)}}</td>
+                               <td class="text-end">{{(invoice.paidAmount)?.toFixed(2)}}</td>
+                               <td class="text-end">{{(invoice.amount - invoice.paidAmount)?.toFixed(2)}}</td>
                                <td>{{invoice.paidid}}</td>
                                <td class="text-end"></td>
                             </tr>
@@ -82,9 +82,9 @@
                                <td></td>
                                <td></td>
                                <td></td>
-                               <td class="text-end fw-bold">{{ reviewTotalSum(vendorInvoicesArray).toFixed(2) }}</td>
-                               <td class="text-end fw-bold">{{ reviewPaidSum(vendorInvoicesArray).toFixed(2) }}</td>
-                               <td class="text-end fw-bold">{{ reviewOutstandingSum(vendorInvoicesArray).toFixed(2) }}</td>
+                               <td class="text-end fw-bold">{{ reviewTotalSum(vendorInvoicesArray)?.toFixed(2) }}</td>
+                               <td class="text-end fw-bold">{{ reviewPaidSum(vendorInvoicesArray)?.toFixed(2) }}</td>
+                               <td class="text-end fw-bold">{{ reviewOutstandingSum(vendorInvoicesArray)?.toFixed(2) }}</td>
                                <td></td>
                                <td class="text-end"></td>
                             </tr>
