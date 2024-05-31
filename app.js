@@ -69,7 +69,9 @@ const app = Vue.createApp({
             let payload = { data: { paid: invs } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
+                console.log("data: ", res.data)
                 payload = null
+                return res.data
             } 
 		},
         async update() {
