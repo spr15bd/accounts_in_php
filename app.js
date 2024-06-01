@@ -215,6 +215,7 @@ const app = Vue.createApp({
             return this.suppliers
         },
         vendorInvoicesArray() {
+		console.log("VendorInvoicesArray: ", Object.values(this.vendorInvoices))
             return Object.values(this.vendorInvoices)  
 		}
     }
