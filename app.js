@@ -67,7 +67,7 @@ const app = Vue.createApp({
         async setPaid(invs) {
             console.log("invs to pay: ", invs)
             console.log("payment date: ", this.date)
-            let payload = { data: { paid: invs } }
+            let payload = { data: { paid: invs, paymentDate: this.date } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
                 console.log("data: ", res.data)
@@ -188,7 +188,7 @@ const app = Vue.createApp({
             if (this.selectedPayments.length > 0) {
                 // send array of inv indexes to db, add them to the paid table
                 console.log("selectedPayments: ", this.selectedPayments, "payment date: ", this.date)
-                let res = await this.setPaid(this.selectedPayments)
+                let res = await this.setPaid(this.selectedPayments, this.date)
                 this.confirmProcessPaymentsScreen = false
                 if (res) {
                     this.message = res
