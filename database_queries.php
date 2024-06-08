@@ -48,7 +48,7 @@
                     if ($duplicateCount > 0) {
                         echo "Cannot process payment - inv already paid: ".$paidInvoice['invNo'].@" ( ". $paidInvoice['supplier'] ." )";
                     } else {
-                        $query = "INSERT INTO paid (id, amount, date) VALUES (".$paidInvoice['idx'].", '".$paidInvoice['amount']."', '".$paidInvoice['date'].");";
+                        $query = "INSERT INTO paid (id, amount, date) VALUES (".$paidInvoice['idx'].", '".$paidInvoice['amount']."', '".$items['data']['paymentDate'].");";
                         $sql_query = $conn->query($query);
                         if ($sql_query) {
                         echo "Payment Allocated: ". $query;
