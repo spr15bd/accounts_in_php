@@ -53,7 +53,7 @@
                         if ($sql_query) {
                         echo "Payment Allocated: ". $query;
                         } else {
-                            echo "failure";
+                            echo "failure: ", $query;
                         }
                     }  
                 }
