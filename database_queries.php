@@ -25,7 +25,7 @@
                 } else {
                     // Show all invoices for a chosen supplier
                     $str = implode(" ", $items['data']);
-                    $query = "SELECT i.id, i.supplier, i.date, i.number, i.description, i.office, i.overhead, i.amount, p.paidid, p.amount as paidAmount FROM invoices i ";
+                    $query = "SELECT i.id, i.supplier, i.date, i.number, i.description, i.office, i.overhead, i.amount, p.paidid, p.amount as paidAmount, p.date FROM invoices i ";
                     $query .="LEFT JOIN paid p ON p.id = i.id ";
                     $query .="WHERE supplier='".$str."'";
                     $query = str_replace("'s", "s", $query);
@@ -40,9 +40,7 @@
             } else {
                 // Pay invoices
                 foreach ($items['data']['paid'] as $paidInvoice) {
-                    // Only pay off invoice if unpaid previously
-                    // test for 23rd May 2024:
-                    echo "PAID INV: " . $paidInvoice['date'];
+                    //echo "PAID INV date: " . $items['data']['paymentDate'];
                     $query = "SELECT COUNT(*) FROM paid WHERE id = ".$paidInvoice['idx'];
                     $sql_query = $conn->query($query);
                     $rows=$sql_query->fetch_row();
@@ -50,12 +48,12 @@
                     if ($duplicateCount > 0) {
                         echo "Cannot process payment - inv already paid: ".$paidInvoice['invNo'].@" ( ". $paidInvoice['supplier'] ." )";
                     } else {
-                        $query = "INSERT INTO paid (id, amount, date) VALUES (".$paidInvoice['idx'].", '".$paidInvoice['amount']."', '".$paidInvoice['date'].");";
+                        $query = "INSERT INTO paid (id, amount, date) VALUES (".$paidInvoice['idx'].", '".$paidInvoice['amount']."', '".$items['data']['paymentDate']."');";
                         $sql_query = $conn->query($query);
                         if ($sql_query) {
                         echo "Payment Allocated: ". $query;
                         } else {
-                            echo "failure";
+                            echo "failure: ", $query;
                         }
                     }  
                 }

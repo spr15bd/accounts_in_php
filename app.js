@@ -65,8 +65,11 @@ const app = Vue.createApp({
             } 
         },
         async setPaid(invs) {
+
         console.log("invs: ", invs)
-            let payload = { data: { paid: invs } }
+            console.log("invs to pay: ", invs)
+            console.log("payment date: ", this.date)
+            let payload = { data: { paid: invs, paymentDate: this.date } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
                 console.log("data: ", res.data)
@@ -166,10 +169,19 @@ const app = Vue.createApp({
             // check there are paid invoices, if so process payment
             if (this.selectedPayments.length > 0) {
                 // send array of inv indexes to db, add them to the paid table
-                await this.setPaid(this.selectedPayments)
-            }
-            
-           
+                console.log("selectedPayments: ", this.selectedPayments, "payment date: ", this.date)
+                let res = await this.setPaid(this.selectedPayments, this.date)
+                this.confirmProcessPaymentsScreen = false
+                if (res) {
+                    this.message = res
+                } else {
+                    this.message = "Payments have been allocated."
+                    this.suppl = null
+                    // refresh screen so that payments show as allocated. TODO - Supplier payments review screen should be wiped
+                    this.supplierReview = false
+                    this.vendorInvoices = null
+                }
+            }   
         },
         updatePayments(idx) {
             // add the invoice id to an array if the invoice is selected for payment
@@ -215,9 +227,37 @@ const app = Vue.createApp({
             return this.suppliers
         },
         vendorInvoicesArray() {
+<<<<<<< HEAD
 		console.log("VendorInvoicesArray: ", Object.values(this.vendorInvoices))
             return Object.values(this.vendorInvoices)  
 		}
+=======
+            let invoices = []
+            if (this.vendorInvoices) {
+                invoices = Object.values(Object.values(this.vendorInvoices)?.filter(inv=>inv.paidAmount < inv.amount))            
+            }
+            invoices.forEach(inv=>{
+                inv['amount'] = inv.amount
+                inv['date'] = inv.date
+                inv['description'] = inv.description
+                inv['id'] = inv.id,
+                inv['number'] = inv.number
+                inv['office'] = inv.office
+                inv['overhead'] = inv.overhead
+                inv['paid'] = Number(inv.paid)
+                inv['paidAmount'] = inv.paidAmount?Number(inv.paidAmount):0.00
+                inv['paidid'] = inv.paidid
+                inv['supplier'] = inv.supplier
+                      
+            })
+            return invoices            
+		},
+        // only include unpaid invoices
+        unpaidVendorInvoicesArray() {
+            let invs = Object.values(this.vendorInvoicesArray.filter(inv=>inv.paidid===null))
+            return invs
+		}                
+>>>>>>> 3e70b233545fae722dbeecc404be502b9721cb76
     }
 })
 
