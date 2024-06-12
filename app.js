@@ -227,37 +227,9 @@ const app = Vue.createApp({
             return this.suppliers
         },
         vendorInvoicesArray() {
-<<<<<<< HEAD
 		console.log("VendorInvoicesArray: ", Object.values(this.vendorInvoices))
-            return Object.values(this.vendorInvoices)  
-		}
-=======
-            let invoices = []
-            if (this.vendorInvoices) {
-                invoices = Object.values(Object.values(this.vendorInvoices)?.filter(inv=>inv.paidAmount < inv.amount))            
-            }
-            invoices.forEach(inv=>{
-                inv['amount'] = inv.amount
-                inv['date'] = inv.date
-                inv['description'] = inv.description
-                inv['id'] = inv.id,
-                inv['number'] = inv.number
-                inv['office'] = inv.office
-                inv['overhead'] = inv.overhead
-                inv['paid'] = Number(inv.paid)
-                inv['paidAmount'] = inv.paidAmount?Number(inv.paidAmount):0.00
-                inv['paidid'] = inv.paidid
-                inv['supplier'] = inv.supplier
-                      
-            })
-            return invoices            
-		},
-        // only include unpaid invoices
-        unpaidVendorInvoicesArray() {
-            let invs = Object.values(this.vendorInvoicesArray.filter(inv=>inv.paidid===null))
-            return invs
-		}                
->>>>>>> 3e70b233545fae722dbeecc404be502b9721cb76
+		return Object.values(this.vendorInvoices)  
+	}
     }
 })
 
