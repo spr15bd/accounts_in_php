@@ -232,6 +232,17 @@ const app = Vue.createApp({
             this.office = null
             this.overhead = null
             this.invoiceAmount = null
+        },
+        formattedDate (date) {
+            return new Date(date)?.toDateString()
+            
+            //const date = new Date(dateString); // {object Date}            
+
+            //const dateFormatted = new Intl.DateTimeFormat("en-US", {
+            //  year: "numeric",
+            //  month: "2-digit",
+            //  day: "2-digit"
+            //}).format(date);
         }
     },
     computed: {
