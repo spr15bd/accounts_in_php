@@ -235,16 +235,19 @@ const app = Vue.createApp({
         },
         formattedDate (dateStr) {
             //return new Date(date)?.toDateString()
+            const dateFormatted = null
+            const date = new Date(dateStr)
             
-            const date = new Date(dateStr)?.toDateString()           
-
-            const dateFormatted = new Intl.DateTimeFormat("en-US", {
-              year: "numeric",
-              month: "2-digit",
-              day: "2-digit"
-            }).format(date)
-            
-            return dataFormatted
+            if (date) {
+                const dateFormatted = new Intl.DateTimeFormat("en-US", {
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit"
+                }).format(date)
+                return dateFormatted
+            } else {
+                return null
+            }
         }
     },
     computed: {
