@@ -236,9 +236,10 @@ const app = Vue.createApp({
         formattedDate (dateStr) {
             //return new Date(date)?.toDateString()
             if (dateStr) {
+                console.log("dateStr: ", dateStr, ", typeof: ", typeof dateStr)
                 const dateFormatted = null
                 const date = new Date(dateStr)
-
+                console.log("date: ", date, ", typeof: ", typeof date)
                 if (date) {
                     const dateFormatted = new Intl.DateTimeFormat("en-US", {
                         year: "numeric",
