@@ -69,7 +69,7 @@
                             <tr v-for="invoice in vendorInvoicesArray">
                                <td>{{invoice.number}}</td>
                                <td>{{invoice.id}}</td>
-                               <td>{{invoice.date}}</td>
+                               <td>{{formattedDate(invoice.date)}}</td>
                                <td>{{invoice.description}}</td>
                                <td class="text-end">{{invoice.amount}}</td>
                                <td class="text-end">{{(invoice.paidAmount).toFixed(2)}}</td>
