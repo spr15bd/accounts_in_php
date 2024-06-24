@@ -200,8 +200,6 @@ const app = Vue.createApp({
                     this.vendorInvoices = null
                 }
             }
-            
-           
         },
         updatePayments(idx, amount, invoiceNo, supplier) {
             // add the invoice id to an array ('this.selectedPayments') if the invoice is selected for payment
@@ -234,12 +232,9 @@ const app = Vue.createApp({
             this.invoiceAmount = null
         },
         formattedDate (dateStr) {
-            //return new Date(date)?.toDateString()
             if (dateStr !== '0000-00-00' && dateStr !== null) {
-                console.log("dateStr: ", dateStr, ", typeof: ", typeof dateStr)
                 const dateFormatted = null
                 const date = new Date(dateStr)
-                console.log("date: ", date, ", typeof: ", typeof date)
                 if (date) {
                     const dateFormatted = new Intl.DateTimeFormat("en-GB", {
                         year: "numeric",
