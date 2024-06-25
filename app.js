@@ -246,6 +246,9 @@ const app = Vue.createApp({
                     return null
                 }
             }
+        },
+        showInvoiceDetails () {
+            console.log("Show details.")
         }
     },
     computed: {
