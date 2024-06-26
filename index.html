@@ -66,16 +66,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="invoice in vendorInvoicesArray">
+                            <tr v-for="invoice in vendorInvoicesArray" @click="showInvoiceDetails">
                                <td>{{invoice.number}}</td>
                                <td>{{invoice.id}}</td>
-                               <td>{{invoice.date}}</td>
+                               <td>{{formattedDate(invoice.date)}}</td>
                                <td>{{invoice.description}}</td>
                                <td class="text-end">{{invoice.amount}}</td>
                                <td class="text-end">{{Number(invoice.paidAmount).toFixed(2)}}</td>
                                <td class="text-end">{{(invoice.amount - invoice.paidAmount)?.toFixed(2)}}</td>
                                <td>{{invoice.paidid}}</td>
-                               <td class="text-end">{{invoice.date}}</td>
+                               <td class="text-end">{{formattedDate(invoice.paidDate)}}</td>
                             </tr>
                             <tr>
                                <td class="text-end fw-bold">Totals</td>
@@ -107,8 +107,8 @@
                             <div class="col red-text"></div>
                         </div>
                         <div class="mb-3">
-                            <div><label>Invoice Date (yyyy/mm/dd):</label></div>
-                            <div><input type="text" name="inv_date" v-model="invoiceDate"></div>
+                            <div><label>Invoice Date:</label></div>
+                            <div><input type="date" name="inv_date" v-model="invoiceDate"></div>
                             <div class="red-text"></div>
                         </div>
                         <div class="mb-3">

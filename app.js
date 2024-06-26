@@ -181,7 +181,7 @@ const app = Vue.createApp({
                     this.supplierReview = false
                     this.vendorInvoices = null
                 }
-            }   
+            }
         },
         updatePayments(idx) {
             // add the invoice id to an array if the invoice is selected for payment
@@ -205,6 +205,35 @@ const app = Vue.createApp({
             this.payments=false
             this.paymentsSummaryPage=true
             await this.getAllSuppliers()
+        },   
+        reset () {
+            // reset form to input invoices
+            this.supplier = null
+            this.invoiceNumber = null
+            this.invoiceDate = null
+            this.invoiceDescription = null
+            this.office = null
+            this.overhead = null
+            this.invoiceAmount = null
+        },
+        formattedDate (dateStr) {
+            if (dateStr !== '0000-00-00' && dateStr !== null) {
+                const dateFormatted = null
+                const date = new Date(dateStr)
+                if (date) {
+                    const dateFormatted = new Intl.DateTimeFormat("en-GB", {
+                        year: "numeric",
+                        month: "2-digit",
+                        day: "2-digit"
+                    }).format(date)
+                    return dateFormatted
+                } else {
+                    return null
+                }
+            }
+        },
+        showInvoiceDetails () {
+            console.log("Show details.")
         }
     },
     computed: {
