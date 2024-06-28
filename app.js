@@ -247,8 +247,10 @@ const app = Vue.createApp({
                 }
             }
         },
-        showInvoiceDetails () {
-            console.log("Show details.")
+        showInvoiceDetails (inv) {
+            console.log("Inv No: ", inv.number)
+            console.log("Inv Date: ", inv.date)
+            console.log("Inv ID: ", inv.id)
         }
     },
     computed: {
