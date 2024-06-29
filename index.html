@@ -66,7 +66,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="invoice in vendorInvoicesArray" @click="showInvoiceDetails(invoice)">
+                            <tr v-for="invoice in vendorInvoicesArray" @click="addInvoice=false; message=null; supplierReview=false; payments=false; viewInvoiceDetails = true ">
                                <td>{{invoice.number}}</td>
                                <td>{{invoice.id}}</td>
                                <td>{{formattedDate(invoice.date)}}</td>
@@ -226,6 +226,58 @@
                 <button class="btn btn-dark" v-if="selectedPayments.length > 0" @click="confirmProcessPayments()">
 				Confirm
 			</button>
+            </div>
+    
+            <div v-if="viewInvoiceDetails">
+                <p class="text-center py-5">
+                    <label>Supplier Name:</label>
+                    <input type="text" name="supplier" @keyup.enter="getSupplier(suppl)" v-model="suppl"></input>
+                    <button class="btn btn-info" @click="getSupplier()">
+				        Supplier Review 
+				    </button>
+                </p>
+                <div v-if="vendorInvoices?.length > 0">
+                    <table class="table table-striped">
+                        <thead>
+                            <div class="text-center fw-bold"><h3>{{suppl}}</h3></div>
+                            <tr class="bg-info">
+                                <th>Invoice Number</th>
+                                <th>Invoice Reference</th>
+                                <th>Invoice Date</th>
+                                <th>Description</th>
+                                <th class="text-end">Total</th>
+                                <th class="text-end">Paid</th>
+                                <th class="text-end">Outstanding</th>
+                                <th>Payment Reference</th>
+                                <th>Payment Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="invoice in vendorInvoicesArray" @click="showInvoiceDetails(invoice)">
+                               <td>{{invoice.number}}</td>
+                               <td>{{invoice.id}}</td>
+                               <td>{{formattedDate(invoice.date)}}</td>
+                               <td>{{invoice.description}}</td>
+                               <td class="text-end">{{invoice.amount}}</td>
+                               <td class="text-end">{{(invoice.paidAmount).toFixed(2)}}</td>
+                               <td class="text-end">{{(invoice.amount - invoice.paidAmount).toFixed(2)}}</td>
+                               <td>{{invoice.paidid}}</td>
+                               <td class="text-end">{{formattedDate(invoice.paidDate)}}</td>
+                            </tr>
+                            <tr>
+                               <td class="text-end fw-bold">Totals</td>
+                               <td></td>
+                               <td></td>
+                               <td></td>
+                               <td class="text-end fw-bold">{{ reviewTotalSum(vendorInvoicesArray).toFixed(2) }}</td>
+                               <td class="text-end fw-bold">{{ reviewPaidSum(vendorInvoicesArray).toFixed(2) }}</td>
+                               <td class="text-end fw-bold">{{ reviewOutstandingSum(vendorInvoicesArray).toFixed(2) }}</td>
+                               <td></td>
+                               <td class="text-end"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div v-else>
                 {{message}}
