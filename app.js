@@ -34,7 +34,8 @@ const app = Vue.createApp({
             selectedSupplierSum: 0.00,
             message: null,
             date: null,
-            paymentsSummaryMessage: ""
+            paymentsSummaryMessage: "",
+            viewInvoiceDetails: false
         }
     },
     mounted() {
