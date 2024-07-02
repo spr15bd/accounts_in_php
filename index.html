@@ -232,8 +232,8 @@
                 <p class="text-center py-5">
                     <label>Supplier Name:</label>
                     <input type="text" name="supplier" @keyup.enter="getSupplier(suppl)" v-model="suppl"></input>
-                    <button class="btn btn-info" @click="getSupplier()">
-				        view invoice details placeholder
+                        view invoice details placeholder
+                    <button class="btn btn-info" @click="supplierReview=true; addInvoice=false; payments=false; paymentsSummaryPage=false; confirmProcessPaymentsScreen=false; viewInvoiceDetails=false">
 				    </button>
                 </p>
                 
