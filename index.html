@@ -18,22 +18,22 @@
 				        </div>
 				        <div class="btn-group" role="group">
 				            <div class="col-lg-6">
-								<button class="btn btn-info" @click="supplierReview=true; message=null; addInvoice=false; suppl=null; payments=false">
+								<button class="btn btn-info" @click="supplierReview=true; message=null; addInvoice=false; suppl=null; payments=false; viewInvoiceDetails=null">
 								    Supplier Review 
 								</button>
 				            </div>
 				            <div class="col-lg-6">
-								<button class="btn btn-info" @click="addInvoice=true; message=null; supplierReview=false; payments=false">
+								<button class="btn btn-info" @click="addInvoice=true; message=null; supplierReview=false; payments=false; viewInvoiceDetails=null">
 								    Input invoices
 								</button>
 				            </div>
                             <div class="col-lg-6">
-								<button class="btn btn-info" @click="addInvoice=false; message=null; supplierReview=false; payments=true; vendorInvoices = null">
+								<button class="btn btn-info" @click="addInvoice=false; message=null; supplierReview=false; payments=true; vendorInvoices = null; viewInvoiceDetails=null">
 								    Process payments
 								</button>
 				            </div>
                             <div class="col-lg-6">
-								<button class="btn btn-info" @click="addInvoice=false; message=null; supplierReview=false; payments=false">
+								<button class="btn btn-info" @click="addInvoice=false; message=null; supplierReview=false; payments=false; viewInvoiceDetails=null">
 								    Back
 								</button>
 				            </div>
@@ -66,7 +66,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="invoice in vendorInvoicesArray" @click="addInvoice=false; message=null; supplierReview=false; payments=false; viewInvoiceDetails = true ">
+                            <tr v-for="invoice in vendorInvoicesArray" @click="addInvoice=false; message=null; supplierReview=false; payments=false; viewInvoiceDetails = invoice ">
                                <td>{{invoice.number}}</td>
                                <td>{{invoice.id}}</td>
                                <td>{{formattedDate(invoice.date)}}</td>
@@ -196,7 +196,7 @@
                 <h4 class="center">Payment Processing</h4>
                 <br>
                 <div class="col-lg-6">
-                    <button class="btn btn-info w-40" @click="supplierReview=false; addInvoice=false; payments=true; paymentsSummaryPage=false; confirmProcessPaymentsScreen=false">
+                    <button class="btn btn-info w-40" @click="supplierReview=false; addInvoice=false; payments=true; paymentsSummaryPage=false; confirmProcessPaymentsScreen=false; viewInvoiceDetails=null">
                         Back
                     </button>
                     <button class="btn btn-dark" v-if="selectedPayments.length > 0" @click="confirmProcessPaymentsScreen=true">
@@ -232,8 +232,11 @@
                 <p class="text-center py-5">
                     <label>Supplier Name:</label>
                     <input type="text" name="supplier" @keyup.enter="getSupplier(suppl)" v-model="suppl"></input>
-                        view invoice details placeholder
-                    <button class="btn btn-info" @click="supplierReview=true; addInvoice=false; payments=false; paymentsSummaryPage=false; confirmProcessPaymentsScreen=false; viewInvoiceDetails=false">
+                        INVOICE #:{{ viewInvoiceDetails.invNo }}
+                        INVOICE DATE: {{ viewInvoiceDetails.date }}
+                        INVOICE REF: {{ viewInvoiceDetails.id }}
+                        INVOICE SUPPLIER: {{ viewInvoiceDetails.supplier }}
+                    <button class="btn btn-info" @click="supplierReview=true; addInvoice=false; payments=false; paymentsSummaryPage=false; confirmProcessPaymentsScreen=false; viewInvoiceDetails=null">Back
 				    </button>
                 </p>
                 
