@@ -221,6 +221,7 @@ const app = Vue.createApp({
                 const dateFormatted = null
                 const date = new Date(dateStr)
                 if (date) {
+		    console.log("date is: ", date, ", typeof: ", typeof date)
                     const dateFormatted = new Intl.DateTimeFormat("en-GB", {
                         year: "numeric",
                         month: "2-digit",
