@@ -232,11 +232,22 @@
                 <p class="text-center py-5">
                     <label>Supplier Name:</label>
                     <input type="text" name="supplier" @keyup.enter="getSupplier(suppl)" v-model="suppl"></input>
-                        INVOICE #:{{ viewInvoiceDetails.invNo }}
-                        INVOICE DATE: {{ viewInvoiceDetails.date }}
-                        INVOICE REF: {{ viewInvoiceDetails.id }}
-                        INVOICE SUPPLIER: {{ viewInvoiceDetails.supplier }}
-                    <button class="btn btn-info" @click="supplierReview=true; addInvoice=false; payments=false; paymentsSummaryPage=false; confirmProcessPaymentsScreen=false; viewInvoiceDetails=null">Back
+                    <table class="mb-5">{{viewInvoiceDetails}}
+                            <tr>
+                                <td>INVOICE #:</td><td>{{ viewInvoiceDetails.number }}</td>
+                            </tr>
+                            <tr>
+                                <td>INVOICE DATE:</td><td>{{ viewInvoiceDetails.date }}</td>
+                            </tr>
+                            <tr>
+                                <td>INVOICE REF:</td><td>{{ viewInvoiceDetails.id }}</td>
+                            </tr>
+                            <tr>
+                                <td>INVOICE SUPPLIER:</td><td>{{ viewInvoiceDetails.supplier }}</td>
+                            </tr>
+                        </table>
+                    <button class="btn btn-info" @click="supplierReview=true; addInvoice=false; payments=false; paymentsSummaryPage=false; confirmProcessPaymentsScreen=false; viewInvoiceDetails=null">
+                        Back
 				    </button>
                 </p>
                 
