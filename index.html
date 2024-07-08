@@ -221,7 +221,7 @@
             <div v-if="confirmProcessPaymentsScreen">
                 Please confirm you wish to allocate the payments.
                 <div v-for="inv in selectedPayments">
-                  GBP {{inv.amount}} {{inv.invNo}} {{inv.supplier}} {{ date }}
+                  GBP {{inv.amount}} {{inv.invNo}} {{inv.supplier}} {{ formattedDate(date) }}
                 </div>
                 <button class="btn btn-dark" v-if="selectedPayments.length > 0" @click="confirmProcessPayments()">
 				Confirm
@@ -237,7 +237,7 @@
                                 <td>INVOICE #:</td><td>{{ viewInvoiceDetails.number }}</td>
                             </tr>
                             <tr>
-                                <td>INVOICE DATE:</td><td>{{ viewInvoiceDetails.date }}</td>
+                                <td>INVOICE DATE:</td><td>{{ formattedDate(viewInvoiceDetails.date) }}</td>
                             </tr>
                             <tr>
                                 <td>INVOICE REF:</td><td>{{ viewInvoiceDetails.id }}</td>
