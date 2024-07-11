@@ -33,7 +33,8 @@ const app = Vue.createApp({
             selectedSupplierSum: 0.00,
             message: null,
             date: null,
-            paymentsSummaryMessage: ""
+            paymentsSummaryMessage: "",
+            viewInvoiceDetails: null
         }
     },
     mounted() {
@@ -233,8 +234,10 @@ const app = Vue.createApp({
                 }
             }
         },
-        showInvoiceDetails () {
-            console.log("Show details.")
+        showInvoiceDetails (inv) {
+            console.log("Inv No: ", inv.number)
+            console.log("Inv Date: ", inv.date)
+            console.log("Inv ID: ", inv.id)
         }
     },
     computed: {
