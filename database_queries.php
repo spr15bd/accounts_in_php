@@ -25,13 +25,14 @@
                 } else {
                     // Show all invoices for a chosen supplier
                     $str = implode(" ", $items['data']);
+		// TODO ADD DATE COLUMN TO PAID TABLE
                     $query = "SELECT i.id, i.supplier, i.date, i.number, i.description, i.office, i.overhead, i.amount, p.paidid, p.amount as paidAmount, p.date as paidDate FROM invoices i ";
                     $query .="LEFT JOIN paid p ON p.id = i.id ";
                     $query .="WHERE supplier='".$str."'";
                     $query = str_replace("'s", "s", $query);
                 }
                 $sql_query = $conn->query($query);
-		//var_dump("SQL Query: " . $sql_query);	
+		var_dump("SQL Query: " . $sql_query);	
                 $invoices = array();
                 while ($row=$sql_query->fetch_assoc()){
                     array_push($invoices, $row);
