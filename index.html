@@ -260,6 +260,9 @@
                              <tr>
                                 <td>INVOICE PAYMENT REF:</td><td>{{ viewInvoiceDetails.paidid }}</td>
                             </tr>
+			     <tr>
+                                <td>AMOUNT PAID:</td><td>{{ viewInvoiceDetails.paidAmount }}</td>
+                            </tr>
                         </table>
                     <button class="btn btn-info" @click="supplierReview=true; addInvoice=false; payments=false; paymentsSummaryPage=false; confirmProcessPaymentsScreen=false; viewInvoiceDetails=null">
                         Back

@@ -32,7 +32,6 @@
                     $query = str_replace("'s", "s", $query);
                 }
                 $sql_query = $conn->query($query);
-		var_dump("SQL Query: " . $sql_query);	
                 $invoices = array();
                 while ($row=$sql_query->fetch_assoc()){
                     array_push($invoices, $row);
