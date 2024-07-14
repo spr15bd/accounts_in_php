@@ -40,7 +40,6 @@
             } else {
                 // Pay invoices
                 foreach ($items['data']['paid'] as $paidInvoice) {
-                    //echo "PAID INV date: " . $items['data']['paymentDate'];
                     $query = "SELECT COUNT(*) FROM paid WHERE id = ".$paidInvoice['idx'];
                     $sql_query = $conn->query($query);
                     $rows=$sql_query->fetch_row();
