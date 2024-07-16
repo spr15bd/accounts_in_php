@@ -34,7 +34,7 @@
 				            </div>
                             <div class="col-lg-6">
 								<button class="btn btn-info" @click="addInvoice=false; message=null; supplierReview=false; payments=false; viewInvoiceDetails=null">
-								    Back
+								    Main
 								</button>
 				            </div>
 				        </div>
@@ -257,13 +257,13 @@
                             <tr>
                                 <td>INVOICE AMOUNT:</td><td>{{ viewInvoiceDetails.amount }}</td>
                             </tr>
-                            <tr>
+                            <tr class="text-red">
                                 <td>INVOICE PAYMENT REF:</td><td>{{ viewInvoiceDetails.paidid }}</td>
                             </tr>
-                            <tr>
+                            <tr class="text-red">
                                 <td>INVOICE PAYMENT AMOUNT:</td><td>{{ viewInvoiceDetails.paidAmount }}</td>
                             </tr>
-                            <tr>
+                            <tr class="text-red">
                                 <td>INVOICE PAYMENT DATE:</td><td>{{ viewInvoiceDetails.paidDate }}</td>
                             </tr>
                         </table>
