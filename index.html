@@ -257,14 +257,14 @@
                             <tr>
                                 <td>INVOICE AMOUNT:</td><td>{{ viewInvoiceDetails.amount }}</td>
                             </tr>
-                            <tr class="text-red">
+                            <tr class="text-success">
                                 <td>INVOICE PAYMENT REF:</td><td>{{ viewInvoiceDetails.paidid }}</td>
                             </tr>
-                            <tr class="text-red">
+                            <tr class="text-success">
                                 <td>INVOICE PAYMENT AMOUNT:</td><td>{{ viewInvoiceDetails.paidAmount }}</td>
                             </tr>
-                            <tr class="text-red">
-                                <td>INVOICE PAYMENT DATE:</td><td>{{ viewInvoiceDetails.paidDate }}</td>
+                            <tr class="text-success">
+                                <td>INVOICE PAYMENT DATE:</td><td>{{ formattedDate(viewInvoiceDetails.paidDate) }}</td>
                             </tr>
                         </table>
                     <button class="btn btn-info" @click="supplierReview=true; addInvoice=false; payments=false; paymentsSummaryPage=false; confirmProcessPaymentsScreen=false; viewInvoiceDetails=null">
