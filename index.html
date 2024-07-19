@@ -232,7 +232,7 @@
                 <p class="text-center py-5">
                     <label>Supplier Name:</label>
                     <input type="text" name="supplier" @keyup.enter="getSupplier(suppl)" v-model="suppl"></input>
-                    <table class="mb-5">{{viewInvoiceDetails}}
+                    <table class="mb-5">
                             <tr>
                                 <td>INVOICE #:</td><td>{{ viewInvoiceDetails.number }}</td>
                             </tr>
@@ -257,13 +257,13 @@
                             <tr>
                                 <td>INVOICE AMOUNT:</td><td>{{ viewInvoiceDetails.amount }}</td>
                             </tr>
-                            <tr class="text-success">
+                            <tr class="text-success fw-bold">
                                 <td>INVOICE PAYMENT REF:</td><td>{{ viewInvoiceDetails.paidid }}</td>
                             </tr>
-                            <tr class="text-success">
+                            <tr class="text-success fw-bold">
                                 <td>INVOICE PAYMENT AMOUNT:</td><td>{{ viewInvoiceDetails.paidAmount }}</td>
                             </tr>
-                            <tr class="text-success">
+                            <tr class="text-success fw-bold">
                                 <td>INVOICE PAYMENT DATE:</td><td>{{ formattedDate(viewInvoiceDetails.paidDate) }}</td>
                             </tr>
                         </table>
