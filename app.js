@@ -142,7 +142,7 @@ const app = Vue.createApp({
                 return Number(selectedInvoice['amount']).toFixed(2)
             } else {
                 // show zero
-                return 0.00
+                return "0.00"
             }
             
             let vendorInvoices = Object.values(this.vendorInvoices)
