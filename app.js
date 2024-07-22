@@ -66,10 +66,6 @@ const app = Vue.createApp({
             } 
         },
         async setPaid(invs) {
-
-        console.log("invs: ", invs)
-            console.log("invs to pay: ", invs)
-            console.log("payment date: ", this.date)
             let payload = { data: { paid: invs, paymentDate: this.date } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
@@ -124,7 +120,7 @@ const app = Vue.createApp({
         reviewOutstandingSum(invoices) {
             let sum = 0
             invoices.forEach((invoice)=> {
-                console.log("invoice amount: ", invoice["amount")
+                console.log("invoice amount: ", invoice["amount"])
                 // temp - todo add in total outstanding on the inv, new table id and paid
                 sum += invoice.paidid?0.00:parseFloat(invoice["amount"])
             })
