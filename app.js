@@ -49,13 +49,13 @@ const app = Vue.createApp({
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
                 this.vendorInvoices = res.data
-                console.log("Supplier query returned ", this.vendorInvoices, ", typeof is: ", typeof this.vendorInvoices)
                 this.vendorInvoices.forEach(invoice=>{
                     invoice.amount = (Math.round(invoice.amount * 100) / 100).toFixed(2)
                     invoice.paid = invoice.paid?invoice.amount:"0.00"
 		})
                 payload = null
-            } 
+            }
+	    this.suppl = null
         },
         async getAllSuppliers() {
             let payload = { data: { supplierName: 'all' } }
