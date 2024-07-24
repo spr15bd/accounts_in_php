@@ -192,6 +192,14 @@ const app = Vue.createApp({
                 this.selectedPayments = this.selectedPayments.filter(id=>id!==idx)
             } 
         },
+	updateView() {
+		this.supplierReview=true
+		this.message=null
+		this.addInvoice=false
+		this.suppl=null
+		this.payments=false
+		this.viewInvoiceDetails=null
+	},
         async showPaymentsSummary() {
             if (!this.date) {
                 this.paymentsSummaryMessage = "Please enter a payment date."
