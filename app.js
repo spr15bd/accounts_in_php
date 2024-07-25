@@ -192,13 +192,18 @@ const app = Vue.createApp({
                 this.selectedPayments = this.selectedPayments.filter(id=>id!==idx)
             } 
         },
-	updateView() {
-		this.supplierReview=true
+	updateView(view) {
 		this.message=null
+		this.supplierReview=false
 		this.addInvoice=false
 		this.suppl=null
 		this.payments=false
 		this.viewInvoiceDetails=null
+		switch (view) {
+			case 0:
+				this.supplierReview=true
+				break
+		}
 	},
         async showPaymentsSummary() {
             if (!this.date) {
