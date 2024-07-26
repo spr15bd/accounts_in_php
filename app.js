@@ -86,9 +86,6 @@ const app = Vue.createApp({
                 this.paymentsSelected[this.suppl] = this.vendorInvoices[this.suppl]
             }
         },
-        async processPayments() {
-
-        },
         currentSupplierSum(supplier) {
             if (supplier) {
                 let sum = 0
@@ -184,8 +181,6 @@ const app = Vue.createApp({
             // add the invoice id to an array if the invoice is selected for payment
             // if the invoice has already been selected for payment, deselect it ie remove it from the array
 
-            console.log("idx ", idx)
-
             if (!this.selectedPayments.includes(idx)) {
                 this.selectedPayments.push(idx);
             } else {
@@ -202,6 +197,9 @@ const app = Vue.createApp({
 		switch (view) {
 			case 0:
 				this.supplierReview=true
+				break
+			case 1:
+				this.addInvoice=true
 				break
 		}
 	},
