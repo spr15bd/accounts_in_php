@@ -193,6 +193,7 @@ const app = Vue.createApp({
 		this.addInvoice=false
 		this.suppl=null
 		this.payments=false
+		this.vendorInvoices = null
 		this.viewInvoiceDetails=null
 		switch (view) {
 			case 0:
@@ -200,6 +201,9 @@ const app = Vue.createApp({
 				break
 			case 1:
 				this.addInvoice=true
+				break
+			case 2:
+				this.payments=true
 				break
 		}
 	},
