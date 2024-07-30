@@ -193,7 +193,7 @@ const app = Vue.createApp({
 		this.suppl=null
 		this.payments=false
 		this.vendorInvoices = null
-		this.viewInvoiceDetails=null
+		this.viewInvoiceDetails=false
 		switch (view) {
 			case 0:
 				this.supplierReview=true
@@ -203,6 +203,9 @@ const app = Vue.createApp({
 				break
 			case 2:
 				this.payments=true
+				break
+			case 3:
+				this.viewInvoiceDetails=true
 				break
 		}
 	},
