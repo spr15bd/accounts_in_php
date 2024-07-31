@@ -194,6 +194,8 @@ const app = Vue.createApp({
 		this.payments=false
 		this.vendorInvoices = null
 		this.viewInvoiceDetails=false
+		this.paymentsSummaryPage=false
+		this.confirmProcessPaymentsScreen=false
 		switch (view) {
 			case 0:
 				this.supplierReview=true
