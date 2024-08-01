@@ -187,6 +187,7 @@ const app = Vue.createApp({
             } 
         },
 	updateView(view) {
+		console.log("VIEW CHANGED! View is: ", view)
 		this.message=null
 		this.supplierReview=false
 		this.addInvoice=false
@@ -233,6 +234,7 @@ const app = Vue.createApp({
             this.invoiceAmount = null
         },
         formattedDate (dateStr) {
+	    console.log("dateStr: ", dateStr)
             if (dateStr !== '0000-00-00' && dateStr !== null) {
                 const dateFormatted = null
                 const date = new Date(dateStr)
