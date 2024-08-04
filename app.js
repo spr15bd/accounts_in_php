@@ -234,8 +234,8 @@ const app = Vue.createApp({
             this.invoiceAmount = null
         },
         formattedDate (dateStr) {
-	    console.log("dateStr: ", dateStr)
-            if (dateStr !== '0000-00-00' && dateStr !== null) {
+	    console.log("dateStr: ", typeof dateStr)
+            if (dateStr !== '0000-00-00' && dateStr !== null && dateStr !== 'undefined') {
                 const dateFormatted = null
                 const date = new Date(dateStr)
                 if (date) {
