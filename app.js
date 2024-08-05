@@ -117,7 +117,6 @@ const app = Vue.createApp({
         reviewOutstandingSum(invoices) {
             let sum = 0
             invoices.forEach((invoice)=> {
-                console.log("invoice amount: ", invoice["amount"])
                 // temp - todo add in total outstanding on the inv, new table id and paid
                 sum += invoice.paidid?0.00:parseFloat(invoice["amount"])
             })
