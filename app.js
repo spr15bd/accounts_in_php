@@ -234,7 +234,7 @@ const app = Vue.createApp({
         },
         formattedDate (dateStr) {
 	    console.log("dateStr: ", typeof dateStr)
-            if (dateStr !== '0000-00-00' && dateStr !== null && dateStr !== 'undefined') {
+            if (dateStr !== '0000-00-00' && dateStr !== null && typeof dateStr !== 'undefined') {
                 const dateFormatted = null
                 const date = new Date(dateStr)
                 if (date) {
