@@ -66,7 +66,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="invoice in vendorInvoicesArray" @click="updateView(3)">
+                            <tr v-for="invoice in vendorInvoicesArray" @click="selectedInvoice=invoice; updateView(3)">
                                <td>{{invoice.number}}</td>
                                <td>{{invoice.id}}</td>
                                <td>{{formattedDate(invoice.date)}}</td>
@@ -232,7 +232,7 @@
                 <p class="text-center py-5">
                     <table class="mb-5">
                             <tr>
-                                <td>INVOICE #:</td><td>{{ viewInvoiceDetails.number }}</td>
+                                <td>INVOICE #:</td><td>{{ selectedInvoice.number }}</td>
                             </tr>
                             <tr>
                                 <td>INVOICE DATE:</td><td>{{ formattedDate(viewInvoiceDetails.date) }}</td>
