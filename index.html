@@ -235,34 +235,34 @@
                                 <td>INVOICE #:</td><td>{{ selectedInvoice.number }}</td>
                             </tr>
                             <tr>
-                                <td>INVOICE DATE:</td><td>{{ formattedDate(viewInvoiceDetails.date) }}</td>
+                                <td>INVOICE DATE:</td><td>{{ formattedDate(selectedInvoice.date) }}</td>
                             </tr>
                             <tr>
-                                <td>INVOICE REF:</td><td>{{ viewInvoiceDetails.id }}</td>
+                                <td>INVOICE REF:</td><td>{{ selectedInvoice.id }}</td>
                             </tr>
                             <tr>
-                                <td>INVOICE DESC:</td><td>{{ viewInvoiceDetails.description }}</td>
+                                <td>INVOICE DESC:</td><td>{{ selectedInvoice.description }}</td>
                             </tr>
                             <tr>
-                                <td>INVOICE OFFICE:</td><td>{{ viewInvoiceDetails.office }}</td>
+                                <td>INVOICE OFFICE:</td><td>{{ selectedInvoice.office }}</td>
                             </tr>
                             <tr>
-                                <td>INVOICE SUPPLIER:</td><td>{{ viewInvoiceDetails.supplier }}</td>
+                                <td>INVOICE SUPPLIER:</td><td>{{ selectedInvoice.supplier }}</td>
                             </tr>
                             <tr>
-                                <td>INVOICE OVERHEAD:</td><td>{{ viewInvoiceDetails.overhead }}</td>
+                                <td>INVOICE OVERHEAD:</td><td>{{ selectedInvoice.overhead }}</td>
                             </tr>
                             <tr>
-                                <td>INVOICE AMOUNT:</td><td>{{ viewInvoiceDetails.amount }}</td>
+                                <td>INVOICE AMOUNT:</td><td>{{ selectedInvoice.amount }}</td>
                             </tr>
                             <tr class="text-success fw-bold">
-                                <td>INVOICE PAYMENT REF:</td><td>{{ viewInvoiceDetails.paidid }}</td>
+                                <td>INVOICE PAYMENT REF:</td><td>{{ selectedInvoice.paidid }}</td>
                             </tr>
                             <tr class="text-success fw-bold">
-                                <td>INVOICE PAYMENT AMOUNT:</td><td>{{ viewInvoiceDetails.paidAmount }}</td>
+                                <td>INVOICE PAYMENT AMOUNT:</td><td>{{ selectedInvoice.paidAmount }}</td>
                             </tr>
                             <tr class="text-success fw-bold">
-                                <td>INVOICE PAYMENT DATE:</td><td>{{ formattedDate(viewInvoiceDetails.paidDate) }}</td>
+                                <td>INVOICE PAYMENT DATE:</td><td>{{ formattedDate(selectedInvoice.paidDate) }}</td>
                             </tr>
                         </table>
                     <button class="btn btn-info" @click="supplierReview=true; addInvoice=false; payments=false; paymentsSummaryPage=false; confirmProcessPaymentsScreen=false; viewInvoiceDetails=null">

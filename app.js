@@ -34,7 +34,7 @@ const app = Vue.createApp({
             message: null,
             date: null,
             paymentsSummaryMessage: "",
-	    selectedInvoice: null
+	    selectedInvoice: null,
             viewInvoiceDetails: null
         }
     },
