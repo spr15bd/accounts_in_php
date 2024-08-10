@@ -255,17 +255,17 @@
                             <tr>
                                 <td>INVOICE AMOUNT:</td><td>{{ selectedInvoice.amount }}</td>
                             </tr>
-                            <tr class="text-success fw-bold">
+                            <tr class="text-secondary fw-bold">
                                 <td>INVOICE PAYMENT REF:</td><td>{{ selectedInvoice.paidid }}</td>
                             </tr>
-                            <tr class="text-success fw-bold">
+                            <tr class="text-secondary fw-bold">
                                 <td>INVOICE PAYMENT AMOUNT:</td><td>{{ selectedInvoice.paidAmount }}</td>
                             </tr>
-                            <tr class="text-success fw-bold">
+                            <tr class="text-secondary fw-bold">
                                 <td>INVOICE PAYMENT DATE:</td><td>{{ formattedDate(selectedInvoice.paidDate) }}</td>
                             </tr>
                         </table>
-                    <button class="btn btn-info" @click="supplierReview=true; addInvoice=false; payments=false; paymentsSummaryPage=false; confirmProcessPaymentsScreen=false; viewInvoiceDetails=null">
+                    <button class="btn btn-info" @click="updateView(0)">
                         Back
 				    </button>
                 </p>
