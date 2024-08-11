@@ -196,7 +196,7 @@
                 <h4 class="center">Payment Processing</h4>
                 <br>
                 <div class="col-lg-6">
-                    <button class="btn btn-info w-40" @click="supplierReview=false; addInvoice=false; payments=true; paymentsSummaryPage=false; confirmProcessPaymentsScreen=false; viewInvoiceDetails=null">
+                    <button class="btn btn-info w-40" @click="updateView(2)">
                         Back
                     </button>
                     <button class="btn btn-dark" v-if="selectedPayments.length > 0" @click="confirmProcessPaymentsScreen=true">
