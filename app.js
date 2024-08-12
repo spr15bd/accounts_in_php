@@ -70,7 +70,6 @@ const app = Vue.createApp({
             let payload = { data: { paid: invs, paymentDate: this.date } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
-                console.log("data: ", res.data)
                 payload = null
                 return res.data
             } 
@@ -187,7 +186,6 @@ const app = Vue.createApp({
             } 
         },
 	updateView(view) {
-		console.log("VIEW CHANGED! View is: ", view)
 		this.message=null
 		this.supplierReview=false
 		this.addInvoice=false
@@ -234,12 +232,10 @@ const app = Vue.createApp({
             this.invoiceAmount = null
         },
         formattedDate (dateStr) {
-	    console.log("dateStr: ", typeof dateStr)
             if (dateStr !== '0000-00-00' && dateStr !== null && typeof dateStr !== 'undefined') {
                 const dateFormatted = null
                 const date = new Date(dateStr)
                 if (date) {
-		    console.log("date is: ", date, ", typeof: ", typeof date)
                     const dateFormatted = new Intl.DateTimeFormat("en-GB", {
                         year: "numeric",
                         month: "2-digit",
@@ -277,7 +273,6 @@ const app = Vue.createApp({
             return this.suppliers
         },
         vendorInvoicesArray() {
-		console.log("VendorInvoicesArray: ", Object.values(this.vendorInvoices))
 		return Object.values(this.vendorInvoices)  
 	}
     }
