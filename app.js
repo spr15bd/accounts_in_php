@@ -36,7 +36,7 @@ const app = Vue.createApp({
             paymentsSummaryMessage: "",
 	    selectedInvoice: null,
             viewInvoiceDetails: null,
-	    editInvoiceMode: false
+	    editInvoiceMode: true
         }
     },
     mounted() {
