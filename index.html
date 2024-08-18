@@ -232,7 +232,8 @@
                 <p class="text-center py-5">
                     <table class="mb-5">
                             <tr>
-                                <td>INVOICE #:</td><td>{{ selectedInvoice.number }}</td>
+                                <td>INVOICE #:</td>
+				<td><input type="text" v-model="selectedInvoice.number"></td>
 				<td v-if="editInvoiceMode">
 					<button class="btn btn-dark" @click="editInvoiceNumber()">
 						Update
@@ -240,7 +241,8 @@
 				</td>
                             </tr>
                             <tr>
-                                <td>INVOICE DATE:</td><td>{{ formattedDate(selectedInvoice.date) }}</td>
+                                <td>INVOICE DATE:</td>
+				<td><input type="text" v-model="selectedInvoice.date">{{ formattedDate(selectedInvoice.date) }}</td>
 				<td v-if="editInvoiceMode">
 					<button class="btn btn-dark" @click="editInvoiceDate()">
 						Update
