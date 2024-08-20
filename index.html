@@ -242,7 +242,7 @@
                             </tr>
                             <tr>
                                 <td>INVOICE DATE:</td>
-				<td><input type="text" v-model="selectedInvoice.date">{{ formattedDate(selectedInvoice.date) }}</td>
+				<td><input type="date" :value="selectedInvoice.date"></td>
 				<td v-if="editInvoiceMode">
 					<button class="btn btn-dark" @click="editInvoiceDate()">
 						Update
