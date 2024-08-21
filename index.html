@@ -277,6 +277,9 @@
                                 <td>INVOICE PAYMENT DATE:</td><td>{{ formattedDate(selectedInvoice.paidDate) }}</td>
                             </tr>
                         </table>
+		    <button class="btn btn-dark" @click="editInvoiceMode=true">
+						Edit Invoice
+					</button>
                     <button class="btn btn-info" @click="updateView(0)">
                         Back
 				    </button>
