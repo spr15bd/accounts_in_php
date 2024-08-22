@@ -233,21 +233,17 @@
                     <table class="mb-5">
                             <tr>
                                 <td>INVOICE #:</td>
-				<td><input type="text" v-model="selectedInvoice.number"></td>
-				<td v-if="editInvoiceMode">
-					<button class="btn btn-dark" @click="editInvoiceNumber()">
-						Update
-					</button>
-				</td>
+				<td v-if="editInvoiceMode"><input type="text" v-model="selectedInvoice.number"></td>
+				
+					
+				<td v-else>{{ selectedInvoice.number }}</td>
                             </tr>
                             <tr>
                                 <td>INVOICE DATE:</td>
-				<td><input type="date" :value="selectedInvoice.date"></td>
-				<td v-if="editInvoiceMode">
-					<button class="btn btn-dark" @click="editInvoiceDate()">
-						Update
-					</button>
-				</td>
+				<td v-if="editInvoiceMode"><input type="date" :value="selectedInvoice.date"></td>
+				<td v-else>{{ selectedInvoice.date }}</td>
+					
+				
                             </tr>
                             <tr>
                                 <td>INVOICE REF:</td><td>{{ selectedInvoice.id }}</td>
@@ -276,6 +272,11 @@
                             <tr class="text-secondary fw-bold">
                                 <td>INVOICE PAYMENT DATE:</td><td>{{ formattedDate(selectedInvoice.paidDate) }}</td>
                             </tr>
+			    <tr>
+				<button class="btn btn-dark" @click="editInvoiceNumber()">
+					Update
+				</button>
+			    </tr>
                         </table>
 		    <button class="btn btn-dark" @click="editInvoiceMode=true">
 						Edit Invoice
