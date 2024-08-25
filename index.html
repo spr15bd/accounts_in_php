@@ -242,13 +242,18 @@
 				<td v-else>{{ selectedInvoice.date }}</td>
 			    </tr>
                             <tr>
-                                <td>INVOICE REF:</td><td>{{ selectedInvoice.id }}</td>
+                                <td>INVOICE REF:</td>
+				<td>{{ selectedInvoice.id }}</td>
                             </tr>
                             <tr>
-                                <td>INVOICE DESC:</td><td>{{ selectedInvoice.description }}</td>
+                                <td>INVOICE DESC:</td>
+				<td v-if="editInvoiceMode"><input type="text" v-model="selectedInvoice.description"></td>
+				<td v-else>{{ selectedInvoice.description }}</td>
                             </tr>
                             <tr>
-                                <td>INVOICE OFFICE:</td><td>{{ selectedInvoice.office }}</td>
+                                <td>INVOICE OFFICE:</td>
+				<td v-if="editInvoiceMode"><input type="text" v-model="selectedInvoice.office"></td>
+				<td v-else>{{ selectedInvoice.office }}</td>
                             </tr>
                             <tr>
                                 <td>INVOICE SUPPLIER:</td><td>{{ selectedInvoice.supplier }}</td>
@@ -270,14 +275,14 @@
                             </tr>
 			    <tr v-if="editInvoiceMode">
 				<td>
-					<button class="btn btn-dark" @click="editInvoiceMode=!editInvoiceMode">
+					<button class="btn btn-dark" @click="editInvoice()">
 						Update
 					</button>
 				</td>
 				<td></td>
 			    </tr>
                         </table>
-		    	<button class="btn btn-dark" @click="editInvoiceMode=true">
+		    	<button class="btn btn-dark" @click="editInvoiceMode=!editInvoiceMode">
 				Edit Invoice
 			</button>
                     	<button class="btn btn-info" @click="updateView(0)">

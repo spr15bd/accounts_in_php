@@ -247,7 +247,10 @@ const app = Vue.createApp({
                     return null
                 }
             }
-        }
+        },
+	editInvoice() {
+		console.log("EDIT INV");
+	}
     },
     computed: {
         displaySelectedPayments () {
