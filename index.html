@@ -256,10 +256,14 @@
 				<td v-else>{{ selectedInvoice.office }}</td>
                             </tr>
                             <tr>
-                                <td>INVOICE SUPPLIER:</td><td>{{ selectedInvoice.supplier }}</td>
+                                <td>INVOICE SUPPLIER:</td>
+				<td v-if="editInvoiceMode"><input type="text" v-model="selectedInvoice.supplier"></td>
+				<td v-else>{{ selectedInvoice.supplier }}</td>
                             </tr>
                             <tr>
                                 <td>INVOICE OVERHEAD:</td><td>{{ selectedInvoice.overhead }}</td>
+				<td v-if="editInvoiceMode"><input type="text" v-model="selectedInvoice.overhead"></td>
+				<td v-else>{{ selectedInvoice.overhead }}</td>
                             </tr>
                             <tr>
                                 <td>INVOICE AMOUNT:</td><td>{{ selectedInvoice.amount }}</td>
