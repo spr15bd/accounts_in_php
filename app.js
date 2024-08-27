@@ -249,7 +249,8 @@ const app = Vue.createApp({
             }
         },
 	editInvoice() {
-		console.log("EDIT INV");
+		console.log("EDIT INV")
+		await this.editInvoice()
 	}
     },
     computed: {
