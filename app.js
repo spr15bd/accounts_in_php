@@ -248,7 +248,7 @@ const app = Vue.createApp({
                 }
             }
         },
-	editInvoice() {
+	async editInvoice() {
 		console.log("EDIT INV")
 		await this.editInvoice()
 	}

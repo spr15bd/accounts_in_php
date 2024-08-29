@@ -266,16 +266,21 @@
 				<td v-else>{{ selectedInvoice.overhead }}</td>
                             </tr>
                             <tr>
-                                <td>INVOICE AMOUNT:</td><td>{{ selectedInvoice.amount }}</td>
+                                <td>INVOICE AMOUNT:</td>
+				<td v-if="editInvoiceMode"><input type="text" v-model="selectedInvoice.amount"></td>
+				<td v-else>{{ selectedInvoice.amount }}</td>
                             </tr>
                             <tr class="text-secondary fw-bold">
-                                <td>INVOICE PAYMENT REF:</td><td>{{ selectedInvoice.paidid }}</td>
+                                <td>INVOICE PAYMENT REF:</td>
+				<td>{{ selectedInvoice.paidid }}</td>
                             </tr>
                             <tr class="text-secondary fw-bold">
-                                <td>INVOICE PAYMENT AMOUNT:</td><td>{{ selectedInvoice.paidAmount }}</td>
+                                <td>INVOICE PAYMENT AMOUNT:</td>
+				<td>{{ selectedInvoice.paidAmount }}</td>
                             </tr>
                             <tr class="text-secondary fw-bold">
-                                <td>INVOICE PAYMENT DATE:</td><td>{{ formattedDate(selectedInvoice.paidDate) }}</td>
+                                <td>INVOICE PAYMENT DATE:</td>
+				<td>{{ formattedDate(selectedInvoice.paidDate) }}</td>
                             </tr>
 			    <tr v-if="editInvoiceMode">
 				<td>
