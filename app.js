@@ -45,7 +45,7 @@ const app = Vue.createApp({
     methods: {
         async refresh() {
             await this.getAllSuppliers()
-		},
+	},
         async getSupplier() {
             let payload = { data: { supplierName: this.suppl } }
             const res = await axios.post("database_queries.php", payload )
@@ -67,6 +67,10 @@ const app = Vue.createApp({
                 payload = null
             } 
         },
+	async editInvoice() {
+		let payload = { data: { supplierName: this.suppl } }
+		const res = await axios.put("database_queries.php", payload)
+	},
         async setPaid(invs) {
             let payload = { data: { paid: invs, paymentDate: this.date } }
             const res = await axios.post("database_queries.php", payload )
