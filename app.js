@@ -67,8 +67,8 @@ const app = Vue.createApp({
                 payload = null
             } 
         },
-	async editInvoice() {
-		let payload = { data: { supplierName: this.suppl } }
+	async updateInvoice() {
+		let payload = { invData: { supplierName: this.suppl } }
 		const res = await axios.put("database_queries.php", payload)
 	},
         async setPaid(invs) {
@@ -253,8 +253,7 @@ const app = Vue.createApp({
             }
         },
 	async editInvoice() {
-		console.log("EDIT INV")
-		await this.editInvoice()
+		await this.updateInvoice()
 	}
     },
     computed: {

@@ -78,7 +78,9 @@
                 $row=$sql_query->fetch_assoc();
                 
                 echo json_encode($row);
-            }
+            } else if ($items['invData']) {
+		echo("INV DATA UPDATE");
+		}
         } else {
             $str = implode(" ", $items['data']);
             $query = "SELECT number, date, amount, paid FROM invoices WHERE supplier='".$str."' AND paid='true'";
