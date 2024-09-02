@@ -71,7 +71,7 @@
                         echo "failure after attempted invoice insert in database_queries.";
                     }
                 }
-            } else if ($items['id']) {
+            } else if ($items['invData']) {
                 $str = implode(" ", $items['id']);
                 $query = "SELECT * FROM paid WHERE id='".$str."'";
                 $sql_query = $conn->query($query);
