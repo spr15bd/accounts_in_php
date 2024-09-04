@@ -71,14 +71,14 @@
                         echo "failure after attempted invoice insert in database_queries.";
                     }
                 }
-            } else if ($items['invData']) {
+            } else if (isset($items['id'])) {
                 $str = implode(" ", $items['id']);
                 $query = "SELECT * FROM paid WHERE id='".$str."'";
                 $sql_query = $conn->query($query);
                 $row=$sql_query->fetch_assoc();
                 
                 echo json_encode($row);
-            } else if ($items['invData']) {
+            } else if (isset($items['invData'])) {
 		echo("INV DATA UPDATE");
 		}
         } else {
