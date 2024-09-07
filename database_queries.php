@@ -79,7 +79,9 @@
                 
                 echo json_encode($row);
             } else if (isset($items['invData'])) {
-		echo("INV DATA REQUEST: ".$items['invData']['supplier']." ".$items['invData']['invoiceNumber']);
+		$result = $items['invData'];
+		echo("INV DATA REQUEST: ".$result['supplier']);
+		//echo("INV DATA REQUEST: ".$items['invData']." ".$items['invData']['invoiceNumber']);
 		}
         } else {
             $str = implode(" ", $items['data']);
