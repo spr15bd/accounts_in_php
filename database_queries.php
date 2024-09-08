@@ -8,7 +8,7 @@
 
 
     header("Access-Control-Allow-Origin: *");
-    header("Access-Control-Allow-Methods: GET, POST, PUT");
+    header("Access-Control-Allow-Methods: GET, POST");
 	// connect to database
 	$conn = new mysqli('localhost', 'root', '', 'accounts');
 	$result = array();
@@ -80,7 +80,8 @@
                 echo json_encode($row);
             } else if (isset($items['invData'])) {
 		$result = $items['invData'];
-		echo("INV DATA REQUEST IS: ".$result['supplier']);
+		$query = "UPDATE invoices SET invoiceNumber = ".$items['invoiceNumber'].", description = ".$items['invData']['description'];
+		echo("INV DATA REQUEST IS: ".$items['invData']['supplier']);
 		//echo("INV DATA REQUEST: ".$items['invData']." ".$items['invData']['invoiceNumber']);
 		}
         } else {
