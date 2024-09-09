@@ -79,8 +79,15 @@
                 
                 echo json_encode($row);
             } else if (isset($items['invData'])) {
-		$result = $items['invData'];
-		$query = "UPDATE invoices SET invoiceNumber = ".$items['invoiceNumber'].", description = ".$items['invData']['description'];
+		//$result = $items['invData'];
+		$query = "UPDATE invoices SET 
+			invoiceNumber = ".$items['invData']['invoiceNumber'].",
+			date = ".$items['invData']['date'].",
+			description = ".$items['invData']['description'].", 
+			office = ".$items['invData']['office'].",
+			
+
+		;
 		echo("INV DATA REQUEST IS: ".$items['invData']['supplier']);
 		//echo("INV DATA REQUEST: ".$items['invData']." ".$items['invData']['invoiceNumber']);
 		}
