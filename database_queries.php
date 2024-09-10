@@ -85,10 +85,11 @@
 			date = ".$items['invData']['date'].",
 			description = ".$items['invData']['description'].", 
 			office = ".$items['invData']['office'].",
-			
-
-		;
-		echo("INV DATA REQUEST IS: ".$items['invData']['supplier']);
+			overhead = ".$items['invData']['overhead'].",
+			amount = ".$items['invData']['amount'].",
+			office = ".$items['invData']['office']."
+			WHERE id = ".$items['invData']['id'];
+		echo("INV QUERY IS: ".$query);
 		//echo("INV DATA REQUEST: ".$items['invData']." ".$items['invData']['invoiceNumber']);
 		}
         } else {
