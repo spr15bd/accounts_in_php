@@ -68,7 +68,7 @@ const app = Vue.createApp({
             } 
         },
 	async updateInvoice() {
-		let payload = { invData: { supplier: this.selectedInvoice.supplier, number: this.selectedInvoice.number, date: this.selectedInvoice.invoiceDate, description: this.selectedInvoice.description, office: this.selectedInvoice.office, overhead: this.selectedInvoice.overhead, amount: this.selectedInvoice.amount } }
+		let payload = { invData: { id: this.selectedInvoice.id, supplier: this.selectedInvoice.supplier, number: this.selectedInvoice.number, date: this.selectedInvoice.date, description: this.selectedInvoice.description, office: this.selectedInvoice.office, overhead: this.selectedInvoice.overhead, amount: this.selectedInvoice.amount } }
 		const res = await axios.post("database_queries.php", payload)
 	},
         async setPaid(invs) {
