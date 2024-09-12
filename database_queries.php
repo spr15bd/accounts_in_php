@@ -81,7 +81,7 @@
             } else if (isset($items['invData'])) {
 		//$result = $items['invData'];
 		$query = "UPDATE invoices SET 
-			invoiceNumber = ".$items['invData']['invoiceNumber'].",
+			invoiceNumber = ".$items['invData']['number'].",
 			date = ".$items['invData']['date'].",
 			description = ".$items['invData']['description'].", 
 			office = ".$items['invData']['office'].",
