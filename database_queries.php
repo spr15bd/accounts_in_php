@@ -89,9 +89,14 @@
 			amount = ".$items['invData']['amount'].",
 			office = ".$items['invData']['office']."
 			WHERE id = ".$items['invData']['id'];
-		echo("INV QUERY IS: ".$query);
-		//echo("INV DATA REQUEST: ".$items['invData']." ".$items['invData']['invoiceNumber']);
-		}
+		//echo("INV QUERY IS: ".$query);
+		$sql_query = $conn->query($query);
+                if ($sql_query) {
+                	echo "success after invoice insert in database_queries.";
+                } else {
+                        echo "failure after attempted invoice insert in database_queries.";
+                }
+	     }
         } else {
             $str = implode(" ", $items['data']);
             $query = "SELECT number, date, amount, paid FROM invoices WHERE supplier='".$str."' AND paid='true'";
