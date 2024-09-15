@@ -81,15 +81,15 @@
             } else if (isset($items['invData'])) {
 		//$result = $items['invData'];
 		$query = "UPDATE invoices SET 
-			invoiceNumber = ".$items['invData']['number'].",
-			date = ".$items['invData']['date'].",
-			description = ".$items['invData']['description'].", 
+			number = ".$items['invData']['number'].",
+			date = '".$items['invData']['date']."',
+			description = '".$items['invData']['description']."', 
 			office = ".$items['invData']['office'].",
 			overhead = ".$items['invData']['overhead'].",
 			amount = ".$items['invData']['amount'].",
 			office = ".$items['invData']['office']."
 			WHERE id = ".$items['invData']['id'];
-		//echo("INV QUERY IS: ".$query);
+		echo("INV QUERY IS: ".$query);
 		$sql_query = $conn->query($query);
                 if ($sql_query) {
                 	echo "success after invoice insert in database_queries.";
