@@ -84,11 +84,10 @@
 			number = ".$items['invData']['number'].",
 			date = '".$items['invData']['date']."',
 			description = '".$items['invData']['description']."', 
-			office = ".$items['invData']['office'].",
+			office = '".$items['invData']['office']."',
 			overhead = ".$items['invData']['overhead'].",
-			amount = ".$items['invData']['amount'].",
-			office = ".$items['invData']['office']."
-			WHERE id = ".$items['invData']['id'];
+			amount = ".$items['invData']['amount']."
+			 WHERE id = ".$items['invData']['id'];
 		echo("INV QUERY IS: ".$query);
 		$sql_query = $conn->query($query);
                 if ($sql_query) {
