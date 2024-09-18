@@ -79,7 +79,6 @@
                 
                 echo json_encode($row);
             } else if (isset($items['invData'])) {
-		//$result = $items['invData'];
 		$query = "UPDATE invoices SET 
 			number = ".$items['invData']['number'].",
 			date = '".$items['invData']['date']."',
@@ -88,12 +87,11 @@
 			overhead = ".$items['invData']['overhead'].",
 			amount = ".$items['invData']['amount']."
 			 WHERE id = ".$items['invData']['id'];
-		echo("INV QUERY IS: ".$query);
 		$sql_query = $conn->query($query);
                 if ($sql_query) {
-                	echo "success after invoice insert in database_queries.";
+                	echo "Success after invoice insert in database_queries.";
                 } else {
-                        echo "failure after attempted invoice insert in database_queries.";
+                        echo "Failure after attempted invoice insert in database_queries.";
                 }
 	     }
         } else {
