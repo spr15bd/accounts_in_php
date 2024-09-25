@@ -260,6 +260,10 @@ const app = Vue.createApp({
 		console.log("updated invoice, res is: ", res)
 		if (res.status === 200) {
 			this.invoiceUpdateMessage = "Successfully updated invoice."
+			setTimeout(() => {
+				this.invoiceUpdateMessage = null
+			}, "4000")
+			
 		}
 	}
     },
