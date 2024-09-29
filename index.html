@@ -23,7 +23,7 @@
 								</button>
 				            </div>
 				            <div class="col-lg-6">
-								<button class="btn btn-info mr-1" @click="updateView(1)">
+								<button class="btn btn-info mx-1" @click="updateView(1)">
 								    Input invoices
 								</button>
 				            </div>
@@ -44,7 +44,13 @@
             <div v-if="supplierReview">
                 <p class="text-center py-5">
                     <label>Supplier Name:</label>
-                    <input type="text" name="supplier" @keyup.enter="getSupplier(suppl)" v-model="suppl"></input>
+                    <!--<input type="text" name="supplier" @keyup.enter="getSupplier(suppl)" v-model="suppl"></input>-->
+		    <select name="supplier" id="supplier">
+  			<option value="volvo">Volvo</option>
+  			<option value="saab">Saab</option>
+  			<option value="mercedes">Mercedes</option>
+  			<option value="audi">Audi</option>
+		    </select>
                     <button class="btn btn-info" @click="getSupplier()">
 				        Supplier Review 
 				    </button>
