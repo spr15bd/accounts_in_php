@@ -68,6 +68,14 @@ const app = Vue.createApp({
                 payload = null
             } 
         },
+	async getAllSupplierNames() {
+            let payload = { data: { supplierNames: 'all' } }
+            const res = await axios.post("database_queries.php", payload )
+            if (res.data) {
+                this.allSuppliers =  Object.values(res.data)
+                payload = null
+            } 
+        },
 	async updateInvoice() {
 		let payload = { invData: { id: this.selectedInvoice.id, supplier: this.selectedInvoice.supplier, number: this.selectedInvoice.number, date: this.selectedInvoice.date, description: this.selectedInvoice.description, office: this.selectedInvoice.office, overhead: this.selectedInvoice.overhead, amount: this.selectedInvoice.amount } }
 		const res = await axios.post("database_queries.php", payload)
