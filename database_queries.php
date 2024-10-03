@@ -37,7 +37,9 @@
                     array_push($invoices, $row);
                 }
                 echo json_encode($invoices);
-            } else {
+            } else if (isset($items['data']['supplierNames'])) {
+		$query = "SELECT DISTINCT(supplierName) FROM invoices";
+	    } else {
                 // Pay invoices
                 foreach ($items['data']['paid'] as $paidInvoice) {
                     $query = "SELECT COUNT(*) FROM paid WHERE id = ".$paidInvoice['idx'];
