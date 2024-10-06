@@ -47,6 +47,7 @@ const app = Vue.createApp({
     methods: {
         async refresh() {
             await this.getAllSuppliers()
+	    await this.getAllSupplierNames()
 	},
         async getSupplier() {
             let payload = { data: { supplierName: this.suppl } }
@@ -74,6 +75,7 @@ const app = Vue.createApp({
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
                 this.allSuppliers =  Object.values(res.data)
+		console.log("Supplier Names: ", this.allSuppliers)
                 payload = null
             } 
         },
