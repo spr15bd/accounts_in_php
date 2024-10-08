@@ -39,6 +39,12 @@
                 echo json_encode($invoices);
             } else if (isset($items['data']['supplierNames'])) {
 		$query = "SELECT DISTINCT(supplierName) FROM invoices";
+		$sql_query = $conn->query($query);
+            	$supplierNames = array();
+            	while ($row=$sql_query->fetch_assoc()){
+                	array_push($supplierNames, $row);
+            	}
+            	echo json_encode($supplierNames);
 	    } else {
                 // Pay invoices
                 foreach ($items['data']['paid'] as $paidInvoice) {
