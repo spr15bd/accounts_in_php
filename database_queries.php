@@ -42,7 +42,7 @@
 		$sql_query = $conn->query($query);
             	$supplierNames = array();
             	while ($row=$sql_query->fetch_assoc()){
-                	array_push($supplierNames, $row);
+                	array_push($supplierNames, $row['supplier']);
             	}
             	echo json_encode($supplierNames);
 	    } else {
