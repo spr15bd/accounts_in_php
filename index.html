@@ -46,6 +46,7 @@
                     <label>Supplier Name:</label>{{ allSuppliers }}
                     <!--<input type="text" name="supplier" @keyup.enter="getSupplier(suppl)" v-model="suppl"></input>-->
 		    <select name="supplier" id="supplier">
+			<option v-for="supplierName in allSuppliers" :value=supplierName>{{ supplierName }}</option>
   			<option value="Ulreco">Ulreco</option>
   			<option value="Etc">Etc</option>
   			<option value="Another">Another</option>
