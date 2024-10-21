@@ -44,13 +44,12 @@
             <div v-if="supplierReview">
                 <p class="text-center py-5">
                     <label>Supplier Name:</label>
-                    <!--<input type="text" name="supplier" @keyup.enter="getSupplier(suppl)" v-model="suppl"></input>-->
 		    <select name="supplier" id="supplier">
 			<option v-for="supplierName in allSuppliers" v-model=supplierName>{{ supplierName }}</option>
 		    </select>
                     <button class="btn btn-info" @click="getSupplier(supplierName)">
-				        Supplier Review 
-				    </button>
+			Supplier Review 
+		    </button>
                 </p>
                 <div v-if="vendorInvoices?.length > 0">
                     <table class="table table-striped">
