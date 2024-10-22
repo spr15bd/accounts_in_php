@@ -43,12 +43,11 @@ const app = Vue.createApp({
     },
     mounted() {
         this.refresh()
-	},
+    },
     methods: {
         async refresh() {
             await this.getAllSuppliers()
 	    await this.getAllSupplierNames()
-		console.log("Supplier Names: ", this.allSuppliers)
 	},
         async getSupplier(supplier) {
             let payload = { data: { supplierName: supplier } }
@@ -64,20 +63,20 @@ const app = Vue.createApp({
 	    this.suppl = null
         },
         async getAllSuppliers() {
-            let payload = { data: { supplierName: 'all' } }
-            const res = await axios.post("database_queries.php", payload )
-            if (res.data) {
-                this.allInvoices =  Object.values(res.data)
-                payload = null
-            } 
+	            let payload = { data: { supplierName: 'all' } }
+	            const res = await axios.post("database_queries.php", payload )
+	            if (res.data) {
+		        this.allInvoices =  Object.values(res.data)
+		        payload = null
+	            } 
         },
 	async getAllSupplierNames() {
-            let payload = { data: { supplierNames: 'all' } }
-            const res = await axios.post("database_queries.php", payload )
-            if (res.data) {
-                this.allSuppliers =  Object.values(res.data)
-                payload = null
-            } 
+        	let payload = { data: { supplierNames: 'all' } }
+            	const res = await axios.post("database_queries.php", payload )
+            	if (res.data) {
+                	this.allSuppliers =  Object.values(res.data)
+	                payload = null
+	        } 
         },
 	async updateInvoice() {
 		let payload = { invData: { id: this.selectedInvoice.id, supplier: this.selectedInvoice.supplier, number: this.selectedInvoice.number, date: this.selectedInvoice.date, description: this.selectedInvoice.description, office: this.selectedInvoice.office, overhead: this.selectedInvoice.overhead, amount: this.selectedInvoice.amount } }
@@ -137,42 +136,41 @@ const app = Vue.createApp({
             invoices.forEach((invoice)=> {
                 // temp - todo add in total outstanding on the inv, new table id and paid
                 sum += invoice.paidid?0.00:parseFloat(invoice.amount)
-		console.log("changed line above, sum += invoice['amount']")
             })
             return sum
         },
         amountPaid(idx) {
-             // if index is selected, return amount outstanding on invoice
-            // otherwise return zero
-            let selectedInvoice
-            if (this.selectedPayments.includes(idx)) {
-                selectedInvoice = this.allInvoices.find(inv=>
-                    String(inv['id']) === String(idx)
-                )
-                // show the balance owed ie total minus already paid
-                return Number(selectedInvoice['amount']).toFixed(2)
-            } else {
-                // show zero
-                return "0.00"
-            }
+        	// if index is selected, return amount outstanding on invoice
+            	// otherwise return zero
+            	let selectedInvoice
+            	if (this.selectedPayments.includes(idx)) {
+                	selectedInvoice = this.allInvoices.find(inv=>
+                    		String(inv['id']) === String(idx)
+                	)
+                	// show the balance owed ie total minus already paid
+                	return Number(selectedInvoice['amount']).toFixed(2)
+            	} else {
+                	// show zero
+                	return "0.00"
+            	}
             
-            let vendorInvoices = Object.values(this.vendorInvoices)
+            	let vendorInvoices = Object.values(this.vendorInvoices)
             
-            selectedInvoice = vendorInvoices.find(inv=>
-                inv.id === idx
-            )
-            return selectedInvoice['amount'] - selectedInvoice['paid']
+            	selectedInvoice = vendorInvoices.find(inv=>
+                	inv.id === idx
+            	)
+            	return selectedInvoice['amount'] - selectedInvoice['paid']
         },
         grandTotalPaid() {
-            // convert to array
-            let supplierPayments = Object.entries(this.paymentsRecord)
+        	// convert to array
+            	let supplierPayments = Object.entries(this.paymentsRecord)
 
-            let sum = 0
-            supplierPayments.forEach((supplier) => {
-                sum += supplier[1]
-            })
+            	let sum = 0
+            	supplierPayments.forEach((supplier) => {
+                	sum += supplier[1]
+            	})
 
-            return sum
+            	return sum
         },
         async confirmProcessPayments() {
             this.confirmProcessPaymentsScreen = true
