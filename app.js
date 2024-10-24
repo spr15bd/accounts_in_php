@@ -50,6 +50,7 @@ const app = Vue.createApp({
 	    await this.getAllSupplierNames()
 	},
         async getSupplier(supplier) {
+	    console.log("fetching supplier named: ", supplier)
             let payload = { data: { supplierName: supplier } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {

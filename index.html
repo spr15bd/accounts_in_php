@@ -45,7 +45,7 @@
                 <p class="text-center py-5">
                     <label>Supplier Name:</label>
 		    <select name="supplier" id="supplier">
-			<option v-for="supplierName in allSuppliers" v-model=supplierName>{{ supplierName }}</option>
+			<option v-for="supplierName in allSuppliers" v-model="supplierName">{{ supplierName }}</option>
 		    </select>
                     <button class="btn btn-info" @click="getSupplier(supplierName)">
 			Supplier Review 
