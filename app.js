@@ -50,7 +50,6 @@ const app = Vue.createApp({
 	    await this.getAllSupplierNames()
 	},
         async getSupplier(supplier) {
-	    console.log("fetching supplier named: ", supplier)
             let payload = { data: { supplierName: supplier } }
             const res = await axios.post("database_queries.php", payload )
             if (res.data) {
@@ -61,7 +60,7 @@ const app = Vue.createApp({
 		})
                 payload = null
             }
-	    this.suppl = null
+	    //this.suppl = null
         },
         async getAllSuppliers() {
 	            let payload = { data: { supplierName: 'all' } }
