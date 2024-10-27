@@ -45,6 +45,7 @@
                 <p class="text-center py-5">
                     <label>Supplier Name:</label>
 		    <select name="supplier" id="supplier" v-model="suppl">
+			<option selected="true" disabled="disabled">Choose supplier</option>
 			<option v-for="supplierName in allSuppliers" :value="supplierName">{{ supplierName }}</option>
 		    </select>
                     <button class="btn btn-info" @click="getSupplier(suppl)">
