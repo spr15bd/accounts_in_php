@@ -267,7 +267,6 @@ const app = Vue.createApp({
         },
 	async editInvoice() {
 		let res = await this.updateInvoice()
-		console.log("updated invoice, res is: ", res)
 		if (res.status === 200) {
 			this.invoiceUpdateMessage = "Successfully updated invoice."
 			setTimeout(() => {
