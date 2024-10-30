@@ -71,7 +71,6 @@
                 if (isset($items['info']['supplier'])) {
                     $result = $items['info'];
                     $query = "INSERT INTO invoices (supplier, number, date, description, office, overhead, amount) VALUES ('".$result['supplier']."','".$result['invoiceNumber']."','".$result['invoiceDate']."','".$result['invoiceDescription']."','".$result['office']."','".$result['overhead']."','".$result['invoiceAmount']."')";
-                    echo $query;
                     $sql_query = $conn->query($query);
                     if ($sql_query) {
                         echo "success after invoice insert in database_queries.";
@@ -94,7 +93,7 @@
 			office = '".$items['invData']['office']."',
 			overhead = ".$items['invData']['overhead'].",
 			amount = ".$items['invData']['amount']."
-			 WHERE id = ".$items['invData']['id'];
+			WHERE id = ".$items['invData']['id'];
 		$sql_query = $conn->query($query);
                 if ($sql_query) {
                 	echo "Success after invoice insert in database_queries.";
