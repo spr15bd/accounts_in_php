@@ -176,7 +176,12 @@
                                     </tr>
                                     <!--Only show unpaid invoices-->
                                     <tr v-for="(invoice, index) in unpaidVendorInvoicesArray" v-if="unpaidVendorInvoicesArray?.length > 0">
-                                        <td class="px-4"><input type="checkbox" v-model="checked[invoice.id]" @click="updatePayments(invoice.id, invoice.amount, invoice.number, invoice.supplier)"/></td>
+                                        <td class="px-4"><input type="checkbox" v-model="checked[invoice.id]" 
+										@click="updatePayments(invoice.id, 
+											invoice.amount, 
+											invoice.number, 
+											invoice.supplier)"/>
+					</td>
                                         <td class="px-4">{{invoice.number}}</td>
                                         <td class="px-4">{{invoice.id}}</td>
                                         <td class="px-4">{{invoice.date}}</td>
