@@ -26,6 +26,7 @@ const app = Vue.createApp({
             paymentProcessing: false,
             selected: false,
             suppl: null,
+	    displayedSuppl: null,
             totalPaid: [],
             paid: [],
             selectedPayments: [],
@@ -58,6 +59,7 @@ const app = Vue.createApp({
                     invoice.amount = (Math.round(invoice.amount * 100) / 100).toFixed(2)
                     invoice.paid = invoice.paid?invoice.amount:"0.00"
 		})
+		this.displayedSuppl = this.suppl
                 payload = null
             }
 	    //this.suppl = null
