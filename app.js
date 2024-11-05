@@ -59,7 +59,7 @@ const app = Vue.createApp({
                     invoice.amount = (Math.round(invoice.amount * 100) / 100).toFixed(2)
                     invoice.paid = invoice.paid?invoice.amount:"0.00"
 		})
-		this.suppl = supplier
+		this.displayedSuppl = supplier
                 payload = null
             }
 	    //this.suppl = null
