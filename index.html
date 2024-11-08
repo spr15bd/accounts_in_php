@@ -1,149 +1,160 @@
 <html>
 <head>
 	<title>Accounts System</title>
-      
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="grey lighten-2">
-    <div id="app">
-        <div class="container-fluid">
-            <div class="row bg-dark">
+	<div id="app">
+		<div class="container-fluid">
+            		<div class="row bg-dark">
 				<div class="col-lg-12">
-				    <nav class="white">
-				        <div>
-				            <p class="text-center text-light display-5 p-8 -pb-2">
-				                Purchase ledger
-							</p>
-				        </div>
-				        <div class="btn-group" role="group">
-				            <div class="col-lg-6">
+					<nav class="white">
+					        <div>
+					        	<p class="text-center text-light display-5 p-8 -pb-2">Purchase ledger</p>
+					        </div>
+					        <div class="btn-group" role="group">
+					        	<div class="col-lg-6">
 								<button class="btn btn-info mx-1" @click="updateView(0)">
-								    Supplier Review 
+									Supplier Review 
 								</button>
-				            </div>
-				            <div class="col-lg-6">
+					            	</div>
+					            	<div class="col-lg-6">
 								<button class="btn btn-info mx-1" @click="updateView(1)">
-								    Input invoices
+									 Input invoices
 								</button>
-				            </div>
-                            <div class="col-lg-6">
+					            	</div>
+	                            			<div class="col-lg-6">
 								<button class="btn btn-info mx-1" @click="updateView(2)">
-								    Process payments
+									Process payments
 								</button>
-				            </div>
-                            <div class="col-lg-6">
+					            	</div>
+	                            			<div class="col-lg-6">
 								<button class="btn btn-info mx-1" @click="updateView(4)">
-								    Main
+									Main
 								</button>
-				            </div>
-				        </div>
-                    </nav>
+					            	</div>
+					        </div>
+                   			 </nav>
 				</div>
-            </div>
-            <div v-if="supplierReview">
-                <p class="text-center py-5">
-                    <label>Supplier Name:&nbsp;</label>
-		    <select v-model="suppl">
-			<option selected disabled value="">Choose supplier</option>
-			<option v-for="supplierName in allSuppliers" :value="supplierName">{{ supplierName }}</option>
-		    </select>
-                    <button class="btn btn-info" @click="getSupplier(suppl)">
-			&nbsp;&nbsp;Select 
-		    </button>
-                </p>
-                <div v-if="vendorInvoices?.length > 0">
-                    <table class="table table-striped">
-                        <thead>
-                            <div class="text-center fw-bold"><h3>{{displayedSuppl}}</h3></div>
-                            <tr class="bg-info">
-                                <th>Invoice Number</th>
-                                <th>Invoice Reference</th>
-                                <th>Invoice Date</th>
-                                <th>Description</th>
-                                <th class="text-end">Total</th>
-                                <th class="text-end">Paid</th>
-                                <th class="text-end">Outstanding</th>
-                                <th>Payment Reference</th>
-                                <th>Payment Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="invoice in vendorInvoicesArray" @click="selectedInvoice=invoice; updateView(3)">
-                               <td>{{invoice.number}}</td>
-                               <td>{{invoice.id}}</td>
-                               <td>{{formattedDate(invoice.date)}}</td>
-                               <td>{{invoice.description}}</td>
-                               <td class="text-end">{{invoice.amount}}</td>
-                               <td class="text-end">{{Number(invoice.paidAmount).toFixed(2)}}</td>
-                               <td class="text-end">{{(invoice.amount - invoice.paidAmount)?.toFixed(2)}}</td>
-                               <td>{{invoice.paidid}}</td>
-                               <td class="text-end">{{formattedDate(invoice.paidDate)}}</td>
-                            </tr>
-                            <tr>
-                               <td class="text-end fw-bold">Totals</td>
-                               <td></td>
-                               <td></td>
-                               <td></td>
-                               <td class="text-end fw-bold">{{ reviewTotalSum(vendorInvoicesArray)?.toFixed(2) }}</td>
-                               <td class="text-end fw-bold">{{ reviewPaidSum(vendorInvoicesArray)?.toFixed(2) }}</td>
-                               <td class="text-end fw-bold">{{ reviewOutstandingSum(vendorInvoicesArray)?.toFixed(2) }}</td>
-                               <td></td>
-                               <td class="text-end"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div v-if="addInvoice">
-                <section>
-                    <h4 class="center">Add Invoice</h4>
-                    <form class="white">
-                        <div class="mb-3">
-                            <div><label>Supplier Name:</label></div>
-                            <div><input type="text" name="inv_supplier" v-model="supplier"></div>
-                            <div class="col red-text"></div>
-                        </div>
-                        <div class="mb-3">
-                            <div><label>Invoice Number:</label></div>
-                            <div><input type="text" name="inv_no" v-model="invoiceNumber"></div>
-                            <div class="col red-text"></div>
-                        </div>
-                        <div class="mb-3">
-                            <div><label>Invoice Date:</label></div>
-                            <div><input type="date" name="inv_date" v-model="invoiceDate"></div>
-                            <div class="red-text"></div>
-                        </div>
-                        <div class="mb-3">
-                            <div><label>Invoice Description:</label></div>
-                            <div><input type="text" name="inv_desc" v-model="invoiceDescription"></div>
-                            <div class="red-text"></div>
-                        </div>
-                        <div class="mb-3">
-                            <div><label>Office (eg Birmingham, Cardiff etc):</label></div>
-                            <div><input type="text" name="office" v-model="office"></div>
-                            <div class="red-text"></div>
-                        </div>
-                        <div class="mb-3">
-                            <div><label>Overhead:</label></div>
-                            <div><input type="text" name="overhead" v-model="overhead"></div>
-                            <div class="red-text"></div>
-                        </div>
-                        <div class="mb-3">
-                            <div><label>Invoice Amount (GBP):</label></div>
-                            <div><input type="text" name="inv_amt" v-model="invoiceAmount"></div>
-                            <div class="red-text"></div>
-                        </div>
-                        <div class="center">
-                            <input type="button" name="submit" @click="update()" class="btn btn-primary" value="Post invoice">
-                        </div>
-                        <div v-if="invoicePosted">Invoice successfully added. <input type="button" name="submit" @click="reset()" class="btn btn-primary" value="Add another"></div>
-                        <br/>
-                        <div>{{statusMessage}}</div>
-                    </form>
-                </section>
-            </div>
-            <div v-if="payments">
+            		</div>
+            	<div v-if="supplierReview">
+                	<p class="text-center py-5">
+	                	<label>Supplier Name:&nbsp;</label>
+				<select v-model="suppl">
+					<option selected disabled value="">Choose supplier</option>
+					<option v-for="supplierName in allSuppliers" :value="supplierName">{{ supplierName }}</option>
+				</select>
+		                <button class="btn btn-info" @click="getSupplier(suppl)">
+					&nbsp;&nbsp;Select 
+			    	</button>
+	                </p>
+                	<div v-if="vendorInvoices?.length > 0">
+                    		<table class="table table-striped">
+                        		<thead>
+                            			<div class="text-center fw-bold"><h3>{{displayedSuppl}}</h3></div>
+			                	<tr class="bg-info">
+			                        	<th>Invoice Number</th>
+			                                <th>Invoice Reference</th>
+			                                <th>Invoice Date</th>
+			                                <th>Description</th>
+			                                <th class="text-end">Total</th>
+			                                <th class="text-end">Paid</th>
+			                                <th class="text-end">Outstanding</th>
+			                                <th>Payment Reference</th>
+			                                <th>Payment Date</th>
+			                        </tr>
+                        		</thead>
+                        		<tbody>
+		                        	<tr v-for="invoice in vendorInvoicesArray" 
+							@click="selectedInvoice=invoice; updateView(3)">
+		                        		<td>{{invoice.number}}</td>
+			                        	<td>{{invoice.id}}</td>
+			                               	<td>{{formattedDate(invoice.date)}}</td>
+			                               	<td>{{invoice.description}}</td>
+			                               	<td class="text-end">{{invoice.amount}}</td>
+			                               	<td class="text-end">{{Number(invoice.paidAmount).toFixed(2)}}</td>
+			                               	<td class="text-end">{{(invoice.amount - invoice.paidAmount)?.toFixed(2)}}</td>
+			                               	<td>{{invoice.paidid}}</td>
+			                               	<td class="text-end">{{formattedDate(invoice.paidDate)}}</td>
+		                        	</tr>
+		                        		<tr>
+		                               		<td class="text-end fw-bold">Totals</td>
+		                               		<td></td>
+		                               		<td></td>
+		                               		<td></td>
+		                               		<td class="text-end fw-bold">
+								{{ reviewTotalSum(vendorInvoicesArray)?.toFixed(2) }}
+							</td>
+		                               		<td class="text-end fw-bold">
+								{{ reviewPaidSum(vendorInvoicesArray)?.toFixed(2) }}
+							</td>
+		                               		<td class="text-end fw-bold">
+								{{ reviewOutstandingSum(vendorInvoicesArray)?.toFixed(2) }}
+							</td>
+		                               		<td></td>
+		                        		<td class="text-end"></td>
+		                        	</tr>
+                        		</tbody>
+                    		</table>
+                	</div>
+            	</div>
+            	<div v-if="addInvoice">
+                	<section>
+                    		<h4 class="center">Add Invoice</h4>
+                    		<form class="white">
+		                        <div class="mb-3">
+			                        <div><label>Supplier Name:</label></div>
+			                        <div><input type="text" name="inv_supplier" v-model="supplier"></div>
+			                        <div class="col red-text"></div>
+		                        </div>
+	                        	<div class="mb-3">
+	                            		<div><label>Invoice Number:</label></div>
+	                            		<div><input type="text" name="inv_no" v-model="invoiceNumber"></div>
+	                            		<div class="col red-text"></div>
+	                        	</div>
+	                        	<div class="mb-3">
+	                            		<div><label>Invoice Date:</label></div>
+	                            		<div><input type="date" name="inv_date" v-model="invoiceDate"></div>
+	                            		<div class="red-text"></div>
+	                        	</div>
+	                        	<div class="mb-3">
+	                            		<div><label>Invoice Description:</label></div>
+	                            		<div><input type="text" name="inv_desc" v-model="invoiceDescription"></div>
+			                        <div class="red-text"></div>
+	                        	</div>
+	                        	<div class="mb-3">
+	                            		<div><label>Office (eg Birmingham, Cardiff etc):</label></div>
+	                            		<div><input type="text" name="office" v-model="office"></div>
+	                            		<div class="red-text"></div>
+	                        	</div>
+	                        	<div class="mb-3">
+	                            		<div><label>Overhead:</label></div>
+	                            		<div><input type="text" name="overhead" v-model="overhead"></div>
+	                            		<div class="red-text"></div>
+	                        	</div>
+	                        	<div class="mb-3">
+	                            		<div><label>Invoice Amount (GBP):</label></div>
+	                            		<div><input type="text" name="inv_amt" v-model="invoiceAmount"></div>
+	                            		<div class="red-text"></div>
+	                        	</div>
+	                        	<div class="center">
+	                            		<input type="button" 
+							name="submit" 
+							@click="update()" class="btn btn-primary" value="Post invoice">
+	                        	</div>
+	                        	<div v-if="invoicePosted">
+						Invoice successfully added. 
+						<input type="button" name="submit" 
+							@click="reset()" 
+							class="btn btn-primary" value="Add another">
+					</div>
+	                        	<br/>
+	                        	<div>{{statusMessage}}</div>
+	                    	</form>
+                	</section>
+            	</div>
+            	<div v-if="payments">
                 <section>
                     <h4 class="center underline">Payment Processing</h4>
                     <br/>
