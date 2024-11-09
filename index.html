@@ -155,61 +155,71 @@
                 	</section>
             	</div>
             	<div v-if="payments">
-                <section>
-                    <h4 class="center underline">Payment Processing</h4>
-                    <br/>
-                    <div class="col-lg-6">
+                	<section>
+                    		<h4 class="center underline">Payment Processing</h4>
+                    		<br/>
+                    		<div class="col-lg-6">
 				        <button class="btn btn-info w-40" @click="showPaymentsSummary()">
-						  Payments summary
-						</button>
-				    </div>
-                    <div>Please select invoices to pay by supplier.  When ready to pay click "Payments Summary".</div>
-                    <div class="text-danger">{{ paymentsSummaryMessage }}</div>
-                    <p class="text-center py-5"></p>
-                    <label>Supplier Name:</label>
-                    <input type="text" name="supplier" v-model="suppl"></input>
-                    <button class="btn btn-info" @click="processPaymentsScreen()">
-				        Select
-				    </button>
-                    <div v-if="paymentProcessing">
-                        <br><br>
-                        <div>
-                            <div v-if="unpaidVendorInvoicesArray?.length > 0">
-                                <table>
-                                    <tr>
-                                        <th></th>
-                                        <th>Inv No</th>
-                                        <th>Inv ID</th>
-                                        <th class="px-4 text-right">Inv Date</th>
-                                        <th class="px-4 text-right">Inv Amt</th>
-                                        <th class="px-4 text-right">Paid</th>
-                                        <th class="px-4 text-right">Payment Date</th>
-                                    </tr>
-                                    <!--Only show unpaid invoices-->
-                                    <tr v-for="(invoice, index) in unpaidVendorInvoicesArray" v-if="unpaidVendorInvoicesArray?.length > 0">
-                                        <td class="px-4"><input type="checkbox" v-model="checked[invoice.id]" 
+						Payments summary
+					</button>
+				</div>
+                    		<div>Please select invoices to pay by supplier.  When ready to pay click "Payments Summary".</div>
+                    		<div class="text-danger">{{ paymentsSummaryMessage }}</div>
+                    		<p class="text-center py-5"></p>
+                    		<label>Supplier Name:</label>
+                    		<input type="text" name="supplier" v-model="suppl"></input>
+                    		<button class="btn btn-info" @click="processPaymentsScreen()">
+					Select
+				</button>
+                    		<div v-if="paymentProcessing">
+                        	<br><br>
+                        	<div>
+                           		<div v-if="unpaidVendorInvoicesArray?.length > 0">
+                                		<table>
+                                    			<tr>
+                                        			<th></th>
+                                        			<th>Inv No</th>
+                                        			<th>Inv ID</th>
+                                        			<th class="px-4 text-right">Inv Date</th>
+			                                        <th class="px-4 text-right">Inv Amt</th>
+			                                        <th class="px-4 text-right">Paid</th>
+			                                        <th class="px-4 text-right">Payment Date</th>
+                                    			</tr>
+                                    			<!--Only show unpaid invoices-->
+                                    			<tr v-for="(invoice, index) in unpaidVendorInvoicesArray" 
+								v-if="unpaidVendorInvoicesArray?.length > 0">
+                                        			<td class="px-4">
+									<input type="checkbox" v-model="checked[invoice.id]" 
 										@click="updatePayments(invoice.id, 
-											invoice.amount, 
-											invoice.number, 
-											invoice.supplier)"/>
-					</td>
-                                        <td class="px-4">{{invoice.number}}</td>
-                                        <td class="px-4">{{invoice.id}}</td>
-                                        <td class="px-4">{{invoice.date}}</td>
-                                        <td class="px-4 text-right">{{invoice['amount']}}</td>
-                                        <td class="px-4 text-right">{{displayPaid(invoice)}}</td>
-                                        <td class="px-4 text-right"><input type="date" v-model="date"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td><td></td><td></td><td class="px-4 text-right">Total</td>
-                                        <td class="px-4 text-right"></td><td class="px-4 text-right">{{ currentSupplierSum(suppl)? currentSupplierSum(suppl).toFixed(2) : selectedSupplierSum }}</td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div v-else>There are no outstanding invoices for {{suppl}}</div>
-                        </div>
-                    </div>
-                </section>
+										invoice.amount, 
+										invoice.number, 
+										invoice.supplier)"/>
+								</td>
+			                                        <td class="px-4">{{invoice.number}}</td>
+			                                        <td class="px-4">{{invoice.id}}</td>
+			                                        <td class="px-4">{{invoice.date}}</td>
+			                                        <td class="px-4 text-right">{{invoice['amount']}}</td>
+			                                        <td class="px-4 text-right">{{displayPaid(invoice)}}</td>
+			                                        <td class="px-4 text-right"><input type="date" v-model="date"/></td>
+                                    			</tr>
+                                    			<tr>
+                                        			<td></td>
+								<td></td>
+								<td></td>
+								<td class="px-4 text-right">Total</td>
+                                        			<td class="px-4 text-right"></td>
+								<td class="px-4 text-right">
+									{{ currentSupplierSum(suppl)? 
+										currentSupplierSum(suppl).toFixed(2) : 
+										selectedSupplierSum }}
+								</td>
+                                    			</tr>
+                                		</table>
+                            		</div>
+                            		<div v-else>There are no outstanding invoices for {{suppl}}</div>
+                        	</div>
+                    	</div>
+                	</section>
             </div>
             <div v-if="paymentsSummaryPage">
                 <h4 class="center">Payment Processing</h4>
