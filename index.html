@@ -260,82 +260,82 @@
 			</button>
             	</div>
     		<div v-if="viewInvoiceDetails">
-                <p class="text-center py-5">
-                	<table class="mb-5">
-                            	<tr>
-                                	<td>INVOICE #:</td>
-					<td v-if="editInvoiceMode"><input type="text" v-model="selectedInvoice.number"></td>
-					<td v-else>{{ selectedInvoice.number }}</td>
-                            	</tr>
-                            	<tr>
-	                                <td>INVOICE DATE:</td>
-					<td v-if="editInvoiceMode"><input type="date" :value="selectedInvoice.date"></td>
-					<td v-else>{{ selectedInvoice.date }}</td>
-			    	</tr>
-                            	<tr>
-	                                <td>INVOICE REF:</td>
-					<td>{{ selectedInvoice.id }}</td>
-                            	</tr>
-                            	<tr>
-	                                <td>INVOICE DESC:</td>
-					<td v-if="editInvoiceMode"><input type="text" v-model="selectedInvoice.description"></td>
-					<td v-else>{{ selectedInvoice.description }}</td>
-                            	</tr>
-                            	<tr>
-	                                <td>INVOICE OFFICE:</td>
-					<td v-if="editInvoiceMode"><input type="text" v-model="selectedInvoice.office"></td>
-					<td v-else>{{ selectedInvoice.office }}</td>
-                            	</tr>
-                            	<tr>
-	                                <td>INVOICE SUPPLIER:</td>
-					<td>{{ selectedInvoice.supplier }}</td>
-                            	</tr>
-                            	<tr>
-	                                <td>INVOICE OVERHEAD:</td>
-					<td v-if="editInvoiceMode"><input type="text" v-model="selectedInvoice.overhead"></td>
-					<td v-else>{{ selectedInvoice.overhead }}</td>
-                            	</tr>
-                            	<tr>
-	                                <td>INVOICE AMOUNT:</td>
-					<td v-if="editInvoiceMode"><input type="text" v-model="selectedInvoice.amount"></td>
-					<td v-else>{{ selectedInvoice.amount }}</td>
-                            	</tr>
-                            	<tr class="text-secondary fw-bold">
-	                                <td>INVOICE PAYMENT REF:</td>
-					<td>{{ selectedInvoice.paidid }}</td>
-                            	</tr>
-                            	<tr class="text-secondary fw-bold">
-	                                <td>INVOICE PAYMENT AMOUNT:</td>
-					<td>{{ selectedInvoice.paidAmount }}</td>
-                            	</tr>
-                            	<tr class="text-secondary fw-bold">
-	                                <td>INVOICE PAYMENT DATE:</td>
-					<td>{{ formattedDate(selectedInvoice.paidDate) }}</td>
-                            	</tr>
-			    	<tr v-if="editInvoiceMode">
-					<td>
-						<button class="btn btn-dark" @click="editInvoice()">
-							Update
-						</button>
-					</td>
-					<td class="text-danger">{{ invoiceUpdateMessage }}</td>
-			    	</tr>
-                	</table>
-		    	<button class="btn btn-dark" @click="editInvoiceMode=!editInvoiceMode">
-				Edit Invoice
-			</button>
-                    	<button class="btn btn-info" @click="updateView(0)">
-                        	Back
-			</button>
-                </p>
-        </div>
-        <div v-else>
-        	{{message}}
-        </div>
-</div>
-    </div>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" ></link>
-    <script src="https://unpkg.com/vue@3.0.5"></script>
-    <script src="app.js"></script> 
-</body>
+	                <p class="text-center py-5">
+	                	<table class="mb-5">
+	                            	<tr>
+	                                	<td>INVOICE #:</td>
+						<td v-if="editInvoiceMode"><input type="text" v-model="selectedInvoice.number"></td>
+						<td v-else>{{ selectedInvoice.number }}</td>
+	                            	</tr>
+	                            	<tr>
+		                                <td>INVOICE DATE:</td>
+						<td v-if="editInvoiceMode"><input type="date" :value="selectedInvoice.date"></td>
+						<td v-else>{{ selectedInvoice.date }}</td>
+				    	</tr>
+	                            	<tr>
+		                                <td>INVOICE REF:</td>
+						<td>{{ selectedInvoice.id }}</td>
+	                            	</tr>
+	                            	<tr>
+		                                <td>INVOICE DESC:</td>
+						<td v-if="editInvoiceMode"><input type="text" v-model="selectedInvoice.description"></td>
+						<td v-else>{{ selectedInvoice.description }}</td>
+	                            	</tr>
+	                            	<tr>
+		                                <td>INVOICE OFFICE:</td>
+						<td v-if="editInvoiceMode"><input type="text" v-model="selectedInvoice.office"></td>
+						<td v-else>{{ selectedInvoice.office }}</td>
+	                            	</tr>
+	                            	<tr>
+		                                <td>INVOICE SUPPLIER:</td>
+						<td>{{ selectedInvoice.supplier }}</td>
+	                            	</tr>
+	                            	<tr>
+		                                <td>INVOICE OVERHEAD:</td>
+						<td v-if="editInvoiceMode"><input type="text" v-model="selectedInvoice.overhead"></td>
+						<td v-else>{{ selectedInvoice.overhead }}</td>
+	                            	</tr>
+	                            	<tr>
+		                                <td>INVOICE AMOUNT:</td>
+						<td v-if="editInvoiceMode"><input type="text" v-model="selectedInvoice.amount"></td>
+						<td v-else>{{ selectedInvoice.amount }}</td>
+	                            	</tr>
+	                            	<tr class="text-secondary fw-bold">
+		                                <td>INVOICE PAYMENT REF:</td>
+						<td>{{ selectedInvoice.paidid }}</td>
+	                            	</tr>
+	                            	<tr class="text-secondary fw-bold">
+		                                <td>INVOICE PAYMENT AMOUNT:</td>
+						<td>{{ selectedInvoice.paidAmount }}</td>
+	                            	</tr>
+	                            	<tr class="text-secondary fw-bold">
+		                                <td>INVOICE PAYMENT DATE:</td>
+						<td>{{ formattedDate(selectedInvoice.paidDate) }}</td>
+	                            	</tr>
+				    	<tr v-if="editInvoiceMode">
+						<td>
+							<button class="btn btn-dark" @click="editInvoice()">
+								Update
+							</button>
+						</td>
+						<td class="text-danger">{{ invoiceUpdateMessage }}</td>
+				    	</tr>
+	                	</table>
+			    	<button class="btn btn-dark" @click="editInvoiceMode=!editInvoiceMode">
+					Edit Invoice
+				</button>
+	                    	<button class="btn btn-info" @click="updateView(0)">
+	                        	Back
+				</button>
+	                </p>
+        	</div>
+        	<div v-else>
+        		{{message}}
+        	</div>
+		</div>
+    	</div>
+	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" ></link>
+	    <script src="https://unpkg.com/vue@3.0.5"></script>
+	    <script src="app.js"></script> 
+	</body>
 </html>
