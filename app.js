@@ -53,68 +53,87 @@ const app = Vue.createApp({
 		}
     },
     mounted() {
-        this.refresh()
+        	this.refresh()
     },
     methods: {
-        async refresh() {
-            await this.getAllSuppliers()
-	    await this.getAllSupplierNames()
-	},
-        async getSupplier(supplier) {
-            let payload = { data: { supplierName: supplier } }
-            const res = await axios.post("database_queries.php", payload )
-            if (res.data) {
-                this.vendorInvoices = res.data
-                this.vendorInvoices.forEach(invoice=>{
-                    invoice.amount = (Math.round(invoice.amount * 100) / 100).toFixed(2)
-                    invoice.paid = invoice.paid?invoice.amount:"0.00"
-		})
-		this.displayedSuppl = supplier
-                payload = null
-            }
-	    //this.suppl = null
-        },
-        async getAllSuppliers() {
-	            let payload = { data: { supplierName: 'all' } }
-	            const res = await axios.post("database_queries.php", payload )
-	            if (res.data) {
-		        this.allInvoices =  Object.values(res.data)
-		        payload = null
-	            } 
-        },
-	async getAllSupplierNames() {
-        	let payload = { data: { supplierNames: 'all' } }
-            	const res = await axios.post("database_queries.php", payload )
-            	if (res.data) {
-                	this.allSuppliers =  Object.values(res.data)
-	                payload = null
-	        } 
-        },
-	async updateInvoice() {
-		let payload = { invData: { id: this.selectedInvoice.id, supplier: this.selectedInvoice.supplier, number: this.selectedInvoice.number, date: this.selectedInvoice.date, description: this.selectedInvoice.description, office: this.selectedInvoice.office, overhead: this.selectedInvoice.overhead, amount: this.selectedInvoice.amount } }
-		const res = await axios.post("database_queries.php", payload)
-		return res
-	},
-        async setPaid(invs) {
-            let payload = { data: { paid: invs, paymentDate: this.date } }
-            const res = await axios.post("database_queries.php", payload )
-            if (res.data) {
-                payload = null
-                return res.data
-            } 
+        	async refresh() {
+            		await this.getAllSuppliers()
+	    		await this.getAllSupplierNames()
 		},
-        async update() {
-            let payload = {info: { supplier: this.supplier, invoiceNumber: this.invoiceNumber, invoiceDate: this.invoiceDate, invoiceDescription: this.invoiceDescription, office: this.office, overhead: this.overhead, invoiceAmount: this.invoiceAmount }}
-            const res = await axios.post("database_queries.php", payload )
-            const {results} = res
-        },
-        async processPaymentsScreen() {
-            this.paymentProcessing = true
-            await this.getSupplier()
-            if (!this.paymentsSelected[this.suppl]) {
-                this.paymentsSelected[this.suppl] = this.vendorInvoices[this.suppl]
-            }
-        },
+        	async getSupplier(supplier) {
+            		let payload = { data: { supplierName: supplier } }
+            		const res = await axios.post("database_queries.php", payload )
+            		if (res.data) {
+		                this.vendorInvoices = res.data
+		                this.vendorInvoices.forEach(invoice=>{
+			        	invoice.amount = (Math.round(invoice.amount * 100) / 100).toFixed(2)
+			                invoice.paid = invoice.paid?invoice.amount:"0.00"
+				})
+				this.displayedSuppl = supplier
+                		payload = null
+            		}
+	    
+        	},
+        	async getAllSuppliers() {
+	            	let payload = { data: { supplierName: 'all' } }
+	            	const res = await axios.post("database_queries.php", payload )
+		        if (res.data) {
+			        this.allInvoices =  Object.values(res.data)
+			        payload = null
+		        } 
+        	},
+		async getAllSupplierNames() {
+	        	let payload = { data: { supplierNames: 'all' } }
+	            	const res = await axios.post("database_queries.php", payload )
+	            	if (res.data) {
+	                	this.allSuppliers =  Object.values(res.data)
+		                payload = null
+		        } 
+	        },
+		async updateInvoice() {
+			let payload = { 
+				invData: { id: this.selectedInvoice.id, 
+				supplier: this.selectedInvoice.supplier, 
+				number: this.selectedInvoice.number, 
+				date: this.selectedInvoice.date, 
+				description: this.selectedInvoice.description, 
+				office: this.selectedInvoice.office, 
+				overhead: this.selectedInvoice.overhead, 
+				amount: this.selectedInvoice.amount } 
+			}
+			const res = await axios.post("database_queries.php", payload)
+			return res
+		},
+        	async setPaid(invs) {
+            		let payload = { data: { paid: invs, paymentDate: this.date } }
+            		const res = await axios.post("database_queries.php", payload )
+            		if (res.data) {
+		                payload = null
+		                return res.data
+            		} 
+		},
+        	async update() {
+            		let payload = {
+				info: { 
+					supplier: this.supplier, 
+					invoiceNumber: this.invoiceNumber, 
+					invoiceDate: this.invoiceDate, 
+					invoiceDescription: this.invoiceDescription, 
+					office: this.office, 
+					overhead: this.overhead, 
+					invoiceAmount: this.invoiceAmount 
+				}
+			}
+		        const res = await axios.post("database_queries.php", payload )
+		        const {results} = res
+        	},
+        	async processPaymentsScreen() {
+            		this.paymentProcessing = true
+            		await this.getSupplier()
+            		if (!this.paymentsSelected[this.suppl]) {
+                		this.paymentsSelected[this.suppl] = this.vendorInvoices[this.suppl]
+            		}
+        	},
         currentSupplierSum(supplier) {
             if (supplier) {
                 let sum = 0
