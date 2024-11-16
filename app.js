@@ -134,75 +134,75 @@ const app = Vue.createApp({
                 		this.paymentsSelected[this.suppl] = this.vendorInvoices[this.suppl]
             		}
         	},
-        currentSupplierSum(supplier) {
-            if (supplier) {
-                let sum = 0
-                let supplierInvoices = this.allInvoices.filter(inv=>inv.supplier===supplier)
-                this.selectedPayments.forEach((id) => {
-                    invoiceToAdd = supplierInvoices.find(inv=>inv.id === String(id))
-                    if (invoiceToAdd) {
-                        sum += Number(invoiceToAdd.amount)           
-                    }
-                })
-                this.paymentsRecord[supplier] = sum
-                return sum
-            }
-        },
-        reviewTotalSum(invoices) {
-            let sum = 0
-            invoices.forEach((invoice)=> {
-                sum += parseFloat(invoice["amount"])
-            })
-            return sum
-        },
-        reviewPaidSum(invoices) {
-            let sum = 0
-            invoices.forEach((invoice)=> {
-                sum += parseFloat(invoice["paid"])
-            })
-            return sum
-        },
-        reviewOutstandingSum(invoices) {
-            let sum = 0
-            invoices.forEach((invoice)=> {
-                // temp - todo add in total outstanding on the inv, new table id and paid
-                sum += invoice.paidid?0.00:parseFloat(invoice.amount)
-            })
-            return sum
-        },
-        amountPaid(idx) {
-        	// if index is selected, return amount outstanding on invoice
-            	// otherwise return zero
-            	let selectedInvoice
-            	if (this.selectedPayments.includes(idx)) {
-                	selectedInvoice = this.allInvoices.find(inv=>
-                    		String(inv['id']) === String(idx)
-                	)
-                	// show the balance owed ie total minus already paid
-                	return Number(selectedInvoice['amount']).toFixed(2)
-            	} else {
-                	// show zero
-                	return "0.00"
-            	}
+        	currentSupplierSum(supplier) {
+            		if (supplier) {
+                		let sum = 0
+                		let supplierInvoices = this.allInvoices.filter(inv=>inv.supplier===supplier)
+                		this.selectedPayments.forEach((id) => {
+                    			invoiceToAdd = supplierInvoices.find(inv=>inv.id === String(id))
+                    			if (invoiceToAdd) {
+                        			sum += Number(invoiceToAdd.amount)           
+                    			}
+                		})
+                		this.paymentsRecord[supplier] = sum
+                		return sum
+		        }
+        	},
+	        reviewTotalSum(invoices) {
+		        let sum = 0
+		        	invoices.forEach((invoice)=> {
+		                sum += parseFloat(invoice["amount"])
+		        })
+		        return sum
+	        },
+	        reviewPaidSum(invoices) {
+	            	let sum = 0
+	            	invoices.forEach((invoice)=> {
+	                	sum += parseFloat(invoice["paid"])
+	            	})
+	           	return sum
+	        },
+        	reviewOutstandingSum(invoices) {
+	            	let sum = 0
+	            	invoices.forEach((invoice)=> {
+		                // temp - todo add in total outstanding on the inv, new table id and paid
+		                sum += invoice.paidid?0.00:parseFloat(invoice.amount)
+	            	})
+	            	return sum
+        	},
+        	amountPaid(idx) {
+	        	// if index is selected, return amount outstanding on invoice
+	            	// otherwise return zero
+	            	let selectedInvoice
+            		if (this.selectedPayments.includes(idx)) {
+                		selectedInvoice = this.allInvoices.find(inv=>
+                    			String(inv['id']) === String(idx)
+                		)
+                		// show the balance owed ie total minus already paid
+                		return Number(selectedInvoice['amount']).toFixed(2)
+            		} else {
+	                	// show zero
+	                	return "0.00"
+            		}
             
-            	let vendorInvoices = Object.values(this.vendorInvoices)
+            		let vendorInvoices = Object.values(this.vendorInvoices)
             
-            	selectedInvoice = vendorInvoices.find(inv=>
-                	inv.id === idx
-            	)
-            	return selectedInvoice['amount'] - selectedInvoice['paid']
-        },
-        grandTotalPaid() {
-        	// convert to array
-            	let supplierPayments = Object.entries(this.paymentsRecord)
+            		selectedInvoice = vendorInvoices.find(inv=>
+                		inv.id === idx
+            		)
+            		return selectedInvoice['amount'] - selectedInvoice['paid']
+        	},
+        	grandTotalPaid() {
+	        	// convert to array
+	            	let supplierPayments = Object.entries(this.paymentsRecord)
 
-            	let sum = 0
-            	supplierPayments.forEach((supplier) => {
-                	sum += supplier[1]
-            	})
+            		let sum = 0
+            		supplierPayments.forEach((supplier) => {
+                		sum += supplier[1]
+            		})
 
-            	return sum
-        },
+            		return sum
+        	},
         async confirmProcessPayments() {
             this.confirmProcessPaymentsScreen = true
             this.paymentsSummaryPage=false
