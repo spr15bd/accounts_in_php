@@ -203,62 +203,62 @@ const app = Vue.createApp({
 
             		return sum
         	},
-        async confirmProcessPayments() {
-            this.confirmProcessPaymentsScreen = true
-            this.paymentsSummaryPage=false
+        	async confirmProcessPayments() {
+            		this.confirmProcessPaymentsScreen = true
+            		this.paymentsSummaryPage=false
             
-            // check there are paid invoices, if so process payment
-            if (this.selectedPayments.length > 0) {
-                // send array of inv indexes to db, add them to the paid table
-                let res = await this.setPaid(this.selectedPayments, this.date)
-                this.confirmProcessPaymentsScreen = false
-                if (res) {
-                    this.message = res
-                } else {
-                    this.message = "Payments have been allocated."
-                    this.suppl = null
-                    // refresh screen so that payments show as allocated. TODO - Supplier payments review screen should be wiped
-                    this.supplierReview = false
-                    this.vendorInvoices = null
-                }
-            }
-        },
-        updatePayments(idx) {
-            // add the invoice id to an array if the invoice is selected for payment
-            // if the invoice has already been selected for payment, deselect it ie remove it from the array
+            		// check there are paid invoices, if so process payment
+	            	if (this.selectedPayments.length > 0) {
+	                	// send array of inv indexes to db, add them to the paid table
+	                	let res = await this.setPaid(this.selectedPayments, this.date)
+	                	this.confirmProcessPaymentsScreen = false
+	                	if (res) {
+	                    		this.message = res
+	                	} else {
+		                    	this.message = "Payments have been allocated."
+		                    	this.suppl = null
+		                    	// refresh screen so that payments show as allocated. TODO - Supplier payments review screen should be wiped
+		                    	this.supplierReview = false
+		                    	this.vendorInvoices = null
+	                	}
+	            	}
+	        },
+	        updatePayments(idx) {
+	            	// add the invoice id to an array if the invoice is selected for payment
+	            	// if the invoice has already been selected for payment, deselect it ie remove it from the array
 
-            if (!this.selectedPayments.includes(idx)) {
-                this.selectedPayments.push(idx);
-            } else {
-                this.selectedPayments = this.selectedPayments.filter(id=>id!==idx)
-            } 
-        },
-	updateView(view) {
-		this.message=null
-		this.supplierReview=false
-		this.addInvoice=false
-		this.suppl=null
-		this.payments=false
-		this.vendorInvoices = null
-		this.viewInvoiceDetails=false
-		this.paymentsSummaryPage=false
-		this.confirmProcessPaymentsScreen=false
-		this.updateInvoiceMessage = null
-		switch (view) {
-			case 0:
-				this.supplierReview=true
-				break
-			case 1:
-				this.addInvoice=true
-				break
-			case 2:
-				this.payments=true
-				break
-			case 3:
-				this.viewInvoiceDetails=true
-				break
-		}
-	},
+            		if (!this.selectedPayments.includes(idx)) {
+                		this.selectedPayments.push(idx);
+            		} else {
+	                	this.selectedPayments = this.selectedPayments.filter(id=>id!==idx)
+            		} 
+        	},
+		updateView(view) {
+			this.message=null
+			this.supplierReview=false
+			this.addInvoice=false
+			this.suppl=null
+			this.payments=false
+			this.vendorInvoices = null
+			this.viewInvoiceDetails=false
+			this.paymentsSummaryPage=false
+			this.confirmProcessPaymentsScreen=false
+			this.updateInvoiceMessage = null
+			switch (view) {
+				case 0:
+					this.supplierReview=true
+					break
+				case 1:
+					this.addInvoice=true
+					break
+				case 2:
+					this.payments=true
+					break
+				case 3:
+					this.viewInvoiceDetails=true
+					break
+			}
+		},
         async showPaymentsSummary() {
             if (!this.date) {
                 this.paymentsSummaryMessage = "Please enter a payment date."
