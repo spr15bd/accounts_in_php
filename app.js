@@ -309,22 +309,22 @@ const app = Vue.createApp({
     },
     computed: {
         displaySelectedPayments () {
-            let sum={}
-            this.selectedPayments.forEach(sp=>{
-                // get the invoice from its id
-                let foundInv = this.allInvoices.find(inv=>inv.id===sp)
-                // sum over 1 x supplier
-                if (sum[foundInv?.supplier]) {
-                    sum[foundInv?.supplier] += Number(foundInv?.amount)        
-                } else {
-                    sum[foundInv?.supplier] = 0
-                    sum[foundInv?.supplier] += Number(foundInv?.amount)
-                }
+            	let sum={}
+            	this.selectedPayments.forEach(sp=>{
+	                // get the invoice from its id
+	                let foundInv = this.allInvoices.find(inv=>inv.id===sp)
+	                // sum over 1 x supplier
+	                if (sum[foundInv?.supplier]) {
+	                    sum[foundInv?.supplier] += Number(foundInv?.amount)        
+	                } else {
+	                    sum[foundInv?.supplier] = 0
+	                    sum[foundInv?.supplier] += Number(foundInv?.amount)
+	                }
+	                
+	                return sum
                 
-                return sum
-                
-            })
-            return this.suppliers
+            	})
+            	return this.suppliers
         },
         vendorInvoicesArray() {
 		return Object.values(this.vendorInvoices)  
