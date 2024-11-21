@@ -1,14 +1,13 @@
 <?php
-    function varDumpToString($var) {
-      ob_start();
-      var_dump($var);
-      $result = ob_get_clean();
-      return $result;
-   }
+	function varDumpToString($var) {
+		ob_start();
+		var_dump($var);
+		$result = ob_get_clean();
+		return $result;
+   	}
 
-
-    header("Access-Control-Allow-Origin: *");
-    header("Access-Control-Allow-Methods: GET, POST");
+	header("Access-Control-Allow-Origin: *");
+    	header("Access-Control-Allow-Methods: GET, POST");
 	// connect to database
 	$conn = new mysqli('localhost', 'root', '', 'accounts');
 	$result = array();
@@ -16,17 +15,17 @@
 	if (!$conn) {
 		echo "Conection error: " . mysqli_connect_error();
 	} else {
-        $items = json_decode(file_get_contents('php://input'), true);
+        	$items = json_decode(file_get_contents('php://input'), true);
 		if (isset($items['data'])) {
-            if (isset($items['data']['supplierName'])) {
-                if ($items['data']['supplierName']==='all') {
-                    // Show all invoices
-                    $query = "SELECT * FROM invoices";
-                } else {
-                    // Show all invoices for a chosen supplier
-                    $str = implode(" ", $items['data']);
-		// TODO ADD DATE COLUMN TO PAID TABLE
-                    $query = "SELECT i.id, i.supplier, i.date, i.number, i.description, i.office, i.overhead, i.amount, p.paidid, p.amount as paidAmount, p.date as paidDate FROM invoices i ";
+            		if (isset($items['data']['supplierName'])) {
+                		if ($items['data']['supplierName']==='all') {
+                    			// Show all invoices
+                    			$query = "SELECT * FROM invoices";
+                		} else {
+                    			// Show all invoices for a chosen supplier
+                    			$str = implode(" ", $items['data']);
+					// TODO ADD DATE COLUMN TO PAID TABLE
+                    			$query = "SELECT i.id, i.supplier, i.date, i.number, i.description, i.office, i.overhead, i.amount, p.paidid, p.amount as paidAmount, p.date as paidDate FROM invoices i ";
                     $query .="LEFT JOIN paid p ON p.id = i.id ";
                     $query .="WHERE supplier='".$str."'";
                     $query = str_replace("'s", "s", $query);
