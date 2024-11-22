@@ -26,26 +26,26 @@
                     			$str = implode(" ", $items['data']);
 					// TODO ADD DATE COLUMN TO PAID TABLE
                     			$query = "SELECT i.id, i.supplier, i.date, i.number, i.description, i.office, i.overhead, i.amount, p.paidid, p.amount as paidAmount, p.date as paidDate FROM invoices i ";
-                    $query .="LEFT JOIN paid p ON p.id = i.id ";
-                    $query .="WHERE supplier='".$str."'";
-                    $query = str_replace("'s", "s", $query);
-                }
-                $sql_query = $conn->query($query);
-                $invoices = array();
-                while ($row=$sql_query->fetch_assoc()){
-                    array_push($invoices, $row);
-                }
-                echo json_encode($invoices);
-            } else if (isset($items['data']['supplierNames'])) {
-		$query = "SELECT DISTINCT(supplier) FROM invoices";
-		$sql_query = $conn->query($query);
-            	$supplierNames = array();
-            	while ($row=$sql_query->fetch_assoc()){
-                	array_push($supplierNames, $row['supplier']);
-            	}
-            	echo json_encode($supplierNames);
-	    } else {
-                // Pay invoices
+			                $query .="LEFT JOIN paid p ON p.id = i.id ";
+			        	$query .="WHERE supplier='".$str."'";
+			                $query = str_replace("'s", "s", $query);
+			        }
+			        $sql_query = $conn->query($query);
+			        $invoices = array();
+			        while ($row=$sql_query->fetch_assoc()){
+			                array_push($invoices, $row);
+			        }
+			        echo json_encode($invoices);
+            		} else if (isset($items['data']['supplierNames'])) {
+				$query = "SELECT DISTINCT(supplier) FROM invoices";
+				$sql_query = $conn->query($query);
+		            	$supplierNames = array();
+		            	while ($row=$sql_query->fetch_assoc()){
+		                	array_push($supplierNames, $row['supplier']);
+		            	}
+		            	echo json_encode($supplierNames);
+	    		} else {
+                		// Pay invoices
                 foreach ($items['data']['paid'] as $paidInvoice) {
                     $query = "SELECT COUNT(*) FROM paid WHERE id = ".$paidInvoice['idx'];
                     $sql_query = $conn->query($query);
