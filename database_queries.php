@@ -46,21 +46,21 @@
 		            	echo json_encode($supplierNames);
 	    		} else {
                 		// Pay invoices
-                foreach ($items['data']['paid'] as $paidInvoice) {
-                    $query = "SELECT COUNT(*) FROM paid WHERE id = ".$paidInvoice['idx'];
-                    $sql_query = $conn->query($query);
-                    $rows=$sql_query->fetch_row();
-                    $duplicateCount = $rows[0];
-                    if ($duplicateCount > 0) {
-                        echo "Cannot process payment - inv already paid: ".$paidInvoice['invNo'].@" ( ". $paidInvoice['supplier'] ." )";
-                    } else {
-                        $query = "INSERT INTO paid (id, amount, date) VALUES (".$paidInvoice['idx'].", '".$paidInvoice['amount']."', '".$items['data']['paymentDate']."');";
-                        $sql_query = $conn->query($query);
-                        if ($sql_query) {
-                        echo "Payment Allocated: ". $query;
-                        } else {
-                            echo "failure: ", $query;
-                        }
+                		foreach ($items['data']['paid'] as $paidInvoice) {
+                    			$query = "SELECT COUNT(*) FROM paid WHERE id = ".$paidInvoice['idx'];
+                    			$sql_query = $conn->query($query);
+                    			$rows=$sql_query->fetch_row();
+                    			$duplicateCount = $rows[0];
+                    			if ($duplicateCount > 0) {
+                        			echo "Cannot process payment - inv already paid: ".$paidInvoice['invNo'].@" ( ". $paidInvoice['supplier'] ." )";
+                    			} else {
+                        			$query = "INSERT INTO paid (id, amount, date) VALUES (".$paidInvoice['idx'].", '".$paidInvoice['amount']."', '".$items['data']['paymentDate']."');";
+                        			$sql_query = $conn->query($query);
+                        			if ($sql_query) {
+                        				echo "Payment Allocated: ". $query;
+                        			} else {
+                            				echo "failure: ", $query;
+                        			}
                     }  
                 }
             }
