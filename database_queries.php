@@ -61,29 +61,38 @@
                         			} else {
                             				echo "failure: ", $query;
                         			}
-                    }  
-                }
-            }
-        } else if (isset($items)) {
-            if (isset($items['info'])) {
-                // Create a new invoice
-                if (isset($items['info']['supplier'])) {
-                    $result = $items['info'];
-                    $query = "INSERT INTO invoices (supplier, number, date, description, office, overhead, amount) VALUES ('".$result['supplier']."','".$result['invoiceNumber']."','".$result['invoiceDate']."','".$result['invoiceDescription']."','".$result['office']."','".$result['overhead']."','".$result['invoiceAmount']."')";
-                    $sql_query = $conn->query($query);
-                    if ($sql_query) {
-                        echo "success after invoice insert in database_queries.";
-                    } else {
-                        echo "failure after attempted invoice insert in database_queries.";
-                    }
-                }
-            } else if (isset($items['id'])) {
-                $str = implode(" ", $items['id']);
-                $query = "SELECT * FROM paid WHERE id='".$str."'";
-                $sql_query = $conn->query($query);
-                $row=$sql_query->fetch_assoc();
+                    			}  
+                		}
+            		}
+       		 } else if (isset($items)) {
+            		if (isset($items['info'])) {
+                		// Create a new invoice
+                		if (isset($items['info']['supplier'])) {
+                    			$result = $items['info'];
+                    			$query = "INSERT INTO invoices (supplier, number, date, description, office, overhead, amount)
+		       			VALUES (
+	    					'".$result['supplier']."',
+	  					'".$result['invoiceNumber']."',
+						'".$result['invoiceDate']."',
+      						'".$result['invoiceDescription']."',
+	    					'".$result['office']."',
+	  					'".$result['overhead']."',
+						'".$result['invoiceAmount']."'
+      					)";
+                    			$sql_query = $conn->query($query);
+                    			if ($sql_query) {
+                        			echo "success after invoice insert in database_queries.";
+                    			} else {
+                        			echo "failure after attempted invoice insert in database_queries.";
+                    			}
+                		}
+            		} else if (isset($items['id'])) {
+                		$str = implode(" ", $items['id']);
+                		$query = "SELECT * FROM paid WHERE id='".$str."'";
+                		$sql_query = $conn->query($query);
+                		$row=$sql_query->fetch_assoc();
                 
-                echo json_encode($row);
+                		echo json_encode($row);
             } else if (isset($items['invData'])) {
 		$query = "UPDATE invoices SET 
 			number = ".$items['invData']['number'].",
