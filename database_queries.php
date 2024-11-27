@@ -93,31 +93,31 @@
                 		$row=$sql_query->fetch_assoc();
                 
                 		echo json_encode($row);
-            } else if (isset($items['invData'])) {
-		$query = "UPDATE invoices SET 
-			number = ".$items['invData']['number'].",
-			date = '".$items['invData']['date']."',
-			description = '".$items['invData']['description']."', 
-			office = '".$items['invData']['office']."',
-			overhead = ".$items['invData']['overhead'].",
-			amount = ".$items['invData']['amount']."
-			WHERE id = ".$items['invData']['id'];
-		$sql_query = $conn->query($query);
-                if ($sql_query) {
-                	echo "Success after invoice insert in database_queries.";
-                } else {
-                        echo "Failure after attempted invoice insert in database_queries.";
-                }
-	     }
-        } else {
-            $str = implode(" ", $items['data']);
-            $query = "SELECT number, date, amount, paid FROM invoices WHERE supplier='".$str."' AND paid='true'";
-            $sql_query = $conn->query($query);
-            $invoices = array();
-            while ($row=$sql_query->fetch_assoc()){
-                array_push($invoices, $row);
-            }
-            echo json_encode($invoices);
-        }
+            		} else if (isset($items['invData'])) {
+				$query = "UPDATE invoices SET 
+					number = ".$items['invData']['number'].",
+					date = '".$items['invData']['date']."',
+					description = '".$items['invData']['description']."', 
+					office = '".$items['invData']['office']."',
+					overhead = ".$items['invData']['overhead'].",
+					amount = ".$items['invData']['amount']."
+					WHERE id = ".$items['invData']['id'];
+				$sql_query = $conn->query($query);
+                		if ($sql_query) {
+                			echo "Success after invoice insert in database_queries.";
+                		} else {
+                        		echo "Failure after attempted invoice insert in database_queries.";
+                		}
+	     		}
+        	} else {
+            		$str = implode(" ", $items['data']);
+            		$query = "SELECT number, date, amount, paid FROM invoices WHERE supplier='".$str."' AND paid='true'";
+            		$sql_query = $conn->query($query);
+            		$invoices = array();
+            		while ($row=$sql_query->fetch_assoc()){
+                		array_push($invoices, $row);
+            		}
+            		echo json_encode($invoices);
+        	}
 	}
 ?>
