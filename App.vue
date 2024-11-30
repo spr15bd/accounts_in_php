@@ -3,17 +3,13 @@
 </template>
 
 <script>
-
-
-export default {
-                    data: function() {
-                                                           
+    export default {
+                    data: function() {                                                           
                             errorMsg: 'yo',                                                                
                             supplierReview: false,
                             addInvoice: false,
                             suppl: null,
-                            invoices: []
-                        
+                            invoices: []      
                     },
                     mounted: {
                         console.log("app mounted")
@@ -25,7 +21,6 @@ export default {
                                 console.log("index.php:  got database_queries.php");   
                                 if (response.data.error) {
                                     app.errorMsg = response.data.message 
-                                    
                                     console.log("error")            
                                 } else {
                                     console.log("vue:  Success getting database_queries response")
@@ -39,8 +34,7 @@ export default {
                         },
                         update() {
                             console.log("about to update db")
-                        }
-                                            
+                        }                                            
                     }
-}
+    }
 </script>
