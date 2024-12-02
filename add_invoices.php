@@ -1,6 +1,14 @@
 <?php
-	$errors = ['inv_no'=>'', 'inv_date'=>'', 'inv_desc'=>'', 'office'=>'', 'overhead'=>'', 'inv_amt'=>'', 'inv_supplier'=>''];
-	$invoice_number=$invoice_date=$invoice_description=$office=$overhead=$invoice_amount=$invoice_supplier="";
+	$errors = [
+		'inv_no'=>'', 
+		'inv_date'=>'', 
+		'inv_desc'=>'', 
+		'office'=>'', 
+		'overhead'=>'', 
+		'inv_amt'=>'', 
+		'inv_supplier'=>''
+	];
+	$invoice_number = $invoice_date = $invoice_description = $office = $overhead = $invoice_amount = $invoice_supplier = "";
 	// connect to database
 	$conn = mysqli_connect('localhost', 'root', '', 'accounts');
 	
