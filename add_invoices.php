@@ -1,4 +1,5 @@
 <?php
+	// initialise
 	$errors = [
 		'inv_no'=>'', 
 		'inv_date'=>'', 
