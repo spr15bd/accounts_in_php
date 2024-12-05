@@ -10,6 +10,7 @@
 		'inv_supplier'=>''
 	];
 	$invoice_number = $invoice_date = $invoice_description = $office = $overhead = $invoice_amount = $invoice_supplier = "";
+	
 	// connect to database
 	$conn = mysqli_connect('localhost', 'root', '', 'accounts');
 	
@@ -50,13 +51,11 @@
 			$errors['office'] =  "An office is required<br/>";
 		} else {
 			$office = $_POST['office'];
-			
 		}
 		if (empty($_POST['overhead'])) {
 			$errors['overhead'] =  "An overhead code is required<br/>";
 		} else {
-			$overhead = $_POST['overhead'];
-			
+			$overhead = $_POST['overhead'];	
 		}
 		if (empty($_POST['inv_amt'])) {
 			$errors['inv_amt'] = "An invoice amount is required<br/>";
@@ -77,7 +76,6 @@
 			$stmt->execute();
 			
 			$conn->close();
-			//header('Location: add_invoices.php');
 		}
 	}
 
