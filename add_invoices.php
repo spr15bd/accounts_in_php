@@ -78,13 +78,9 @@
 			$conn->close();
 		}
 	}
-
 ?>
 
 <!doctype html>
-
-
-
 	<?php include 'templates/header.php';?>
 		<section class="container grey-text">
 			<h4 class="center">Add Invoice</h4>
