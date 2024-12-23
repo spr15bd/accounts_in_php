@@ -12,7 +12,7 @@ const app = Vue.createApp({
 		            vendorInvoices: [],
 		            allInvoices: [],
 			    allSuppliers: [],
-		            invoices: [ { 
+		            invoices: [{ 
 					id: Number, 
 					supplier: null, 
 					number: null, 
@@ -22,7 +22,7 @@ const app = Vue.createApp({
 					overhead: null, 
 					amount: parseFloat(0.00).toFixed(2), 
 					paid: parseFloat(0.00).toFixed(2) 
-			    } ],
+			    }],
 		            supplier: null,
 		            suppliers: {},
 		            paymentsSummaryPage: false,
